@@ -12,11 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const baseLevel = Math.min(...headingNodes.map(h => parseInt(h.tagName[1])));
     const headings = headingNodes.map((h, i) => {
         if (!h.id) {
-            const slug = h.textContent
-                .trim()
-                .toLowerCase()
-                .replace(/\W+/g, "-")
-                .replace(/^-+|-+$/g, "");
+            const slug = h.textContent.trim().toLowerCase().replace(/\W+/g, "-").replace(/^-+|-+$/g, "");
             h.id = slug || `heading-${i}`;
         }
         return {

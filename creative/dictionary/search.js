@@ -59,10 +59,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 /**
  * 子音検索を行う関数
- * @param {*} searchWordLower
- * @param {*} isOn
- * @param {*} anyOptionOn
- * @returns
+ * @param {string} searchWordLower 検索語の小文字表記
+ * @param {boolean} isOn 子音検索オプションがONかどうか
+ * @param {boolean} anyOptionOn いずれかの検索オプションがONかどうか
+ * @returns 子音検索の結果を含む`<details>`要素
  */
 async function consonantsSearch(searchWordLower, isOn, anyOptionOn) {
     const details = document.createElement("details");
@@ -105,10 +105,10 @@ async function consonantsSearch(searchWordLower, isOn, anyOptionOn) {
 }
 /**
  * 語根検索を行う関数
- * @param {*} searchWordLower
- * @param {*} isOn
- * @param {*} anyOptionOn
- * @returns
+ * @param {string} searchWordLower 検索語の小文字表記
+ * @param {boolean} isOn 語根検索オプションがONかどうか
+ * @param {boolean} anyOptionOn いずれかの検索オプションがONかどうか
+ * @returns 語根検索の結果を含む`<details>`要素
  */
 async function rootsSearch(searchWordLower, isOn, anyOptionOn) {
     const details = document.createElement("details");
@@ -151,10 +151,10 @@ async function rootsSearch(searchWordLower, isOn, anyOptionOn) {
 }
 /**
  * 単語検索を行う関数
- * @param {*} searchWordLower
- * @param {*} isOn
- * @param {*} anyOptionOn
- * @returns
+ * @param {string} searchWordLower 検索語の小文字表記
+ * @param {boolean} isOn 単語検索オプションがONかどうか
+ * @param {boolean} anyOptionOn いずれかの検索オプションがONかどうか
+ * @returns 単語検索の結果を含む`<details>`要素
  */
 async function wordsSearch(searchWordLower, isOn, anyOptionOn) {
     const details = document.createElement("details");
@@ -208,8 +208,8 @@ async function wordsSearch(searchWordLower, isOn, anyOptionOn) {
     return details;
 }
 /**
- * JSONファイルをフェッチする関数
- * @param {*} searchWord
+ * 検索語に応じて`JSON`ファイルをフェッチする関数
+ * @param {string} searchWord 検索語
  * @returns
  */
 async function fetchFileForSearch(searchWord) {
@@ -222,10 +222,10 @@ async function fetchFileForSearch(searchWord) {
 }
 /**
  * 検索語句をフィルタリングする関数
- * @param {*} data
- * @param {*} searchWord
- * @param {*} type
- * @returns
+ * @param {Object} data 検索対象のデータ
+ * @param {string} searchWord 検索語
+ * @param {string} type 検索タイプ
+ * @returns フィルタリングされたデータ
  */
 function filterData(data, searchWord, type) {
     const wordLower = searchWord.toLowerCase();

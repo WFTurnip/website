@@ -2,10 +2,9 @@ window.addEventListener("DOMContentLoaded", () => {
     const textarea = document.querySelector("textarea");
     const keyboardTable = document.getElementById("keyboard");
     const fontSelector = document.getElementById("font-selector");
-    let currentFont = "piswpi";
     const fontClasses = ["piswpi", "sulive", "kodito", "lekuta", "lozegw", "silwki", "xavani", "xesada", "xidili", "makina", "polwgo", "zosokw"];
+    let currentFont = "piswpi";
     let shiftActive = false;
-
     /**
      * XMLからキーボードを構築する
      * @param {Document} xml
@@ -35,9 +34,9 @@ window.addEventListener("DOMContentLoaded", () => {
                 const type = keyXml.getAttribute("data-key") || "";
                 /**
                  * キーのラベルを取得する
-                 * @param {Element} keyElement - キー要素
-                 * @param {string} defaultText - デフォルトのテキスト
-                 * @returns {string} - 取得したラベル
+                 * @param {Element} keyElement キー要素
+                 * @param {string} defaultText デフォルトのテキスト
+                 * @returns {string} 取得したラベル
                  */
                 const getLabel = (keyElement, defaultText) => {
                     return keyElement?.textContent || defaultText;
@@ -61,7 +60,6 @@ window.addEventListener("DOMContentLoaded", () => {
             keyboardTable.appendChild(tr);
         });
     }
-
     /**
      * キーボードのクリックイベントリスナー
      */
@@ -81,10 +79,9 @@ window.addEventListener("DOMContentLoaded", () => {
     fontSelector.addEventListener("change", (e) => {
         changeFont(parseInt(e.target.value));
     });
-
     /**
      * フォントを変更する関数
-     * @param {number} number - 変更するフォントの番号
+     * @param {number} number 変更するフォントの番号
      */
     function changeFont(number) {
         currentFont = fontClasses[number];
@@ -92,12 +89,10 @@ window.addEventListener("DOMContentLoaded", () => {
         textarea.classList.add(currentFont);
         loadKeyboard(currentFont);
     }
-
     loadKeyboard(currentFont);
-
     /**
      * キーボードをロードする関数
-     * @param {string} font - ロードするフォントの名前
+     * @param {string} font ロードするフォントの名前
      */
     function loadKeyboard(font) {
         fetch("keyboards/" + font + ".xml").then(r => r.text()).then(str => new DOMParser().parseFromString(str, "text/xml")).then(xml => buildKeyboardFromXML(xml));

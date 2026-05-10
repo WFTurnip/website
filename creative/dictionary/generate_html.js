@@ -78,19 +78,19 @@ async function generateIndex() {
     body.appendChild(article);
     let main = document.createElement("main");
     let dl = document.createElement("dl");
-    for (let i = 0; i < consonantArray.length; i++) {
+    for (let firstConsonant = 0; firstConsonant < consonantArray.length; firstConsonant++) {
         let dt = document.createElement("dt");
-        dt.id = consonantArray[i];
+        dt.id = consonantArray[firstConsonant];
         let consonant = document.createElement("span");
         let a = document.createElement("a");
         a.classList.add("xesada");
-        a.href = consonantArray[i] + ".html";
-        a.textContent = consonantArray[i];
+        a.href = consonantArray[firstConsonant] + ".html";
+        a.textContent = consonantArray[firstConsonant];
         consonant.appendChild(a);
         dt.appendChild(consonant);
         dl.appendChild(dt);
         let dd = document.createElement("dd");
-        dd.textContent = consonantConceptArray[i];
+        dd.textContent = consonantConceptArray[firstConsonant];
         dl.appendChild(dd);
         main.appendChild(dl);
     }
@@ -118,10 +118,10 @@ async function generateIndex() {
 }
 /**
  * 子音を頭字とする語根の一覧を生成する関数
- * @param {*} i
+ * @param {number} firstConsonant 第一子音
  */
-async function generateConsonant(i) {
-    let filename = path.join("html_index", consonantArray[i] + ".html");
+async function generateConsonant(firstConsonant) {
+    let filename = path.join("html_index", consonantArray[firstConsonant] + ".html");
     const dom = new JSDOM("<!DOCTYPE html><html lang='ja'><head></head><body></body></html>");
     const document = dom.window.document;
     let head = document.head;
@@ -133,7 +133,7 @@ async function generateConsonant(i) {
     metaViewport.setAttribute("content", "width=device-width, initial-scale=1.0");
     head.appendChild(metaViewport);
     let title = document.createElement("title");
-    title.textContent = consonantArray[i].toUpperCase() + "を頭字とする語根の一覧";
+    title.textContent = consonantArray[firstConsonant].toUpperCase() + "を頭字とする語根の一覧";
     head.appendChild(title);
     let link1 = document.createElement("link");
     link1.rel = "stylesheet";
@@ -153,7 +153,7 @@ async function generateConsonant(i) {
     head.appendChild(link4);
     let link5 = document.createElement("link");
     link5.rel = "icon";
-    link5.href = "../favicon_index" + "/" + consonantArray[i] + ".svg";
+    link5.href = "../favicon_index" + "/" + consonantArray[firstConsonant] + ".svg";
     head.appendChild(link5);
     let body = document.body;
     let header = document.createElement("header");
@@ -173,7 +173,7 @@ async function generateConsonant(i) {
     let headerLi3 = document.createElement("li");
     let headerSpan = document.createElement("span");
     headerSpan.classList.add("xesada");
-    headerSpan.textContent = consonantArray[i];
+    headerSpan.textContent = consonantArray[firstConsonant];
     headerLi3.append(headerSpan, "を頭字とする語根の一覧");
     headerOl.appendChild(headerLi3);
     header.appendChild(headerOl);
@@ -181,13 +181,13 @@ async function generateConsonant(i) {
     let h1 = document.createElement("h1");
     let h1Span = document.createElement("span");
     h1Span.classList.add("xesada");
-    h1Span.textContent = consonantArray[i];
+    h1Span.textContent = consonantArray[firstConsonant];
     h1.append(h1Span, "を頭字とする語根の一覧");
     body.appendChild(h1);
     let article = document.createElement("article");
     let figure = document.createElement("figure");
     let object = document.createElement("object");
-    object.data = "../favicon_index/" + consonantArray[i] + ".svg";
+    object.data = "../favicon_index/" + consonantArray[firstConsonant] + ".svg";
     object.type = "image/svg+xml";
     figure.appendChild(object);
     let figcaption = document.createElement("figcaption");
@@ -198,25 +198,25 @@ async function generateConsonant(i) {
     let main = document.createElement("main");
     let p = document.createElement("p");
     let b = document.createElement("b");
-    b.textContent = consonantConceptArray[i];
+    b.textContent = consonantConceptArray[firstConsonant];
     b.classList.add("concept");
     p.append("この子音は", b, "の概念を表す。");
     main.appendChild(p);
     let dl = document.createElement("dl");
-    for (let j = 0; j < consonantArray.length; j++) {
-        for (let k = 0; k < consonantArray.length; k++) {
+    for (let secondConsonant = 0; secondConsonant < consonantArray.length; secondConsonant++) {
+        for (let thirdConsonant = 0; thirdConsonant < consonantArray.length; thirdConsonant++) {
             let dt = document.createElement("dt");
-            dt.id = consonantArray[i] + consonantArray[j] + consonantArray[k];
+            dt.id = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
             let root = document.createElement("span");
             let a = document.createElement("a");
             a.classList.add("xesada");
-            a.href = consonantArray[i] + "/" + consonantArray[i] + consonantArray[j] + consonantArray[k] + ".html";
-            a.textContent = consonantArray[i] + consonantArray[j] + consonantArray[k];
+            a.href = consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".html";
+            a.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
             root.appendChild(a);
             dt.appendChild(root);
             dl.appendChild(dt);
             let dd = document.createElement("dd");
-            dd.textContent = consonantConceptArray[i] + consonantConceptArray[j] + consonantConceptArray[k];
+            dd.textContent = consonantConceptArray[firstConsonant] + consonantConceptArray[secondConsonant] + consonantConceptArray[thirdConsonant];
             dl.appendChild(dd);
         }
     }
@@ -239,7 +239,7 @@ async function generateConsonant(i) {
     let footerLi3 = document.createElement("li");
     let footerSpan = document.createElement("span");
     footerSpan.classList.add("xesada");
-    footerSpan.textContent = consonantArray[i];
+    footerSpan.textContent = consonantArray[firstConsonant];
     footerLi3.append(footerSpan, "を頭字とする語根の一覧");
     footerOl.appendChild(footerLi3);
     footer.appendChild(footerOl);
@@ -254,10 +254,10 @@ async function generateConsonant(i) {
 }
 /**
  * 子HTMLファイルを生成する関数
- * @param {*} i
+ * @param {number} firstConsonant 第一子音
  */
-async function generateConsonantDirectory(i) {
-    let directoryName = path.join("html_index", consonantArray[i]);
+async function generateConsonantDirectory(firstConsonant) {
+    let directoryName = path.join("html_index", consonantArray[firstConsonant]);
     try {
         await fs.mkdir(directoryName, {recursive: true});
         console.log("ディレクトリ" + directoryName + "を作成しました。");
@@ -267,12 +267,12 @@ async function generateConsonantDirectory(i) {
 }
 /**
  * 子HTMLファイルを生成する関数
- * @param {*} i
- * @param {*} j
- * @param {*} k
+ * @param {number} firstConsonant 第一子音
+ * @param {number} secondConsonant 第二子音
+ * @param {number} thirdConsonant 第三子音
  */
-async function generateRoot(i, j, k) {
-    let filename = path.join("html_index", consonantArray[i] + "/" + consonantArray[i] + consonantArray[j] + consonantArray[k] + ".html");
+async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
+    let filename = path.join("html_index", consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".html");
     const dom = new JSDOM("<!DOCTYPE html><html lang='ja'><head></head><body></body></html>");
     const document = dom.window.document;
     let head = document.head;
@@ -284,7 +284,7 @@ async function generateRoot(i, j, k) {
     metaViewport.setAttribute("content", "width=device-width, initial-scale=1.0");
     head.appendChild(metaViewport);
     let title = document.createElement("title");
-    title.textContent = consonantArray[i].toUpperCase() + consonantArray[j].toUpperCase() + consonantArray[k].toUpperCase() + "を語根とする単語の一覧";
+    title.textContent = consonantArray[firstConsonant].toUpperCase() + consonantArray[secondConsonant].toUpperCase() + consonantArray[thirdConsonant].toUpperCase() + "を語根とする単語の一覧";
     head.appendChild(title);
     let link1 = document.createElement("link");
     link1.rel = "stylesheet";
@@ -304,7 +304,7 @@ async function generateRoot(i, j, k) {
     head.appendChild(link4);
     let link5 = document.createElement("link");
     link5.rel = "icon";
-    link5.href = "../../favicon_index/" + consonantArray[i] + "/" + consonantArray[i] + consonantArray[j] + consonantArray[k] + ".svg";
+    link5.href = "../../favicon_index/" + consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".svg";
     head.appendChild(link5);
     let script1 = document.createElement("script");
     script1.src = "../../fetch_details.js";
@@ -326,17 +326,17 @@ async function generateRoot(i, j, k) {
     headerOl.appendChild(headerLi2);
     let headerLi3 = document.createElement("li");
     let headerA3 = document.createElement("a");
-    headerA3.href = "../" + consonantArray[i] + ".html";
+    headerA3.href = "../" + consonantArray[firstConsonant] + ".html";
     let headerSpan1 = document.createElement("span");
     headerSpan1.classList.add("xesada");
-    headerSpan1.textContent = consonantArray[i];
+    headerSpan1.textContent = consonantArray[firstConsonant];
     headerA3.append(headerSpan1, "を頭字とする語根の一覧");
     headerLi3.appendChild(headerA3);
     headerOl.appendChild(headerLi3);
     let headerLi4 = document.createElement("li");
     let headerSpan2 = document.createElement("span");
     headerSpan2.classList.add("xesada");
-    headerSpan2.textContent = consonantArray[i] + consonantArray[j] + consonantArray[k];
+    headerSpan2.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
     headerLi4.append(headerSpan2, "を語根とする単語の一覧");
     headerOl.appendChild(headerLi4);
     header.appendChild(headerOl);
@@ -344,13 +344,13 @@ async function generateRoot(i, j, k) {
     let h1 = document.createElement("h1");
     let span1 = document.createElement("span");
     span1.classList.add("xesada");
-    span1.textContent = consonantArray[i] + consonantArray[j] + consonantArray[k];
+    span1.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
     h1.append(span1, "を語根とする単語の一覧");
     body.appendChild(h1);
     let article = document.createElement("article");
     let figure = document.createElement("figure");
     let object = document.createElement("object");
-    object.data = "../../favicon_index/" + consonantArray[i] + "/" + consonantArray[i] + consonantArray[j] + consonantArray[k] + ".svg";
+    object.data = "../../favicon_index/" + consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".svg";
     object.type = "image/svg+xml";
     figure.appendChild(object);
     let figcaption = document.createElement("figcaption");
@@ -361,13 +361,13 @@ async function generateRoot(i, j, k) {
     let main = document.createElement("main");
     let p = document.createElement("p");
     let b = document.createElement("b");
-    b.textContent = consonantConceptArray[i] + consonantConceptArray[j] + consonantConceptArray[k];
+    b.textContent = consonantConceptArray[firstConsonant] + consonantConceptArray[secondConsonant] + consonantConceptArray[thirdConsonant];
     b.classList.add("concept");
     p.append("この語根は", b, "の概念を表す。");
     main.append(p);
-    for (let l = 0; l < vowelArray.length; l++) {
+    for (let thirdVowel = 0; thirdVowel < vowelArray.length; thirdVowel++) {
         let h2 = document.createElement("h2");
-        h2.textContent = vowelPartOfSpeechTypeArray[l] + "詞";
+        h2.textContent = vowelPartOfSpeechTypeArray[thirdVowel] + "詞";
         main.appendChild(h2);
         let details = document.createElement("details");
         details.open = true;
@@ -375,25 +375,25 @@ async function generateRoot(i, j, k) {
         summary.textContent = "";
         details.appendChild(summary);
         let dl = document.createElement("dl");
-        for (let m = 0; m < vowelArray.length; m++) {
-            for (let n = 0; n < vowelArray.length; n++) {
+        for (let firstVowel = 0; firstVowel < vowelArray.length; firstVowel++) {
+            for (let secondVowel = 0; secondVowel < vowelArray.length; secondVowel++) {
                 let dt = document.createElement("dt");
-                dt.id = consonantArray[i] + vowelArray[m] + consonantArray[j] + vowelArray[n] + consonantArray[k] + vowelArray[l];
+                dt.id = consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
                 let word = document.createElement("b");
                 word.classList.add("xesada");
-                word.textContent = consonantArray[i] + vowelArray[m] + consonantArray[j] + vowelArray[n] + consonantArray[k] + vowelArray[l];
+                word.textContent = consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
                 dt.appendChild(word);
                 let wordPronunciation = document.createElement("b");
                 wordPronunciation.classList.add("pronunciation");
-                wordPronunciation.textContent = "/" + consonantPronunciationArray[i] + vowelPronunciationArray[m] + consonantPronunciationArray[j] + vowelPronunciationArray[n] + consonantPronunciationArray[k] + vowelPronunciationArray[l] + "/";
+                wordPronunciation.textContent = "/" + consonantPronunciationArray[firstConsonant] + vowelPronunciationArray[firstVowel] + consonantPronunciationArray[secondConsonant] + vowelPronunciationArray[secondVowel] + consonantPronunciationArray[thirdConsonant] + vowelPronunciationArray[thirdVowel] + "/";
                 dt.appendChild(wordPronunciation);
                 let wordCases = document.createElement("b");
                 wordCases.classList.add("cases");
-                wordCases.textContent = vowelCaseArray[m] + vowelCaseArray[n] + "格";
+                wordCases.textContent = vowelCaseArray[firstVowel] + vowelCaseArray[secondVowel] + "格";
                 dt.appendChild(wordCases);
                 let wordPartOfSpeech = document.createElement("b");
                 wordPartOfSpeech.classList.add("part-of-speech");
-                wordPartOfSpeech.textContent = vowelPartOfSpeechTypeArray[l] + "詞";
+                wordPartOfSpeech.textContent = vowelPartOfSpeechTypeArray[thirdVowel] + "詞";
                 dt.appendChild(wordPartOfSpeech);
                 dl.appendChild(dt);
                 let dd = document.createElement("dd");
@@ -423,17 +423,17 @@ async function generateRoot(i, j, k) {
     footerOl.appendChild(footerLi2);
     let footerLi3 = document.createElement("li");
     let footerA3 = document.createElement("a");
-    footerA3.href = "../" + consonantArray[i] + ".html";
+    footerA3.href = "../" + consonantArray[firstConsonant] + ".html";
     let footerSpan = document.createElement("span");
     footerSpan.classList.add("xesada");
-    footerSpan.textContent = consonantArray[i];
+    footerSpan.textContent = consonantArray[firstConsonant];
     footerA3.append(footerSpan, "を頭字とする語根の一覧");
     footerLi3.appendChild(footerA3);
     footerOl.appendChild(footerLi3);
     let footerLi4 = document.createElement("li");
     let footerSpan2 = document.createElement("span");
     footerSpan2.classList.add("xesada");
-    footerSpan2.textContent = consonantArray[i] + consonantArray[j] + consonantArray[k];
+    footerSpan2.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
     footerLi4.append(footerSpan2, "を語根とする単語の一覧");
     footerOl.appendChild(footerLi4);
     footer.appendChild(footerOl);
@@ -447,11 +447,7 @@ async function generateRoot(i, j, k) {
     }
 }
 /**
- * この関数は、html_indexディレクトリの内部データを生成するための関数である。
- * まず、html_indexディレクトリを作成し、その中にインデックスHTMLファイルを生成する。
- * 次に、子ディレクトリである子HTMLファイルを生成する。
- * 最後に、子HTMLファイルの中に、さらに子HTMLファイルへのリンクを含むHTMLファイルを生成する。
- * これらの処理は、非同期関数として実装されているため、順番に実行されることが保証されている。
+ * この関数は、`html_index`ディレクトリの内部データを生成するための関数である。
  */
 async function generate() {
     let directoryName = path.join("html_index");
@@ -462,12 +458,12 @@ async function generate() {
         console.error("ディレクトリ" + directoryName + "を作成できませんでした。", error);
     }
     await generateIndex();
-    for (let i = 0; i < consonantArray.length; i++) {
-        await generateConsonant(i);
-        await generateConsonantDirectory(i);
-        for (let j = 0; j < consonantArray.length; j++) {
-            for (let k = 0; k < consonantArray.length; k++) {
-                await generateRoot(i, j, k);
+    for (let firstConsonant = 0; firstConsonant < consonantArray.length; firstConsonant++) {
+        await generateConsonant(firstConsonant);
+        await generateConsonantDirectory(firstConsonant);
+        for (let secondConsonant = 0; secondConsonant < consonantArray.length; secondConsonant++) {
+            for (let thirdConsonant = 0; thirdConsonant < consonantArray.length; thirdConsonant++) {
+                await generateRoot(firstConsonant, secondConsonant, thirdConsonant);
             }
         }
     }

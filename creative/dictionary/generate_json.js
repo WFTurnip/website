@@ -9,22 +9,16 @@ const vowelCaseArray = ["否", "与", "属", "対", "主", "流"];
 const vowelPartOfSpeechTypeArray = ["附", "動", "容", "助", "副", "名"];
 const vowelPronunciationArray = ["a", "e", "i", "o", "u", ""];
 /**
- * この関数は、json_indexディレクトリの内部データを生成するための関数である。
- * まず、json_indexディレクトリを作成し、その中にインデックスJSONファイルを生成する。
- * 次に、子ディレクトリである子JSONファイルを生成する。
- * 最後に、子JSONファイルの中に、さらに子JSONファイルへのリンクを含むJSONファイルを生成する。
- * これらの処理は、非同期関数として実装されているため、順番に実行されることが保証されている。
+ * json_indexディレクトリの内部データを生成するための関数。
  */
 async function generateIndex() {
     let filename = path.join("json_index", "index.json");
     let consonants = [];
-    for (let i = 0; i < consonantArray.length; i++) {
-        let consonant = consonantArray[i];
-        let consonantConcept = consonantConceptArray[i];
+    for (let firstConsolant = 0; firstConsolant < consonantArray.length; firstConsolant++) {
         consonants.push({
-            consonant: consonant,
-            consonantConcept: consonantConcept,
-            consonantHtmlHref: consonant + ".html",
+            consonant: consonantArray[firstConsolant],
+            consonantConcept: consonantConceptArray[firstConsolant],
+            consonantHtmlHref: consonantArray[firstConsolant] + ".html",
         });
     }
     let object = {consonants};
@@ -38,21 +32,18 @@ async function generateIndex() {
 }
 /**
  * 指定された子音のJSONファイルを生成する関数
- * @param {number} i - 第一子音のインデックス
+ * @param {number} firstConsonant 第一子音のインデックス
  * @returns {Promise<void>}
  */
-async function generateConsonant(i) {
-    let filename = path.join("json_index", consonantArray[i] + ".json");
+async function generateConsonant(firstConsonant) {
+    let filename = path.join("json_index", consonantArray[firstConsonant] + ".json");
     let roots = [];
-    for (let j = 0; j < consonantArray.length; j++) {
-        for (let k = 0; k < consonantArray.length; k++) {
-            let root = consonantArray[i] + consonantArray[j] + consonantArray[k];
-            let rootConcept = consonantConceptArray[i] + consonantConceptArray[j] + consonantConceptArray[k];
-            let rootHtmlHref = consonantArray[i] + "/" + consonantArray[i] + consonantArray[j] + consonantArray[k] + ".html";
+    for (let secondConsonant = 0; secondConsonant < consonantArray.length; secondConsonant++) {
+        for (let thirdConsonant = 0; thirdConsonant < consonantArray.length; thirdConsonant++) {
             roots.push({
-                root: root,
-                rootConcept: rootConcept,
-                rootHtmlHref: rootHtmlHref,
+                root: consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant],
+                rootConcept: consonantConceptArray[firstConsonant] + consonantConceptArray[secondConsonant] + consonantConceptArray[thirdConsonant],
+                rootHtmlHref: consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".html",
             });
         }
     }
@@ -67,11 +58,11 @@ async function generateConsonant(i) {
 }
 /**
  * 指定された子音のディレクトリを生成する関数
- * @param {number} i - 第一子音のインデックス
+ * @param {number} firstConsonant 第一子音のインデックス
  * @returns {Promise<void>}
  */
-async function generateConsonantDirectory(i) {
-    let directoryName = path.join("json_index", consonantArray[i]);
+async function generateConsonantDirectory(firstConsonant) {
+    let directoryName = path.join("json_index", consonantArray[firstConsonant]);
     try {
         await fs.mkdir(directoryName, {recursive: true});
         console.log("ディレクトリ" + directoryName + "を作成しました。");
@@ -81,28 +72,23 @@ async function generateConsonantDirectory(i) {
 }
 /**
  * 指定された語根のJSONファイルを生成する関数
- * @param {number} i - 第一子音のインデックス
- * @param {number} j - 第二子音のインデックス
- * @param {number} k - 第三子音のインデックス
+ * @param {number} firstConsonant 第一子音のインデックス
+ * @param {number} secondConsonant 第二子音のインデックス
+ * @param {number} thirdConsonant 第三子音のインデックス
  * @returns {Promise<void>}
  */
-async function generateRoot(i, j, k) {
-    let filename = path.join("json_index", consonantArray[i] + "/" + consonantArray[i] + consonantArray[j] + consonantArray[k] + ".json");
+async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
+    let filename = path.join("json_index", consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".json");
     let words = [];
     for (let l = 0; l < vowelArray.length; l++) {
         for (let m = 0; m < vowelArray.length; m++) {
             for (let n = 0; n < vowelArray.length; n++) {
-                let word = consonantArray[i] + vowelArray[l] + consonantArray[j] + vowelArray[m] + consonantArray[k] + vowelArray[n];
-                let wordPronunciation = consonantPronunciationArray[i] + vowelPronunciationArray[l] + consonantPronunciationArray[j] + vowelPronunciationArray[m] + consonantPronunciationArray[k] + vowelPronunciationArray[n];
-                let wordPartOfSpeech = vowelPartOfSpeechTypeArray[n] + "詞";
-                let wordCases = vowelCaseArray[l] + vowelCaseArray[m] + "格";
-                let wordHtmlHref = consonantArray[i] + "/" + consonantArray[i] + consonantArray[j] + consonantArray[k] + ".html" + "#" + consonantArray[i] + vowelArray[l] + consonantArray[j] + vowelArray[m] + consonantArray[k] + vowelArray[n];
                 words.push({
-                    word: word,
-                    wordPronunciation: wordPronunciation,
-                    wordPartOfSpeech: wordPartOfSpeech,
-                    wordCases: wordCases,
-                    wordHtmlHref: wordHtmlHref,
+                    word: consonantArray[firstConsonant] + vowelArray[l] + consonantArray[secondConsonant] + vowelArray[m] + consonantArray[thirdConsonant] + vowelArray[n],
+                    wordPronunciation: consonantPronunciationArray[firstConsonant] + vowelPronunciationArray[l] + consonantPronunciationArray[secondConsonant] + vowelPronunciationArray[m] + consonantPronunciationArray[thirdConsonant] + vowelPronunciationArray[n],
+                    wordPartOfSpeech: vowelPartOfSpeechTypeArray[n] + "詞",
+                    wordCases: vowelCaseArray[l] + vowelCaseArray[m] + "格",
+                    wordHtmlHref: consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".html" + "#" + consonantArray[firstConsonant] + vowelArray[l] + consonantArray[secondConsonant] + vowelArray[m] + consonantArray[thirdConsonant] + vowelArray[n],
                     WordMeaning: ""
                 });
             }
@@ -130,12 +116,12 @@ async function generate() {
         console.error("ディレクトリ" + directoryName + "を作成できませんでした。", error);
     }
     await generateIndex();
-    for (let i = 0; i < consonantArray.length; i++) {
-        await generateConsonant(i);
-        await generateConsonantDirectory(i);
-        for (let j = 0; j < consonantArray.length; j++) {
-            for (let k = 0; k < consonantArray.length; k++) {
-                await generateRoot(i, j, k);
+    for (let firstConsonant = 0; firstConsonant < consonantArray.length; firstConsonant++) {
+        await generateConsonant(firstConsonant);
+        await generateConsonantDirectory(firstConsonant);
+        for (let secondConsonant = 0; secondConsonant < consonantArray.length; secondConsonant++) {
+            for (let thirdConsonant = 0; thirdConsonant < consonantArray.length; thirdConsonant++) {
+                await generateRoot(firstConsonant, secondConsonant, thirdConsonant);
             }
         }
     }
