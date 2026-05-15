@@ -225,7 +225,7 @@ async function fetchFileForSearch(searchWord) {
  * @param {Object} data 検索対象のデータ
  * @param {string} searchWord 検索語
  * @param {string} type 検索タイプ
- * @returns フィルタリングされたデータ
+ * @returns T[]
  */
 function filterData(data, searchWord, type) {
     const wordLower = searchWord.toLowerCase();

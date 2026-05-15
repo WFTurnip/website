@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const allDetails = document.querySelectorAll("details");
     /**
-     * すべての<details>要素に対して、開閉状態に応じてsummaryのテキストを更新するイベントリスナーを追加する
+     * すべてのdetails要素に対して、開閉状態に応じてsummaryのテキストを更新するイベントリスナーを追加する
      */
     allDetails.forEach(details => {
         const summary = details.querySelector("summary");

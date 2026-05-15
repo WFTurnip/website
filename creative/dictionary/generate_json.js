@@ -8,6 +8,7 @@ const vowelArray = ["a", "e", "i", "o", "u", "w"];
 const vowelCaseArray = ["否", "与", "属", "対", "主", "流"];
 const vowelPartOfSpeechTypeArray = ["附", "動", "容", "助", "副", "名"];
 const vowelPronunciationArray = ["a", "e", "i", "o", "u", ""];
+
 /**
  * json_indexディレクトリの内部データを生成するための関数。
  */
@@ -30,6 +31,7 @@ async function generateIndex() {
         console.error("ファイル" + filename + "を作成できませんでした。", error);
     }
 }
+
 /**
  * 指定された子音のJSONファイルを生成する関数
  * @param {number} firstConsonant 第一子音のインデックス
@@ -56,6 +58,7 @@ async function generateConsonant(firstConsonant) {
         console.error("ファイル" + filename + "を作成できませんでした。", error);
     }
 }
+
 /**
  * 指定された子音のディレクトリを生成する関数
  * @param {number} firstConsonant 第一子音のインデックス
@@ -70,6 +73,7 @@ async function generateConsonantDirectory(firstConsonant) {
         console.error("ディレクトリ" + directoryName + "を作成できませんでした。", error);
     }
 }
+
 /**
  * 指定された語根のJSONファイルを生成する関数
  * @param {number} firstConsonant 第一子音のインデックス
@@ -103,6 +107,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
         console.error("ファイル" + filename + "を作成できませんでした。", error);
     }
 }
+
 /**
  * JSONファイルを生成する関数
  * @returns {Promise<void>}
@@ -127,4 +132,5 @@ async function generate() {
     }
     console.log("ディレクトリ" + directoryName + "の内部データを生成完了。");
 }
+
 generate();
