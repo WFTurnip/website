@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     /**
      * 数値を標準形式でフォーマットする
-     * @param {number} num フォーマットする数値
+     * @param {Number} num フォーマットする数値
      * @returns {string} フォーマットされた文字列
      */
     function formatCompact(num) {
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     /**
      * 数値を日本円形式でフォーマットする
-     * @param {number} num フォーマットする数値
+     * @param {Number} num フォーマットする数値
      * @returns {string} フォーマットされた文字列
      */
     function formatYen(num) {

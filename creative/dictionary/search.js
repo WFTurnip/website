@@ -38,6 +38,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
         const p = document.createElement("p");
         p.classList.add("options");
+        /**
+         * 検索オプションのスパンを作成する関数
+         * @param {String} label ラベル
+         * @param {Boolean} isOn `ON`かどうか
+         * @returns {HTMLElement} 作成されたスパン要素
+         */
         const createOptionSpan = (label, isOn) => {
             const span = document.createElement("span");
             span.textContent = label;
@@ -59,10 +65,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 /**
  * 子音検索を行う関数
- * @param {string} searchWordLower 検索語の小文字表記
- * @param {boolean} isOn 子音検索オプションがONかどうか
- * @param {boolean} anyOptionOn いずれかの検索オプションがONかどうか
- * @returns 子音検索の結果を含む`<details>`要素
+ * @param {String} searchWordLower 検索語の小文字表記
+ * @param {Boolean} isOn 子音検索オプションが`ON`かどうか
+ * @param {Boolean} anyOptionOn いずれかの検索オプションが`ON`かどうか
+ * @returns 子音検索の結果を含む`details`要素
+ * @throws データの取得に失敗した場合のエラー
  */
 async function consonantsSearch(searchWordLower, isOn, anyOptionOn) {
     const details = document.createElement("details");
@@ -105,10 +112,11 @@ async function consonantsSearch(searchWordLower, isOn, anyOptionOn) {
 }
 /**
  * 語根検索を行う関数
- * @param {string} searchWordLower 検索語の小文字表記
- * @param {boolean} isOn 語根検索オプションがONかどうか
- * @param {boolean} anyOptionOn いずれかの検索オプションがONかどうか
- * @returns 語根検索の結果を含む`<details>`要素
+ * @param {String} searchWordLower 検索語の小文字表記
+ * @param {Boolean} isOn 語根検索オプションが`ON`かどうか
+ * @param {Boolean} anyOptionOn いずれかの検索オプションが`ON`かどうか
+ * @returns 語根検索の結果を含む`details`要素
+ * @throws データの取得に失敗した場合のエラー
  */
 async function rootsSearch(searchWordLower, isOn, anyOptionOn) {
     const details = document.createElement("details");
@@ -151,10 +159,11 @@ async function rootsSearch(searchWordLower, isOn, anyOptionOn) {
 }
 /**
  * 単語検索を行う関数
- * @param {string} searchWordLower 検索語の小文字表記
- * @param {boolean} isOn 単語検索オプションがONかどうか
- * @param {boolean} anyOptionOn いずれかの検索オプションがONかどうか
- * @returns 単語検索の結果を含む`<details>`要素
+ * @param {String} searchWordLower 検索語の小文字表記
+ * @param {Boolean} isOn 単語検索オプションが`ON`かどうか
+ * @param {Boolean} anyOptionOn いずれかの検索オプションが`ON`かどうか
+ * @returns 単語検索の結果を含む`details`要素
+ * @throws データの取得に失敗した場合のエラー
  */
 async function wordsSearch(searchWordLower, isOn, anyOptionOn) {
     const details = document.createElement("details");
@@ -209,8 +218,10 @@ async function wordsSearch(searchWordLower, isOn, anyOptionOn) {
 }
 /**
  * 検索語に応じて`JSON`ファイルをフェッチする関数
- * @param {string} searchWord 検索語
- * @returns
+ * @param {String} searchWord 検索語
+ * @returns フェッチしたデータの`JSON`オブジェクト
+ * @throws ファイルが見つからない場合のエラー
+ * @throws ネットワークエラーなどのフェッチ失敗の場合のエラー
  */
 async function fetchFileForSearch(searchWord) {
     const filename = "json_index" + "/" + encodeURIComponent(searchWord) + ".json";
@@ -223,9 +234,10 @@ async function fetchFileForSearch(searchWord) {
 /**
  * 検索語句をフィルタリングする関数
  * @param {Object} data 検索対象のデータ
- * @param {string} searchWord 検索語
- * @param {string} type 検索タイプ
- * @returns T[]
+ * @param {String} searchWord 検索語
+ * @param {String} type 検索タイプ
+ * @returns フィルタリングされたデータの配列
+ * @throws 不正な検索タイプの場合のエラー
  */
 function filterData(data, searchWord, type) {
     const wordLower = searchWord.toLowerCase();

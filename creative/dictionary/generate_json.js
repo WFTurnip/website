@@ -32,7 +32,7 @@ async function generateIndex() {
 }
 /**
  * 指定された子音のJSONファイルを生成する関数
- * @param {number} firstConsonant 第一子音のインデックス
+ * @param {Number} firstConsonant 第一子音のインデックス
  * @returns {Promise<void>}
  */
 async function generateConsonant(firstConsonant) {
@@ -58,7 +58,7 @@ async function generateConsonant(firstConsonant) {
 }
 /**
  * 指定された子音のディレクトリを生成する関数
- * @param {number} firstConsonant 第一子音のインデックス
+ * @param {Number} firstConsonant 第一子音のインデックス
  * @returns {Promise<void>}
  */
 async function generateConsonantDirectory(firstConsonant) {
@@ -72,24 +72,24 @@ async function generateConsonantDirectory(firstConsonant) {
 }
 /**
  * 指定された語根のJSONファイルを生成する関数
- * @param {number} firstConsonant 第一子音のインデックス
- * @param {number} secondConsonant 第二子音のインデックス
- * @param {number} thirdConsonant 第三子音のインデックス
+ * @param {Number} firstConsonant 第一子音のインデックス
+ * @param {Number} secondConsonant 第二子音のインデックス
+ * @param {Number} thirdConsonant 第三子音のインデックス
  * @returns {Promise<void>}
  */
 async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     let filename = path.join("json_index", consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".json");
     let words = [];
-    for (let l = 0; l < vowelArray.length; l++) {
-        for (let m = 0; m < vowelArray.length; m++) {
-            for (let n = 0; n < vowelArray.length; n++) {
+    for (let firstVowel = 0; firstVowel < vowelArray.length; firstVowel++) {
+        for (let secondVowel = 0; secondVowel < vowelArray.length; secondVowel++) {
+            for (let thirdVowel = 0; thirdVowel < vowelArray.length; thirdVowel++) {
                 words.push({
-                    word: consonantArray[firstConsonant] + vowelArray[l] + consonantArray[secondConsonant] + vowelArray[m] + consonantArray[thirdConsonant] + vowelArray[n],
-                    wordPronunciation: consonantPronunciationArray[firstConsonant] + vowelPronunciationArray[l] + consonantPronunciationArray[secondConsonant] + vowelPronunciationArray[m] + consonantPronunciationArray[thirdConsonant] + vowelPronunciationArray[n],
-                    wordPartOfSpeech: vowelPartOfSpeechTypeArray[n] + "詞",
-                    wordCases: vowelCaseArray[l] + vowelCaseArray[m] + "格",
-                    wordHtmlHref: consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".html" + "#" + consonantArray[firstConsonant] + vowelArray[l] + consonantArray[secondConsonant] + vowelArray[m] + consonantArray[thirdConsonant] + vowelArray[n],
-                    WordMeaning: ""
+                    word: consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel],
+                    wordPronunciation: consonantPronunciationArray[firstConsonant] + vowelPronunciationArray[firstVowel] + consonantPronunciationArray[secondConsonant] + vowelPronunciationArray[secondVowel] + consonantPronunciationArray[thirdConsonant] + vowelPronunciationArray[thirdVowel],
+                    wordPartOfSpeech: vowelPartOfSpeechTypeArray[thirdVowel] + "詞",
+                    wordCases: vowelCaseArray[firstVowel] + vowelCaseArray[secondVowel] + "格",
+                    wordHtmlHref: consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".html" + "#" + consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel],
+                    wordMeaning: ""
                 });
             }
         }

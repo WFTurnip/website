@@ -35,8 +35,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 /**
                  * キーのラベルを取得する
                  * @param {Element} keyElement キー要素
-                 * @param {string} defaultText デフォルトのテキスト
-                 * @returns {string} 取得したラベル
+                 * @param {String} defaultText デフォルトのテキスト
+                 * @returns {String} 取得したラベル
                  */
                 const getLabel = (keyElement, defaultText) => {
                     return keyElement?.textContent || defaultText;
@@ -81,7 +81,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     /**
      * フォントを変更する関数
-     * @param {number} number 変更するフォントの番号
+     * @param {Number} number 変更するフォントの番号
      */
     function changeFont(number) {
         currentFont = fontClasses[number];
@@ -92,7 +92,7 @@ window.addEventListener("DOMContentLoaded", () => {
     loadKeyboard(currentFont);
     /**
      * キーボードをロードする関数
-     * @param {string} font ロードするフォントの名前
+     * @param {String} font ロードするフォントの名前
      */
     function loadKeyboard(font) {
         fetch("keyboards/" + font + ".xml").then(r => r.text()).then(str => new DOMParser().parseFromString(str, "text/xml")).then(xml => buildKeyboardFromXML(xml));

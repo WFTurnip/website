@@ -118,7 +118,7 @@ async function generateIndex() {
 }
 /**
  * 子音を頭字とする語根の一覧を生成する関数
- * @param {number} firstConsonant 第一子音
+ * @param {Number} firstConsonant 第一子音
  */
 async function generateConsonant(firstConsonant) {
     let filename = path.join("html_index", consonantArray[firstConsonant] + ".html");
@@ -254,7 +254,7 @@ async function generateConsonant(firstConsonant) {
 }
 /**
  * 子HTMLファイルを生成する関数
- * @param {number} firstConsonant 第一子音
+ * @param {Number} firstConsonant 第一子音
  */
 async function generateConsonantDirectory(firstConsonant) {
     let directoryName = path.join("html_index", consonantArray[firstConsonant]);
@@ -267,9 +267,9 @@ async function generateConsonantDirectory(firstConsonant) {
 }
 /**
  * 子HTMLファイルを生成する関数
- * @param {number} firstConsonant 第一子音
- * @param {number} secondConsonant 第二子音
- * @param {number} thirdConsonant 第三子音
+ * @param {Number} firstConsonant 第一子音
+ * @param {Number} secondConsonant 第二子音
+ * @param {Number} thirdConsonant 第三子音
  */
 async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     let filename = path.join("html_index", consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".html");
@@ -404,7 +404,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
         details.appendChild(dl);
         main.appendChild(details);
         let hr = document.createElement("hr");
-        main.appendChild(hr);
+        main.appendChild(hr);let
     }
     body.appendChild(main);
     let footer = document.createElement("footer");
