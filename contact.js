@@ -1,6 +1,3 @@
-/**
- * メールアドレスをJavaScriptで組み立てることで、スパムボットから保護するためのコード
- */
 window.addEventListener("DOMContentLoaded", () => {
     const user = "tomohiro.kabura";
     const domain = "icloud.com";
