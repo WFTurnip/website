@@ -1,12 +1,4 @@
-function generateConsonantPronunciationFigure() {
-    const figure = document.createElement("figure");
-    const svgNameSpace = "http://www.w3.org/2000/svg";
-    let width = 256;
-    let height = 256;
-    let apex = 6;
-    let svg = document.createElementNS(svgNameSpace, "svg");
-    svg.setAttribute("width", width);
-    svg.setAttribute("height", height);
+function generateConsonantHexiagramFigure(svg, svgNameSpace, width, height, apex) {
     let centerX = width / 2;
     let centerY = height / 2;
     for (let i = 0; i <= apex; i++) {
@@ -25,21 +17,8 @@ function generateConsonantPronunciationFigure() {
             svg.appendChild(line);
         }
     }
-    figure.appendChild(svg);
-    const caption = document.createElement("figcaption");
-    caption.textContent = "子音発音図";
-    figure.appendChild(caption);
-    document.getElementById("consonant-pronunciation-figure").appendChild(figure);
 }
-function generateVowelPronunciationFigure() {
-    const figure = document.createElement("figure");
-    const svgNameSpace = "http://www.w3.org/2000/svg";
-    let width = 256;
-    let height = 256;
-    let apex = 6;
-    let svg = document.createElementNS(svgNameSpace, "svg");
-    svg.setAttribute("width", width);
-    svg.setAttribute("height", height);
+function generateVowelHexiagramFigure(svg, svgNameSpace, width, height, apex) {
     let centerX = width / 2;
     let centerY = height / 2;
     for (let i = 0; i < apex; i++) {
@@ -55,13 +34,44 @@ function generateVowelPronunciationFigure() {
         line.setAttribute("stroke-width", 1);
         line.setAttribute("stroke-linecap", "round");
         svg.appendChild(line);
+    }
+}
+function generateConsonantPronunciationFigure() {
+    const figure = document.createElement("figure");
+    const svgNameSpace = "http://www.w3.org/2000/svg";
+    let width = 256;
+    let height = 256;
+    let apex = 6;
+    let svg = document.createElementNS(svgNameSpace, "svg");
+    svg.setAttribute("width", width);
+    svg.setAttribute("height", height);
+    generateConsonantHexiagramFigure(svg, svgNameSpace, width, height, apex);
+    figure.appendChild(svg);
+    const caption = document.createElement("figcaption");
+    caption.textContent = "子音発音図";
+    figure.appendChild(caption);
+    document.getElementById("consonant-pronunciation-figure").appendChild(figure);
+}
+function generateVowelPronunciationFigure() {
+    const figure = document.createElement("figure");
+    const svgNameSpace = "http://www.w3.org/2000/svg";
+    let width = 256;
+    let height = 256;
+    let apex = 6;
+    let svg = document.createElementNS(svgNameSpace, "svg");
+    svg.setAttribute("width", width);
+    svg.setAttribute("height", height);
+    generateVowelHexiagramFigure(svg, svgNameSpace, width, height, apex);
+    let centerX = width / 2;
+    let centerY = height / 2;
+    for (let i = 0; i < apex; i++) {
         let vowel = document.createElementNS(svgNameSpace, "text");
         let vowelPronunciation = document.createElementNS(svgNameSpace, "text");
         let x = centerX + (centerX * (3 / 4)) * Math.sin((4 + i) * Math.PI / (apex / 2));
         let y = centerY + (centerY * (3 / 4)) * Math.cos((4 + i) * Math.PI / (apex / 2));
         vowel.setAttribute("x", x);
-        vowelPronunciation.setAttribute("x", x);
         vowel.setAttribute("y", y);
+        vowelPronunciation.setAttribute("x", x);
         vowelPronunciation.setAttribute("y", y);
         vowel.textContent = "\u{25cc}" + vowelArray[i];
         vowelPronunciation.textContent = "/" + vowelPronunciationArray[i] + "/";
@@ -230,8 +240,8 @@ function generateFirstCaseFigure() {
         let x = centerX + (centerX * (3 / 4)) * Math.sin(i * Math.PI / (apex / 2));
         let y = centerY + (centerY * (3 / 4)) * Math.cos(i * Math.PI / (apex / 2));
         vowel.setAttribute("x", x);
-        vowelCase.setAttribute("x", x);
         vowel.setAttribute("y", y);
+        vowelCase.setAttribute("x", x);
         vowelCase.setAttribute("y", y);
         vowel.textContent = "\u{25cc}" + vowelArray[i] + "\u{25cc}\u{25cc}";
         vowelCase.textContent = vowelCaseArray[i] + "格";
@@ -275,8 +285,8 @@ function generateSecondCaseFigure() {
         let x = centerX + (centerX * (3 / 4)) * Math.sin(i * Math.PI / (apex / 2));
         let y = centerY + (centerY * (3 / 4)) * Math.cos(i * Math.PI / (apex / 2));
         vowel.setAttribute("x", x);
-        vowelCase.setAttribute("x", x);
         vowel.setAttribute("y", y);
+        vowelCase.setAttribute("x", x);
         vowelCase.setAttribute("y", y);
         vowel.textContent = "\u{25cc}\u{25cc}" + vowelArray[i] + "\u{25cc}";
         vowelCase.textContent = vowelCaseArray[i] + "格";
@@ -383,8 +393,8 @@ function generatePrefixCaseFigure() {
         let x = centerX + (centerX * (3 / 4)) * Math.sin(i * Math.PI / (apex / 2));
         let y = centerY + (centerY * (3 / 4)) * Math.cos(i * Math.PI / (apex / 2));
         vowel.setAttribute("x", x);
-        vowelCase.setAttribute("x", x);
         vowel.setAttribute("y", y);
+        vowelCase.setAttribute("x", x);
         vowelCase.setAttribute("y", y);
         vowel.textContent = "\u{25cc}" + vowelArray[i] + "\u{25cc}\u{25cc}\u{25cc}";
         vowelCase.textContent = vowelCaseArray[i] + "格";
@@ -428,8 +438,8 @@ function generateSuffixCaseFigure() {
         let x = centerX + (centerX * (3 / 4)) * Math.sin(i * Math.PI / (apex / 2));
         let y = centerY + (centerY * (3 / 4)) * Math.cos(i * Math.PI / (apex / 2));
         vowel.setAttribute("x", x);
-        vowelCase.setAttribute("x", x);
         vowel.setAttribute("y", y);
+        vowelCase.setAttribute("x", x);
         vowelCase.setAttribute("y", y);
         vowel.textContent = "\u{25cc}\u{25cc}\u{25cc}\u{25cc}" + vowelArray[i];
         vowelCase.textContent = vowelCaseArray[i] + "格";
