@@ -323,12 +323,6 @@ function generateSecondCaseTable() {
     document.getElementById("second-case-table").appendChild(table);
 }
 function generateConjunctCaseTable() {
-    const createParagraph = (text, className) => {
-        let p = document.createElement("div");
-        p.textContent = text;
-        p.classList.add(className);
-        return p;
-    };
     let table = document.createElement("table");
     let caption = document.createElement("caption");
     caption.textContent = "複合格表";
@@ -338,31 +332,47 @@ function generateConjunctCaseTable() {
     let blank = document.createElement("th");
     blank.textContent = "";
     tr.appendChild(blank);
-    vowelArray.forEach((vowel, vowelIndex) => {
-        let th = document.createElement("th");
-        th.appendChild(createParagraph("\u{25CC}" + vowel + "\u{25CC}\u{25CC}", "xesada"));
-        th.appendChild(createParagraph(vowelCaseArray[vowelIndex] + "格", "case"));
-        tr.appendChild(th);
-    });
+    for (let firstVowel = 0; firstVowel < vowelArray.length; firstVowel++) {
+        let firstVowelCell = document.createElement("th");
+        let firstVowelGlyph = document.createElement("div");
+        firstVowelGlyph.textContent = "\u{25CC}" + vowelArray[firstVowel] + "\u{25CC}\u{25CC}";
+        firstVowelGlyph.classList.add("xesada");
+        firstVowelCell.appendChild(firstVowelGlyph);
+        let firstVowelCase = document.createElement("div");
+        firstVowelCase.textContent = vowelCaseArray[firstVowel] + "格";
+        firstVowelCase.classList.add("case");
+        firstVowelCell.appendChild(firstVowelCase);
+        tr.appendChild(firstVowelCell);
+    }
     thead.appendChild(tr);
     table.appendChild(thead);
     let tbody = document.createElement("tbody");
-    let tr3 = document.createElement("tr");
-    tbody.appendChild(tr3);
-    vowelArray.forEach((vowel1, i) => {
-        let tr = document.createElement("tr");
-        let th = document.createElement("th");
-        th.appendChild(createParagraph("\u{25CC}\u{25CC}" + vowel1 + "\u{25CC}", "xesada"));
-        th.appendChild(createParagraph(vowelCaseArray[i] + "格", "case"));
-        tr.appendChild(th);
-        vowelArray.forEach((vowel2, j) => {
-            let td = document.createElement("td");
-            td.appendChild(createParagraph("\u{25CC}" + vowel2 + "\u{25CC}" + vowel1 + "\u{25CC}", "xesada"));
-            td.appendChild(createParagraph(vowelCaseArray[j] + vowelCaseArray[i] + "格", "conjunct-case"));
-            tr.appendChild(td);
-        });
-        tbody.appendChild(tr);
-    });
+    for (let secondVowel = 0; secondVowel < vowelArray.length; secondVowel++) {
+        let vowelRow = document.createElement("tr");
+        let firstVowelCell = document.createElement("th");
+        let firstVowelGlyph = document.createElement("div");
+        firstVowelGlyph.textContent = "\u{25CC}\u{25CC}" + vowelArray[secondVowel] + "\u{25CC}";
+        firstVowelGlyph.classList.add("xesada");
+        firstVowelCell.appendChild(firstVowelGlyph);
+        let firstVowelCase = document.createElement("div");
+        firstVowelCase.textContent = vowelCaseArray[secondVowel] + "格";
+        firstVowelCase.classList.add("case");
+        firstVowelCell.appendChild(firstVowelCase);
+        vowelRow.appendChild(firstVowelCell);
+        for (let firstVowel = 0; firstVowel < vowelArray.length; firstVowel++) {
+            let vowelsCell = document.createElement("td");
+            let vowels = document.createElement("div");
+            vowels.textContent = "\u{25CC}" + vowelArray[firstVowel] + "\u{25CC}" + vowelArray[secondVowel] + "\u{25CC}";
+            vowels.classList.add("xesada");
+            vowelsCell.appendChild(vowels);
+            let vowelsCase = document.createElement("div");
+            vowelsCase.textContent = vowelCaseArray[firstVowel] + vowelCaseArray[secondVowel] + "格";
+            vowelsCase.classList.add("case");
+            vowelsCell.appendChild(vowelsCase);
+            vowelRow.appendChild(vowelsCell);
+        }
+        tbody.appendChild(vowelRow);
+    }
     table.appendChild(tbody);
     document.getElementById("conjunct-case-table").appendChild(table);
 }
