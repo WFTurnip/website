@@ -367,7 +367,14 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     main.append(p);
     for (let thirdVowel = 0; thirdVowel < vowelArray.length; thirdVowel++) {
         let h2 = document.createElement("h2");
-        h2.textContent = vowelPartOfSpeechTypeArray[thirdVowel] + "詞";
+        let h2Span1 = document.createElement("span");
+        h2Span1.classList.add("xesada");
+        h2Span1.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
+        h2.append(h2Span1);
+        let h2Span2 = document.createElement("span");
+        h2Span2.classList.add("part-of-speech");
+        h2Span2.textContent = vowelPartOfSpeechTypeArray[thirdVowel] + "詞";
+        h2.append(h2Span2);
         main.appendChild(h2);
         let details = document.createElement("details");
         details.open = true;
@@ -404,7 +411,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
         details.appendChild(dl);
         main.appendChild(details);
         let hr = document.createElement("hr");
-        main.appendChild(hr);let
+        main.appendChild(hr);
     }
     body.appendChild(main);
     let footer = document.createElement("footer");
@@ -447,7 +454,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     }
 }
 /**
- * この関数は、`html_index`ディレクトリの内部データを生成するための関数である。
+ * `html_index`ディレクトリの内部データを生成するための関数
  */
 async function generate() {
     let directoryName = path.join("html_index");
