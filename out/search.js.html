@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: search.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: search.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>document.addEventListener("DOMContentLoaded", async () => {
+    const parameters = new URLSearchParams(window.location.search);
+    const searchWord = parameters.get("searchInput") || "";
+    const searchWordLower = searchWord.toLowerCase();
+    const consonants = parameters.get("consonants") === "ON";
+    const roots = parameters.get("roots") === "ON";
+    const words = parameters.get("words") === "ON";
+    document.getElementById("searchInput").value = searchWord;
+    document.getElementById("consonants").checked = consonants;
+    document.getElementById("roots").checked = roots;
+    document.getElementById("words").checked = words;
+    const searchResultContainer = document.getElementById("searchResult");
+    const searchOptionContainer = document.getElementById("option");
+    const resultContainer = document.getElementById("result");
+    searchResultContainer.innerHTML = "";
+    searchOptionContainer.innerHTML = "";
+    resultContainer.innerHTML = "";
+    if (!searchWord) {
+        const message = document.createElement("p");
+        message.textContent = "検索語が入力されていませんので、検索を行いません。";
+        message.classList.add("warning");
+        searchResultContainer.appendChild(message);
+        return;
+    } else {
+        const searchResult = document.createElement("h2");
+        const searchResultSpan = document.createElement("b");
+        searchResultSpan.textContent = searchWord;
+        searchResultSpan.classList.add("xesada");
+        searchResult.appendChild(searchResultSpan);
+        searchResult.append("の検索結果");
+        searchResultContainer.appendChild(searchResult);
+    }
+    if (!consonants &amp;&amp; !roots &amp;&amp; !words) {
+        const message = document.createElement("p");
+        message.textContent = "オプションが選択されていないので、絞り込み検索を行いません。";
+        message.classList.add("warning");
+        searchOptionContainer.appendChild(message);
+    } else {
+        const p = document.createElement("p");
+        p.classList.add("options");
+        /**
+         * 検索オプションのスパンを作成する関数
+         * @param {String} label ラベル
+         * @param {Boolean} isOn `ON`かどうか
+         * @returns {HTMLElement} 作成されたスパン要素
+         */
+        const createOptionSpan = (label, isOn) => {
+            const span = document.createElement("span");
+            span.textContent = label;
+            const strong = document.createElement("strong");
+            strong.textContent = isOn ? "ON" : "OFF";
+            strong.classList.add(isOn ? "on" : "off");
+            span.appendChild(strong);
+            return span;
+        }
+        p.appendChild(createOptionSpan("子音検索: ", consonants));
+        p.appendChild(createOptionSpan("語根検索: ", roots));
+        p.appendChild(createOptionSpan("単語検索: ", words));
+        searchOptionContainer.appendChild(p);
+    }
+    const anyOptionOn = consonants || roots || words;
+    resultContainer.appendChild(await consonantsSearch(searchWordLower, consonants, anyOptionOn));
+    resultContainer.appendChild(await rootsSearch(searchWordLower, roots, anyOptionOn));
+    resultContainer.appendChild(await wordsSearch(searchWordLower, words, anyOptionOn));
+});
+/**
+ * 子音検索を行う関数
+ * @param {String} searchWordLower 検索語の小文字表記
+ * @param {Boolean} isOn 子音検索オプションが`ON`かどうか
+ * @param {Boolean} anyOptionOn いずれかの検索オプションが`ON`かどうか
+ * @returns 子音検索の結果を含む`details`要素
+ * @throws データの取得に失敗した場合のエラー
+ */
+async function consonantsSearch(searchWordLower, isOn, anyOptionOn) {
+    const details = document.createElement("details");
+    details.open = isOn || !anyOptionOn;
+    const summary = document.createElement("summary");
+    summary.textContent = "子音検索";
+    details.appendChild(summary);
+    try {
+        let filename = "index";
+        const data = await fetchFileForSearch(filename);
+        const filtered = filterData(data, searchWordLower, "consonants");
+        filtered.forEach(item => {
+            const consonantIndex = document.createElement("p");
+            const consonant = document.createElement("b");
+            consonant.textContent = searchWordLower.charAt(0);
+            consonant.classList.add("xesada");
+            consonantIndex.append(consonant);
+            const consonantConcept = document.createElement("span");
+            consonantConcept.textContent = item.consonantConcept;
+            consonantIndex.append(consonantConcept);
+            details.appendChild(consonantIndex);
+            const p2 = document.createElement("p");
+            const a = document.createElement("a");
+            const span = document.createElement("b");
+            span.classList.add("xesada");
+            span.textContent = item.consonant;
+            a.href = "html_index" + "/" + item.consonantHtmlHref;
+            a.append("子音", span, "の詳細ページ");
+            p2.appendChild(a);
+            details.appendChild(p2);
+        });
+    } catch (error) {
+        console.error(error);
+        const p = document.createElement("p");
+        p.textContent = "データの取得に失敗しました。";
+        p.classList.add("warning");
+        details.appendChild(p);
+    }
+    return details;
+}
+/**
+ * 語根検索を行う関数
+ * @param {String} searchWordLower 検索語の小文字表記
+ * @param {Boolean} isOn 語根検索オプションが`ON`かどうか
+ * @param {Boolean} anyOptionOn いずれかの検索オプションが`ON`かどうか
+ * @returns 語根検索の結果を含む`details`要素
+ * @throws データの取得に失敗した場合のエラー
+ */
+async function rootsSearch(searchWordLower, isOn, anyOptionOn) {
+    const details = document.createElement("details");
+    details.open = isOn || !anyOptionOn;
+    const summary = document.createElement("summary");
+    summary.textContent = "語根検索";
+    details.appendChild(summary);
+    let filename = searchWordLower.charAt(0);
+    try {
+        const data = await fetchFileForSearch(filename);
+        const filtered = filterData(data, searchWordLower, "roots");
+        filtered.forEach(item => {
+            const rootIndex = document.createElement("p");
+            const root = document.createElement("b");
+            root.textContent = item.root;
+            root.classList.add("xesada");
+            rootIndex.append(root);
+            const rootConcept = document.createElement("span");
+            rootConcept.textContent = item.rootConcept;
+            rootIndex.appendChild(rootConcept);
+            details.appendChild(rootIndex);
+            const rootHref = document.createElement("p");
+            const a = document.createElement("a");
+            const span = document.createElement("b");
+            span.classList.add("xesada");
+            span.textContent = item.root;
+            a.href = "html_index" + "/" + item.rootHtmlHref;
+            a.append("語根", span, "の詳細ページ");
+            rootHref.appendChild(a);
+            details.appendChild(rootHref);
+        });
+    } catch (error) {
+        console.error(error);
+        const p = document.createElement("p");
+        p.textContent = "データの取得に失敗しました。";
+        p.classList.add("warning");
+        details.appendChild(p);
+    }
+    return details;
+}
+/**
+ * 単語検索を行う関数
+ * @param {String} searchWordLower 検索語の小文字表記
+ * @param {Boolean} isOn 単語検索オプションが`ON`かどうか
+ * @param {Boolean} anyOptionOn いずれかの検索オプションが`ON`かどうか
+ * @returns 単語検索の結果を含む`details`要素
+ * @throws データの取得に失敗した場合のエラー
+ */
+async function wordsSearch(searchWordLower, isOn, anyOptionOn) {
+    const details = document.createElement("details");
+    details.open = isOn || !anyOptionOn;
+    const summary = document.createElement("summary");
+    summary.textContent = "単語検索";
+    details.appendChild(summary);
+    let filename = searchWordLower.charAt(0) + "/" + [0, 2, 4].map(i => searchWordLower.charAt(i) || "").join("");
+    try {
+        const data = await fetchFileForSearch(filename);
+        const filtered = filterData(data, searchWordLower, "words");
+        filtered.forEach(item => {
+            const wordIndex = document.createElement("p");
+            const index = document.createElement("strong");
+            index.textContent = item.word;
+            index.classList.add("index", "xesada");
+            wordIndex.append(index);
+            const pronunciation = document.createElement("span");
+            pronunciation.textContent = "/" + item.wordPronunciation + "/";
+            pronunciation.classList.add("pronunciation");
+            wordIndex.append(pronunciation);
+            const wordCases = document.createElement("span");
+            wordCases.textContent = item.wordCases;
+            wordCases.classList.add("cases");
+            wordIndex.append(wordCases);
+            const wordPartOfSpeech = document.createElement("span");
+            wordPartOfSpeech.textContent = item.wordPartOfSpeech;
+            wordPartOfSpeech.classList.add("part-of-speech");
+            wordIndex.append(wordPartOfSpeech);
+            details.appendChild(wordIndex);
+            const wordMeaning = document.createElement("p");
+            wordMeaning.textContent = item.wordMeaning;
+            details.appendChild(wordMeaning);
+            const wordLink = document.createElement("p");
+            const a = document.createElement("a");
+            const span = document.createElement("b");
+            span.classList.add("xesada");
+            span.textContent = item.word;
+            a.href = "html_index" + "/" + item.wordHtmlHref + ":~:text=" + encodeURIComponent(item.word) + encodeURIComponent("/" + item.wordPronunciation + "/") + encodeURIComponent(item.wordCases) + encodeURIComponent(item.wordPartOfSpeech);
+            a.append("単語", span, "の詳細ページ");
+            wordLink.appendChild(a);
+            details.appendChild(wordLink);
+        });
+    } catch (error) {
+        console.error(error);
+        const p = document.createElement("p");
+        p.textContent = "データの取得に失敗しました。";
+        p.classList.add("warning");
+        details.appendChild(p);
+    }
+    return details;
+}
+/**
+ * 検索語に応じて`JSON`ファイルをフェッチする関数
+ * @param {String} searchWord 検索語
+ * @returns フェッチしたデータの`JSON`オブジェクト
+ * @throws ファイルが見つからない場合のエラー
+ * @throws ネットワークエラーなどのフェッチ失敗の場合のエラー
+ */
+async function fetchFileForSearch(searchWord) {
+    const filename = "json_index" + "/" + encodeURIComponent(searchWord) + ".json";
+    const response = await fetch(filename);
+    if (!response.ok) {
+        throw new Error("ファイルが見つかりません");
+    }
+    return await response.json();
+}
+/**
+ * 検索語句をフィルタリングする関数
+ * @param {Object} data 検索対象のデータ
+ * @param {String} searchWord 検索語
+ * @param {String} type 検索タイプ
+ * @returns フィルタリングされたデータの配列
+ * @throws 不正な検索タイプの場合のエラー
+ */
+function filterData(data, searchWord, type) {
+    const wordLower = searchWord.toLowerCase();
+    switch (type) {
+        case "consonants":
+            return data.consonants.filter(item =>
+                item.consonant.toLowerCase() === wordLower.charAt(0)
+            );
+        case "roots":
+            return data.roots.filter(item =>
+                item.root.toLowerCase() === [0, 2, 4].map(i => wordLower.charAt(i) || "").join("")
+            );
+        case "words":
+            return data.words.filter(item =>
+                item.word.toLowerCase() === wordLower
+            );
+        default:
+            return [];
+    }
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addCircle">addCircle</a></li><li><a href="global.html#addStyle">addStyle</a></li><li><a href="global.html#cantillationConceptArray">cantillationConceptArray</a></li><li><a href="global.html#cantillationMarkArray">cantillationMarkArray</a></li><li><a href="global.html#cantillationPronunciationArray">cantillationPronunciationArray</a></li><li><a href="global.html#consonantArray">consonantArray</a></li><li><a href="global.html#consonantConceptArray">consonantConceptArray</a></li><li><a href="global.html#consonantPlaceArray">consonantPlaceArray</a></li><li><a href="global.html#consonantPolarityArray">consonantPolarityArray</a></li><li><a href="global.html#consonantPronunciationArray">consonantPronunciationArray</a></li><li><a href="global.html#consonantRowArray">consonantRowArray</a></li><li><a href="global.html#consonantsSearch">consonantsSearch</a></li><li><a href="global.html#fetchFileForSearch">fetchFileForSearch</a></li><li><a href="global.html#filterData">filterData</a></li><li><a href="global.html#generate">generate</a></li><li><a href="global.html#generateConsonant">generateConsonant</a></li><li><a href="global.html#generateConsonantDirectory">generateConsonantDirectory</a></li><li><a href="global.html#generateIndex">generateIndex</a></li><li><a href="global.html#generateRoot">generateRoot</a></li><li><a href="global.html#getMinMax">getMinMax</a></li><li><a href="global.html#lowerTongueConceptArray">lowerTongueConceptArray</a></li><li><a href="global.html#lowerTongueConsonantArray">lowerTongueConsonantArray</a></li><li><a href="global.html#middleTongueConceptArray">middleTongueConceptArray</a></li><li><a href="global.html#middleTongueConsonantArray">middleTongueConsonantArray</a></li><li><a href="global.html#rootsSearch">rootsSearch</a></li><li><a href="global.html#upperTongueConceptArray">upperTongueConceptArray</a></li><li><a href="global.html#upperTongueConsonantArray">upperTongueConsonantArray</a></li><li><a href="global.html#vowelArray">vowelArray</a></li><li><a href="global.html#vowelBacknessArray">vowelBacknessArray</a></li><li><a href="global.html#vowelCaseArray">vowelCaseArray</a></li><li><a href="global.html#vowelPartOfSpeechHorizontalTypeArray">vowelPartOfSpeechHorizontalTypeArray</a></li><li><a href="global.html#vowelPartOfSpeechTypeArray">vowelPartOfSpeechTypeArray</a></li><li><a href="global.html#vowelPartOfSpeechVerticalTypeArray">vowelPartOfSpeechVerticalTypeArray</a></li><li><a href="global.html#vowelPronunciationArray">vowelPronunciationArray</a></li><li><a href="global.html#vowelRoundednessArray">vowelRoundednessArray</a></li><li><a href="global.html#wordsSearch">wordsSearch</a></li><li><a href="global.html#writeSVG">writeSVG</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Sun May 24 2026 23:08:31 GMT+0900 (日本標準時)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
