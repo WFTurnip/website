@@ -12,7 +12,7 @@ F&FGA- B-&B-<CD- C>B-A-B- GA-B-F A-GA-<C> B-A-GA- GFF-F G&GC&C
 FF-FG A-GA-B- <C>B-<E-D- C>B-A-B- GA-B-F A-GA-<C> B-A-GA- FGFF-
 F&FG&G A-&A-B-&B- <C&CD-C> B-A-B-<C> GB-A-G FF-FG A-GB-A- GFEC
 <C>B-<CD- C>B-A-B- <C>GB-A- GFF-F GCFC GCA-C B-CA-C GCFE
-F&FA-&A- <C&CD-&D-> <C&C>B-&B- G&G B-&B- A-&A- G&G F&F A-&A- G&G<C>B- A-GFE
+F&FA-&A- <C&CD-&D-><C&C>B-&B- G&G B-&B- A-&A- G&G F&F A-&A- G&G<C>B- A-GFE
 A-&A-<C&C E-&E-E&E E-&E- D-&D-> B-&B-<D-&D- C&C>B-&B- A-&A-<C&C> B-&B-<E-D- C>B-A-G
 :/
 ;
@@ -28,7 +28,7 @@ F&FGA- B-&B-<CD- C>B-A-B- GA-B-F A-GA-<C> B-A-GA- GFF-F G&GC&C
 FF-FG A-GA-B- <C>B-<E-D- C>B-A-B- GA-B-F A-GA-<C> B-A-GA- FGFF-
 F&FG&G A-&A-B-&B- <C&CD-C> B-A-B-<C> GB-A-G FF-FG A-GB-A- GFEC
 <C>B-<CD- C>B-A-B- <C>GB-A- GFF-F GCFC GCA-C B-CA-C GCFE
-F&FA-&A- <C&CD-&D-> <C&C>B-&B- G&G B-&B- A-&A- G&G F&F A-&A- G&G <C>B-A-GFE
+F&FA-&A- <C&CD-&D-><C&C>B-&B- G&G B-&B- A-&A- G&G F&F A-&A- G&G <C>B-A-GFE
 :/
 ;
 @10-1
