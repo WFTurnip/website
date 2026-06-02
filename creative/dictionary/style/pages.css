@@ -43,11 +43,11 @@
     }
 
     .diacritic,
-    .off {
+    .false {
         color: #ee0000;
     }
 
-    .on {
+    .true {
         color: #0000ee;
     }
 
@@ -120,11 +120,11 @@
     }
 
     .diacritic,
-    .off {
+    .false {
         color: #ff0000;
     }
 
-    .on {
+    .true {
         color: #0000ff;
     }
 

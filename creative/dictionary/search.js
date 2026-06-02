@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const parameters = new URLSearchParams(window.location.search);
     const searchWord = parameters.get("searchInput") || "";
     const searchWordLower = searchWord.toLowerCase();
-    const consonants = parameters.get("consonants") === "ON";
-    const roots = parameters.get("roots") === "ON";
-    const words = parameters.get("words") === "ON";
+    const consonants = parameters.get("consonants") === "true";
+    const roots = parameters.get("roots") === "true";
+    const words = parameters.get("words") === "true";
     document.getElementById("searchInput").value = searchWord;
     document.getElementById("consonants").checked = consonants;
     document.getElementById("roots").checked = roots;
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     resultContainer.innerHTML = "";
     if (!searchWord) {
         const message = document.createElement("p");
-        message.textContent = "検索語が入力されていませんので、検索を行いません。";
+        message.textContent = "検索語が入力されていないので、検索を行いません。";
         message.classList.add("warning");
         searchResultContainer.appendChild(message);
         return;
@@ -32,31 +32,37 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     if (!consonants && !roots && !words) {
         const message = document.createElement("p");
-        message.textContent = "オプションが選択されていないので、絞り込み検索を行いません。";
+        message.textContent = "絞込設定が選択されていないので、絞り込み検索を行いません。";
         message.classList.add("warning");
         searchOptionContainer.appendChild(message);
     } else {
-        const p = document.createElement("p");
-        p.classList.add("options");
+        const menu = document.createElement("menu");
+        menu.classList.add("options");
         /**
-         * 検索オプションのスパンを作成する関数
+         * 絞込設定の表示要素を作成する関数
          * @param {String} label ラベル
-         * @param {Boolean} isOn `ON`かどうか
-         * @returns {HTMLElement} 作成されたスパン要素
+         * @param {Boolean} isSwitch `ON`かどうか
+         * @returns {HTMLElement} 作成された表示要素
          */
-        const createOptionSpan = (label, isOn) => {
+        const createOptionSpan = (label, isSwitch) => {
             const span = document.createElement("span");
             span.textContent = label;
             const strong = document.createElement("strong");
-            strong.textContent = isOn ? "ON" : "OFF";
-            strong.classList.add(isOn ? "on" : "off");
+            strong.textContent = isSwitch ? "真" : "偽";
+            strong.classList.add(isSwitch ? "true" : "false");
             span.appendChild(strong);
             return span;
         }
-        p.appendChild(createOptionSpan("子音検索: ", consonants));
-        p.appendChild(createOptionSpan("語根検索: ", roots));
-        p.appendChild(createOptionSpan("単語検索: ", words));
-        searchOptionContainer.appendChild(p);
+        let consonantsOption = document.createElement("li");
+        let rootsOption = document.createElement("li");
+        let wordsOption = document.createElement("li");
+        consonantsOption.appendChild(createOptionSpan("子音検索：", consonants));
+        rootsOption.appendChild(createOptionSpan("語根検索：", roots));
+        wordsOption.appendChild(createOptionSpan("単語検索：", words));
+        menu.appendChild(consonantsOption);
+        menu.appendChild(rootsOption);
+        menu.appendChild(wordsOption);
+        searchOptionContainer.appendChild(menu);
     }
     const anyOptionOn = consonants || roots || words;
     resultContainer.appendChild(await consonantsSearch(searchWordLower, consonants, anyOptionOn));
@@ -66,14 +72,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 /**
  * 子音検索を行う関数
  * @param {String} searchWordLower 検索語の小文字表記
- * @param {Boolean} isOn 子音検索オプションが`ON`かどうか
- * @param {Boolean} anyOptionOn いずれかの検索オプションが`ON`かどうか
+ * @param {Boolean} isSwitch 子音絞込設定が`ON`かどうか
+ * @param {Boolean} anyOptionOn いずれかの絞込設定が`ON`かどうか
  * @returns 子音検索の結果を含む`details`要素
- * @throws データの取得に失敗した場合のエラー
+ * @throws 子音の取得に失敗した場合のエラー
  */
-async function consonantsSearch(searchWordLower, isOn, anyOptionOn) {
+async function consonantsSearch(searchWordLower, isSwitch, anyOptionOn) {
     const details = document.createElement("details");
-    details.open = isOn || !anyOptionOn;
+    details.open = isSwitch || !anyOptionOn;
     const summary = document.createElement("summary");
     summary.textContent = "子音検索";
     details.appendChild(summary);
@@ -104,7 +110,7 @@ async function consonantsSearch(searchWordLower, isOn, anyOptionOn) {
     } catch (error) {
         console.error(error);
         const p = document.createElement("p");
-        p.textContent = "データの取得に失敗しました。";
+        p.textContent = "子音の取得に失敗しました。";
         p.classList.add("warning");
         details.appendChild(p);
     }
@@ -113,14 +119,14 @@ async function consonantsSearch(searchWordLower, isOn, anyOptionOn) {
 /**
  * 語根検索を行う関数
  * @param {String} searchWordLower 検索語の小文字表記
- * @param {Boolean} isOn 語根検索オプションが`ON`かどうか
- * @param {Boolean} anyOptionOn いずれかの検索オプションが`ON`かどうか
+ * @param {Boolean} isSwitch 語根絞込設定が`ON`かどうか
+ * @param {Boolean} anyOptionOn いずれかの絞込設定が`ON`かどうか
  * @returns 語根検索の結果を含む`details`要素
- * @throws データの取得に失敗した場合のエラー
+ * @throws 語根の取得に失敗した場合のエラー
  */
-async function rootsSearch(searchWordLower, isOn, anyOptionOn) {
+async function rootsSearch(searchWordLower, isSwitch, anyOptionOn) {
     const details = document.createElement("details");
-    details.open = isOn || !anyOptionOn;
+    details.open = isSwitch || !anyOptionOn;
     const summary = document.createElement("summary");
     summary.textContent = "語根検索";
     details.appendChild(summary);
@@ -151,7 +157,7 @@ async function rootsSearch(searchWordLower, isOn, anyOptionOn) {
     } catch (error) {
         console.error(error);
         const p = document.createElement("p");
-        p.textContent = "データの取得に失敗しました。";
+        p.textContent = "語根の取得に失敗しました。";
         p.classList.add("warning");
         details.appendChild(p);
     }
@@ -160,14 +166,14 @@ async function rootsSearch(searchWordLower, isOn, anyOptionOn) {
 /**
  * 単語検索を行う関数
  * @param {String} searchWordLower 検索語の小文字表記
- * @param {Boolean} isOn 単語検索オプションが`ON`かどうか
- * @param {Boolean} anyOptionOn いずれかの検索オプションが`ON`かどうか
+ * @param {Boolean} isSwitch 単語絞込設定が`ON`かどうか
+ * @param {Boolean} anyOptionOn いずれかの絞込設定が`ON`かどうか
  * @returns 単語検索の結果を含む`details`要素
- * @throws データの取得に失敗した場合のエラー
+ * @throws 単語の取得に失敗した場合のエラー
  */
-async function wordsSearch(searchWordLower, isOn, anyOptionOn) {
+async function wordsSearch(searchWordLower, isSwitch, anyOptionOn) {
     const details = document.createElement("details");
-    details.open = isOn || !anyOptionOn;
+    details.open = isSwitch || !anyOptionOn;
     const summary = document.createElement("summary");
     summary.textContent = "単語検索";
     details.appendChild(summary);
@@ -210,7 +216,7 @@ async function wordsSearch(searchWordLower, isOn, anyOptionOn) {
     } catch (error) {
         console.error(error);
         const p = document.createElement("p");
-        p.textContent = "データの取得に失敗しました。";
+        p.textContent = "単語の取得に失敗しました。";
         p.classList.add("warning");
         details.appendChild(p);
     }
@@ -220,14 +226,13 @@ async function wordsSearch(searchWordLower, isOn, anyOptionOn) {
  * 検索語に応じて`JSON`ファイルをフェッチする関数
  * @param {String} searchWord 検索語
  * @returns フェッチしたデータの`JSON`オブジェクト
- * @throws ファイルが見つからない場合のエラー
- * @throws ネットワークエラーなどのフェッチ失敗の場合のエラー
+ * @throws 檔案が見つからない場合のエラー
  */
 async function fetchFileForSearch(searchWord) {
     const filename = "json_index" + "/" + encodeURIComponent(searchWord) + ".json";
     const response = await fetch(filename);
     if (!response.ok) {
-        throw new Error("ファイルが見つかりません");
+        throw new Error("檔案が見つかりません");
     }
     return await response.json();
 }
@@ -243,17 +248,11 @@ function filterData(data, searchWord, type) {
     const wordLower = searchWord.toLowerCase();
     switch (type) {
         case "consonants":
-            return data.consonants.filter(item =>
-                item.consonant.toLowerCase() === wordLower.charAt(0)
-            );
+            return data.consonants.filter(item => item.consonant.toLowerCase() === wordLower.charAt(0));
         case "roots":
-            return data.roots.filter(item =>
-                item.root.toLowerCase() === [0, 2, 4].map(i => wordLower.charAt(i) || "").join("")
-            );
+            return data.roots.filter(item => item.root.toLowerCase() === [0, 2, 4].map(i => wordLower.charAt(i) || "").join(""));
         case "words":
-            return data.words.filter(item =>
-                item.word.toLowerCase() === wordLower
-            );
+            return data.words.filter(item => item.word.toLowerCase() === wordLower);
         default:
             return [];
     }
