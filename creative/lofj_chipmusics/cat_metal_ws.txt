@@ -1,0 +1,123 @@
+#TITLE CAT METAL WS
+$LOOP = 1;
+T175
+R1
+@10-1
+O5
+/:4L16/:2AR:/L8<C>A<DE-E>ARA<C>AL4<E-D>:/
+/:4L16/:2AR:/L8<C>A<DE-E>ARA<C>AL4<E-D>:/
+/:$LOOP
+O5
+/:2
+/:2
+L8A/:2L8EGL4A:/L8EGAL4<C>A/:4L8GL4A://L4<DC>
+:/
+L8<EE-DC>
+:/
+O4
+/:2
+L4A1&A2<CD><E-4.E8&E1><E-DC1&C2D>G/A1&A1
+:/
+L16/:2AR:/L8<C>A<DE-E>ARA<C>AL4<E-D>
+O5
+/:2
+/:2
+L4A1&A2<C>G
+:/
+A<CDE->/<EE-DC><D>A8<C>GA8&A1
+:/
+<EE-EGA1&A1>
+/:8L16/:2AR:/L8<C>A<DE-E>ARA<C>AL4<E-D>:/
+:/
+;
+R1
+@10-0
+O3
+L1
+/:4R1:/
+L8
+/:2
+/:12A:/
+/:2<C>:/
+/:2G:/
+:/
+/:4
+/:6A<A>:/
+/:1<C<C>>:/
+/:1G<G>:/
+:/
+/:$LOOP
+/:4
+L8
+/:12A:/DEGA
+/:8A:/<C>
+L4G
+L8ARA<CD>
+:/
+/:4
+/:12A:/DEGA
+/:12A://:2<C>://:2G:/
+:/
+/:8
+/:12A://:2<C>://:2G:/
+:/
+/:8/:6A<A>://:1<C<C>>://:1G<G>:/
+:/
+:/
+;
+R1
+@10-2
+O4
+L1
+/:4R1:/
+/:2
+L16
+/:2AR:/
+L8
+<C>A<DE-E>
+ARA<C>A
+L4
+<E-D>
+:/
+/:4
+L16
+/:2AR:/
+L8
+<C>A<DE-E>
+ARA<C>A
+L4
+<E-D>
+:/
+/:$LOOP
+O5
+L16
+/:8/:2ER://:2E-R://:2DR://:2E-R:/:/
+/:8/:2<A>R://:2<A->R://:2<G>R://:2<A->R:/:/
+O5
+/:8L16/:2AR:/L8<C>A<DE-E>ARA<C>AL4<E-D>:/
+O4
+/:8L16/:2AR:/L8<C>A<DE-E>ARA<C>AL4<E-D>:/
+O5
+L16
+/:8/:2ER://:2E-R://:2DR://:2E-R:/:/
+/:8/:2<A>R://:2<A->R://:2<G>R://:2<A->R:/:/
+:/
+;
+@11
+O0
+L32
+/:/:AR://:CR:/://:8AR:/
+/:16FR/:3D-R:/:/
+/:6FR/:3D-R:/A&A/:3D-R:/://:4ARRR://:8AR:/
+/:7DR RR CR RR A&A RR CR RR DR RR DR RR A&A RR CR RR://:4A&A&A&ARRRR:/
+/:$LOOP
+/:31DR RR CR RR A&A RR CR RR://:8AR:/
+/:15DR RR CR RR A&A RR CR RR DR RR DR RR A&A RR CR RR://:4A&A&A&ARRRR:/
+/:32DR RR CR RR:/
+/:15DR RR CR RR A&A RR CR RR://:8AR:/
+/:15DR RR CR RR A&A RR CR RR DR RR DR RR A&A RR CR RR://:4A&A&A&ARRRR:/
+:/
+#WAV10 0,1357 9B97 5311 3579 BDFD B975 3113 5310
+#WAV10 1,1357 9BDF FFEE DDCC BAA9 9887 6544 3210
+#WAV10 2,1112 2233 3445 5779 9ABC DEFC 8655 4421
+#WAV10 3,77BF C536 B775 009B B778 8FF8 4235 A950
