@@ -10,7 +10,7 @@
 
 ## ここにあるもの
 
-* [創作系の扉](https://wfturnip.github.io/Website/creative.html)
-* [ソフトウェア系の扉](https://wfturnip.github.io/Website/software.html)
-* [たーなっぷについて](https://wfturnip.github.io/Website/about.html)
-* [お問い合わせ](https://wfturnip.github.io/Website/contact.html)
+* [創作系の扉](https://wfturnip.github.io/website/creative.html)
+* [ソフトウェア系の扉](https://wfturnip.github.io/website/software.html)
+* [たーなっぷについて](https://wfturnip.github.io/website/about.html)
+* [お問い合わせ](https://wfturnip.github.io/website/contact.html)
