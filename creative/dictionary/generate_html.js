@@ -385,9 +385,9 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
         for (let firstVowel = 0; firstVowel < vowelArray.length; firstVowel++) {
             for (let secondVowel = 0; secondVowel < vowelArray.length; secondVowel++) {
                 let dt = document.createElement("dt");
-                dt.id = consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
                 let word = document.createElement("b");
                 word.classList.add("xesada");
+                word.id = consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
                 word.textContent = consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
                 dt.appendChild(word);
                 let wordPronunciation = document.createElement("b");
