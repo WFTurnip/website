@@ -44,21 +44,21 @@ document.addEventListener("DOMContentLoaded", async () => {
          * @param {Boolean} isSwitch `ON`かどうか
          * @returns {HTMLElement} 作成された表示要素
          */
-        const createOptionSpan = (label, isSwitch) => {
-            const span = document.createElement("li");
-            span.textContent = label;
+        const createOptionList = (label, isSwitch) => {
+            const li = document.createElement("li");
+            li.textContent = label;
             const strong = document.createElement("strong");
             strong.textContent = isSwitch ? "真" : "偽";
             strong.classList.add(isSwitch ? "true" : "false");
-            span.appendChild(strong);
-            return span;
+            li.appendChild(strong);
+            return li;
         }
         let consonantsOption = document.createElement("li");
         let rootsOption = document.createElement("li");
         let wordsOption = document.createElement("li");
-        consonantsOption.appendChild(createOptionSpan("子音検索：", consonants));
-        rootsOption.appendChild(createOptionSpan("語根検索：", roots));
-        wordsOption.appendChild(createOptionSpan("単語検索：", words));
+        consonantsOption.appendChild(createOptionList("子音検索：", consonants));
+        rootsOption.appendChild(createOptionList("語根検索：", roots));
+        wordsOption.appendChild(createOptionList("単語検索：", words));
         menu.appendChild(consonantsOption);
         menu.appendChild(rootsOption);
         menu.appendChild(wordsOption);
