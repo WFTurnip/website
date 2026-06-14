@@ -32,7 +32,7 @@ async function generateIndex() {
 }
 /**
  * 指定された子音のJSONファイルを生成する関数
- * @param {Number} firstConsonant 第一子音のインデックス
+ * @param {Number} firstConsonant 第一子音の`index`
  * @returns {Promise<void>}
  */
 async function generateConsonant(firstConsonant) {
@@ -58,7 +58,7 @@ async function generateConsonant(firstConsonant) {
 }
 /**
  * 指定された子音のディレクトリを生成する関数
- * @param {Number} firstConsonant 第一子音のインデックス
+ * @param {Number} firstConsonant 第一子音の`index`
  * @returns {Promise<void>}
  */
 async function generateConsonantDirectory(firstConsonant) {
@@ -72,9 +72,9 @@ async function generateConsonantDirectory(firstConsonant) {
 }
 /**
  * 指定された語根のJSONファイルを生成する関数
- * @param {Number} firstConsonant 第一子音のインデックス
- * @param {Number} secondConsonant 第二子音のインデックス
- * @param {Number} thirdConsonant 第三子音のインデックス
+ * @param {Number} firstConsonant 第一子音の`index`
+ * @param {Number} secondConsonant 第二子音の`index`
+ * @param {Number} thirdConsonant 第三子音の`index`
  * @returns {Promise<void>}
  */
 async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {

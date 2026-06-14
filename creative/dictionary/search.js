@@ -41,45 +41,39 @@ document.addEventListener("DOMContentLoaded", async () => {
         /**
          * 絞込設定の表示要素を作成する関数
          * @param {String} label ラベル
-         * @param {Boolean} isSwitch `ON`かどうか
+         * @param {Boolean} isTrue `true`かどうか
          * @returns {HTMLElement} 作成された表示要素
          */
-        const createOptionList = (label, isSwitch) => {
+        const createOptionList = (label, isTrue) => {
             const li = document.createElement("li");
             li.textContent = label;
             const strong = document.createElement("strong");
-            strong.textContent = isSwitch ? "真" : "偽";
-            strong.classList.add(isSwitch ? "true" : "false");
+            strong.textContent = isTrue ? "真" : "偽";
+            strong.classList.add(isTrue ? "true" : "false");
             li.appendChild(strong);
             return li;
         }
-        let consonantsOption = document.createElement("li");
-        let rootsOption = document.createElement("li");
-        let wordsOption = document.createElement("li");
-        consonantsOption.appendChild(createOptionList("子音検索：", consonants));
-        rootsOption.appendChild(createOptionList("語根検索：", roots));
-        wordsOption.appendChild(createOptionList("単語検索：", words));
-        menu.appendChild(consonantsOption);
-        menu.appendChild(rootsOption);
-        menu.appendChild(wordsOption);
+        menu.appendChild(createOptionList("子音検索：", consonants));
+        menu.appendChild(createOptionList("語根検索：", roots));
+        menu.appendChild(createOptionList("単語検索：", words));
         searchOptionContainer.appendChild(menu);
     }
-    const anyOptionOn = consonants || roots || words;
-    resultContainer.appendChild(await consonantsSearch(searchWordLower, consonants, anyOptionOn));
-    resultContainer.appendChild(await rootsSearch(searchWordLower, roots, anyOptionOn));
-    resultContainer.appendChild(await wordsSearch(searchWordLower, words, anyOptionOn));
+    const anyOptionTrue = consonants || roots || words;
+    resultContainer.appendChild(await consonantsSearch(searchWordLower, consonants, anyOptionTrue));
+    resultContainer.appendChild(await rootsSearch(searchWordLower, roots, anyOptionTrue));
+    resultContainer.appendChild(await wordsSearch(searchWordLower, words, anyOptionTrue));
 });
 /**
  * 子音検索を行う関数
  * @param {String} searchWordLower 検索語の小文字表記
- * @param {Boolean} isSwitch 子音絞込設定が`ON`かどうか
- * @param {Boolean} anyOptionOn いずれかの絞込設定が`ON`かどうか
+ * @param {Boolean} isTrue 子音絞込設定が`true`かどうか
+ * @param {Boolean} anyOptionTrue いずれかの絞込設定が`true`かどうか
  * @returns 子音検索の結果を含む`details`要素
  * @throws 子音の取得に失敗した場合のエラー
  */
-async function consonantsSearch(searchWordLower, isSwitch, anyOptionOn) {
+async function consonantsSearch(searchWordLower, isTrue, anyOptionTrue) {
     const details = document.createElement("details");
-    details.open = isSwitch || !anyOptionOn;
+    details.open = isTrue || !anyOptionTrue;
     const summary = document.createElement("summary");
     summary.textContent = "子音検索";
     details.appendChild(summary);
@@ -119,14 +113,14 @@ async function consonantsSearch(searchWordLower, isSwitch, anyOptionOn) {
 /**
  * 語根検索を行う関数
  * @param {String} searchWordLower 検索語の小文字表記
- * @param {Boolean} isSwitch 語根絞込設定が`ON`かどうか
- * @param {Boolean} anyOptionOn いずれかの絞込設定が`ON`かどうか
+ * @param {Boolean} isTrue 語根絞込設定が`true`かどうか
+ * @param {Boolean} anyOptionTrue いずれかの絞込設定が`true`かどうか
  * @returns 語根検索の結果を含む`details`要素
  * @throws 語根の取得に失敗した場合のエラー
  */
-async function rootsSearch(searchWordLower, isSwitch, anyOptionOn) {
+async function rootsSearch(searchWordLower, isTrue, anyOptionTrue) {
     const details = document.createElement("details");
-    details.open = isSwitch || !anyOptionOn;
+    details.open = isTrue || !anyOptionTrue;
     const summary = document.createElement("summary");
     summary.textContent = "語根検索";
     details.appendChild(summary);
@@ -166,14 +160,14 @@ async function rootsSearch(searchWordLower, isSwitch, anyOptionOn) {
 /**
  * 単語検索を行う関数
  * @param {String} searchWordLower 検索語の小文字表記
- * @param {Boolean} isSwitch 単語絞込設定が`ON`かどうか
- * @param {Boolean} anyOptionOn いずれかの絞込設定が`ON`かどうか
+ * @param {Boolean} isTrue 単語絞込設定が`true`かどうか
+ * @param {Boolean} anyOptionTrue いずれかの絞込設定が`true`かどうか
  * @returns 単語検索の結果を含む`details`要素
  * @throws 単語の取得に失敗した場合のエラー
  */
-async function wordsSearch(searchWordLower, isSwitch, anyOptionOn) {
+async function wordsSearch(searchWordLower, isTrue, anyOptionTrue) {
     const details = document.createElement("details");
-    details.open = isSwitch || !anyOptionOn;
+    details.open = isTrue || !anyOptionTrue;
     const summary = document.createElement("summary");
     summary.textContent = "単語検索";
     details.appendChild(summary);

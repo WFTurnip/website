@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>JSDoc: Source: search.js</title>
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]-->
-    <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
-    <!--[endif]-->
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
 
 <body>
-    <div id="main">
-        <h1 class="page-title">Source: search.js</h1>
-        <section>
-            <article>
-                <pre class="prettyprint source linenums"><code>document.addEventListener("DOMContentLoaded", async () => {
+
+<div id="main">
+
+    <h1 class="page-title">Source: search.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>document.addEventListener("DOMContentLoaded", async () => {
     const parameters = new URLSearchParams(window.location.search);
     const searchWord = parameters.get("searchInput") || "";
     const searchWordLower = searchWord.toLowerCase();
@@ -61,45 +69,39 @@
         /**
          * 絞込設定の表示要素を作成する関数
          * @param {String} label ラベル
-         * @param {Boolean} isSwitch `ON`かどうか
+         * @param {Boolean} isTrue `true`かどうか
          * @returns {HTMLElement} 作成された表示要素
          */
-        const createOptionSpan = (label, isSwitch) => {
-            const span = document.createElement("span");
-            span.textContent = label;
+        const createOptionList = (label, isTrue) => {
+            const li = document.createElement("li");
+            li.textContent = label;
             const strong = document.createElement("strong");
-            strong.textContent = isSwitch ? "真" : "偽";
-            strong.classList.add(isSwitch ? "true" : "false");
-            span.appendChild(strong);
-            return span;
+            strong.textContent = isTrue ? "真" : "偽";
+            strong.classList.add(isTrue ? "true" : "false");
+            li.appendChild(strong);
+            return li;
         }
-        let consonantsOption = document.createElement("li");
-        let rootsOption = document.createElement("li");
-        let wordsOption = document.createElement("li");
-        consonantsOption.appendChild(createOptionSpan("子音検索：", consonants));
-        rootsOption.appendChild(createOptionSpan("語根検索：", roots));
-        wordsOption.appendChild(createOptionSpan("単語検索：", words));
-        menu.appendChild(consonantsOption);
-        menu.appendChild(rootsOption);
-        menu.appendChild(wordsOption);
+        menu.appendChild(createOptionList("子音検索：", consonants));
+        menu.appendChild(createOptionList("語根検索：", roots));
+        menu.appendChild(createOptionList("単語検索：", words));
         searchOptionContainer.appendChild(menu);
     }
-    const anyOptionOn = consonants || roots || words;
-    resultContainer.appendChild(await consonantsSearch(searchWordLower, consonants, anyOptionOn));
-    resultContainer.appendChild(await rootsSearch(searchWordLower, roots, anyOptionOn));
-    resultContainer.appendChild(await wordsSearch(searchWordLower, words, anyOptionOn));
+    const anyOptionTrue = consonants || roots || words;
+    resultContainer.appendChild(await consonantsSearch(searchWordLower, consonants, anyOptionTrue));
+    resultContainer.appendChild(await rootsSearch(searchWordLower, roots, anyOptionTrue));
+    resultContainer.appendChild(await wordsSearch(searchWordLower, words, anyOptionTrue));
 });
 /**
  * 子音検索を行う関数
  * @param {String} searchWordLower 検索語の小文字表記
- * @param {Boolean} isSwitch 子音絞込設定が`ON`かどうか
- * @param {Boolean} anyOptionOn いずれかの絞込設定が`ON`かどうか
+ * @param {Boolean} isTrue 子音絞込設定が`true`かどうか
+ * @param {Boolean} anyOptionTrue いずれかの絞込設定が`true`かどうか
  * @returns 子音検索の結果を含む`details`要素
  * @throws 子音の取得に失敗した場合のエラー
  */
-async function consonantsSearch(searchWordLower, isSwitch, anyOptionOn) {
+async function consonantsSearch(searchWordLower, isTrue, anyOptionTrue) {
     const details = document.createElement("details");
-    details.open = isSwitch || !anyOptionOn;
+    details.open = isTrue || !anyOptionTrue;
     const summary = document.createElement("summary");
     summary.textContent = "子音検索";
     details.appendChild(summary);
@@ -139,14 +141,14 @@ async function consonantsSearch(searchWordLower, isSwitch, anyOptionOn) {
 /**
  * 語根検索を行う関数
  * @param {String} searchWordLower 検索語の小文字表記
- * @param {Boolean} isSwitch 語根絞込設定が`ON`かどうか
- * @param {Boolean} anyOptionOn いずれかの絞込設定が`ON`かどうか
+ * @param {Boolean} isTrue 語根絞込設定が`true`かどうか
+ * @param {Boolean} anyOptionTrue いずれかの絞込設定が`true`かどうか
  * @returns 語根検索の結果を含む`details`要素
  * @throws 語根の取得に失敗した場合のエラー
  */
-async function rootsSearch(searchWordLower, isSwitch, anyOptionOn) {
+async function rootsSearch(searchWordLower, isTrue, anyOptionTrue) {
     const details = document.createElement("details");
-    details.open = isSwitch || !anyOptionOn;
+    details.open = isTrue || !anyOptionTrue;
     const summary = document.createElement("summary");
     summary.textContent = "語根検索";
     details.appendChild(summary);
@@ -186,14 +188,14 @@ async function rootsSearch(searchWordLower, isSwitch, anyOptionOn) {
 /**
  * 単語検索を行う関数
  * @param {String} searchWordLower 検索語の小文字表記
- * @param {Boolean} isSwitch 単語絞込設定が`ON`かどうか
- * @param {Boolean} anyOptionOn いずれかの絞込設定が`ON`かどうか
+ * @param {Boolean} isTrue 単語絞込設定が`true`かどうか
+ * @param {Boolean} anyOptionTrue いずれかの絞込設定が`true`かどうか
  * @returns 単語検索の結果を含む`details`要素
  * @throws 単語の取得に失敗した場合のエラー
  */
-async function wordsSearch(searchWordLower, isSwitch, anyOptionOn) {
+async function wordsSearch(searchWordLower, isTrue, anyOptionTrue) {
     const details = document.createElement("details");
-    details.open = isSwitch || !anyOptionOn;
+    details.open = isTrue || !anyOptionTrue;
     const summary = document.createElement("summary");
     summary.textContent = "単語検索";
     details.appendChild(summary);
@@ -276,60 +278,27 @@ function filterData(data, searchWord, type) {
         default:
             return [];
     }
-}</code></pre>
-            </article>
-        </section>
-    </div>
-    <nav>
-        <h2><a href="index.html">Home</a></h2>
-        <h3>Global</h3>
-        <ul>
-            <li><a href="global.html#addCircle">addCircle</a></li>
-            <li><a href="global.html#addStyle">addStyle</a></li>
-            <li><a href="global.html#cantillationConceptArray">cantillationConceptArray</a></li>
-            <li><a href="global.html#cantillationMarkArray">cantillationMarkArray</a></li>
-            <li><a href="global.html#cantillationPronunciationArray">cantillationPronunciationArray</a></li>
-            <li><a href="global.html#consonantArray">consonantArray</a></li>
-            <li><a href="global.html#consonantConceptArray">consonantConceptArray</a></li>
-            <li><a href="global.html#consonantPlaceArray">consonantPlaceArray</a></li>
-            <li><a href="global.html#consonantPolarityArray">consonantPolarityArray</a></li>
-            <li><a href="global.html#consonantPronunciationArray">consonantPronunciationArray</a></li>
-            <li><a href="global.html#consonantRowArray">consonantRowArray</a></li>
-            <li><a href="global.html#consonantsSearch">consonantsSearch</a></li>
-            <li><a href="global.html#fetchFileForSearch">fetchFileForSearch</a></li>
-            <li><a href="global.html#filterData">filterData</a></li>
-            <li><a href="global.html#generate">generate</a></li>
-            <li><a href="global.html#generateConsonant">generateConsonant</a></li>
-            <li><a href="global.html#generateConsonantDirectory">generateConsonantDirectory</a></li>
-            <li><a href="global.html#generateIndex">generateIndex</a></li>
-            <li><a href="global.html#generateRoot">generateRoot</a></li>
-            <li><a href="global.html#getMinMax">getMinMax</a></li>
-            <li><a href="global.html#lowerTongueConceptArray">lowerTongueConceptArray</a></li>
-            <li><a href="global.html#lowerTongueConsonantArray">lowerTongueConsonantArray</a></li>
-            <li><a href="global.html#middleTongueConceptArray">middleTongueConceptArray</a></li>
-            <li><a href="global.html#middleTongueConsonantArray">middleTongueConsonantArray</a></li>
-            <li><a href="global.html#rootsSearch">rootsSearch</a></li>
-            <li><a href="global.html#upperTongueConceptArray">upperTongueConceptArray</a></li>
-            <li><a href="global.html#upperTongueConsonantArray">upperTongueConsonantArray</a></li>
-            <li><a href="global.html#vowelArray">vowelArray</a></li>
-            <li><a href="global.html#vowelBacknessArray">vowelBacknessArray</a></li>
-            <li><a href="global.html#vowelCaseArray">vowelCaseArray</a></li>
-            <li><a href="global.html#vowelPartOfSpeechHorizontalTypeArray">vowelPartOfSpeechHorizontalTypeArray</a></li>
-            <li><a href="global.html#vowelPartOfSpeechTypeArray">vowelPartOfSpeechTypeArray</a></li>
-            <li><a href="global.html#vowelPartOfSpeechVerticalTypeArray">vowelPartOfSpeechVerticalTypeArray</a></li>
-            <li><a href="global.html#vowelPronunciationArray">vowelPronunciationArray</a></li>
-            <li><a href="global.html#vowelRoundednessArray">vowelRoundednessArray</a></li>
-            <li><a href="global.html#wordsSearch">wordsSearch</a></li>
-            <li><a href="global.html#writeSVG">writeSVG</a></li>
-        </ul>
-    </nav>
-    <br class="clear">
-    <footer>
-        Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Tue Jun 02 2026 21:04:09
-        GMT+0900 (日本標準時)
-    </footer>
-    <script> prettyPrint(); </script>
-    <script src="scripts/linenumber.js"></script>
-</body>
+}
+</code></pre>
+        </article>
+    </section>
 
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addCircle">addCircle</a></li><li><a href="global.html#addStyle">addStyle</a></li><li><a href="global.html#cantillationConceptArray">cantillationConceptArray</a></li><li><a href="global.html#cantillationMarkArray">cantillationMarkArray</a></li><li><a href="global.html#cantillationPronunciationArray">cantillationPronunciationArray</a></li><li><a href="global.html#consonantArray">consonantArray</a></li><li><a href="global.html#consonantConceptArray">consonantConceptArray</a></li><li><a href="global.html#consonantPlaceArray">consonantPlaceArray</a></li><li><a href="global.html#consonantPolarityArray">consonantPolarityArray</a></li><li><a href="global.html#consonantPronunciationArray">consonantPronunciationArray</a></li><li><a href="global.html#consonantRowArray">consonantRowArray</a></li><li><a href="global.html#consonantsSearch">consonantsSearch</a></li><li><a href="global.html#fetchFileForSearch">fetchFileForSearch</a></li><li><a href="global.html#filterData">filterData</a></li><li><a href="global.html#generate">generate</a></li><li><a href="global.html#generateConsonant">generateConsonant</a></li><li><a href="global.html#generateConsonantDirectory">generateConsonantDirectory</a></li><li><a href="global.html#generateIndex">generateIndex</a></li><li><a href="global.html#generateRoot">generateRoot</a></li><li><a href="global.html#getMinMax">getMinMax</a></li><li><a href="global.html#lowerTongueConceptArray">lowerTongueConceptArray</a></li><li><a href="global.html#lowerTongueConsonantArray">lowerTongueConsonantArray</a></li><li><a href="global.html#middleTongueConceptArray">middleTongueConceptArray</a></li><li><a href="global.html#middleTongueConsonantArray">middleTongueConsonantArray</a></li><li><a href="global.html#rootsSearch">rootsSearch</a></li><li><a href="global.html#upperTongueConceptArray">upperTongueConceptArray</a></li><li><a href="global.html#upperTongueConsonantArray">upperTongueConsonantArray</a></li><li><a href="global.html#vowelArray">vowelArray</a></li><li><a href="global.html#vowelBacknessArray">vowelBacknessArray</a></li><li><a href="global.html#vowelCaseArray">vowelCaseArray</a></li><li><a href="global.html#vowelPartOfSpeechHorizontalTypeArray">vowelPartOfSpeechHorizontalTypeArray</a></li><li><a href="global.html#vowelPartOfSpeechTypeArray">vowelPartOfSpeechTypeArray</a></li><li><a href="global.html#vowelPartOfSpeechVerticalTypeArray">vowelPartOfSpeechVerticalTypeArray</a></li><li><a href="global.html#vowelPronunciationArray">vowelPronunciationArray</a></li><li><a href="global.html#vowelRoundednessArray">vowelRoundednessArray</a></li><li><a href="global.html#wordsSearch">wordsSearch</a></li><li><a href="global.html#writeSVG">writeSVG</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Sun Jun 14 2026 17:11:08 GMT+0900 (日本標準時)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
 </html>

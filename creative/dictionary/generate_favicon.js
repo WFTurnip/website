@@ -6,8 +6,8 @@ const consonantArray = ["k", "g", "t", "d", "s", "z", "q", "c", "r", "l", "p", "
 const minMaxMap = [[-4, -1], [-4, -1], [-3, 0], [-3, 0], [-2, 1], [-2, 1], [-5, -2], [-5, -2], [0, 8], [0, 8], [-1, 2], [-1, 2], [2, 5], [2, 5], [1, 4], [1, 4], [0, 3], [0, 3]];
 const circleStyle = "@media(prefers-color-scheme: light){circle{fill: #000000;}}@media(prefers-color-scheme: dark){circle{fill: #c99410;}}";
 /**
- * 指定された子音のインデックスに対応する最小値と最大値を返す関数
- * @param {Number} i 子音のインデックス
+ * 指定された子音の`index`に対応する最小値と最大値を返す関数
+ * @param {Number} i 子音の`index`
  * @returns `minMaxMap`配列の`i`番目の要素、存在しない場合は`[0, 0]`を返す関数
  */
 function getMinMax(i) {
@@ -54,9 +54,9 @@ async function writeSVG(filename, svg) {
     }
 }
 /**
- * ファビコンディレクトリを生成する関数
+ * `favicon`ディレクトリを生成する関数
  *
- * ディレクトリ内には、子ディレクトリである子ファビコンファイルへのリンクが含まれる
+ * ディレクトリ内には、子ディレクトリである子`favicon`ファイルへのリンクが含まれる
  */
 async function generateIndex() {
     const dom = new JSDOM("<!DOCTYPE html><body></body>");
@@ -72,8 +72,8 @@ async function generateIndex() {
     await writeSVG(path.join("favicon_index", "index.svg"), svg);
 }
 /**
- * 指定された子音のファビコンを生成する関数
- * @param {Number} firstConsonant 子音のインデックス
+ * 指定された子音の`favicon`を生成する関数
+ * @param {Number} firstConsonant 子音の`index`
  */
 async function generateConsonant(firstConsonant) {
     const dom = new JSDOM("<!DOCTYPE html><body></body>");
@@ -94,10 +94,10 @@ async function generateConsonant(firstConsonant) {
     await writeSVG(path.join("favicon_index", consonantArray[firstConsonant] + ".svg"), svg);
 }
 /**
- * 指定された子音の組み合わせのファビコンを生成する関数
- * @param {Number} firstConsonant 第一子音のインデックス
- * @param {Number} secondConsonant 第二子音のインデックス
- * @param {Number} thirdConsonant 第三子音のインデックス
+ * 指定された子音の組み合わせの`favicon`を生成する関数
+ * @param {Number} firstConsonant 第一子音の`index`
+ * @param {Number} secondConsonant 第二子音の`index`
+ * @param {Number} thirdConsonant 第三子音の`index`
  */
 async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     const dom = new JSDOM("<!DOCTYPE html><body></body>");
@@ -125,8 +125,8 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     await writeSVG(filename, svg);
 }
 /**
- * 指定された子音の組み合わせのファビコンを生成する関数
- * @param {Number} firstConsonant 第一子音のインデックス
+ * 指定された子音の組み合わせの`favicon`を生成する関数
+ * @param {Number} firstConsonant 第一子音の`index`
  */
 async function generateConsonantDirectory(firstConsonant) {
     let directoryName = path.join("favicon_index", consonantArray[firstConsonant]);
@@ -138,9 +138,9 @@ async function generateConsonantDirectory(firstConsonant) {
     }
 }
 /**
- * ファビコンディレクトリを生成するスクリプト
+ * `favicon`ディレクトリを生成するスクリプト
  *
- * ディレクトリ内には、子ディレクトリである子ファビコンファイルへのリンクが含まれる
+ * ディレクトリ内には、子ディレクトリである子`favicon`ファイルへのリンクが含まれる
  */
 async function generate() {
     const directoryName = path.join("favicon_index");

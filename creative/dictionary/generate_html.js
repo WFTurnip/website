@@ -10,8 +10,8 @@ const vowelCaseArray = ["否", "与", "属", "対", "主", "流"];
 const vowelPartOfSpeechTypeArray = ["附", "動", "容", "助", "副", "名"];
 const vowelPronunciationArray = ["a", "e", "i", "o", "u", ""];
 /**
- * インデックスHTMLファイルを生成する関数
- * インデックスファイルには、子ディレクトリである子HTMLファイルへのリンクが含まれる
+ * `index`HTMLファイルを生成する関数
+ * `index`ファイルには、子ディレクトリである子HTMLファイルへのリンクが含まれる
  */
 async function generateIndex() {
     let filename = path.join("html_index", "index.html");

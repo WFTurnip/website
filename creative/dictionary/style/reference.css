@@ -37,7 +37,7 @@ nav > ol > li::before {
 }
 
 nav > ol > li > ol > li::before {
-    content: "第" counter(toc-chapter, japanese-informal) "章" counter(toc-section, japanese-informal) "節\3000";
+    content: "第" counter(toc-section, japanese-informal) "節\3000";
 }
 
 nav > ol > li > ol > li > ol > li::before {
@@ -72,7 +72,7 @@ body h2::before {
 }
 
 body h3::before {
-    content: "第" counter(chapter, japanese-informal) "章" counter(section, japanese-informal) "節\3000";
+    content: "第" counter(section, japanese-informal) "節\3000";
 }
 
 body h4::before {
@@ -145,6 +145,7 @@ dl dd {
     break-inside: avoid;
 }
 
+sup,
 sub {
     font-variant-caps: all-small-caps;
 }

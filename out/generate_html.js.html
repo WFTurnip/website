@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>JSDoc: Source: generate_html.js</title>
-    <script src="scripts/prettify/prettify.js"></script>
-    <script src="scripts/prettify/lang-css.js"></script>
-    <!--[if lt IE 9]-->
-    <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
-    <!--[endif]-->
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
 </head>
 
 <body>
-    <div id="main">
-        <h1 class="page-title">Source: generate_html.js</h1>
-        <section>
-            <article>
-                <pre class="prettyprint source linenums"><code>const fs = require("fs").promises;
+
+<div id="main">
+
+    <h1 class="page-title">Source: generate_html.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const fs = require("fs").promises;
 const path = require("path");
 const {JSDOM} = require("jsdom");
 const beautify = require("js-beautify").html;
@@ -30,8 +38,8 @@ const vowelCaseArray = ["否", "与", "属", "対", "主", "流"];
 const vowelPartOfSpeechTypeArray = ["附", "動", "容", "助", "副", "名"];
 const vowelPronunciationArray = ["a", "e", "i", "o", "u", ""];
 /**
- * インデックスHTMLファイルを生成する関数
- * インデックスファイルには、子ディレクトリである子HTMLファイルへのリンクが含まれる
+ * `index`HTMLファイルを生成する関数
+ * `index`ファイルには、子ディレクトリである子HTMLファイルへのリンクが含まれる
  */
 async function generateIndex() {
     let filename = path.join("html_index", "index.html");
@@ -497,59 +505,25 @@ async function generate() {
     console.log("ディレクトリ" + directoryName + "の内部データを生成完了。");
 }
 generate();</code></pre>
-            </article>
-        </section>
-    </div>
-    <nav>
-        <h2><a href="index.html">Home</a></h2>
-        <h3>Global</h3>
-        <ul>
-            <li><a href="global.html#addCircle">addCircle</a></li>
-            <li><a href="global.html#addStyle">addStyle</a></li>
-            <li><a href="global.html#cantillationConceptArray">cantillationConceptArray</a></li>
-            <li><a href="global.html#cantillationMarkArray">cantillationMarkArray</a></li>
-            <li><a href="global.html#cantillationPronunciationArray">cantillationPronunciationArray</a></li>
-            <li><a href="global.html#consonantArray">consonantArray</a></li>
-            <li><a href="global.html#consonantConceptArray">consonantConceptArray</a></li>
-            <li><a href="global.html#consonantPlaceArray">consonantPlaceArray</a></li>
-            <li><a href="global.html#consonantPolarityArray">consonantPolarityArray</a></li>
-            <li><a href="global.html#consonantPronunciationArray">consonantPronunciationArray</a></li>
-            <li><a href="global.html#consonantRowArray">consonantRowArray</a></li>
-            <li><a href="global.html#consonantsSearch">consonantsSearch</a></li>
-            <li><a href="global.html#fetchFileForSearch">fetchFileForSearch</a></li>
-            <li><a href="global.html#filterData">filterData</a></li>
-            <li><a href="global.html#generate">generate</a></li>
-            <li><a href="global.html#generateConsonant">generateConsonant</a></li>
-            <li><a href="global.html#generateConsonantDirectory">generateConsonantDirectory</a></li>
-            <li><a href="global.html#generateIndex">generateIndex</a></li>
-            <li><a href="global.html#generateRoot">generateRoot</a></li>
-            <li><a href="global.html#getMinMax">getMinMax</a></li>
-            <li><a href="global.html#lowerTongueConceptArray">lowerTongueConceptArray</a></li>
-            <li><a href="global.html#lowerTongueConsonantArray">lowerTongueConsonantArray</a></li>
-            <li><a href="global.html#middleTongueConceptArray">middleTongueConceptArray</a></li>
-            <li><a href="global.html#middleTongueConsonantArray">middleTongueConsonantArray</a></li>
-            <li><a href="global.html#rootsSearch">rootsSearch</a></li>
-            <li><a href="global.html#upperTongueConceptArray">upperTongueConceptArray</a></li>
-            <li><a href="global.html#upperTongueConsonantArray">upperTongueConsonantArray</a></li>
-            <li><a href="global.html#vowelArray">vowelArray</a></li>
-            <li><a href="global.html#vowelBacknessArray">vowelBacknessArray</a></li>
-            <li><a href="global.html#vowelCaseArray">vowelCaseArray</a></li>
-            <li><a href="global.html#vowelPartOfSpeechHorizontalTypeArray">vowelPartOfSpeechHorizontalTypeArray</a></li>
-            <li><a href="global.html#vowelPartOfSpeechTypeArray">vowelPartOfSpeechTypeArray</a></li>
-            <li><a href="global.html#vowelPartOfSpeechVerticalTypeArray">vowelPartOfSpeechVerticalTypeArray</a></li>
-            <li><a href="global.html#vowelPronunciationArray">vowelPronunciationArray</a></li>
-            <li><a href="global.html#vowelRoundednessArray">vowelRoundednessArray</a></li>
-            <li><a href="global.html#wordsSearch">wordsSearch</a></li>
-            <li><a href="global.html#writeSVG">writeSVG</a></li>
-        </ul>
-    </nav>
-    <br class="clear">
-    <footer>
-        Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Tue Jun 02 2026 21:04:09
-        GMT+0900 (日本標準時)
-    </footer>
-    <script> prettyPrint(); </script>
-    <script src="scripts/linenumber.js"></script>
-</body>
+        </article>
+    </section>
 
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addCircle">addCircle</a></li><li><a href="global.html#addStyle">addStyle</a></li><li><a href="global.html#cantillationConceptArray">cantillationConceptArray</a></li><li><a href="global.html#cantillationMarkArray">cantillationMarkArray</a></li><li><a href="global.html#cantillationPronunciationArray">cantillationPronunciationArray</a></li><li><a href="global.html#consonantArray">consonantArray</a></li><li><a href="global.html#consonantConceptArray">consonantConceptArray</a></li><li><a href="global.html#consonantPlaceArray">consonantPlaceArray</a></li><li><a href="global.html#consonantPolarityArray">consonantPolarityArray</a></li><li><a href="global.html#consonantPronunciationArray">consonantPronunciationArray</a></li><li><a href="global.html#consonantRowArray">consonantRowArray</a></li><li><a href="global.html#consonantsSearch">consonantsSearch</a></li><li><a href="global.html#fetchFileForSearch">fetchFileForSearch</a></li><li><a href="global.html#filterData">filterData</a></li><li><a href="global.html#generate">generate</a></li><li><a href="global.html#generateConsonant">generateConsonant</a></li><li><a href="global.html#generateConsonantDirectory">generateConsonantDirectory</a></li><li><a href="global.html#generateIndex">generateIndex</a></li><li><a href="global.html#generateRoot">generateRoot</a></li><li><a href="global.html#getMinMax">getMinMax</a></li><li><a href="global.html#lowerTongueConceptArray">lowerTongueConceptArray</a></li><li><a href="global.html#lowerTongueConsonantArray">lowerTongueConsonantArray</a></li><li><a href="global.html#middleTongueConceptArray">middleTongueConceptArray</a></li><li><a href="global.html#middleTongueConsonantArray">middleTongueConsonantArray</a></li><li><a href="global.html#rootsSearch">rootsSearch</a></li><li><a href="global.html#upperTongueConceptArray">upperTongueConceptArray</a></li><li><a href="global.html#upperTongueConsonantArray">upperTongueConsonantArray</a></li><li><a href="global.html#vowelArray">vowelArray</a></li><li><a href="global.html#vowelBacknessArray">vowelBacknessArray</a></li><li><a href="global.html#vowelCaseArray">vowelCaseArray</a></li><li><a href="global.html#vowelPartOfSpeechHorizontalTypeArray">vowelPartOfSpeechHorizontalTypeArray</a></li><li><a href="global.html#vowelPartOfSpeechTypeArray">vowelPartOfSpeechTypeArray</a></li><li><a href="global.html#vowelPartOfSpeechVerticalTypeArray">vowelPartOfSpeechVerticalTypeArray</a></li><li><a href="global.html#vowelPronunciationArray">vowelPronunciationArray</a></li><li><a href="global.html#vowelRoundednessArray">vowelRoundednessArray</a></li><li><a href="global.html#wordsSearch">wordsSearch</a></li><li><a href="global.html#writeSVG">writeSVG</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Sun Jun 14 2026 17:11:08 GMT+0900 (日本標準時)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
 </html>
