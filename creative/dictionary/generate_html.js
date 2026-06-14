@@ -81,7 +81,7 @@ async function generateIndex() {
     for (let firstConsonant = 0; firstConsonant < consonantArray.length; firstConsonant++) {
         let dt = document.createElement("dt");
         dt.id = consonantArray[firstConsonant];
-        let consonant = document.createElement("span");
+        let consonant = document.createElement("b");
         let a = document.createElement("a");
         a.classList.add("xesada");
         a.href = consonantArray[firstConsonant] + ".html";
@@ -207,7 +207,7 @@ async function generateConsonant(firstConsonant) {
         for (let thirdConsonant = 0; thirdConsonant < consonantArray.length; thirdConsonant++) {
             let dt = document.createElement("dt");
             dt.id = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
-            let root = document.createElement("span");
+            let root = document.createElement("b");
             let a = document.createElement("a");
             a.classList.add("xesada");
             a.href = consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".html";
