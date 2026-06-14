@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
          * @returns {HTMLElement} 作成された表示要素
          */
         const createOptionSpan = (label, isSwitch) => {
-            const span = document.createElement("span");
+            const span = document.createElement("li");
             span.textContent = label;
             const strong = document.createElement("strong");
             strong.textContent = isSwitch ? "真" : "偽";
