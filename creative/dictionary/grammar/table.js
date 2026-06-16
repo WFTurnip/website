@@ -617,7 +617,7 @@ function generateAdjectiveConjugationTable() {
     for (let prefixIndex = 0; prefixIndex < upperTongueConsonantArray.length; prefixIndex++) {
         let th = document.createElement("th");
         let p = document.createElement("div");
-        p.textContent = "\u{25CC}\u{25CC}\u{25CC}u" + upperTongueConsonantArray[prefixIndex];
+        p.textContent = "\u{25CC}\u{25CC}\u{25CC}i" + upperTongueConsonantArray[prefixIndex];
         p.classList.add("xesada", "adjective-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
@@ -633,7 +633,7 @@ function generateAdjectiveConjugationTable() {
         let tr = document.createElement("tr");
         let th = document.createElement("th");
         let p2 = document.createElement("div");
-        p2.textContent = lowerTongueConsonantArray[prefixIndex] + "\u{25CC}\u{25CC}\u{25CC}u";
+        p2.textContent = lowerTongueConsonantArray[prefixIndex] + "\u{25CC}\u{25CC}\u{25CC}i";
         p2.classList.add("xesada", "adjective-aspect-consonant");
         th.appendChild(p2);
         let p3 = document.createElement("div");
@@ -645,7 +645,7 @@ function generateAdjectiveConjugationTable() {
             let td = document.createElement("td");
             let p = document.createElement("div");
             p.classList.add("xesada", "adjective-conjugation-form-consonant");
-            p.append(lowerTongueConsonantArray[prefixIndex], "\u{25CC}\u{25CC}\u{25CC}u", upperTongueConsonantArray[suffixIndex]);
+            p.append(lowerTongueConsonantArray[prefixIndex], "\u{25CC}\u{25CC}\u{25CC}i", upperTongueConsonantArray[suffixIndex]);
             td.appendChild(p);
             let p2 = document.createElement("div");
             p2.append(lowerTongueConceptArray[prefixIndex] + "相", document.createElement("wbr"), upperTongueConceptArray[suffixIndex] + "形");
@@ -779,7 +779,7 @@ function generateNounConjugationTable() {
     for (let prefixIndex = 0; prefixIndex < upperTongueConsonantArray.length; prefixIndex++) {
         let th = document.createElement("th");
         let p = document.createElement("div");
-        p.textContent = "\u{25CC}\u{25CC}\u{25CC}u" + upperTongueConsonantArray[prefixIndex];
+        p.textContent = "\u{25CC}\u{25CC}\u{25CC}w" + upperTongueConsonantArray[prefixIndex];
         p.classList.add("xesada", "noun-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
@@ -795,7 +795,7 @@ function generateNounConjugationTable() {
         let tr = document.createElement("tr");
         let th = document.createElement("th");
         let p = document.createElement("div");
-        p.textContent = lowerTongueConsonantArray[prefixIndex] + "\u{25CC}\u{25CC}\u{25CC}u";
+        p.textContent = lowerTongueConsonantArray[prefixIndex] + "\u{25CC}\u{25CC}\u{25CC}w";
         p.classList.add("xesada", "noun-aspect-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
@@ -807,7 +807,7 @@ function generateNounConjugationTable() {
             let td = document.createElement("td");
             let p = document.createElement("div");
             p.classList.add("xesada", "noun-conjugation-form-consonant");
-            p.append(lowerTongueConsonantArray[prefixIndex], "\u{25CC}\u{25CC}\u{25CC}u", upperTongueConsonantArray[suffixIndex]);
+            p.append(lowerTongueConsonantArray[prefixIndex], "\u{25CC}\u{25CC}\u{25CC}w", upperTongueConsonantArray[suffixIndex]);
             td.appendChild(p);
             let p2 = document.createElement("div");
             p2.append(lowerTongueConceptArray[prefixIndex] + "相", document.createElement("wbr"), upperTongueConceptArray[suffixIndex] + "形");
