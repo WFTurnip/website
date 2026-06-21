@@ -63,22 +63,28 @@ window.addEventListener("DOMContentLoaded", () => {
     /**
      * キーボードのクリックイベントリスナー
      */
-    keyboardTable.addEventListener("click", (e) => {
-        const key = e.target.closest("button.key");
-        if (!key) return;
-        if (key.dataset.key === "shift") {
-            shiftActive = !shiftActive;
-            keyboardTable.querySelectorAll(".key").forEach(k => {
-                k.classList.toggle("shift-active", shiftActive);
-            });
-            return;
+    keyboardTable.addEventListener("click",
+        /** @param {MouseEvent} e クリックイベント */
+        (e) => {
+            const key = e.target.closest("button.key");
+            if (!key) return;
+            if (key.dataset.key === "shift") {
+                shiftActive = !shiftActive;
+                keyboardTable.querySelectorAll(".key").forEach(k => {
+                    k.classList.toggle("shift-active", shiftActive);
+                });
+                return;
+            }
+            const char = shiftActive && key.dataset.shift ? key.dataset.shift : key.dataset.normal;
+            textarea.value += char ?? "";
         }
-        const char = shiftActive && key.dataset.shift ? key.dataset.shift : key.dataset.normal;
-        textarea.value += char ?? "";
-    });
-    fontSelector.addEventListener("change", (e) => {
-        changeFont(parseInt(e.target.value));
-    });
+    );
+    fontSelector.addEventListener("change",
+        /** @param {Event} e フォントセレクターの変更イベント */
+        (e) => {
+            changeFont(parseInt(e.target.value));
+        }
+    );
     /**
      * フォントを変更する関数
      * @param {Number} number 変更するフォントの番号
