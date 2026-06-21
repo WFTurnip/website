@@ -19,9 +19,23 @@ main ol li::before {
     content: "第" counter(chapter, japanese-informal) "話\3000";
 }
 
-p {
-    text-indent: 1rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1.6;
+section {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+section p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+section p:not(:last-child)::after {
+    content: "¶";
+}
+
+section::first-letter {
+    initial-letter: 2;
+    -webkit-initial-letter: 2;
+    font-weight: bold;
 }
