@@ -120,10 +120,6 @@ rt {
     content: "";
 }
 
-p {
-    text-indent: 1rem;
-}
-
 table,
 figure {
     text-align: center;
@@ -158,4 +154,23 @@ nav {
 dl {
     column-count: 1;
     column-rule-style: solid;
+}
+
+article {
+    line-height: 1.8;
+    text-align: justify;
+}
+
+article p {
+    display: inline;
+}
+
+article p:not(:last-child)::after {
+    content: "¶";
+}
+
+article::first-letter {
+    initial-letter: 2;
+    -webkit-initial-letter: 2;
+    font-weight: bold;
 }

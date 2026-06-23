@@ -1,7 +1,3 @@
-ruby {
-    margin: 0%;
-}
-
 rt {
     font-variant-east-asian: ruby;
 }
@@ -26,8 +22,6 @@ section {
 
 section p {
     display: inline;
-    margin: 0;
-    padding: 0;
 }
 
 section p:not(:last-child)::after {
