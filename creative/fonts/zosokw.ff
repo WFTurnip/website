@@ -1,8 +1,7 @@
 #!/usr/local/bin/fontforge
-# AddLookup("mark", "gpos_mark2base", 0, [[ "mark",  [[ "latn",  ["dflt"] ]] ]])
+# AddLookup("mark", "gpos_mark2base", 0, [[ "mark", [[ "latn", ["dflt"] ]] ]])
 # AddLookupSubtable("mark", "mark-1")
-vowel = CheckForAnchorClass("vowel")
-if(1 == vowel)
+if(1 == CheckForAnchorClass("vowel"))
 RemoveAnchorClass("vowel")
 endif
 AddAnchorClass("vowel", "default", "mark-1")

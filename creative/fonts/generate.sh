@@ -1,9 +1,9 @@
 #!/bin/bash
 echo "フォント生成スクリプトへようこそ。"
-echo "以下のオプションから選択してください："
+echo "以下のオプションから選択してください"
 echo "1. each - 個別のフォントファイルを指定して生成"
 echo "2. all  - ディレクトリ内のすべてのフォントファイルを生成"
-echo "オプションを入力してください（each / all）："
+echo "オプションを入力してください（each / all）"
 read -p ">>> " option
 case $option in
 each)

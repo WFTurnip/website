@@ -1,4 +1,9 @@
 #!/usr/local/bin/fontforge
+# AddLookup("mark", "gpos_mark2base", 0, [[ "mark", [[ "latn", ["dflt"] ]] ]])
+# AddLookupSubtable("mark", "mark-1")
+# if(1 == CheckForAnchorClass("vowel"))
+# RemoveAnchorClass("vowel")
+# endif
 Select(0u0020) SetGlyphClass("none") Clear() SetWidth(500)
 Select(0u0021) SetGlyphClass("none") Clear() SetWidth(500) Import("website/creative/fonts/kodito/uni0021.svg")
 Select(0u0022) SetGlyphClass("none") Clear() SetWidth(500) Import("website/creative/fonts/kodito/uni0022.svg")
