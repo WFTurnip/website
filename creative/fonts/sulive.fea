@@ -1,0 +1,372 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+
+# GSUB 
+
+
+lookup init {
+  lookupflag IgnoreMarks;
+    sub \l by \uni0059.fin2 ;
+    sub \Y by \uni0051.init ;
+    sub \q by \uni0063.med2 ;
+    sub \d by \uni0053.fin2 ;
+    sub \p by \uni0062.fin2 ;
+    sub \X by \uni0050.med2 ;
+    sub \k by \uni0059.init ;
+    sub \f by \uni0054.med2 ;
+    sub \r by \uni0064.init ;
+    sub \s by \uni0064.fin2 ;
+    sub \g by \uni0056.init ;
+    sub \j by \uni0058.med2 ;
+    sub \c by \uni0053.init ;
+    sub \n by \uni0062.init ;
+    sub \z by \uni006A.init ;
+    sub \m by \uni005A.med2 ;
+    sub \v by \uni0067.init ;
+    sub \b by \uni0052.med2 ;
+    sub \t by \uni0066.med2 ;
+    sub \H by \uni0046.med2 ;
+    sub \K by \uni0047.fin2 ;
+    sub \x by \uni0067.fin2 ;
+    sub \P by \uni004B.med2 ;
+    sub \D by \uni0043.med2 ;
+    sub \Q by \uni004C.init ;
+    sub \y by \uni0068.med2 ;
+    sub \L by \uni0048.med2 ;
+    sub \J by \uni0047.init ;
+    sub \G by \uni0044.fin2 ;
+    sub \S by \uni004D.med2 ;
+    sub \R by \uni004C.fin2 ;
+    sub \F by \uni0044.init ;
+    sub \B by \uni0042.init ;
+    sub \V by \uni004E.fin2 ;
+    sub \M by \uni004A.init ;
+    sub \Z by \uni0051.fin2 ;
+    sub \N by \uni004A.fin2 ;
+    sub \C by \uni0042.fin2 ;
+    sub \h by \uni0056.fin2 ;
+    sub \T by \uni004E.init ;
+} init;
+
+lookup medi {
+  lookupflag IgnoreMarks;
+    sub \l by \uni005A.isol ;
+    sub \Y by \uni0051.medi ;
+    sub \q by \uni0063.fina ;
+    sub \d by \uni0054.isol ;
+    sub \p by \uni0063.isol ;
+    sub \X by \uni0050.fina ;
+    sub \k by \uni0059.medi ;
+    sub \f by \uni0054.fina ;
+    sub \r by \uni0064.medi ;
+    sub \s by \uni0066.isol ;
+    sub \g by \uni0056.medi ;
+    sub \j by \uni0058.fina ;
+    sub \c by \uni0053.medi ;
+    sub \n by \uni0062.medi ;
+    sub \z by \uni006A.medi ;
+    sub \m by \uni005A.fina ;
+    sub \v by \uni0067.medi ;
+    sub \b by \uni0052.fina ;
+    sub \t by \uni0066.fina ;
+    sub \H by \uni0046.fina ;
+    sub \K by \uni0048.isol ;
+    sub \x by \uni0068.isol ;
+    sub \P by \uni004B.fina ;
+    sub \D by \uni0043.fina ;
+    sub \Q by \uni004C.medi ;
+    sub \y by \uni0068.fina ;
+    sub \L by \uni0048.fina ;
+    sub \J by \uni0047.medi ;
+    sub \G by \uni0046.isol ;
+    sub \S by \uni004D.fina ;
+    sub \R by \uni004D.isol ;
+    sub \F by \uni0044.medi ;
+    sub \B by \uni0042.medi ;
+    sub \V by \uni0050.isol ;
+    sub \M by \uni004A.medi ;
+    sub \Z by \uni0052.isol ;
+    sub \N by \uni004B.isol ;
+    sub \C by \uni0043.isol ;
+    sub \h by \uni0058.isol ;
+    sub \T by \uni004E.medi ;
+} medi;
+
+lookup fina {
+  lookupflag IgnoreMarks;
+    sub \l by \uni005A.init ;
+    sub \Y by \uni0051.med2 ;
+    sub \q by \uni0063.fin2 ;
+    sub \d by \uni0054.init ;
+    sub \p by \uni0063.init ;
+    sub \X by \uni0050.fin2 ;
+    sub \k by \uni0059.med2 ;
+    sub \f by \uni0054.fin2 ;
+    sub \r by \uni0064.med2 ;
+    sub \s by \uni0066.init ;
+    sub \g by \uni0056.med2 ;
+    sub \j by \uni0058.fin2 ;
+    sub \c by \uni0053.med2 ;
+    sub \n by \uni0062.med2 ;
+    sub \z by \uni006A.med2 ;
+    sub \m by \uni005A.fin2 ;
+    sub \v by \uni0067.med2 ;
+    sub \b by \uni0052.fin2 ;
+    sub \t by \uni0066.fin2 ;
+    sub \H by \uni0046.fin2 ;
+    sub \K by \uni0048.init ;
+    sub \x by \uni0068.init ;
+    sub \P by \uni004B.fin2 ;
+    sub \D by \uni0043.fin2 ;
+    sub \Q by \uni004C.med2 ;
+    sub \y by \uni0068.fin2 ;
+    sub \L by \uni0048.fin2 ;
+    sub \J by \uni0047.med2 ;
+    sub \G by \uni0046.init ;
+    sub \S by \uni004D.fin2 ;
+    sub \R by \uni004D.init ;
+    sub \F by \uni0044.med2 ;
+    sub \B by \uni0042.med2 ;
+    sub \V by \uni0050.init ;
+    sub \M by \uni004A.med2 ;
+    sub \Z by \uni0052.init ;
+    sub \N by \uni004B.init ;
+    sub \C by \uni0043.init ;
+    sub \h by \uni0058.init ;
+    sub \T by \uni004E.med2 ;
+} fina;
+
+lookup isol {
+  lookupflag IgnoreMarks;
+    sub \l by \uni0059.fina ;
+    sub \Y by \uni0051.isol ;
+    sub \q by \uni0063.medi ;
+    sub \d by \uni0053.fina ;
+    sub \p by \uni0062.fina ;
+    sub \X by \uni0050.medi ;
+    sub \k by \uni0059.isol ;
+    sub \f by \uni0054.medi ;
+    sub \r by \uni0064.isol ;
+    sub \s by \uni0064.fina ;
+    sub \g by \uni0056.isol ;
+    sub \j by \uni0058.medi ;
+    sub \c by \uni0053.isol ;
+    sub \n by \uni0062.isol ;
+    sub \z by \uni006A.isol ;
+    sub \m by \uni005A.medi ;
+    sub \v by \uni0067.isol ;
+    sub \b by \uni0052.medi ;
+    sub \t by \uni0066.medi ;
+    sub \H by \uni0046.medi ;
+    sub \K by \uni0047.fina ;
+    sub \x by \uni0067.fina ;
+    sub \P by \uni004B.medi ;
+    sub \D by \uni0043.medi ;
+    sub \Q by \uni004C.isol ;
+    sub \y by \uni0068.medi ;
+    sub \L by \uni0048.medi ;
+    sub \J by \uni0047.isol ;
+    sub \G by \uni0044.fina ;
+    sub \S by \uni004D.medi ;
+    sub \R by \uni004C.fina ;
+    sub \F by \uni0044.isol ;
+    sub \B by \uni0042.isol ;
+    sub \V by \uni004E.fina ;
+    sub \M by \uni004A.isol ;
+    sub \Z by \uni0051.fina ;
+    sub \N by \uni004A.fina ;
+    sub \C by \uni0042.fina ;
+    sub \h by \uni0056.fina ;
+    sub \T by \uni004E.isol ;
+} isol;
+
+lookup calt {
+  lookupflag IgnoreMarks;
+    @cc4_match_1 = [\B \C \D \F \G \H \J \K \L \M \N \P \Q \R \S \T \V \X \Y \Z \b \c \d \f \g \h \j \k \l \m \n \p \q \r \s \t 
+	\v \x \y \z ];
+    @cc4_match_2 = [\uni0042.init \uni0043.init \uni0044.init \uni0046.init \uni0047.init 
+	\uni0048.init \uni004A.init \uni004B.init \uni004C.init 
+	\uni004D.init \uni004E.init \uni0050.init \uni0051.init 
+	\uni0052.init \uni0053.init \uni0054.init \uni0056.init 
+	\uni0058.init \uni0059.init \uni005A.init \uni0062.init 
+	\uni0063.init \uni0064.init \uni0066.init \uni0067.init 
+	\uni0068.init \uni006A.init \uni006B.init \uni006C.init 
+	\uni006D.init \uni006E.init \uni0070.init \uni0071.init 
+	\uni0072.init \uni0073.init \uni0074.init \uni0076.init 
+	\uni0078.init \uni0079.init \uni007A.init ];
+    @cc4_match_3 = [\uni0042.medi \uni0043.medi \uni0044.medi \uni0046.medi \uni0047.medi 
+	\uni0048.medi \uni004A.medi \uni004B.medi \uni004C.medi 
+	\uni004D.medi \uni004E.medi \uni0050.medi \uni0051.medi 
+	\uni0052.medi \uni0053.medi \uni0054.medi \uni0056.medi 
+	\uni0058.medi \uni0059.medi \uni005A.medi \uni0062.medi 
+	\uni0063.medi \uni0064.medi \uni0066.medi \uni0067.medi 
+	\uni0068.medi \uni006A.medi \uni006B.medi \uni006C.medi 
+	\uni006D.medi \uni006E.medi \uni0070.medi \uni0071.medi 
+	\uni0072.medi \uni0073.medi \uni0074.medi \uni0076.medi 
+	\uni0078.medi \uni0079.medi \uni007A.medi ];
+    @cc4_back_1 = [\B \C \D \F \G \H \J \K \L \M \N \P \Q \R \S \T \V \X \Y \Z \b \c \d \f \g \h \j \k \l \m \n \p \q \r \s \t 
+	\v \x \y \z ];
+    @cc4_back_2 = [\uni0042.init \uni0043.init \uni0044.init \uni0046.init \uni0047.init 
+	\uni0048.init \uni004A.init \uni004B.init \uni004C.init 
+	\uni004D.init \uni004E.init \uni0050.init \uni0051.init 
+	\uni0052.init \uni0053.init \uni0054.init \uni0056.init 
+	\uni0058.init \uni0059.init \uni005A.init \uni0062.init 
+	\uni0063.init \uni0064.init \uni0066.init \uni0067.init 
+	\uni0068.init \uni006A.init \uni006B.init \uni006C.init 
+	\uni006D.init \uni006E.init \uni0070.init \uni0071.init 
+	\uni0072.init \uni0073.init \uni0074.init \uni0076.init 
+	\uni0078.init \uni0079.init \uni007A.init ];
+    @cc4_back_3 = [\uni0042.medi \uni0043.medi \uni0044.medi \uni0046.medi \uni0047.medi 
+	\uni0048.medi \uni004A.medi \uni004B.medi \uni004C.medi 
+	\uni004D.medi \uni004E.medi \uni0050.medi \uni0051.medi 
+	\uni0052.medi \uni0053.medi \uni0054.medi \uni0056.medi 
+	\uni0058.medi \uni0059.medi \uni005A.medi \uni0062.medi 
+	\uni0063.medi \uni0064.medi \uni0066.medi \uni0067.medi 
+	\uni0068.medi \uni006A.medi \uni006B.medi \uni006C.medi 
+	\uni006D.medi \uni006E.medi \uni0070.medi \uni0071.medi 
+	\uni0072.medi \uni0073.medi \uni0074.medi \uni0076.medi 
+	\uni0078.medi \uni0079.medi \uni007A.medi ];
+    @cc4_ahead_1 = [\B \C \D \F \G \H \J \K \L \M \N \P \Q \R \S \T \V \X \Y \Z \b \c \d \f \g \h \j \k \l \m \n \p \q \r \s \t 
+	\v \x \y \z ];
+    @cc4_ahead_2 = [\uni0042.init \uni0043.init \uni0044.init \uni0046.init \uni0047.init 
+	\uni0048.init \uni004A.init \uni004B.init \uni004C.init 
+	\uni004D.init \uni004E.init \uni0050.init \uni0051.init 
+	\uni0052.init \uni0053.init \uni0054.init \uni0056.init 
+	\uni0058.init \uni0059.init \uni005A.init \uni0062.init 
+	\uni0063.init \uni0064.init \uni0066.init \uni0067.init 
+	\uni0068.init \uni006A.init \uni006B.init \uni006C.init 
+	\uni006D.init \uni006E.init \uni0070.init \uni0071.init 
+	\uni0072.init \uni0073.init \uni0074.init \uni0076.init 
+	\uni0078.init \uni0079.init \uni007A.init ];
+    @cc4_ahead_3 = [\uni0042.medi \uni0043.medi \uni0044.medi \uni0046.medi \uni0047.medi 
+	\uni0048.medi \uni004A.medi \uni004B.medi \uni004C.medi 
+	\uni004D.medi \uni004E.medi \uni0050.medi \uni0051.medi 
+	\uni0052.medi \uni0053.medi \uni0054.medi \uni0056.medi 
+	\uni0058.medi \uni0059.medi \uni005A.medi \uni0062.medi 
+	\uni0063.medi \uni0064.medi \uni0066.medi \uni0067.medi 
+	\uni0068.medi \uni006A.medi \uni006B.medi \uni006C.medi 
+	\uni006D.medi \uni006E.medi \uni0070.medi \uni0071.medi 
+	\uni0072.medi \uni0073.medi \uni0074.medi \uni0076.medi 
+	\uni0078.medi \uni0079.medi \uni007A.medi ];
+    sub @cc4_back_2 @cc4_match_1'lookup medi  @cc4_ahead_1 ;
+    sub @cc4_back_3 @cc4_match_1'lookup medi  @cc4_ahead_1 ;
+    sub @cc4_match_1'lookup init  @cc4_ahead_1 ;
+    sub @cc4_back_2 @cc4_match_1'lookup fina  ;
+    sub @cc4_back_3 @cc4_match_1'lookup fina  ;
+    sub @cc4_match_1'lookup isol  ;
+} calt;
+
+feature init {
+
+ script DFLT;
+     language dflt ;
+      lookup init;
+
+ script latn;
+     language dflt ;
+      lookup init;
+} init;
+
+feature medi {
+
+ script DFLT;
+     language dflt ;
+      lookup medi;
+
+ script latn;
+     language dflt ;
+      lookup medi;
+} medi;
+
+feature fina {
+
+ script DFLT;
+     language dflt ;
+      lookup fina;
+
+ script latn;
+     language dflt ;
+      lookup fina;
+} fina;
+
+feature isol {
+
+ script DFLT;
+     language dflt ;
+      lookup isol;
+
+ script latn;
+     language dflt ;
+      lookup isol;
+} isol;
+
+feature calt {
+
+ script DFLT;
+     language dflt ;
+      lookup calt;
+
+ script latn;
+     language dflt ;
+      lookup calt;
+} calt;
+
+# GPOS 
+
+
+lookup mark {
+  lookupflag 0;
+  markClass [\e \w \o \I \a \u \E \W \U \A \i \O ] <anchor -250 225> @vowel;
+  pos base [\l \Y \q \d \p \X \k \f \r \s \g \j \c \n \z \m \v \b \t \H \K \x \P \D \Q \y \L \J \G \S \R \F \B \V \M \Z \N \C \h \T \uni0042.isol \uni0042.init \uni0042.medi \uni0042.med2 \uni0042.fina \uni0042.fin2 \uni0043.isol \uni0043.init \uni0043.medi \uni0043.med2 \uni0043.fina \uni0043.fin2 \uni0044.isol \uni0044.init \uni0044.medi \uni0044.med2 \uni0044.fina \uni0044.fin2 \uni0046.isol \uni0046.init \uni0046.medi \uni0046.med2 \uni0046.fina \uni0046.fin2 \uni0047.isol \uni0047.init \uni0047.medi \uni0047.med2 \uni0047.fina \uni0047.fin2 \uni0048.isol \uni0048.init \uni0048.medi \uni0048.med2 \uni0048.fina \uni0048.fin2 \uni004A.isol \uni004A.init \uni004A.medi \uni004A.med2 \uni004A.fina \uni004A.fin2 \uni004B.isol \uni004B.init \uni004B.medi \uni004B.med2 \uni004B.fina \uni004B.fin2 \uni004C.isol \uni004C.init \uni004C.medi \uni004C.med2 \uni004C.fina \uni004C.fin2 \uni004D.isol \uni004D.init \uni004D.medi \uni004D.med2 \uni004D.fina \uni004D.fin2 \uni004E.isol \uni004E.init \uni004E.medi \uni004E.med2 \uni004E.fina \uni004E.fin2 \uni0050.isol \uni0050.init \uni0050.medi \uni0050.med2 \uni0050.fina \uni0050.fin2 \uni0051.isol \uni0051.init \uni0051.medi \uni0051.med2 \uni0051.fina \uni0051.fin2 \uni0052.isol \uni0052.init \uni0052.medi \uni0052.med2 \uni0052.fina \uni0052.fin2 \uni0053.isol \uni0053.init \uni0053.medi \uni0053.med2 \uni0053.fina \uni0053.fin2 \uni0054.isol \uni0054.init \uni0054.medi \uni0054.med2 \uni0054.fina \uni0054.fin2 \uni0056.isol \uni0056.init \uni0056.medi \uni0056.med2 \uni0056.fina \uni0056.fin2 \uni0058.isol \uni0058.init \uni0058.medi \uni0058.med2 \uni0058.fina \uni0058.fin2 \uni0059.isol \uni0059.init \uni0059.medi \uni0059.med2 \uni0059.fina \uni0059.fin2 \uni005A.isol \uni005A.init \uni005A.medi \uni005A.med2 \uni005A.fina \uni005A.fin2 \uni0062.isol \uni0062.init \uni0062.medi \uni0062.med2 \uni0062.fina \uni0062.fin2 \uni0063.isol \uni0063.init \uni0063.medi \uni0063.med2 \uni0063.fina \uni0063.fin2 \uni0064.isol \uni0064.init \uni0064.medi \uni0064.med2 \uni0064.fina \uni0064.fin2 \uni0066.isol \uni0066.init \uni0066.medi \uni0066.med2 \uni0066.fina \uni0066.fin2 \uni0067.isol \uni0067.init \uni0067.medi \uni0067.med2 \uni0067.fina \uni0067.fin2 \uni0068.isol \uni0068.init \uni0068.medi \uni0068.med2 \uni0068.fina \uni0068.fin2 \uni006A.isol \uni006A.init \uni006A.medi \uni006A.med2 \uni25CC ] <anchor 250 225> mark @vowel;
+} mark;
+
+feature mark {
+
+ script latn;
+     language dflt ;
+      lookup mark;
+} mark;
+#Mark attachment classes (defined in GDEF, used in lookupflags)
+
+@GDEF_Simple = [\l \Y \q \d \p \X \k \f \r \s \g \j \c \n \z \m \v \b \t \H \K \x \P \D \Q \y \L \J \G \S 
+	\R \F \B \V \M \Z \N \C \h \T \space \uni0042.isol \uni0042.init \uni0042.medi 
+	\uni0042.med2 \uni0042.fina \uni0042.fin2 \uni0043.isol \uni0043.init 
+	\uni0043.medi \uni0043.med2 \uni0043.fina \uni0043.fin2 \uni0044.isol 
+	\uni0044.init \uni0044.medi \uni0044.med2 \uni0044.fina \uni0044.fin2 
+	\uni0046.isol \uni0046.init \uni0046.medi \uni0046.med2 \uni0046.fina 
+	\uni0046.fin2 \uni0047.isol \uni0047.init \uni0047.medi \uni0047.med2 
+	\uni0047.fina \uni0047.fin2 \uni0048.isol \uni0048.init \uni0048.medi 
+	\uni0048.med2 \uni0048.fina \uni0048.fin2 \uni004A.isol \uni004A.init 
+	\uni004A.medi \uni004A.med2 \uni004A.fina \uni004A.fin2 \uni004B.isol 
+	\uni004B.init \uni004B.medi \uni004B.med2 \uni004B.fina \uni004B.fin2 
+	\uni004C.isol \uni004C.init \uni004C.medi \uni004C.med2 \uni004C.fina 
+	\uni004C.fin2 \uni004D.isol \uni004D.init \uni004D.medi \uni004D.med2 
+	\uni004D.fina \uni004D.fin2 \uni004E.isol \uni004E.init \uni004E.medi 
+	\uni004E.med2 \uni004E.fina \uni004E.fin2 \uni0050.isol \uni0050.init 
+	\uni0050.medi \uni0050.med2 \uni0050.fina \uni0050.fin2 \uni0051.isol 
+	\uni0051.init \uni0051.medi \uni0051.med2 \uni0051.fina \uni0051.fin2 
+	\uni0052.isol \uni0052.init \uni0052.medi \uni0052.med2 \uni0052.fina 
+	\uni0052.fin2 \uni0053.isol \uni0053.init \uni0053.medi \uni0053.med2 
+	\uni0053.fina \uni0053.fin2 \uni0054.isol \uni0054.init \uni0054.medi 
+	\uni0054.med2 \uni0054.fina \uni0054.fin2 \uni0056.isol \uni0056.init 
+	\uni0056.medi \uni0056.med2 \uni0056.fina \uni0056.fin2 \uni0058.isol 
+	\uni0058.init \uni0058.medi \uni0058.med2 \uni0058.fina \uni0058.fin2 
+	\uni0059.isol \uni0059.init \uni0059.medi \uni0059.med2 \uni0059.fina 
+	\uni0059.fin2 \uni005A.isol \uni005A.init \uni005A.medi \uni005A.med2 
+	\uni005A.fina \uni005A.fin2 \uni0062.isol \uni0062.init \uni0062.medi 
+	\uni0062.med2 \uni0062.fina \uni0062.fin2 \uni0063.isol \uni0063.init 
+	\uni0063.medi \uni0063.med2 \uni0063.fina \uni0063.fin2 \uni0064.isol 
+	\uni0064.init \uni0064.medi \uni0064.med2 \uni0064.fina \uni0064.fin2 
+	\uni0066.isol \uni0066.init \uni0066.medi \uni0066.med2 \uni0066.fina 
+	\uni0066.fin2 \uni0067.isol \uni0067.init \uni0067.medi \uni0067.med2 
+	\uni0067.fina \uni0067.fin2 \uni0068.isol \uni0068.init \uni0068.medi 
+	\uni0068.med2 \uni0068.fina \uni0068.fin2 \uni006A.isol \uni006A.init 
+	\uni006A.medi \uni006A.med2 \uni25CC ];
+@GDEF_Mark = [\e \w \o \I \a \u \E \W \U \A \i \O ];
+
+table GDEF {
+  GlyphClassDef @GDEF_Simple, , @GDEF_Mark, ;
+
+} GDEF;
+

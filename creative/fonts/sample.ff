@@ -1,10 +1,4 @@
 #!/usr/local/bin/fontforge
 Open($1)
-
-Print("正弦：", Sin(3.1415926))
-Print("余弦：", Cos(3.1415926))
-Print("正接：", Tan(3.1415926))
-Print("冪乗：", Pow(10, 10))
-Print("乱数：", Rand())
-
+GenerateFeatureFile($1:r + ".fea")
 Close()
