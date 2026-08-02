@@ -62,9 +62,10 @@ async function generateIndex() {
     headerOl.appendChild(headerLi2);
     header.appendChild(headerOl);
     body.appendChild(header);
+    let main = document.createElement("main");
     let h1 = document.createElement("h1");
     h1.textContent = "子音総一覧";
-    body.appendChild(h1);
+    main.appendChild(h1);
     let article = document.createElement("article");
     let figure = document.createElement("figure");
     let object = document.createElement("object");
@@ -75,8 +76,7 @@ async function generateIndex() {
     figcaption.textContent = "";
     figure.appendChild(figcaption);
     article.appendChild(figure);
-    body.appendChild(article);
-    let main = document.createElement("main");
+    main.appendChild(article);
     let dl = document.createElement("dl");
     for (let firstConsonant = 0; firstConsonant < consonantArray.length; firstConsonant++) {
         let dt = document.createElement("dt");
@@ -178,12 +178,13 @@ async function generateConsonant(firstConsonant) {
     headerOl.appendChild(headerLi3);
     header.appendChild(headerOl);
     body.appendChild(header);
+    let main = document.createElement("main");
     let h1 = document.createElement("h1");
     let h1Span = document.createElement("span");
     h1Span.classList.add("xesada");
     h1Span.textContent = consonantArray[firstConsonant];
     h1.append(h1Span, "を頭字とする語根の一覧");
-    body.appendChild(h1);
+    main.appendChild(h1);
     let article = document.createElement("article");
     let figure = document.createElement("figure");
     let object = document.createElement("object");
@@ -194,14 +195,15 @@ async function generateConsonant(firstConsonant) {
     figcaption.textContent = "";
     figure.appendChild(figcaption);
     article.appendChild(figure);
-    body.appendChild(article);
-    let main = document.createElement("main");
+    main.appendChild(article);
+    let article2 = document.createElement("article");
     let p = document.createElement("p");
     let b = document.createElement("b");
     b.textContent = consonantConceptArray[firstConsonant];
     b.classList.add("concept");
     p.append("この子音は", b, "の概念を表す。");
-    main.appendChild(p);
+    article2.appendChild(p);
+    main.appendChild(article2);
     let dl = document.createElement("dl");
     for (let secondConsonant = 0; secondConsonant < consonantArray.length; secondConsonant++) {
         for (let thirdConsonant = 0; thirdConsonant < consonantArray.length; thirdConsonant++) {
@@ -341,12 +343,13 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     headerOl.appendChild(headerLi4);
     header.appendChild(headerOl);
     body.appendChild(header);
+    let main = document.createElement("main");
     let h1 = document.createElement("h1");
     let span1 = document.createElement("span");
     span1.classList.add("xesada");
     span1.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
     h1.append(span1, "を語根とする単語の一覧");
-    body.appendChild(h1);
+    main.appendChild(h1);
     let article = document.createElement("article");
     let figure = document.createElement("figure");
     let object = document.createElement("object");
@@ -357,14 +360,15 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     figcaption.textContent = "";
     figure.appendChild(figcaption);
     article.appendChild(figure);
-    body.appendChild(article);
-    let main = document.createElement("main");
+    main.appendChild(article);
+    let article2 = document.createElement("article");
     let p = document.createElement("p");
     let b = document.createElement("b");
     b.textContent = consonantConceptArray[firstConsonant] + consonantConceptArray[secondConsonant] + consonantConceptArray[thirdConsonant];
     b.classList.add("concept");
     p.append("この語根は", b, "の概念を表す。");
-    main.append(p);
+    article2.appendChild(p);
+    main.append(article2);
     for (let thirdVowel = 0; thirdVowel < vowelArray.length; thirdVowel++) {
         let h2 = document.createElement("h2");
         let h2Span1 = document.createElement("span");
