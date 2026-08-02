@@ -168,9 +168,3 @@ article p {
 article p:not(:last-child)::after {
     content: "¶";
 }
-
-article::first-letter {
-    initial-letter: 2;
-    -webkit-initial-letter: 2;
-    font-weight: bold;
-}

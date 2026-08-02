@@ -101,6 +101,6 @@ window.addEventListener("DOMContentLoaded", () => {
      * @param {String} font ロードするフォントの名前
      */
     function loadKeyboard(font) {
-        fetch("keyboards/" + font + ".xml").then(r => r.text()).then(str => new DOMParser().parseFromString(str, "text/xml")).then(xml => buildKeyboardFromXML(xml));
+        fetch("leyouts/" + font + ".xml").then(r => r.text()).then(str => new DOMParser().parseFromString(str, "text/xml")).then(xml => buildKeyboardFromXML(xml));
     }
 });
