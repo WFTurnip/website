@@ -60,11 +60,8 @@ window.addEventListener("DOMContentLoaded", () => {
             keyboardTable.appendChild(tr);
         });
     }
-    /**
-     * キーボードのクリックイベントリスナー
-     */
     keyboardTable.addEventListener("click",
-        /** @param {MouseEvent} e クリックイベント */
+        /** @param {MouseEvent} e シフトキーのクリックイベント */
         (e) => {
             const key = e.target.closest("button.key");
             if (!key) return;
@@ -97,8 +94,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
     loadKeyboard(currentFont);
     /**
-     * キーボードをロードする関数
-     * @param {String} font ロードするフォントの名前
+     * キーボードレイアウトをロードする関数
+     * @param {String} font ロードするキーボードレイアウトの名前
      */
     function loadKeyboard(font) {
         fetch("layouts/" + font + ".xml").then(r => r.text()).then(str => new DOMParser().parseFromString(str, "text/xml")).then(xml => buildKeyboardFromXML(xml));

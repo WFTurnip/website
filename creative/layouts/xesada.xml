@@ -241,9 +241,9 @@
             </key>
         </column>
         <column>
-            <key class="key" data-normal="/" data-shift="\" data-key="/">
+            <key class="key" data-normal="/" data-shift="$" data-key="/">
                 <keytop class="no-shifted">/</keytop>
-                <keytop class="shifted">\</keytop>
+                <keytop class="shifted">$</keytop>
             </key>
         </column>
         <column></column>
