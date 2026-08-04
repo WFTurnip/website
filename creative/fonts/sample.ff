@@ -1,4 +1,7 @@
 #!/usr/local/bin/fontforge
 Open($1)
-GenerateFeatureFile($1:r + ".fea")
+Print("あなたが使っているFontForgeのバージョンは ", $version, " です。")
+Print($fontname, "のEM値（文字全体の高さ）は ", $em, "px です。")
+Print($fontname, "のアセンダ値（ベースラインより上の高さ）は ", $ascent, "px です。")
+Print($fontname, "のディセンダ値（ベースラインより下の高さ）は ", $descent, "px です。")
 Close()
