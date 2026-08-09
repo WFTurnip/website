@@ -13,13 +13,13 @@ read -p ">>> " option
 
 case "$option" in
 html)
-    node generate_html.js
+    node html_generater.js
     ;;
 json)
-    node generate_json.js
+    node json_generater.js
     ;;
 favicon)
-    node generate_favicon.js
+    node favicon_generater.js
     ;;
 all)
     node generate_html.js
