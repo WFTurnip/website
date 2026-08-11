@@ -4,4 +4,18 @@ Print("あなたが使っているFontForgeのバージョンは ", $version, " 
 Print($fontname, "のEM値（文字全体の高さ）は ", $em, "px です。")
 Print($fontname, "のアセンダ値（ベースラインより上の高さ）は ", $ascent, "px です。")
 Print($fontname, "のディセンダ値（ベースラインより下の高さ）は ", $descent, "px です。")
+planetanchorpointy = $ascent - ($em / 2)
+Print($fontname, "の惑星記号（母音記号）用アンカーポイント座標（Y軸）は ", planetanchorpointy, "px です。")
+if($fontname == "Kodito" || $fontname == "Lozegw" || $fontname == "Silwki" || $fontname == "Xavani" || $fontname == "Xidili" || $fontname == "Lekuta" || $fontname == "Xesada")
+if($fontname == "Kodito")
+abovesatelliteanchorpointy = planetanchorpointy + $descent / 2
+belowsatelliteanchorpointy = planetanchorpointy - $descent / 2
+endif
+if($fontname == "Lozegw" || $fontname == "Silwki" || $fontname == "Xavani" || $fontname == "Xidili" || $fontname == "Lekuta" || $fontname == "Xesada")
+abovesatelliteanchorpointy = $ascent - $descent / 2
+belowsatelliteanchorpointy = -1 * $descent / 2
+endif
+Print($fontname, "の上部衛星記号（朗唱記号）用アンカーポイント座標（Y軸）は ", abovesatelliteanchorpointy, "px です。")
+Print($fontname, "の下部衛星記号（朗唱記号）用アンカーポイント座標（Y軸）は ", belowsatelliteanchorpointy, "px です。")
+endif
 Close()

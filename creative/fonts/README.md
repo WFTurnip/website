@@ -2,15 +2,15 @@
 
 このディレクトリは私が創作しているイナールズィーラ語という言語の文字のフォントについて扱っています。
 
-* KODITO
-* LEKUTA
-* LOZEGW
-* MAKINA
-* PISWPI
-* POLWGO
-* SILWKI
-* SULIVE
-* XAVANI
-* XESADA
-* XIDILI
-* ZOSOKW
+* Kodito
+* Lekuta
+* Lozegw
+* Makina
+* Piswpi
+* Polwgo
+* Silwki
+* Sulive
+* Xavani
+* Xesada
+* Xidili
+* Zosokw
