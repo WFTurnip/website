@@ -1,10 +1,19 @@
 #!/usr/local/bin/fontforge
+Open($1)
 # AddLookup("mark", "gpos_mark2base", 0, [[ "mark", [[ "latn", ["dflt"] ]] ]])
 # AddLookupSubtable("mark", "mark-1")
 if(1 == CheckForAnchorClass("vowel"))
 RemoveAnchorClass("vowel")
 endif
 AddAnchorClass("vowel", "default", "mark-1")
+defaultwidth = 500
+markwidth = 0
+basecharanchorpointx = defaultwidth * 0.5
+Print("惑星記号（母音記号）用基底グリフアンカーポイント座標（X軸）は ", basecharanchorpointx, "px です。")
+markanchorpointx = defaultwidth * -0.5
+Print("惑星記号（母音記号）用マークグリフアンカーポイント座標（X軸）は ", markanchorpointx, "px です。")
+planetanchorpointy = $ascent - ($em / 2)
+Print("惑星記号（母音記号）用アンカーポイント座標（Y軸）は ", planetanchorpointy, "px です。")
 Select(0u0020); SetGlyphClass("none"); Clear(); SetWidth(500)
 Select(0u0021); SetGlyphClass("none"); Clear(); SetWidth(500); Import("website/creative/fonts/piswpi/uni0021.svg")
 Select(0u0022); SetGlyphClass("none"); Clear(); SetWidth(500); Import("website/creative/fonts/piswpi/uni0022.svg")
@@ -103,3 +112,4 @@ Select(0u007e); SetGlyphClass("none"); Clear(); SetWidth(500); Import("website/c
 Select(0u00b4); SetGlyphClass("none"); Clear(); SetWidth(500); Import("website/creative/fonts/piswpi/uni00b4.svg")
 Select(0u00b6); SetGlyphClass("none"); Clear(); SetWidth(500); Import("website/creative/fonts/piswpi/uni00b6.svg")
 Select(0u25cc); SetGlyphClass("base"); Clear(); SetWidth(500); Import("website/creative/fonts/piswpi/uni25cc.svg"); AddAnchorPoint("vowel", "basechar", 250, 250)
+Close()
