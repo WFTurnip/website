@@ -19,10 +19,28 @@ Print($fontname, "の上部衛星記号（朗唱記号）用アンカーポイ�
 Print($fontname, "の下部衛星記号（朗唱記号）用アンカーポイント座標（Y軸）は ", belowsatelliteanchorpointy, "px です。")
 endif
 Print($fontname, " には ", CharCnt(), " グリフあります。")
+if($fontname == "Sulive" || $fontname == "Zosokw")
+gsublookups = Array(5)
+i = 0
 gsublookups = GetLookups("GSUB")
-Print(gsublookups)
+Print($fontname, "のGSUB配列は", gsublookups)
+while(i < 5)
+gsublookupinfomation = GetLookupInfo(gsublookups[i])
+Print("の", gsublookups[i], "は", gsublookupinfomation)
+gsublookupsubtable = GetLookupSubtables(gsublookups[i])
+Print("の", gsublookups[i], "は", gsublookupsubtable)
+i++
+endloop
+endif
+gposlookups = Array(1)
+i = 0
 gposlookups = GetLookups("GPOS")
 Print(gposlookups)
-gposlookupsubtable = GetLookupInfo("mark")
-Print(gposlookupsubtable)
+while(i < 1)
+gposlookupinfomation = GetLookupInfo(gposlookups[i])
+Print("の", gposlookups[i], "は", gposlookupinfomation)
+gposlookupsubtable = GetLookupSubtables(gposlookups[i])
+Print("の", gposlookups[i], "は", gposlookupsubtable)
+i++
+endloop
 Close()

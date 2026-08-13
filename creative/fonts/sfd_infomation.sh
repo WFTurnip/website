@@ -13,14 +13,14 @@ case $option in
         ls -d *.sfd
         read -p ">>> " fontname
         echo "${fontfile}のフォント情報を出力します。"
-        fontforge -script sample.ff "${fontname}"
+        fontforge -script sfd_infomation.ff "${fontname}"
         echo "${fontname}のフォント情報出力が完了しました。"
         ;;
     all)
         for fontfile in *.sfd; do
             echo "======================================"
             echo "${fontfile}のフォント情報を出力します。"
-            fontforge -script sample.ff "${fontfile}"
+            fontforge -script sfd_infomation.ff "${fontfile}"
             echo "${fontfile}のフォント情報出力が完了しました。"
         done
         ;;
