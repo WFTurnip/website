@@ -1,10 +1,21 @@
 #!/usr/local/bin/fontforge
+Open($1)
 # AddLookup("mark", "gpos_mark2base", 0, [[ "mark", [[ "latn", ["dflt"] ]] ]])
 # AddLookupSubtable("mark", "mark-1")
 if(1 == CheckForAnchorClass("vowel"))
 RemoveAnchorClass("vowel")
-endif
 AddAnchorClass("vowel", "default", "mark-1")
+endif
+defaultwidth = 500
+Print("基底グリフ幅は ", defaultwidth, "px です。")
+markwidth = 0
+Print("マークグリフ幅は ", markwidth, "px です。")
+basecharanchorpointx = defaultwidth * 0.5
+Print("衛星記号（朗唱記号）用基底グリフアンカーポイント座標（X軸）は ", basecharanchorpointx, "px です。")
+markanchorpointx = defaultwidth * -0.5
+Print("衛星記号（朗唱記号）用マークグリフアンカーポイント座標（X軸）は ", markanchorpointx, "px です。")
+planetanchorpointy = $ascent - ($em / 2)
+Print("衛星記号（朗唱記号）用アンカーポイント座標（Y軸）は ", planetanchorpointy, "px です。")
 Select(0u0020); SetGlyphClass("none"); Clear(); SetWidth(500)
 Select(0u0021); SetGlyphClass("none"); Clear(); SetWidth(500); Import("website/creative/fonts/zosokw/uni0021.svg")
 Select(0u0022); SetGlyphClass("none"); Clear(); SetWidth(500); Import("website/creative/fonts/zosokw/uni0022.svg")
@@ -263,3 +274,4 @@ Select(65692); SetGlyphClass("base"); SetGlyphName("uni007A.isol"); Clear(); Set
 Select(65693); SetGlyphClass("base"); SetGlyphName("uni007A.init"); Clear(); SetWidth(500); Import("website/creative/fonts/zosokw/uni007a.init.svg"); AddAnchorPoint("vowel", "basechar", 250, 225)
 Select(65694); SetGlyphClass("base"); SetGlyphName("uni007A.medi"); Clear(); SetWidth(500); Import("website/creative/fonts/zosokw/uni007a.medi.svg"); AddAnchorPoint("vowel", "basechar", 250, 225)
 Select(65695); SetGlyphClass("base"); SetGlyphName("uni007A.fina"); Clear(); SetWidth(500); Import("website/creative/fonts/zosokw/uni007a.fina.svg"); AddAnchorPoint("vowel", "basechar", 250, 225)
+Close()

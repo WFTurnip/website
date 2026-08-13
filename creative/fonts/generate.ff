@@ -1,4 +1,5 @@
 #!/usr/local/bin/fontforge
 Open($1)
 Generate($1:r + ".ttf")
+Print($1, "からフォントを生成しました。")
 Close()

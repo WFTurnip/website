@@ -4,10 +4,12 @@ Open($1)
 # AddLookupSubtable("mark", "mark-1")
 if(1 == CheckForAnchorClass("vowel"))
 RemoveAnchorClass("vowel")
-endif
 AddAnchorClass("vowel", "default", "mark-1")
+endif
 defaultwidth = 500
+Print("基底グリフ幅は ", defaultwidth, "px です。")
 markwidth = 0
+Print("マークグリフ幅は ", markwidth, "px です。")
 basecharanchorpointx = defaultwidth * 0.5
 Print("惑星記号（母音記号）用基底グリフアンカーポイント座標（X軸）は ", basecharanchorpointx, "px です。")
 markanchorpointx = defaultwidth * -0.5

@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1743571002
-ModificationTime: 1775905366
+ModificationTime: 1786546066
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -57,7 +57,7 @@ OS2XHeight: 407
 OS2Vendor: 'PfEd'
 OS2CodePages: 00000001.00000000
 OS2UnicodeRanges: 00000043.00002000.00000000.00000000
-Lookup: 260 0 0 "'mark' +MN4w/DCvMG5PTX9uYwdbmgAA in +MOkwxjDzZYdbVwAA lookup 0" { "'mark' +MN4w/DCvMG5PTX9uYwdbmgAA in +MOkwxjDzZYdbVwAA lookup 0 +MLUw1jDGMPww1jDr"  } ['mark' ('latn' <'dflt' > ) ]
+Lookup: 260 0 0 "mark" { "mark-1"  } ['mark' ('latn' <'dflt' > ) ]
 MarkAttachClasses: 1
 DEI: 91125
 ShortTable: cvt  2
@@ -90,8 +90,10 @@ NameList: AGL For New Fonts
 DisplaySize: -72
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 60 10 7
-AnchorClass2: "Anchor-0" "'mark' +MN4w/DCvMG5PTX9uYwdbmgAA in +MOkwxjDzZYdbVwAA lookup 0 +MLUw1jDGMPww1jDr"
+WinInfo: 20 10 7
+BeginPrivate: 0
+EndPrivate
+AnchorClass2: "Vowels" "mark-1"
 BeginChars: 65539 115
 
 StartChar: .notdef
@@ -1709,7 +1711,7 @@ Encoding: 65 65 36
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -1750,7 +1752,7 @@ Encoding: 66 66 37
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -1796,7 +1798,7 @@ Encoding: 67 67 38
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -1842,7 +1844,7 @@ Encoding: 68 68 39
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -1888,7 +1890,7 @@ Encoding: 69 69 40
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -1909,7 +1911,7 @@ Encoding: 70 70 41
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -1946,7 +1948,7 @@ Encoding: 71 71 42
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -1988,7 +1990,7 @@ Encoding: 72 72 43
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2021,7 +2023,7 @@ Encoding: 73 73 44
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2053,7 +2055,7 @@ Encoding: 74 74 45
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2114,7 +2116,7 @@ Encoding: 75 75 46
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2147,7 +2149,7 @@ Encoding: 76 76 47
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2193,7 +2195,7 @@ Encoding: 77 77 48
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2226,7 +2228,7 @@ Encoding: 78 78 49
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2268,7 +2270,7 @@ Encoding: 79 79 50
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2306,7 +2308,7 @@ Encoding: 80 80 51
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2343,7 +2345,7 @@ Encoding: 81 81 52
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2380,7 +2382,7 @@ Encoding: 82 82 53
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2426,7 +2428,7 @@ Encoding: 83 83 54
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2459,7 +2461,7 @@ Encoding: 84 84 55
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2496,7 +2498,7 @@ Encoding: 85 85 56
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2517,7 +2519,7 @@ Encoding: 86 86 57
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2563,7 +2565,7 @@ Encoding: 87 87 58
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2592,7 +2594,7 @@ Encoding: 88 88 59
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2634,7 +2636,7 @@ Encoding: 89 89 60
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2699,7 +2701,7 @@ Encoding: 90 90 61
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2912,7 +2914,7 @@ Encoding: 97 97 68
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2953,7 +2955,7 @@ Encoding: 98 98 69
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -2999,7 +3001,7 @@ Encoding: 99 99 70
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3045,7 +3047,7 @@ Encoding: 100 100 71
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3091,7 +3093,7 @@ Encoding: 101 101 72
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3112,7 +3114,7 @@ Encoding: 102 102 73
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3149,7 +3151,7 @@ Encoding: 103 103 74
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3191,7 +3193,7 @@ Encoding: 104 104 75
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3224,7 +3226,7 @@ Encoding: 105 105 76
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3256,7 +3258,7 @@ Encoding: 106 106 77
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3317,7 +3319,7 @@ Encoding: 107 107 78
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3350,7 +3352,7 @@ Encoding: 108 108 79
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3396,7 +3398,7 @@ Encoding: 109 109 80
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3429,7 +3431,7 @@ Encoding: 110 110 81
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3471,7 +3473,7 @@ Encoding: 111 111 82
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3509,7 +3511,7 @@ Encoding: 112 112 83
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3546,7 +3548,7 @@ Encoding: 113 113 84
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3583,7 +3585,7 @@ Encoding: 114 114 85
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3629,7 +3631,7 @@ Encoding: 115 115 86
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3662,7 +3664,7 @@ Encoding: 116 116 87
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3699,7 +3701,7 @@ Encoding: 117 117 88
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3720,7 +3722,7 @@ Encoding: 118 118 89
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3766,7 +3768,7 @@ Encoding: 119 119 90
 Width: 500
 GlyphClass: 4
 Flags: W
-AnchorPoint: "Anchor-0" -250 200 mark 0
+AnchorPoint: "Vowels" -250 200 mark 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3795,7 +3797,7 @@ Encoding: 120 120 91
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3837,7 +3839,7 @@ Encoding: 121 121 92
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -3902,7 +3904,7 @@ Encoding: 122 122 93
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -4628,7 +4630,7 @@ Encoding: 9676 9676 114
 Width: 500
 GlyphClass: 2
 Flags: W
-AnchorPoint: "Anchor-0" 250 200 basechar 0
+AnchorPoint: "Vowels" 250 200 basechar 0
 LayerCount: 2
 Fore
 SplineSet

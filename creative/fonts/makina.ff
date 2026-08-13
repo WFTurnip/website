@@ -3,8 +3,18 @@
 # AddLookupSubtable("mark", "mark-1")
 if(1 == CheckForAnchorClass("vowel"))
 RemoveAnchorClass("vowel")
-endif
 AddAnchorClass("vowel", "default", "mark-1")
+endif
+defaultwidth = 400
+Print("基底グリフ幅は ", defaultwidth, "px です。")
+markwidth = 0
+Print("マークグリフ幅は ", markwidth, "px です。")
+basecharanchorpointx = defaultwidth * 0.5
+Print("惑星記号（母音記号）用基底グリフアンカーポイント座標（X軸）は ", basecharanchorpointx, "px です。")
+markanchorpointx = defaultwidth * -0.5
+Print("惑星記号（母音記号）用マークグリフアンカーポイント座標（X軸）は ", markanchorpointx, "px です。")
+planetanchorpointy = $ascent - ($em / 2)
+Print("惑星記号（母音記号）用アンカーポイント座標（Y軸）は ", planetanchorpointy, "px です。")
 Select(0u0020); SetGlyphClass("none"); Clear(); SetWidth(400)
 Select(0u0021); SetGlyphClass("none"); Clear(); SetWidth(400); Import("website/creative/fonts/makina/uni0021.svg")
 Select(0u0022); SetGlyphClass("none"); Clear(); SetWidth(400); Import("website/creative/fonts/makina/uni0022.svg")
