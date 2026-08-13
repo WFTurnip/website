@@ -23,24 +23,24 @@ if($fontname == "Sulive" || $fontname == "Zosokw")
 gsublookups = Array(5)
 i = 0
 gsublookups = GetLookups("GSUB")
-Print($fontname, "のGSUB配列は", gsublookups)
+Print($fontname, "のGSUBルックアップテーブルは", gsublookups)
 while(i < 5)
 gsublookupinfomation = GetLookupInfo(gsublookups[i])
-Print("の", gsublookups[i], "は", gsublookupinfomation)
 gsublookupsubtable = GetLookupSubtables(gsublookups[i])
-Print("の", gsublookups[i], "は", gsublookupsubtable)
+Print($fontname, "のGSUBルックアップ、", gsublookups[i], "のGSUBルックアップ情報は", gsublookupinfomation)
+Print($fontname, "のGSUBルックアップ、", gsublookups[i], "のGSUBルックアップサブテーブルは", gsublookupsubtable)
 i++
 endloop
 endif
 gposlookups = Array(1)
 i = 0
 gposlookups = GetLookups("GPOS")
-Print(gposlookups)
+Print($fontname, "のGPOSルックアップテーブルは", gposlookups)
 while(i < 1)
 gposlookupinfomation = GetLookupInfo(gposlookups[i])
-Print("の", gposlookups[i], "は", gposlookupinfomation)
 gposlookupsubtable = GetLookupSubtables(gposlookups[i])
-Print("の", gposlookups[i], "は", gposlookupsubtable)
+Print($fontname ,"のGPOSルックアップ、", gposlookups[i], "のGPOSルックアップ情報は", gposlookupinfomation)
+Print($fontname, "のGPOSルックアップ、", gposlookups[i], "のGPOSルックアップサブテーブルは", gposlookupsubtable)
 i++
 endloop
 Close()
