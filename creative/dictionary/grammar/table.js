@@ -506,14 +506,14 @@ function generateArticleConjugationTable() {
     let blank = document.createElement("th");
     blank.textContent = "";
     conjunctHorizontal.appendChild(blank);
-    for (let prefixIndex = 0; prefixIndex < middleTongueConsonantArray.length; prefixIndex++) {
+    for (let suffixIndex = 0; suffixIndex < middleTongueConsonantArray.length; suffixIndex++) {
         let th = document.createElement("th");
         let p = document.createElement("div");
-        p.textContent = "\u{25CC}\u{25CC}\u{25CC}a" + middleTongueConsonantArray[prefixIndex];
+        p.textContent = "\u{25CC}\u{25CC}\u{25CC}a" + middleTongueConsonantArray[suffixIndex];
         p.classList.add("xesada", "article-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = middleTongueConceptArray[prefixIndex] + "形";
+        p2.textContent = middleTongueConceptArray[suffixIndex] + "形";
         p2.classList.add("article-tense");
         th.appendChild(p2);
         conjunctHorizontal.appendChild(th);
@@ -560,14 +560,14 @@ function generateVerbConjugationTable() {
     let blank = document.createElement("th");
     blank.textContent = "";
     conjunctHorizontal.appendChild(blank);
-    for (let prefixIndex = 0; prefixIndex < middleTongueConsonantArray.length; prefixIndex++) {
+    for (let suffixIndex = 0; suffixIndex < middleTongueConsonantArray.length; suffixIndex++) {
         let th = document.createElement("th");
         let p = document.createElement("div");
-        p.textContent = "\u{25CC}\u{25CC}\u{25CC}e" + middleTongueConsonantArray[prefixIndex];
+        p.textContent = "\u{25CC}\u{25CC}\u{25CC}e" + middleTongueConsonantArray[suffixIndex];
         p.classList.add("xesada", "verb-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = middleTongueConceptArray[prefixIndex] + "形";
+        p2.textContent = middleTongueConceptArray[suffixIndex] + "形";
         p2.classList.add("verb-tense");
         th.appendChild(p2);
         conjunctHorizontal.appendChild(th);
@@ -614,14 +614,14 @@ function generateAdjectiveConjugationTable() {
     let blank = document.createElement("th");
     blank.textContent = "";
     vowelsPronunciationHorizontalRow.appendChild(blank);
-    for (let prefixIndex = 0; prefixIndex < upperTongueConsonantArray.length; prefixIndex++) {
+    for (let suffixIndex = 0; suffixIndex < upperTongueConsonantArray.length; suffixIndex++) {
         let th = document.createElement("th");
         let p = document.createElement("div");
-        p.textContent = "\u{25CC}\u{25CC}\u{25CC}i" + upperTongueConsonantArray[prefixIndex];
+        p.textContent = "\u{25CC}\u{25CC}\u{25CC}i" + upperTongueConsonantArray[suffixIndex];
         p.classList.add("xesada", "adjective-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = upperTongueConceptArray[prefixIndex] + "形";
+        p2.textContent = upperTongueConceptArray[suffixIndex] + "形";
         p2.classList.add("adjective-tense");
         th.appendChild(p2);
         vowelsPronunciationHorizontalRow.appendChild(th);
@@ -668,14 +668,14 @@ function generateParticleConjugationTable() {
     let blank = document.createElement("th");
     blank.textContent = "";
     conjunctHorizontal.appendChild(blank);
-    for (let prefixIndex = 0; prefixIndex < middleTongueConsonantArray.length; prefixIndex++) {
+    for (let suffixIndex = 0; suffixIndex < middleTongueConsonantArray.length; suffixIndex++) {
         let th = document.createElement("th");
         let p = document.createElement("div");
-        p.textContent = "\u{25CC}\u{25CC}\u{25CC}o" + middleTongueConsonantArray[prefixIndex];
+        p.textContent = "\u{25CC}\u{25CC}\u{25CC}o" + middleTongueConsonantArray[suffixIndex];
         p.classList.add("xesada", "particle-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = middleTongueConceptArray[prefixIndex] + "形";
+        p2.textContent = middleTongueConceptArray[suffixIndex] + "形";
         p2.classList.add("particle-tense");
         th.appendChild(p2);
         conjunctHorizontal.appendChild(th);
@@ -722,14 +722,14 @@ function generateAdverbConjugationTable() {
     let blank = document.createElement("th");
     blank.textContent = "";
     conjunctHorizontal.appendChild(blank);
-    for (let i = 0; i < middleTongueConsonantArray.length; i++) {
+    for (let suffixIndex = 0; suffixIndex < middleTongueConsonantArray.length; suffixIndex++) {
         let th = document.createElement("th");
         let p = document.createElement("div");
-        p.textContent = "\u{25CC}\u{25CC}\u{25CC}u" + middleTongueConsonantArray[i];
+        p.textContent = "\u{25CC}\u{25CC}\u{25CC}u" + middleTongueConsonantArray[suffixIndex];
         p.classList.add("xesada", "adverb-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = middleTongueConceptArray[i] + "形";
+        p2.textContent = middleTongueConceptArray[suffixIndex] + "形";
         p2.classList.add("adverb-tense");
         th.appendChild(p2);
         conjunctHorizontal.appendChild(th);
@@ -776,14 +776,14 @@ function generateNounConjugationTable() {
     let blank = document.createElement("th");
     blank.textContent = "";
     conjunctHorizontal.appendChild(blank);
-    for (let prefixIndex = 0; prefixIndex < upperTongueConsonantArray.length; prefixIndex++) {
+    for (let suffixIndex = 0; suffixIndex < upperTongueConsonantArray.length; suffixIndex++) {
         let th = document.createElement("th");
         let p = document.createElement("div");
-        p.textContent = "\u{25CC}\u{25CC}\u{25CC}w" + upperTongueConsonantArray[prefixIndex];
+        p.textContent = "\u{25CC}\u{25CC}\u{25CC}w" + upperTongueConsonantArray[suffixIndex];
         p.classList.add("xesada", "noun-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = upperTongueConceptArray[prefixIndex] + "形";
+        p2.textContent = upperTongueConceptArray[suffixIndex] + "形";
         p2.classList.add("noun-tense");
         th.appendChild(p2);
         conjunctHorizontal.appendChild(th);

@@ -13,7 +13,7 @@ read -p ">>> " option
 
 case "$option" in
 html)
-    node html_generater.js
+    node html_generater.js 
     ;;
 json)
     node json_generater.js
@@ -22,9 +22,9 @@ favicon)
     node favicon_generater.js
     ;;
 all)
-    node generate_html.js
-    node generate_json.js
-    node generate_favicon.js
+    node html_generater.js
+    node json_generater.js
+    node favicon_generater.js
     ;;
 *)
     echo "無効な出力方式です。終了します。"
