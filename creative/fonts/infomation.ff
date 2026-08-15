@@ -30,8 +30,19 @@ while(i < gsublookupslength)
 gsublookupinfomation = GetLookupInfo(gsublookups[i])
 gsublookupsubtable = GetLookupSubtables(gsublookups[i])
 Print($fontname, "のGSUBルックアップ、", gsublookups[i], "のGSUBルックアップ情報は", gsublookupinfomation)
-Print($fontname, "のGSUBルックアップ、", gsublookups[i], "のGSUBルックアップサブテーブルは", gsublookupsubtable)
 
+
+gsublookupinfomationlength = SizeOf(gsublookupinfomation)
+gsublookupinfomationarray = Array(gsublookupinfomationlength)
+gsublookupinfomationarray = gsublookupinfomation
+j = 0
+while(j < gsublookupinfomationlength)
+gsublookupinfomationstring = gsublookupinfomationarray[j]
+Print($fontname, "のGSUBルックアップ情報の個別情報は",  gsublookupinfomationstring)
+j++
+endloop
+
+Print($fontname, "のGSUBルックアップ、", gsublookups[i], "のGSUBルックアップサブテーブルは", gsublookupsubtable)
 i++
 endloop
 endif
@@ -45,16 +56,18 @@ while(i < gposlookupslength)
 gposlookupinfomation = GetLookupInfo(gposlookups[i])
 gposlookupsubtable = GetLookupSubtables(gposlookups[i])
 Print($fontname, "のGPOSルックアップ、", gposlookups[i], "のGPOSルックアップ情報は", gposlookupinfomation)
-Print($fontname, "のGPOSルックアップ、", gposlookups[i], "のGPOSルックアップサブテーブルは", gposlookupsubtable)
-gposlookupsubtablelength = SizeOf(gposlookupsubtable)
-gposlookupofsubtablearray = Array(gposlookupsubtablelength)
-gposlookupofsubtablearray = gposlookupsubtable
+
+gposlookupinfomationlength = SizeOf(gposlookupinfomation)
+gposlookupinfomationarray = Array(gposlookupinfomationlength)
+gposlookupinfomationarray = gposlookupinfomation
 j = 0
-while(j < gposlookupsubtablelength)
-gposlookupofsubtable = GetLookupOfSubtable(gposlookupofsubtablearray[j])
-Print($fontname, "のGPOSルックアップサブテーブル情報は",  gposlookupofsubtable)
+while(j < gposlookupinfomationlength)
+gposlookupinfomationstring = gposlookupinfomationarray[j]
+Print($fontname, "のGPOSルックアップ情報の個別情報は",  gposlookupinfomationstring)
 j++
 endloop
+
+Print($fontname, "のGPOSルックアップ、", gposlookups[i], "のGPOSルックアップサブテーブルは", gposlookupsubtable)
 i++
 endloop
 Close()
