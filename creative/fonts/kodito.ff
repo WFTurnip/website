@@ -3,9 +3,9 @@ Open($1)
 # RemoveAnchorClass("Marks")
 # RemoveLookupSubtable("mark-1")
 # RemoveLookup("mark")
-AddLookup("mark", "gpos_mark2base", 0, [["mark", [["latn", ["dflt"]]]]])
-AddLookupSubtable("mark", "mark-1")
-AddAnchorClass("Marks", "default", "mark-1")
+# AddLookup("mark", "gpos_mark2base", 0, [["mark", [["latn", ["dflt"]]]]])
+# AddLookupSubtable("mark", "mark-1")
+# AddAnchorClass("Marks", "default", "mark-1")
 basewidth = 500
 Print("基底グリフ幅は ", basewidth, "px です。")
 markwidth = 0
@@ -50,7 +50,7 @@ Select(0u003c); SetGlyphClass("none"); Clear(); SetWidth(basewidth); Import("./k
 Select(0u003d); SetGlyphClass("none"); Clear(); SetWidth(basewidth); Import("./kodito/uni003d.svg")
 Select(0u003e); SetGlyphClass("none"); Clear(); SetWidth(basewidth); Import("./kodito/uni003e.svg")
 Select(0u003f); SetGlyphClass("none"); Clear(); SetWidth(basewidth); Import("./kodito/uni003f.svg")
-Select(0u0040); SetGlyphClass("none"); Clear(); SetWidth(basewidth); Import("./kodito/uni0040.svg"); AddAnchorPoint("Marks", "basechar", basecharanchorpointx, basecharanchorpointy)
+Select(0u0040); SetGlyphClass("none"); Clear(); SetWidth(basewidth); Import("./kodito/uni0040.svg");
 Select(0u0041); SetGlyphClass("base"); Clear(); SetWidth(basewidth); Import("./kodito/uni0041.svg"); AddAnchorPoint("Marks", "basechar", basecharanchorpointx, basecharanchorpointy)
 Select(0u0042); SetGlyphClass("base"); Clear(); SetWidth(basewidth); Import("./kodito/uni0042.svg"); AddAnchorPoint("Marks", "basechar", basecharanchorpointx, basecharanchorpointy)
 Select(0u0043); SetGlyphClass("base"); Clear(); SetWidth(basewidth); Import("./kodito/uni0043.svg"); AddAnchorPoint("Marks", "basechar", basecharanchorpointx, basecharanchorpointy)
@@ -130,4 +130,6 @@ Select(0u0308); SetGlyphClass("mark"); Clear(); SetWidth(markwidth); Import("./k
 Select(0u0324); SetGlyphClass("mark"); Clear(); SetWidth(markwidth); Import("./kodito/uni0324.svg"); AddAnchorPoint("Marks", "mark", markanchorpointx, markanchorpointy)
 Select(0u0304); SetGlyphClass("mark"); Clear(); SetWidth(markwidth); Import("./kodito/uni0304.svg"); AddAnchorPoint("Marks", "mark", markanchorpointx, markanchorpointy)
 Select(0u0331); SetGlyphClass("mark"); Clear(); SetWidth(markwidth); Import("./kodito/uni0331.svg"); AddAnchorPoint("Marks", "mark", markanchorpointx, markanchorpointy)
+Save($1)
 Close()
+Quit(0)
