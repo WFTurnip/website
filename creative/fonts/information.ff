@@ -1,5 +1,6 @@
 #!/usr/local/bin/fontforge
 Open($1)
+Print("---------------------------------------------------------------------------------------------------------------------")
 Print("あなたが使っているFontForgeのバージョンは ", $version, " です。")
 Print($fontname, "のEM値（文字全体の高さ）は ", $em, "px です。")
 Print($fontname, "のアセンダ値（ベースラインより上の高さ）は ", $ascent, "px です。")
@@ -20,6 +21,7 @@ Print($fontname, "の下部衛星記号（朗唱記号）用アンカーポイ�
 endif
 Print($fontname, " には ", CharCnt(), " グリフあります。")
 if($fontname == "Sulive" || $fontname == "Zosokw")
+Print("---------------------------------------------------------------------------------------------------------------------")
 gsublookupslength = SizeOf(GetLookups("GSUB"))
 gsublookups = Array(gsublookupslength)
 gsublookupsindex = 0
@@ -30,21 +32,11 @@ while(gsublookupsindex < gsublookupslength)
 gsublookupinformation = GetLookupInfo(gsublookups[gsublookupsindex])
 gsublookupsubtable = GetLookupSubtables(gsublookups[gsublookupsindex])
 Print($fontname, "のGSUBルックアップ、", gsublookups[gsublookupsindex], "のGSUBルックアップ情報は", gsublookupinformation)
-
-gsublookupinformationlength = SizeOf(gsublookupinformation)
-gsublookupinformationarray = Array(gsublookupinformationlength)
-gsublookupinformationarray = gsublookupinformation
-gsublookupinformationindex = 0
-while(gsublookupinformationindex < gsublookupinformationlength)
-gsublookupinformationstring = gsublookupinformationarray[gsublookupinformationindex]
-Print($fontname, "のGSUBルックアップ情報の個別情報は",  gsublookupinformationstring)
-gsublookupinformationindex++
-endloop
-
 Print($fontname, "のGSUBルックアップ、", gsublookups[gsublookupsindex], "のGSUBルックアップサブテーブルは", gsublookupsubtable)
 gsublookupsindex++
 endloop
 endif
+Print("---------------------------------------------------------------------------------------------------------------------")
 gposlookupslength = SizeOf(GetLookups("GPOS"))
 gposlookups = Array(gposlookupslength)
 gposlookupsindex = 0
@@ -55,17 +47,6 @@ while(gposlookupsindex < gposlookupslength)
 gposlookupinformation = GetLookupInfo(gposlookups[gposlookupsindex])
 gposlookupsubtable = GetLookupSubtables(gposlookups[gposlookupsindex])
 Print($fontname, "のGPOSルックアップ、", gposlookups[gposlookupsindex], "のGPOSルックアップ情報は", gposlookupinformation)
-
-gposlookupinformationlength = SizeOf(gposlookupinformation)
-gposlookupinformationarray = Array(gposlookupinformationlength)
-gposlookupinformationarray = gposlookupinformation
-gposlookupinformationindex = 0
-while(gposlookupinformationindex < gposlookupinformationlength)
-gposlookupinformationstring = gposlookupinformationarray[gposlookupinformationindex]
-Print($fontname, "のGPOSルックアップ情報の個別情報は",  gposlookupinformationstring)
-gposlookupinformationindex++
-endloop
-
 Print($fontname, "のGPOSルックアップ、", gposlookups[gposlookupsindex], "のGPOSルックアップサブテーブルは", gposlookupsubtable)
 gposlookupsindex++
 endloop
