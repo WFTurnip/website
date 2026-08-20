@@ -5,49 +5,49 @@ Print("あなたが使っているFontForgeのバージョンは ", $version, " 
 Print($fontname, " のEM値（文字全体の高さ）は ", $em, "px です。")
 Print($fontname, " のアセンダ値（ベースラインより上の高さ）は ", $ascent, "px です。")
 Print($fontname, " のディセンダ値（ベースラインより下の高さ）は ", $descent, "px です。")
-planetanchorpointy = $ascent - ($em / 2)
-Print($fontname, " の惑星記号（母音記号）用アンカーポイント座標（Y軸）は ", planetanchorpointy, "px です。")
+PlanetAnchorPointY = $ascent - ($em / 2)
+Print($fontname, " の惑星記号（母音記号）用アンカーポイント座標（Y軸）は ", PlanetAnchorPointY, "px です。")
 if($fontname == "Kodito" || $fontname == "Lozegw" || $fontname == "Silwki" || $fontname == "Xavani" || $fontname == "Xidili" || $fontname == "Lekuta" || $fontname == "Xesada")
 if($fontname == "Kodito")
-abovesatelliteanchorpointy = $ascent - ($em / 2)
-belowsatelliteanchorpointy = $ascent - ($em / 2)
+AboveSatelliteAnchorPointY = $ascent - ($em / 2)
+BelowSatelliteAnchorPointY = $ascent - ($em / 2)
 endif
 if($fontname == "Lozegw" || $fontname == "Silwki" || $fontname == "Xavani" || $fontname == "Xidili" || $fontname == "Lekuta" || $fontname == "Xesada")
-abovesatelliteanchorpointy = $ascent - $descent / 2
-belowsatelliteanchorpointy = -1 * $descent / 2
+AboveSatelliteAnchorPointY = $ascent - $descent / 2
+BelowSatelliteAnchorPointY = -1 * $descent / 2
 endif
-Print($fontname, " の上部衛星記号（朗唱記号）用アンカーポイント座標（Y軸）は ", abovesatelliteanchorpointy, "px です。")
-Print($fontname, " の下部衛星記号（朗唱記号）用アンカーポイント座標（Y軸）は ", belowsatelliteanchorpointy, "px です。")
+Print($fontname, " の上部衛星記号（朗唱記号）用アンカーポイント座標（Y軸）は ", AboveSatelliteAnchorPointY, "px です。")
+Print($fontname, " の下部衛星記号（朗唱記号）用アンカーポイント座標（Y軸）は ", BelowSatelliteAnchorPointY, "px です。")
 endif
 Print($fontname, " のグリフ総数は ", CharCnt(), " です。")
 if($fontname == "Sulive" || $fontname == "Zosokw")
 Print("---------------------------------------------------------------------------------------------------------------------")
-gsublookupslength = SizeOf(GetLookups("GSUB"))
-gsublookups = Array(gsublookupslength)
-gsublookupsindex = 0
-gsublookups = GetLookups("GSUB")
-Print($fontname, " の GSUB ルックアップテーブルは ", gsublookups, " です。")
-gsublookupslength = SizeOf(gsublookups)
-while(gsublookupsindex < gsublookupslength)
-gsublookupinformation = GetLookupInfo(gsublookups[gsublookupsindex])
-gsublookupsubtable = GetLookupSubtables(gsublookups[gsublookupsindex])
-Print($fontname, " の GSUB ルックアップ ", gsublookups[gsublookupsindex], " の GSUB ルックアップ情報は ", gsublookupinformation, " です。")
-Print($fontname, " の GSUB ルックアップ ", gsublookups[gsublookupsindex], " の GSUB ルックアップサブテーブルは ", gsublookupsubtable, " です。")
-gsublookupsindex++
+GSUBLookupsLength = SizeOf(GetLookups("GSUB"))
+GSUBLookups = Array(GSUBLookupsLength)
+GSUBLookupsIndex = 0
+GSUBLookups = GetLookups("GSUB")
+Print($fontname, " の GSUB ルックアップテーブルは ", GSUBLookups, " です。")
+GSUBLookupsLength = SizeOf(GSUBLookups)
+while(GSUBLookupsIndex < GSUBLookupsLength)
+gsublookupinformation = GetLookupInfo(GSUBLookups[GSUBLookupsIndex])
+GSUBLookupSubtable = GetLookupSubtables(GSUBLookups[GSUBLookupsIndex])
+Print($fontname, " の GSUB ルックアップ ", GSUBLookups[GSUBLookupsIndex], " の GSUB ルックアップ情報は ", gsublookupinformation, " です。")
+Print($fontname, " の GSUB ルックアップ ", GSUBLookups[GSUBLookupsIndex], " の GSUB ルックアップサブテーブルは ", GSUBLookupSubtable, " です。")
+GSUBLookupsIndex++
 endloop
 endif
 Print("---------------------------------------------------------------------------------------------------------------------")
-gposlookupslength = SizeOf(GetLookups("GPOS"))
-gposlookups = Array(gposlookupslength)
-gposlookupsindex = 0
-gposlookups = GetLookups("GPOS")
-Print($fontname, " の GPOS ルックアップテーブルは ", gposlookups, " です。")
-gposlookupslength = SizeOf(gposlookups)
-while(gposlookupsindex < gposlookupslength)
-gposlookupinformation = GetLookupInfo(gposlookups[gposlookupsindex])
-gposlookupsubtable = GetLookupSubtables(gposlookups[gposlookupsindex])
-Print($fontname, " の GPOS ルックアップ ", gposlookups[gposlookupsindex], " の GPOS ルックアップ情報は ", gposlookupinformation, " です。")
-Print($fontname, " の GPOS ルックアップ ", gposlookups[gposlookupsindex], " の GPOS ルックアップサブテーブルは ", gposlookupsubtable, " です。")
-gposlookupsindex++
+GPOSLookupsLength = SizeOf(GetLookups("GPOS"))
+GPOSLookups = Array(GPOSLookupsLength)
+GPOSLookupsIndex = 0
+GPOSLookups = GetLookups("GPOS")
+Print($fontname, " の GPOS ルックアップテーブルは ", GPOSLookups, " です。")
+GPOSLookupsLength = SizeOf(GPOSLookups)
+while(GPOSLookupsIndex < GPOSLookupsLength)
+GPOSLookupInformation = GetLookupInfo(GPOSLookups[GPOSLookupsIndex])
+GPOSLookupSubtable = GetLookupSubtables(GPOSLookups[GPOSLookupsIndex])
+Print($fontname, " の GPOS ルックアップ ", GPOSLookups[GPOSLookupsIndex], " の GPOS ルックアップ情報は ", GPOSLookupInformation, " です。")
+Print($fontname, " の GPOS ルックアップ ", GPOSLookups[GPOSLookupsIndex], " の GPOS ルックアップサブテーブルは ", GPOSLookupSubtable, " です。")
+GPOSLookupsIndex++
 endloop
 Close()
