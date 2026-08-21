@@ -14,7 +14,7 @@ case $option in
         read -p ">>> " fontname
         echo "${fontfile}のフォント情報を出力します。"
         fontforge -script information.ff "${fontname}"
-        echo "${fontname}のフォント情報出力が完了しました。"
+        echo "${fontfile}のフォント情報出力が完了しました。"
         ;;
     all)
         for fontfile in *.sfd; do
