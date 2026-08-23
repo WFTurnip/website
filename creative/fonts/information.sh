@@ -11,9 +11,9 @@ case $option in
         echo "====================================================================================================================="
         echo "フォント情報を出力するためのファイル名を入力してください。"
         ls -d *.sfd
-        read -p ">>> " fontname
+        read -p ">>> " fontfile
         echo "${fontfile}のフォント情報を出力します。"
-        fontforge -script information.ff "${fontname}"
+        fontforge -script information.ff "${fontfile}"
         echo "${fontfile}のフォント情報出力が完了しました。"
         ;;
     all)

@@ -19,7 +19,7 @@ endif
 Print($fontname, " の上部衛星記号（朗唱記号）用アンカーポイント座標（Y軸）は ", AboveSatelliteAnchorPointY, "px です。")
 Print($fontname, " の下部衛星記号（朗唱記号）用アンカーポイント座標（Y軸）は ", BelowSatelliteAnchorPointY, "px です。")
 endif
-Print($fontname, " のグリフ総数は ", CharCnt(), " です。")
+Print($fontname, " のグリフ総数は ", CharCnt(), " グリフです。")
 if($fontname == "Sulive" || $fontname == "Zosokw")
 Print("---------------------------------------------------------------------------------------------------------------------")
 GSUBLookupsLength = SizeOf(GetLookups("GSUB"))
