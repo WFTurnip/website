@@ -6,6 +6,10 @@ Open($1)
 # AddLookup("mark", "gpos_mark2base", 0, [["mark", [["latn", ["dflt"]]]]])
 # AddLookupSubtable("mark", "mark-1")
 # AddAnchorClass("Marks", "default", "mark-1")
+AddLookup("mkmk", "gpos_mark2mark", 0, [["mark", [["latn", ["dflt"]]]]])
+AddLookupSubtable("mkmk", "mkmk-1")
+AddAnchorClass("AboveMark2Marks", "default", "mkmk-1")
+AddAnchorClass("BelowMark2Marks", "default", "mkmk-1")
 BaseWidth = 500
 MarkWidth = 0
 BasecharAnchorPointX = BaseWidth * 0.5
