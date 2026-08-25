@@ -29,9 +29,9 @@ GSUBLookups = GetLookups("GSUB")
 Print($fontname, " の GSUB ルックアップテーブルは ", GSUBLookups, " です。")
 GSUBLookupsLength = SizeOf(GSUBLookups)
 while(GSUBLookupsIndex < GSUBLookupsLength)
-gsublookupinformation = GetLookupInfo(GSUBLookups[GSUBLookupsIndex])
+GUSBLookupInformation = GetLookupInfo(GSUBLookups[GSUBLookupsIndex])
 GSUBLookupSubtable = GetLookupSubtables(GSUBLookups[GSUBLookupsIndex])
-Print($fontname, " の GSUB ルックアップ ", GSUBLookups[GSUBLookupsIndex], " の GSUB ルックアップ情報は ", gsublookupinformation, " です。")
+Print($fontname, " の GSUB ルックアップ ", GSUBLookups[GSUBLookupsIndex], " の GSUB ルックアップ情報は ", GUSBLookupInformation, " です。")
 Print($fontname, " の GSUB ルックアップ ", GSUBLookups[GSUBLookupsIndex], " の GSUB ルックアップサブテーブルは ", GSUBLookupSubtable, " です。")
 GSUBLookupsIndex++
 endloop
