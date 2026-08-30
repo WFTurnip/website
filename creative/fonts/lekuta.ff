@@ -113,6 +113,7 @@ Select(0u007b); SetGlyphClass("none"); Clear(); SetWidth(BaseWidth); Import("./l
 Select(0u007c); SetGlyphClass("none"); Clear(); SetWidth(BaseWidth); Import("./lekuta/uni007c.svg")
 Select(0u007d); SetGlyphClass("none"); Clear(); SetWidth(BaseWidth); Import("./lekuta/uni007d.svg")
 Select(0u007e); SetGlyphClass("none"); Clear(); SetWidth(BaseWidth); Import("./lekuta/uni007e.svg")
+Select(0u00a7); SetGlyphClass("none"); Clear(); SetWidth(BaseWidth); Import("./lekuta/uni00a7.svg")
 Select(0u00b4); SetGlyphClass("none"); Clear(); SetWidth(BaseWidth); Import("./lekuta/uni00b4.svg")
 Select(0u00b6); SetGlyphClass("none"); Clear(); SetWidth(BaseWidth); Import("./lekuta/uni00b6.svg")
 Select(0u25cc); SetGlyphClass("base"); Clear(); SetWidth(BaseWidth); Import("./lekuta/uni25cc.svg"); AddAnchorPoint("Marks", "base", BaseGlyphB2MAnchorPointX, BaseGlyphB2MAnchorPointY)
