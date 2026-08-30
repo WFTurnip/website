@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1743419430
-ModificationTime: 1786878414
+ModificationTime: 1788088487
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -57,6 +57,7 @@ OS2XHeight: 425
 OS2Vendor: 'PfEd'
 OS2CodePages: 00000001.00000000
 OS2UnicodeRanges: 00000043.00002000.00000000.00000000
+Lookup: 262 0 0 "mkmk" { "mkmk-1"  } ['mkmk' ('latn' <'dflt' > ) ]
 Lookup: 260 0 0 "mark" { "mark-1"  } ['mark' ('latn' <'dflt' > ) ]
 MarkAttachClasses: 1
 DEI: 91125
@@ -93,8 +94,8 @@ FitToEm: 0
 WinInfo: 20 10 7
 BeginPrivate: 0
 EndPrivate
-AnchorClass2: "Marks" "mark-1"
-BeginChars: 65539 115
+AnchorClass2: "BelowMarks" "mkmk-1" "AboveMarks" "mkmk-1" "Marks" "mark-1"
+BeginChars: 65539 116
 
 StartChar: .notdef
 Encoding: 65536 -1 0
@@ -1233,6 +1234,8 @@ Encoding: 65 65 36
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -1350,6 +1353,8 @@ Encoding: 69 69 40
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -1442,6 +1447,8 @@ Encoding: 73 73 44
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -1608,6 +1615,8 @@ Encoding: 79 79 50
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -1753,6 +1762,8 @@ Encoding: 85 85 56
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -1803,6 +1814,8 @@ Encoding: 87 87 58
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -2057,6 +2070,8 @@ Encoding: 97 97 68
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -2174,6 +2189,8 @@ Encoding: 101 101 72
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -2266,6 +2283,8 @@ Encoding: 105 105 76
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -2432,6 +2451,8 @@ Encoding: 111 111 82
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -2577,6 +2598,8 @@ Encoding: 117 117 88
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -2627,6 +2650,8 @@ Encoding: 119 119 90
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 basechar 0
+AnchorPoint: "AboveMarks" -250 513 basechar 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -2931,6 +2956,7 @@ Encoding: 768 768 100
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "AboveMarks" -250 513 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -2953,6 +2979,7 @@ Encoding: 769 769 101
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "AboveMarks" -250 513 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -2975,6 +3002,7 @@ Encoding: 770 770 102
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "AboveMarks" -250 513 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3002,6 +3030,7 @@ Encoding: 772 772 103
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "AboveMarks" -250 513 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3019,6 +3048,7 @@ Encoding: 775 775 104
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "AboveMarks" -250 513 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3044,6 +3074,7 @@ Encoding: 776 776 105
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "AboveMarks" -250 513 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3066,6 +3097,7 @@ Encoding: 780 780 106
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "AboveMarks" -250 513 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3093,6 +3125,7 @@ Encoding: 790 790 107
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3115,6 +3148,7 @@ Encoding: 791 791 108
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3137,6 +3171,7 @@ Encoding: 803 803 109
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3162,6 +3197,7 @@ Encoding: 804 804 110
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3184,6 +3220,7 @@ Encoding: 812 812 111
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3211,6 +3248,7 @@ Encoding: 813 813 112
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3238,6 +3276,7 @@ Encoding: 817 817 113
 Width: 0
 GlyphClass: 4
 Flags: HW
+AnchorPoint: "BelowMarks" -250 -112 mark 0
 AnchorPoint: "Marks" -250 200 mark 0
 LayerCount: 2
 Fore
@@ -3299,6 +3338,36 @@ SplineSet
  475 -25 l 1
  425 -25 l 1
  425 25 l 1
+EndSplineSet
+EndChar
+
+StartChar: section
+Encoding: 167 167 115
+Width: 500
+Flags: HW
+LayerCount: 2
+Fore
+SplineSet
+225 425 m 1
+ 275 425 l 1
+ 275 375 l 1
+ 225 375 l 1
+ 225 425 l 1
+25 225 m 1
+ 75 225 l 1
+ 75 175 l 1
+ 25 175 l 1
+ 25 225 l 1
+425 225 m 1
+ 475 225 l 1
+ 475 175 l 1
+ 425 175 l 1
+ 425 225 l 1
+225 25 m 1
+ 275 25 l 1
+ 275 -25 l 1
+ 225 -25 l 1
+ 225 25 l 1
 EndSplineSet
 EndChar
 EndChars
