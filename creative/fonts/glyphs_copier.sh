@@ -1,36 +1,32 @@
 #!/bin/bash
-
 fontname=("kodito" "lekuta" "lozegw" "makina" "piswpi" "polwgo" "silwki" "sulive" "xavani" "xesada" "xidili" "zosokw")
-
-for fontname in "${fontname[@]}"; do
-    echo "ディレクトリ${fontname}の基本大文字から基本小文字へのコピーをします。"
-
-    cp "${fontname}"/uni0041.svg "${fontname}"/uni0061.svg
-    cp "${fontname}"/uni0042.svg "${fontname}"/uni0062.svg
-    cp "${fontname}"/uni0043.svg "${fontname}"/uni0063.svg
-    cp "${fontname}"/uni0044.svg "${fontname}"/uni0064.svg
-    cp "${fontname}"/uni0045.svg "${fontname}"/uni0065.svg
-    cp "${fontname}"/uni0046.svg "${fontname}"/uni0066.svg
-    cp "${fontname}"/uni0047.svg "${fontname}"/uni0067.svg
-    cp "${fontname}"/uni0048.svg "${fontname}"/uni0068.svg
-    cp "${fontname}"/uni0049.svg "${fontname}"/uni0069.svg
-    cp "${fontname}"/uni004a.svg "${fontname}"/uni006a.svg
-    cp "${fontname}"/uni004b.svg "${fontname}"/uni006b.svg
-    cp "${fontname}"/uni004c.svg "${fontname}"/uni006c.svg
-    cp "${fontname}"/uni004d.svg "${fontname}"/uni006d.svg
-    cp "${fontname}"/uni004e.svg "${fontname}"/uni006e.svg
-    cp "${fontname}"/uni004f.svg "${fontname}"/uni006f.svg
-    cp "${fontname}"/uni0050.svg "${fontname}"/uni0070.svg
-    cp "${fontname}"/uni0051.svg "${fontname}"/uni0071.svg
-    cp "${fontname}"/uni0052.svg "${fontname}"/uni0072.svg
-    cp "${fontname}"/uni0053.svg "${fontname}"/uni0073.svg
-    cp "${fontname}"/uni0054.svg "${fontname}"/uni0074.svg
-    cp "${fontname}"/uni0055.svg "${fontname}"/uni0075.svg
-    cp "${fontname}"/uni0056.svg "${fontname}"/uni0076.svg
-    cp "${fontname}"/uni0057.svg "${fontname}"/uni0077.svg
-    cp "${fontname}"/uni0058.svg "${fontname}"/uni0078.svg
-    cp "${fontname}"/uni0059.svg "${fontname}"/uni0079.svg
-    cp "${fontname}"/uni005a.svg "${fontname}"/uni007a.svg
-
-    echo "ディレクトリ${fontname}の基本大文字から基本小文字へのコピーが完了しました。"
+for dirname in "${fontname[@]}"; do
+    echo "ディレクトリ${dirname}の基本大文字から基本小文字へのコピーをします。"
+    cp "${dirname}"/uni0041.svg "${dirname}"/uni0061.svg
+    cp "${dirname}"/uni0042.svg "${dirname}"/uni0062.svg
+    cp "${dirname}"/uni0043.svg "${dirname}"/uni0063.svg
+    cp "${dirname}"/uni0044.svg "${dirname}"/uni0064.svg
+    cp "${dirname}"/uni0045.svg "${dirname}"/uni0065.svg
+    cp "${dirname}"/uni0046.svg "${dirname}"/uni0066.svg
+    cp "${dirname}"/uni0047.svg "${dirname}"/uni0067.svg
+    cp "${dirname}"/uni0048.svg "${dirname}"/uni0068.svg
+    cp "${dirname}"/uni0049.svg "${dirname}"/uni0069.svg
+    cp "${dirname}"/uni004a.svg "${dirname}"/uni006a.svg
+    cp "${dirname}"/uni004b.svg "${dirname}"/uni006b.svg
+    cp "${dirname}"/uni004c.svg "${dirname}"/uni006c.svg
+    cp "${dirname}"/uni004d.svg "${dirname}"/uni006d.svg
+    cp "${dirname}"/uni004e.svg "${dirname}"/uni006e.svg
+    cp "${dirname}"/uni004f.svg "${dirname}"/uni006f.svg
+    cp "${dirname}"/uni0050.svg "${dirname}"/uni0070.svg
+    cp "${dirname}"/uni0051.svg "${dirname}"/uni0071.svg
+    cp "${dirname}"/uni0052.svg "${dirname}"/uni0072.svg
+    cp "${dirname}"/uni0053.svg "${dirname}"/uni0073.svg
+    cp "${dirname}"/uni0054.svg "${dirname}"/uni0074.svg
+    cp "${dirname}"/uni0055.svg "${dirname}"/uni0075.svg
+    cp "${dirname}"/uni0056.svg "${dirname}"/uni0076.svg
+    cp "${dirname}"/uni0057.svg "${dirname}"/uni0077.svg
+    cp "${dirname}"/uni0058.svg "${dirname}"/uni0078.svg
+    cp "${dirname}"/uni0059.svg "${dirname}"/uni0079.svg
+    cp "${dirname}"/uni005a.svg "${dirname}"/uni007a.svg
+    echo "ディレクトリ${dirname}の基本大文字から基本小文字へのコピーが完了しました。"
 done

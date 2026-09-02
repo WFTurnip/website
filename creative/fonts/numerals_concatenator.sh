@@ -1,15 +1,13 @@
 #!/bin/bash
-
 fontname=("kodito" "lekuta" "lozegw" "makina" "piswpi" "polwgo" "silwki" "sulive" "xavani" "xesada" "xidili" "zosokw")
-
-for fontname in "${fontname[@]}"; do
-    cat "${fontname}"/uni004b.svg "${fontname}"/uni0030.svg >"${fontname}"/uni0031.svg
-    cat "${fontname}"/uni0054.svg "${fontname}"/uni0030.svg >"${fontname}"/uni0032.svg
-    cat "${fontname}"/uni0053.svg "${fontname}"/uni0030.svg >"${fontname}"/uni0033.svg
-    cat "${fontname}"/uni0051.svg "${fontname}"/uni0030.svg >"${fontname}"/uni0034.svg
-    cat "${fontname}"/uni0052.svg "${fontname}"/uni0030.svg >"${fontname}"/uni0035.svg
-    cat "${fontname}"/uni0050.svg "${fontname}"/uni0030.svg >"${fontname}"/uni0036.svg
-    cat "${fontname}"/uni0048.svg "${fontname}"/uni0030.svg >"${fontname}"/uni0037.svg
-    cat "${fontname}"/uni0046.svg "${fontname}"/uni0030.svg >"${fontname}"/uni0038.svg
-    cat "${fontname}"/uni004d.svg "${fontname}"/uni0030.svg >"${fontname}"/uni0039.svg
+for dirname in "${fontname[@]}"; do
+    cat "${dirname}"/uni004b.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0031.svg
+    cat "${dirname}"/uni0054.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0032.svg
+    cat "${dirname}"/uni0053.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0033.svg
+    cat "${dirname}"/uni0051.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0034.svg
+    cat "${dirname}"/uni0052.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0035.svg
+    cat "${dirname}"/uni0050.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0036.svg
+    cat "${dirname}"/uni0048.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0037.svg
+    cat "${dirname}"/uni0046.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0038.svg
+    cat "${dirname}"/uni004d.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0039.svg
 done

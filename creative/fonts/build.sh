@@ -8,29 +8,29 @@ echo "オプションをプロンプトへ入力してください。 ( each / a
 read -p ">>> " option
 fontnames=("kodito" "lekuta" "lozegw" "makina" "piswpi" "polwgo" "silwki" "sulive" "xavani" "xesada" "xidili" "zosokw")
 case $option in
-    each)
+each)
+    echo "======================================"
+    echo "フォントをビルドするためのフォント名を入力してください。"
+    echo "一覧"
+    for fontname in "${fontnames[@]}"; do
+        echo "${fontname}"
+    done
+    read -p ">>> " fontname
+    echo "${fontname}をビルドします。"
+    fontforge -script ${fontname}.ff ${fontname}.sfd
+    echo "${fontname}のビルドが完了しました。"
+    ;;
+all)
+    for fontname in "${fontnames[@]}"; do
         echo "======================================"
-        echo "フォントをビルドするためのフォント名を入力してください。"
-        echo "一覧"
-        for fontname in "${fontnames[@]}"; do
-            echo "${fontname}"
-        done
-        read -p ">>> " fontname
         echo "${fontname}をビルドします。"
         fontforge -script ${fontname}.ff ${fontname}.sfd
         echo "${fontname}のビルドが完了しました。"
-        ;;
-    all)
-        for fontname in "${fontnames[@]}"; do
-            echo "======================================"
-            echo "${fontname}をビルドします。"
-            fontforge -script ${fontname}.ff ${fontname}.sfd
-            echo "${fontname}のビルドが完了しました。"
-        done
-        ;;
-    *)
-        echo "無効なオプションです。eachまたはallを入力してください。"
-        ;;
+    done
+    ;;
+*)
+    echo "無効なオプションです。eachまたはallを入力してください。"
+    ;;
 esac
 echo "======================================"
 echo "フォントビルドスクリプト実行完了致しました。ご苦労様でした。"

@@ -1,14 +1,12 @@
 #!/bin/bash
-
 echo "開くフォントのディレクトリ名を入力してください。"
 ls -d */
-read -p ">>> " fontname
-
-touch "${fontname}"/uni003c.svg
-touch "${fontname}"/uni003e.svg
-touch "${fontname}"/uni0028.svg
-touch "${fontname}"/uni0029.svg
-touch "${fontname}"/uni005b.svg
-touch "${fontname}"/uni005d.svg
-touch "${fontname}"/uni007b.svg
-touch "${fontname}"/uni007d.svg
+read -p ">>> " dirname
+touch "${dirname}"/uni003c.svg
+touch "${dirname}"/uni003e.svg
+touch "${dirname}"/uni0028.svg
+touch "${dirname}"/uni0029.svg
+touch "${dirname}"/uni005b.svg
+touch "${dirname}"/uni005d.svg
+touch "${dirname}"/uni007b.svg
+touch "${dirname}"/uni007d.svg
