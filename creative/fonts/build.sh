@@ -17,14 +17,14 @@ each)
     done
     read -p ">>> " fontname
     echo "${fontname}をビルドします。"
-    fontforge -script ${fontname}.ff ${fontname}.sfd
+    fontforge -script "${fontname}.pe" "${fontname}.sfd"
     echo "${fontname}のビルドが完了しました。"
     ;;
 all)
     for fontname in "${fontnames[@]}"; do
         echo "======================================"
         echo "${fontname}をビルドします。"
-        fontforge -script ${fontname}.ff ${fontname}.sfd
+        fontforge -script "${fontname}.pe" "${fontname}.sfd"
         echo "${fontname}のビルドが完了しました。"
     done
     ;;

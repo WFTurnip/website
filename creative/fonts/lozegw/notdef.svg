@@ -1,4 +1,6 @@
-<svg width="500" height="850" xmlns="http://www.w3.org/2000/svg">
-    <path id="path14"
-        d="M 475,225 250,0 25,225 V 625 L 250,850 475,625 Z M 425,625 250,800 75,625 V 225 L 250,50 425,225 Z M 375,225 250,100 125,225 V 625 L 250,750 375,625 Z m -125,-25 -25,25 25,25 25,-25 z m 0,200 -25,25 25,25 25,-25 z m 0,200 -25,25 25,25 25,-25 z m 75,25 -75,75 -75,-75 V 225 l 75,-75 75,75 z" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="500" height="850" version="1.1" id="svg1" sodipodi:docname="notdef.svg" inkscape:version="1.4.4 (dcaf3e7d, 2026-05-05)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+    <defs id="defs1" />
+    <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000" borderopacity="0.25" inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:zoom="0.34910486" inkscape:cx="260.66667" inkscape:cy="425.37363" inkscape:window-width="1095" inkscape:window-height="724" inkscape:window-x="0" inkscape:window-y="25" inkscape:window-maximized="0" inkscape:current-layer="svg1" />
+    <path id="path6" d="M 250 0 L 25 225 L 25 625 L 250 850 L 475 625 L 475 225 L 250 0 z M 250 50 L 425 225 L 425 625 L 250 800 L 75 625 L 75 225 L 250 50 z M 250 200 L 225 225 L 250 250 L 275 225 L 250 200 z M 250 400 L 225 425 L 250 450 L 275 425 L 250 400 z M 250 600 L 225 625 L 250 650 L 275 625 L 250 600 z " />
 </svg>

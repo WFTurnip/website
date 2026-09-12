@@ -13,14 +13,14 @@ each)
     ls -d *.sfd
     read -p ">>> " fontfile
     echo "${fontfile}のフォント情報を出力します。"
-    fontforge -script information.ff "${fontfile}"
+    fontforge -script information.pe "${fontfile}"
     echo "${fontfile}のフォント情報出力が完了しました。"
     ;;
 all)
     for fontfile in *.sfd; do
         echo "====================================================================================================================="
         echo "${fontfile}のフォント情報を出力します。"
-        fontforge -script information.ff "${fontfile}"
+        fontforge -script information.pe "${fontfile}"
         echo "${fontfile}のフォント情報出力が完了しました。"
     done
     ;;

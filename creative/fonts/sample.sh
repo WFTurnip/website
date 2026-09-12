@@ -1,14 +1,14 @@
 #!/bin/bash
 # initial form --------------
-open zosokw/uni004b.init.svg
-open zosokw/uni0054.init.svg
-open zosokw/uni0053.init.svg
-open zosokw/uni0051.init.svg
-open zosokw/uni0052.init.svg
-open zosokw/uni0050.init.svg
-open zosokw/uni0048.init.svg
-open zosokw/uni0046.init.svg
-open zosokw/uni004d.init.svg
+# open zosokw/uni004b.init.svg
+# open zosokw/uni0054.init.svg
+# open zosokw/uni0053.init.svg
+# open zosokw/uni0051.init.svg
+# open zosokw/uni0052.init.svg
+# open zosokw/uni0050.init.svg
+# open zosokw/uni0048.init.svg
+# open zosokw/uni0046.init.svg
+# open zosokw/uni004d.init.svg
 # medial form ---------------
 # open zosokw/uni004b.medi.svg
 # open zosokw/uni0054.medi.svg

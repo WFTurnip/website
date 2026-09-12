@@ -10,12 +10,12 @@ each)
     echo "生成するフォントのファイル名を入力してください。"
     ls -d *.sfd
     read -p ">>> " fontname
-    fontforge -script generate.ff "${fontname}"
+    fontforge -script generate.pe "${fontname}"
     echo "フォント${fontname}の生成が完了しました。"
     ;;
 all)
     for fontfile in *.sfd; do
-        fontforge -script generate.ff "${fontfile}"
+        fontforge -script generate.pe "${fontfile}"
         echo "${fontfile}からのフォント生成が完了しました。"
     done
     ;;
