@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>錬金虫占い</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #111;
+            font-family: sans-serif;
+        }
+
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.75);
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .input-group {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            font-size: 14px;
+            padding: 4px;
+            border-radius: 4px;
+            border: 1px solid #555;
+            background: #222;
+            color: white;
+            text-align: right;
+        }
+
+        button {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
+            cursor: pointer;
+            background: #bf9b30;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 10px;
+            box-shadow: 0 3px 0 #856b20;
+            transition: all 0.1s;
+        }
+
+        button:active {
+            transform: translateY(3px);
+            box-shadow: none;
+        }
+
+        #result {
+            color: white;
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            line-height: 1.4;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        #result.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1>錬金虫占い</h1> -->
+    <main id="ui">
+        <div class="input-group"><label style="color:gold;">金コイン:</label><input type="number" id="num-gold" value="1"
+                min="0" max="20"></div>
+        <div class="input-group"><label style="color:silver;">銀コイン:</label><input type="number" id="num-silver"
+                value="1" min="0" max="20"></div>
+        <div class="input-group"><label style="color:#b87333;">銅コイン:</label><input type="number" id="num-bronze"
+                value="1" min="0" max="20"></div>
+        <div class="input-group"><label style="color:#7a7a7a;">鉄コイン:</label><input type="number" id="num-iron" value="1"
+                min="0" max="20"></div>
+        <div class="input-group"><label style="color:#a3b8cc;">錫コイン:</label><input type="number" id="num-tin" value="1"
+                min="0" max="20"></div>
+        <button id="cast">虫コインをばらまく</button>
+        <div id="result"></div>
+    </main>
+    <script type="module">
+        import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.179/build/three.module.js";
+        import RAPIER from "https://cdn.jsdelivr.net/npm/@dimforge/rapier3d-compat@0.12.0/+esm";
+        await RAPIER.init();
+        // ----------------
+        // 各種金属の設定（色、粗さ、メタル感、物理的な重さ）
+        // ----------------
+        const METAL_TYPES = {
+            gold: { name: "金", color: 0xffd700, roughness: 0.15, metalness: 0.9, density: 1.5, textColor: "#ffd700" },
+            silver: { name: "銀", color: 0xe5e5e5, roughness: 0.20, metalness: 0.9, density: 1.2, textColor: "#e5e5e5" },
+            bronze: { name: "銅", color: 0xb87333, roughness: 0.25, metalness: 0.8, density: 1.0, textColor: "#ca8745" },
+            iron: { name: "鉄", color: 0x7a7a7a, roughness: 0.40, metalness: 0.7, density: 1.1, textColor: "#aaa" },
+            tin: { name: "錫", color: 0xa3b8cc, roughness: 0.30, metalness: 0.6, density: 0.9, textColor: "#a3b8cc" }
+        };
+        // ----------------
+        // 🔥 【追加】動的にSVGからThree.js用テクスチャを作成する関数
+        // ----------------
+        function createSVGTexture(textLabel) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 512;
+            const ctx = canvas.getContext('2d');
+            // コインの模様を定義したSVG文字列（カメムシのニュアンスを残したデザイン）
+            const svgString = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+                <circle cx="256" cy="256" r="230" fill="none" stroke="#ffffff" stroke-width="24" />
+                <polygon points="256,60 425,158 425,354 256,452 87,354 87,158" fill="none" stroke="#7f7f7f" stroke-width="12" stroke-dasharray="20,10" />
+                <circle cx="256" cy="256" r="110" fill="none" stroke="#ffffff" stroke-width="16" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="110" font-family="serif" font-weight="900" fill="#eeeeee">${textLabel}</text>
+            </svg>`;
+            const img = new Image();
+            const texture = new THREE.CanvasTexture(canvas);
+            img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgString);
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0);
+                texture.needsUpdate = true; // 画像読み込み完了時にテクスチャを更新
+            };
+            return texture;
+        }
+        // 各金属ごとのテクスチャを事前生成して保持
+        const textures = {};
+        Object.keys(METAL_TYPES).forEach(key => {
+            textures[key] = createSVGTexture(METAL_TYPES[key].name);
+        });
+        // ----------------
+        // Three.js 初期化
+        // ----------------
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xfefefe); // コインが見えやすいように背景を少し暗く調整
+        const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 100);
+        camera.position.set(0, 11, 11);
+        camera.lookAt(0, 0, -0.5);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(innerWidth, innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement);
+        // ライティング（金属感・凹凸感を強調するため調整）
+        scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1.0));
+        const light = new THREE.DirectionalLight(0xffffff, 2.5);
+        light.position.set(6, 14, 5);
+        light.castShadow = true;
+        light.shadow.mapSize.width = 2048; // 影を綺麗にする
+        light.shadow.mapSize.height = 2048;
+        scene.add(light);
+        // ----------------
+        // Rapier 物理世界
+        // ----------------
+        const world = new RAPIER.World({ x: 0, y: -16, z: 0 });
+        // 皿
+        const plateRadius = 7.5;
+        const plateMesh = new THREE.Mesh(
+            new THREE.CylinderGeometry(plateRadius, plateRadius - 0.2, 0.4, 32),
+            new THREE.MeshStandardMaterial({ color: 0x966F33, roughness: 1 })
+        );
+        plateMesh.receiveShadow = true;
+        scene.add(plateMesh);
+        const floorBody = world.createRigidBody(RAPIER.RigidBodyDesc.fixed());
+        world.createCollider(RAPIER.ColliderDesc.cylinder(0.2, plateRadius), floorBody);
+        // お皿のフチ（飛び出し防止の透明な壁）
+        for (let i = 0; i < 16; i++) {
+            const angle = (i / 16) * Math.PI * 2;
+            const wall = world.createRigidBody(RAPIER.RigidBodyDesc.fixed().setTranslation(
+                Math.cos(angle) * plateRadius, 0.5, Math.sin(angle) * plateRadius
+            ));
+            world.createCollider(RAPIER.ColliderDesc.cuboid(0.5, 1.0, 1.5).setRotation({
+                x: 0, y: Math.sin(-angle / 2), z: 0, w: Math.cos(-angle / 2)
+            }), wall);
+        }
+        // ----------------
+        // コイン生成
+        // ----------------
+        const bugs = [];
+        function createBugMesh(typeConfig, typeKey) {
+            const group = new THREE.Group();
+            // 胴体マテリアルにSVGテクスチャを設定
+            const coinMaterial = new THREE.MeshStandardMaterial({
+                color: typeConfig.color,
+                roughness: typeConfig.roughness,
+                metalness: typeConfig.metalness,
+                map: textures[typeKey],        // 🔥表裏の模様としてSVGテクスチャをマッピング
+                bumpMap: textures[typeKey],    // 🔥模様の形に沿って立体的に凹凸を刻む
+                bumpScale: 0.03                // 彫刻の深さ
+            });
+            // 胴体（六角柱）
+            const body = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.5, 0.45, 0.15, 6),
+                coinMaterial
+            );
+            body.rotation.x = Math.PI / 2;
+            body.castShadow = true;
+            body.receiveShadow = true;
+            group.add(body);
+            return group;
+        }
+        function spawnBugs() {
+            // 古いコインを削除
+            for (const b of bugs) {
+                scene.remove(b.mesh);
+                world.removeRigidBody(b.body);
+            }
+            bugs.length = 0;
+            Object.keys(METAL_TYPES).forEach(key => {
+                const count = parseInt(document.getElementById(`num-${key}`).value) || 0;
+                const config = METAL_TYPES[key];
+                for (let i = 0; i < count; i++) {
+                    const mesh = createBugMesh(config, key);
+                    scene.add(mesh);
+                    // 物理ボディの作成
+                    const rx = (Math.random() - 0.5) * 3;
+                    const ry = 7 + Math.random() * 4;
+                    const rz = (Math.random() - 0.5) * 3;
+                    const bodyDesc = RAPIER.RigidBodyDesc.dynamic()
+                        .setTranslation(rx, ry, rz)
+                        .setRotation({
+                            x: Math.random() - 0.5, y: Math.random() - 0.5, z: Math.random() - 0.5, w: Math.random() - 0.5
+                        });
+                    const body = world.createRigidBody(bodyDesc);
+                    // 胴体（六角柱）のメッシュを特定して凸包コライダーを作成
+                    const bodyMesh = mesh.children[0];
+                    const vertices = bodyMesh.geometry.attributes.position.array;
+                    const colliderDesc = RAPIER.ColliderDesc.convexMesh(vertices)
+                        .setRotation(bodyMesh.quaternion)
+                        .setRestitution(0.15) // コインらしく跳ね返りを少し抑える
+                        .setFriction(0.6)
+                        .setDensity(config.density);
+                    world.createCollider(colliderDesc, body);
+                    // 初期にランダムな力を加える
+                    body.applyImpulse({ x: (Math.random() - 0.5) * 1.5, y: -2, z: (Math.random() - 0.5) * 1.5 }, true);
+                    body.applyTorqueImpulse({ x: (Math.random() - 0.5) * 1.0, y: (Math.random() - 0.5) * 1.0, z: (Math.random() - 0.5) * 1.0 }, true);
+                    bugs.push({ mesh, body, type: key, config });
+                }
+            });
+        }
+        // ----------------
+        // 占い判定
+        // ----------------
+        function judge() {
+            const counts = {
+                gold: { back: 0, belly: 0 },
+                silver: { back: 0, belly: 0 },
+                bronze: { back: 0, belly: 0 },
+                iron: { back: 0, belly: 0 },
+                tin: { back: 0, belly: 0 }
+            };
+            for (const b of bugs) {
+                const rot = b.body.rotation();
+                const q = new THREE.Quaternion(rot.x, rot.y, rot.z, rot.w);
+                const up = new THREE.Vector3(0, 1, 0).applyQuaternion(q);
+                if (up.y > 0) {
+                    counts[b.type].back++;
+                } else {
+                    counts[b.type].belly++;
+                }
+            }
+            let resultHtml = "<div style='font-size:16px; margin-bottom:10px;'>【鑑定結果】</div>";
+            let score = 0;
+            Object.keys(counts).forEach(key => {
+                const c = counts[key];
+                const conf = METAL_TYPES[key];
+                const total = c.back + c.belly;
+                if (total > 0) {
+                    resultHtml += `<div style="color:${conf.textColor}; font-size:15px;">` +
+                        `${conf.name}: 表(金紋) ${c.back} / 裏 ${c.belly}</div>`;
+                    if (key === 'gold') score += c.back * 3 - c.belly * 1;
+                    if (key === 'silver') score += c.back * 2;
+                    if (key === 'bronze') score += c.back * 1;
+                    if (key === 'iron') score += c.belly * -1;
+                    if (key === 'tin') score += c.back * 1;
+                }
+            });
+            let fortuneStr = "平穏無事な運気";
+            if (score > 10) {
+                fortuneStr = "✨金運・大幸運の兆し！✨";
+            } else if (score > 3) {
+                fortuneStr = "👍 上昇気流に乗っています";
+            } else if (score < 0) {
+                fortuneStr = "💤 試練の時。今は充電せよ";
+            }
+            resultHtml += `<div style="margin-top:15px; font-size:22px; color:#ffeb3b; text-align:center;">${fortuneStr}</div>`;
+            const text = document.getElementById("result");
+            text.innerHTML = resultHtml;
+            text.classList.add("show");
+        }
+        // ----------------
+        // ループ＆イベント
+        // ----------------
+        let timer = 0;
+        let isEvaluating = false;
+        document.getElementById("cast").onclick = () => {
+            document.getElementById("result").classList.remove("show");
+            spawnBugs();
+            timer = 0;
+            isEvaluating = true;
+        };
+        function animate() {
+            requestAnimationFrame(animate);
+            world.step();
+            for (const b of bugs) {
+                const p = b.body.translation();
+                const r = b.body.rotation();
+                b.mesh.position.set(p.x, p.y, p.z);
+                b.mesh.quaternion.set(r.x, r.y, r.z, r.w);
+            }
+            if (isEvaluating) {
+                timer++;
+                if (timer > 180) {
+                    judge();
+                    isEvaluating = false;
+                }
+            }
+            renderer.render(scene, camera);
+        }
+        animate();
+        window.onresize = () => {
+            camera.aspect = innerWidth / innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(innerWidth, innerHeight);
+        };
+    </script>
+</body>
+
+</html>
