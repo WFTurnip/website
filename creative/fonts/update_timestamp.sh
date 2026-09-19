@@ -5,6 +5,13 @@ for dirname in "${fontname[@]}"; do
     touch "${dirname}"/*.svg
     echo "ディレクトリ${dirname}の総文字のタイムスタンプを更新しました。"
 done
+
+sh brakets_maker.sh
 sh consonants_maker.sh
+sh diacritics_maker.sh
+sh numerals_maker.sh
+sh punctuations_maker.sh
 sh variants_consonants_maker.sh
+sh vowels_maker.sh
+
 open */

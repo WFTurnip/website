@@ -1,6 +1,7 @@
 #!/bin/bash
 fontname=("kodito" "lekuta" "lozegw" "silwki" "xavani" "xesada" "xidili")
 for dirname in "${fontname[@]}"; do
+    echo "ディレクトリ${dirname}の基本文字のタイムスタンプを更新します。"
     touch "${dirname}"/uni0301.svg # 高揚声符
     touch "${dirname}"/uni0317.svg # 低揚声符
     touch "${dirname}"/uni0300.svg # 高抑声符
@@ -15,4 +16,5 @@ for dirname in "${fontname[@]}"; do
     touch "${dirname}"/uni0324.svg # 低分声符
     touch "${dirname}"/uni0307.svg # 高終声符
     touch "${dirname}"/uni0323.svg # 低終声符
+    echo "ディレクトリ${dirname}の基本文字のタイムスタンプを更新しました。"
 done

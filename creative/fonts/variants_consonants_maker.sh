@@ -32,6 +32,16 @@ for dirname in "${fontname[@]}"; do
     touch "${dirname}"/uni0048.medi.svg
     touch "${dirname}"/uni0046.medi.svg
     touch "${dirname}"/uni004d.medi.svg
+    # medial second form --------------
+    touch "${dirname}"/uni004b.med2.svg
+    touch "${dirname}"/uni0054.med2.svg
+    touch "${dirname}"/uni0053.med2.svg
+    touch "${dirname}"/uni0051.med2.svg
+    touch "${dirname}"/uni0052.med2.svg
+    touch "${dirname}"/uni0050.med2.svg
+    touch "${dirname}"/uni0048.med2.svg
+    touch "${dirname}"/uni0046.med2.svg
+    touch "${dirname}"/uni004d.med2.svg
     # final form ----------------------
     touch "${dirname}"/uni004b.fina.svg
     touch "${dirname}"/uni0054.fina.svg
@@ -42,17 +52,7 @@ for dirname in "${fontname[@]}"; do
     touch "${dirname}"/uni0048.fina.svg
     touch "${dirname}"/uni0046.fina.svg
     touch "${dirname}"/uni004d.fina.svg
-    # second medial form --------------
-    touch "${dirname}"/uni004b.med2.svg
-    touch "${dirname}"/uni0054.med2.svg
-    touch "${dirname}"/uni0053.med2.svg
-    touch "${dirname}"/uni0051.med2.svg
-    touch "${dirname}"/uni0052.med2.svg
-    touch "${dirname}"/uni0050.med2.svg
-    touch "${dirname}"/uni0048.med2.svg
-    touch "${dirname}"/uni0046.med2.svg
-    touch "${dirname}"/uni004d.med2.svg
-    # second final form ---------------
+    # final second form ---------------
     touch "${dirname}"/uni004b.fin2.svg
     touch "${dirname}"/uni0054.fin2.svg
     touch "${dirname}"/uni0053.fin2.svg

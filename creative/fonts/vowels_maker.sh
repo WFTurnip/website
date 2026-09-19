@@ -1,10 +1,12 @@
-#!/bin/bash
-echo "開くフォントのディレクトリ名を入力してください。"
-ls -d */
-read -p ">>> " dirname
-inkscape "${dirname}"/uni0041.svg
-inkscape "${dirname}"/uni0045.svg
-inkscape "${dirname}"/uni0049.svg
-inkscape "${dirname}"/uni004f.svg
-inkscape "${dirname}"/uni0055.svg
-inkscape "${dirname}"/uni0057.svg
+#!/bin/bashe
+fontname=("kodito" "lekuta" "lozegw" "makina" "piswpi" "polwgo" "silwki" "sulive" "xavani" "xesada" "xidili" "zosokw")
+for dirname in "${fontname[@]}"; do
+    echo "ディレクトリ${dirname}の基本文字のタイムスタンプを更新します。"
+    touch "${dirname}"/uni0041.svg
+    touch "${dirname}"/uni0045.svg
+    touch "${dirname}"/uni0049.svg
+    touch "${dirname}"/uni004f.svg
+    touch "${dirname}"/uni0055.svg
+    touch "${dirname}"/uni0057.svg
+    echo "ディレクトリ${dirname}の基本文字のタイムスタンプを更新しました。"
+done
