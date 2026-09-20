@@ -3,7 +3,7 @@ echo "sulive/"
 echo "zosokw/"
 echo "結合するフォントのディレクトリ名を入力してください。"
 read -p ">>> " dirname
-# isolate form ------------------------------------------------------------------------
+# isolate form --------------------------------------------------------------------------
 cat "${dirname}"/uni004b.isol.svg "${dirname}"/uni005c.svg >"${dirname}"/uni0047.isol.svg
 cat "${dirname}"/uni0054.isol.svg "${dirname}"/uni005c.svg >"${dirname}"/uni0044.isol.svg
 cat "${dirname}"/uni0053.isol.svg "${dirname}"/uni005c.svg >"${dirname}"/uni005a.isol.svg
@@ -15,7 +15,7 @@ cat "${dirname}"/uni0046.isol.svg "${dirname}"/uni005c.svg >"${dirname}"/uni0056
 cat "${dirname}"/uni004d.isol.svg "${dirname}"/uni005c.svg >"${dirname}"/uni004e.isol.svg
 cat "${dirname}"/uni0053.isol.svg "${dirname}"/uni005c.svg "${dirname}"/uni0030.svg >"${dirname}"/uni004a.isol.svg
 cat "${dirname}"/uni0051.isol.svg "${dirname}"/uni005c.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0059.isol.svg
-# initial form ------------------------------------------------------------------------
+# initial form --------------------------------------------------------------------------
 cat "${dirname}"/uni004b.init.svg "${dirname}"/uni005c.svg >"${dirname}"/uni0047.init.svg
 cat "${dirname}"/uni0054.init.svg "${dirname}"/uni005c.svg >"${dirname}"/uni0044.init.svg
 cat "${dirname}"/uni0053.init.svg "${dirname}"/uni005c.svg >"${dirname}"/uni005a.init.svg
@@ -27,7 +27,7 @@ cat "${dirname}"/uni0046.init.svg "${dirname}"/uni005c.svg >"${dirname}"/uni0056
 cat "${dirname}"/uni004d.init.svg "${dirname}"/uni005c.svg >"${dirname}"/uni004e.init.svg
 cat "${dirname}"/uni0053.init.svg "${dirname}"/uni005c.svg "${dirname}"/uni0030.svg >"${dirname}"/uni004a.init.svg
 cat "${dirname}"/uni0051.init.svg "${dirname}"/uni005c.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0059.init.svg
-# medial form ---------------------------------------------------------------------
+# medial form ---------------------------------------------------------------------------
 cat "${dirname}"/uni004b.medi.svg "${dirname}"/uni005c.svg >"${dirname}"/uni0047.medi.svg
 cat "${dirname}"/uni0054.medi.svg "${dirname}"/uni005c.svg >"${dirname}"/uni0044.medi.svg
 cat "${dirname}"/uni0053.medi.svg "${dirname}"/uni005c.svg >"${dirname}"/uni005a.medi.svg
