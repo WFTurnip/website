@@ -4,7 +4,7 @@ for dirname in "${fontname[@]}"; do
     # echo "ディレクトリ${dirname}の総文字のタイムスタンプを更新します。"
     # touch "${dirname}"/*.svg
     # echo "ディレクトリ${dirname}の総文字のタイムスタンプを更新しました。"
- done
+done
 
 # sh brakets_maker.sh
 # sh consonants_maker.sh
