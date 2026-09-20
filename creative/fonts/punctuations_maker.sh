@@ -2,6 +2,7 @@
 fontname=("kodito" "lekuta" "lozegw" "silwki" "xavani" "xesada" "xidili")
 for dirname in "${fontname[@]}"; do
     echo "ディレクトリ${dirname}の約物文字のタイムスタンプを更新します。"
+    touch "${dirname}"/notdef.svg # NOTDEF GLYPH
     touch "${dirname}"/uni0021.svg # !
     touch "${dirname}"/uni0022.svg # "
     touch "${dirname}"/uni0023.svg # #
@@ -29,5 +30,9 @@ for dirname in "${fontname[@]}"; do
     touch "${dirname}"/uni0060.svg # `
     touch "${dirname}"/uni007c.svg # |
     touch "${dirname}"/uni007e.svg # ~
-    echo "ディレクトリ${dirname}の約物文字のタイムスタンプを更新しました。"
+    touch "${dirname}"/uni00a7.svg # §
+    touch "${dirname}"/uni00b4.svg # ´
+    touch "${dirname}"/uni00b6.svg # ¶
+    touch "${dirname}"/uni25cc.svg # ◌
+ echo "ディレクトリ${dirname}の約物文字のタイムスタンプを更新しました。"
 done
