@@ -1,4 +1,4 @@
-#!/bin/bashe
+#!/bin/bash
 fontname=("kodito" "lekuta" "lozegw" "makina" "piswpi" "polwgo" "silwki" "sulive" "xavani" "xesada" "xidili" "zosokw")
 for dirname in "${fontname[@]}"; do
     echo "ディレクトリ${dirname}の母音符号のタイムスタンプを更新します。"
