@@ -1,5 +1,5 @@
 #!/bin/bash
-fontname=("kodito" "lekuta" "lozegw" "silwki" "xavani" "xesada" "xidili")
+fontname=("kodito" "lekuta" "lozegw" "makina" "piswpi" "polwgo" "silwki" "sulive" "xavani" "xesada" "xidili" "zosokw")
 for dirname in "${fontname[@]}"; do
     echo "ディレクトリ${dirname}の約物文字のタイムスタンプを更新します。"
     touch "${dirname}"/notdef.svg # NOTDEF GLYPH
