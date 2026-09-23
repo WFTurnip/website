@@ -20,7 +20,7 @@ Print("マークグリフアンカーポイント座標（X軸）は ", MarkGlyp
 Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyphAnchorPointY, "px です。")
 Select(0); SetGlyphClass("none"); SetGlyphName(".notdef"); Clear(); SetWidth(BaseWidth); Import("./makina/notdef.svg")
 Select(0x0000); SetGlyphName(".null"); SetWidth(MarkWidth)
-Select(0x000d); SetGlyphName(".nonmarkingreturn"); SetWidth(Markwidth)
+Select(0x000d); SetGlyphName(".nonmarkingreturn"); SetWidth(BaseWidth)
 Select(0u0020); SetGlyphClass("none"); Clear(); SetWidth(BaseWidth)
 Select(0u0021); SetGlyphClass("none"); Clear(); SetWidth(BaseWidth); Import("./makina/uni0021.svg")
 Select(0u0022); SetGlyphClass("none"); Clear(); SetWidth(BaseWidth); Import("./makina/uni0022.svg")

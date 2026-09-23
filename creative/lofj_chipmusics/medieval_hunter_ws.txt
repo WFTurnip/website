@@ -1,0 +1,152 @@
+#TITLE MEDIEVAL HUNTER WS
+$LOOP = 1;
+T145
+@10-0
+R1
+O3
+/:2
+/:2
+L8
+F.A-.<C>
+L4
+BG/B-E
+L2
+F
+:/
+L4
+D-E
+L2
+F
+:/
+/:$LOOP
+/:10
+/:4L8FL16/:2<F>:/:/
+/:4L8E-L16/:2<E->:/:/
+/:4L8D-L16/:2<D->:/:/
+/:3L8E-L16/:2<E->:/:/
+/:1L8EL16/:2<E>:/:/
+:/
+/:2
+/:4L8F<F>:/
+/:4L8E-<E->:/
+/:4L8D-<D->:/
+/:3L8E-<E->:/
+/:1L8E<E>:/
+:/
+/:2
+/:4L8FL16/:2<F>:/:/
+/:4L8E-L16/:2<E->:/:/
+/:4L8D-L16/:2<D->:/:/
+/:3L8E-L16/:2<E->:/:/
+/:1L8EL16/:2<E>:/:/
+:/
+:/
+;
+@10-1
+R1
+/:4R1:/
+O4
+/:2
+L8
+F.A-.<C>
+L4
+BG/B-E
+L2
+F
+:/
+L4
+D-E
+L2
+F
+/:$LOOP
+L16
+/:2
+/:8F<C>:/
+/:8E-B-:/
+/:8D-A-:/
+/:8E-B-:/
+:/
+/:2
+L2FL4GA- L2B-L4<CD-> L2<C>L4B-A- B-GA-F
+L2GL4A-B- L2<C>L4<E-D-> L2<C>L4B-A- B-GA-F
+L2GA- L4<C>B-A-B- L2GA- L4GFGA-
+L2G L1.F L1E L2A-G
+:/
+/:2
+/:2L8F.A-.<C>L2B:/
+L8F.A-.<C>L4BB-
+L8A-.B-.A-/L2G
+:/L4GE
+/:2L8F.A-.<C>L2B:/
+L8F.A-.<C>L4BB-
+L8A-.B-.A-L2G
+/:2L8F.A-.<C>L2B:/
+L8F.A-.<C>L4BG
+L4D-EL2F
+:/
+;
+@10-2
+R1
+/:4R1:/
+O5
+/:2
+L8
+F.A-.<C>
+L4
+BG/B-E
+L2
+F
+:/
+<
+L4
+D-E
+L2
+F
+>
+/:$LOOP
+L16
+/:2
+/:4F<C>A-<C>:/
+/:4G<D->B-<D->:/
+/:4F<C>A-<C>:/
+/:4EB-GB-:/
+:/
+L2FL4GA- L2B-L4<CD-> L2<C>L4B-A- B-GA-F
+L2GL4A-B- L2<C>L4<E-D-> L2<C>L4B-A- B-GA-F
+L2GA- L4<C>B-A-B- L2GA- L4GFGA-
+L2G L1.F L1E L2A-G
+L16
+/:4
+/:4F<C>A-<C>:/
+/:4E-B-GB-:/
+/:4D-A-FA-:/
+/:4E-B-GB-:/
+:/
+/:2
+/:2L8F.A-.<C>L2B:/
+L8F.A-.<C>L4BB-
+L8A-.B-.A-/L2G
+:/L4GE
+/:2L8F.A-.<C>L2B:/
+L8F.A-.<C>L4BB-
+L8A-.B-.A-L2G
+/:2L8F.A-.<C>L2B:/
+L8F.A-.<C>L4BG
+<L4D-EL2F>
+:/
+;
+@11
+O0
+L32
+/:2/:2AR://:2CR:/://:8AR:/
+/:16DRRR/:2CR:/://:7DRRR/:2CR:/A&ARR/:2CR:/://:8AR:/
+/:$LOOP
+/:79DR/:3CR:/A&A/:3CR:/://:8AR:/
+/:32DRRR/:2CR:/:/
+/:15DRRR/:2CR:/A&ARR/:2CR:/:/
+/:8AR:/
+:/
+#WAV10 0,0112 3455 6778 899A BCDE FDCA 8642 0677
+#WAV10 1,7564 2420 2202 5458 77BC BFFE EFCD EBAB
+#WAV10 2,8FDB ABB0 047B 6576 5035 8ACA 6A53 1254
+#WAV10 3,8ABB BA76 5544 4445 5679 ABCB A765 4567
