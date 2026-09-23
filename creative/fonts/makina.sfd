@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1714202397
-ModificationTime: 1790142984
+ModificationTime: 1790151191
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -93,7 +93,7 @@ FitToEm: 0
 BeginPrivate: 0
 EndPrivate
 AnchorClass2: "Marks" "mark-1"
-BeginChars: 65537 103
+BeginChars: 65538 105
 
 StartChar: .notdef
 Encoding: 65536 -1 0
@@ -132,7 +132,7 @@ EndSplineSet
 EndChar
 
 StartChar: .null
-Encoding: 0 0 1
+Encoding: -1 0 1
 Width: 0
 GlyphClass: 1
 Flags: W
@@ -3477,9 +3477,9 @@ SplineSet
 EndSplineSet
 EndChar
 
-StartChar: .null
-Encoding: 0 0 101
-Width: 0
+StartChar: .notdef
+Encoding: 0 -1 101
+Width: 400
 GlyphClass: 1
 Flags: HW
 LayerCount: 2
@@ -3513,8 +3513,22 @@ SplineSet
 EndSplineSet
 EndChar
 
+StartChar: NameMe.2
+Encoding: 65537 -1 102
+Width: 400
+Flags: W
+LayerCount: 2
+EndChar
+
+StartChar: .null
+Encoding: 1 0 103
+Width: 0
+Flags: HW
+LayerCount: 2
+EndChar
+
 StartChar: .nonmarkingreturn
-Encoding: 13 -1 102
+Encoding: 2 -1 104
 Width: 400
 Flags: HW
 LayerCount: 2

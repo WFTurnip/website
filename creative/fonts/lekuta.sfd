@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1743419430
-ModificationTime: 1790150082
+ModificationTime: 1790151191
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -95,7 +95,7 @@ WinInfo: 20 10 7
 BeginPrivate: 0
 EndPrivate
 AnchorClass2: "BelowMarks" "mkmk-1" "AboveMarks" "mkmk-1" "Marks" "mark-1"
-BeginChars: 65538 118
+BeginChars: 65540 120
 
 StartChar: space
 Encoding: 32 32 0
@@ -3006,7 +3006,50 @@ EndSplineSet
 EndChar
 
 StartChar: .notdef
-Encoding: 0 -1 114
+Encoding: 65537 -1 114
+Width: 500
+GlyphClass: 1
+Flags: W
+LayerCount: 2
+Fore
+SplineSet
+25 625 m 1,0,-1
+ 475 625 l 1,1,-1
+ 475 -225 l 1,2,-1
+ 25 -225 l 1,3,-1
+ 25 625 l 1,0,-1
+75 575 m 1,4,-1
+ 75 -175 l 1,5,-1
+ 425 -175 l 1,6,-1
+ 425 575 l 1,7,-1
+ 75 575 l 1,4,-1
+225 425 m 1,8,-1
+ 275 425 l 1,9,-1
+ 275 375 l 1,10,-1
+ 225 375 l 1,11,-1
+ 225 425 l 1,8,-1
+225 225 m 1,12,-1
+ 275 225 l 1,13,-1
+ 275 175 l 1,14,-1
+ 225 175 l 1,15,-1
+ 225 225 l 1,12,-1
+225 25 m 1,16,-1
+ 275 25 l 1,17,-1
+ 275 -25 l 1,18,-1
+ 225 -25 l 1,19,-1
+ 225 25 l 1,16,-1
+EndSplineSet
+EndChar
+
+StartChar: NameMe.2
+Encoding: 65538 -1 115
+Width: 500
+Flags: W
+LayerCount: 2
+EndChar
+
+StartChar: .notdef
+Encoding: 0 -1 116
 Width: 500
 GlyphClass: 1
 Flags: HW
@@ -3041,22 +3084,22 @@ SplineSet
 EndSplineSet
 EndChar
 
-StartChar: NameMe.2
-Encoding: 65537 -1 115
+StartChar: NameMe.2.1
+Encoding: 65539 -1 117
 Width: 500
 Flags: W
 LayerCount: 2
 EndChar
 
 StartChar: .null
-Encoding: 1 0 116
+Encoding: 1 0 118
 Width: 0
 Flags: HW
 LayerCount: 2
 EndChar
 
 StartChar: .nonmarkingreturn
-Encoding: 2 -1 117
+Encoding: 2 -1 119
 Width: 500
 Flags: HW
 LayerCount: 2
