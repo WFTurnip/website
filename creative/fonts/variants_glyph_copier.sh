@@ -2,131 +2,131 @@
 fontname=("sulive" "zosokw")
 for dirname in "${fontname[@]}"; do
     echo "ディレクトリ${dirname}の異体大文字から異体小文字へのコピーをします。"
-    # isolate form -----------------------------------------------
-    cp "${dirname}"/uni0042.isol.svg "${dirname}"/uni0062.isol.svg
-    cp "${dirname}"/uni0043.isol.svg "${dirname}"/uni0063.isol.svg
-    cp "${dirname}"/uni0044.isol.svg "${dirname}"/uni0064.isol.svg
-    cp "${dirname}"/uni0046.isol.svg "${dirname}"/uni0066.isol.svg
-    cp "${dirname}"/uni0047.isol.svg "${dirname}"/uni0067.isol.svg
-    cp "${dirname}"/uni0048.isol.svg "${dirname}"/uni0068.isol.svg
-    cp "${dirname}"/uni004a.isol.svg "${dirname}"/uni006a.isol.svg
-    cp "${dirname}"/uni004b.isol.svg "${dirname}"/uni006b.isol.svg
-    cp "${dirname}"/uni004c.isol.svg "${dirname}"/uni006c.isol.svg
-    cp "${dirname}"/uni004d.isol.svg "${dirname}"/uni006d.isol.svg
-    cp "${dirname}"/uni004e.isol.svg "${dirname}"/uni006e.isol.svg
-    cp "${dirname}"/uni0050.isol.svg "${dirname}"/uni0070.isol.svg
-    cp "${dirname}"/uni0051.isol.svg "${dirname}"/uni0071.isol.svg
-    cp "${dirname}"/uni0052.isol.svg "${dirname}"/uni0072.isol.svg
-    cp "${dirname}"/uni0053.isol.svg "${dirname}"/uni0073.isol.svg
-    cp "${dirname}"/uni0054.isol.svg "${dirname}"/uni0074.isol.svg
-    cp "${dirname}"/uni0056.isol.svg "${dirname}"/uni0076.isol.svg
-    cp "${dirname}"/uni0058.isol.svg "${dirname}"/uni0078.isol.svg
-    cp "${dirname}"/uni0059.isol.svg "${dirname}"/uni0079.isol.svg
-    cp "${dirname}"/uni005a.isol.svg "${dirname}"/uni007a.isol.svg
-    # initial form -----------------------------------------------
-    cp "${dirname}"/uni0042.init.svg "${dirname}"/uni0062.init.svg
-    cp "${dirname}"/uni0043.init.svg "${dirname}"/uni0063.init.svg
-    cp "${dirname}"/uni0044.init.svg "${dirname}"/uni0064.init.svg
-    cp "${dirname}"/uni0046.init.svg "${dirname}"/uni0066.init.svg
-    cp "${dirname}"/uni0047.init.svg "${dirname}"/uni0067.init.svg
-    cp "${dirname}"/uni0048.init.svg "${dirname}"/uni0068.init.svg
-    cp "${dirname}"/uni004a.init.svg "${dirname}"/uni006a.init.svg
-    cp "${dirname}"/uni004b.init.svg "${dirname}"/uni006b.init.svg
-    cp "${dirname}"/uni004c.init.svg "${dirname}"/uni006c.init.svg
-    cp "${dirname}"/uni004d.init.svg "${dirname}"/uni006d.init.svg
-    cp "${dirname}"/uni004e.init.svg "${dirname}"/uni006e.init.svg
-    cp "${dirname}"/uni0050.init.svg "${dirname}"/uni0070.init.svg
-    cp "${dirname}"/uni0051.init.svg "${dirname}"/uni0071.init.svg
-    cp "${dirname}"/uni0052.init.svg "${dirname}"/uni0072.init.svg
-    cp "${dirname}"/uni0053.init.svg "${dirname}"/uni0073.init.svg
-    cp "${dirname}"/uni0054.init.svg "${dirname}"/uni0074.init.svg
-    cp "${dirname}"/uni0056.init.svg "${dirname}"/uni0076.init.svg
-    cp "${dirname}"/uni0058.init.svg "${dirname}"/uni0078.init.svg
-    cp "${dirname}"/uni0059.init.svg "${dirname}"/uni0079.init.svg
-    cp "${dirname}"/uni005a.init.svg "${dirname}"/uni007a.init.svg
-    # medial form ------------------------------------------------
-    cp "${dirname}"/uni0042.medi.svg "${dirname}"/uni0062.medi.svg
-    cp "${dirname}"/uni0043.medi.svg "${dirname}"/uni0063.medi.svg
-    cp "${dirname}"/uni0044.medi.svg "${dirname}"/uni0064.medi.svg
-    cp "${dirname}"/uni0046.medi.svg "${dirname}"/uni0066.medi.svg
-    cp "${dirname}"/uni0047.medi.svg "${dirname}"/uni0067.medi.svg
-    cp "${dirname}"/uni0048.medi.svg "${dirname}"/uni0068.medi.svg
-    cp "${dirname}"/uni004a.medi.svg "${dirname}"/uni006a.medi.svg
-    cp "${dirname}"/uni004b.medi.svg "${dirname}"/uni006b.medi.svg
-    cp "${dirname}"/uni004c.medi.svg "${dirname}"/uni006c.medi.svg
-    cp "${dirname}"/uni004d.medi.svg "${dirname}"/uni006d.medi.svg
-    cp "${dirname}"/uni004e.medi.svg "${dirname}"/uni006e.medi.svg
-    cp "${dirname}"/uni0050.medi.svg "${dirname}"/uni0070.medi.svg
-    cp "${dirname}"/uni0051.medi.svg "${dirname}"/uni0071.medi.svg
-    cp "${dirname}"/uni0052.medi.svg "${dirname}"/uni0072.medi.svg
-    cp "${dirname}"/uni0053.medi.svg "${dirname}"/uni0073.medi.svg
-    cp "${dirname}"/uni0054.medi.svg "${dirname}"/uni0074.medi.svg
-    cp "${dirname}"/uni0056.medi.svg "${dirname}"/uni0076.medi.svg
-    cp "${dirname}"/uni0058.medi.svg "${dirname}"/uni0078.medi.svg
-    cp "${dirname}"/uni0059.medi.svg "${dirname}"/uni0079.medi.svg
-    cp "${dirname}"/uni005a.medi.svg "${dirname}"/uni007a.medi.svg
-    # final form -------------------------------------------------
-    cp "${dirname}"/uni0042.fina.svg "${dirname}"/uni0062.fina.svg
-    cp "${dirname}"/uni0043.fina.svg "${dirname}"/uni0063.fina.svg
-    cp "${dirname}"/uni0044.fina.svg "${dirname}"/uni0064.fina.svg
-    cp "${dirname}"/uni0046.fina.svg "${dirname}"/uni0066.fina.svg
-    cp "${dirname}"/uni0047.fina.svg "${dirname}"/uni0067.fina.svg
-    cp "${dirname}"/uni0048.fina.svg "${dirname}"/uni0068.fina.svg
-    cp "${dirname}"/uni004a.fina.svg "${dirname}"/uni006a.fina.svg
-    cp "${dirname}"/uni004b.fina.svg "${dirname}"/uni006b.fina.svg
-    cp "${dirname}"/uni004c.fina.svg "${dirname}"/uni006c.fina.svg
-    cp "${dirname}"/uni004d.fina.svg "${dirname}"/uni006d.fina.svg
-    cp "${dirname}"/uni004e.fina.svg "${dirname}"/uni006e.fina.svg
-    cp "${dirname}"/uni0050.fina.svg "${dirname}"/uni0070.fina.svg
-    cp "${dirname}"/uni0051.fina.svg "${dirname}"/uni0071.fina.svg
-    cp "${dirname}"/uni0052.fina.svg "${dirname}"/uni0072.fina.svg
-    cp "${dirname}"/uni0053.fina.svg "${dirname}"/uni0073.fina.svg
-    cp "${dirname}"/uni0054.fina.svg "${dirname}"/uni0074.fina.svg
-    cp "${dirname}"/uni0056.fina.svg "${dirname}"/uni0076.fina.svg
-    cp "${dirname}"/uni0058.fina.svg "${dirname}"/uni0078.fina.svg
-    cp "${dirname}"/uni0059.fina.svg "${dirname}"/uni0079.fina.svg
-    cp "${dirname}"/uni005a.fina.svg "${dirname}"/uni007a.fina.svg
-    # second medial form -----------------------------------------
-    cp "${dirname}"/uni0042.med2.svg "${dirname}"/uni0062.med2.svg
-    cp "${dirname}"/uni0043.med2.svg "${dirname}"/uni0063.med2.svg
-    cp "${dirname}"/uni0044.med2.svg "${dirname}"/uni0064.med2.svg
-    cp "${dirname}"/uni0046.med2.svg "${dirname}"/uni0066.med2.svg
-    cp "${dirname}"/uni0047.med2.svg "${dirname}"/uni0067.med2.svg
-    cp "${dirname}"/uni0048.med2.svg "${dirname}"/uni0068.med2.svg
-    cp "${dirname}"/uni004a.med2.svg "${dirname}"/uni006a.med2.svg
-    cp "${dirname}"/uni004b.med2.svg "${dirname}"/uni006b.med2.svg
-    cp "${dirname}"/uni004c.med2.svg "${dirname}"/uni006c.med2.svg
-    cp "${dirname}"/uni004d.med2.svg "${dirname}"/uni006d.med2.svg
-    cp "${dirname}"/uni004e.med2.svg "${dirname}"/uni006e.med2.svg
-    cp "${dirname}"/uni0050.med2.svg "${dirname}"/uni0070.med2.svg
-    cp "${dirname}"/uni0051.med2.svg "${dirname}"/uni0071.med2.svg
-    cp "${dirname}"/uni0052.med2.svg "${dirname}"/uni0072.med2.svg
-    cp "${dirname}"/uni0053.med2.svg "${dirname}"/uni0073.med2.svg
-    cp "${dirname}"/uni0054.med2.svg "${dirname}"/uni0074.med2.svg
-    cp "${dirname}"/uni0056.med2.svg "${dirname}"/uni0076.med2.svg
-    cp "${dirname}"/uni0058.med2.svg "${dirname}"/uni0078.med2.svg
-    cp "${dirname}"/uni0059.med2.svg "${dirname}"/uni0079.med2.svg
-    cp "${dirname}"/uni005a.med2.svg "${dirname}"/uni007a.med2.svg
-    # second final form ------------------------------------------
-    cp "${dirname}"/uni0042.fin2.svg "${dirname}"/uni0062.fin2.svg
-    cp "${dirname}"/uni0043.fin2.svg "${dirname}"/uni0063.fin2.svg
-    cp "${dirname}"/uni0044.fin2.svg "${dirname}"/uni0064.fin2.svg
-    cp "${dirname}"/uni0046.fin2.svg "${dirname}"/uni0066.fin2.svg
-    cp "${dirname}"/uni0047.fin2.svg "${dirname}"/uni0067.fin2.svg
-    cp "${dirname}"/uni0048.fin2.svg "${dirname}"/uni0068.fin2.svg
-    cp "${dirname}"/uni004a.fin2.svg "${dirname}"/uni006a.fin2.svg
-    cp "${dirname}"/uni004b.fin2.svg "${dirname}"/uni006b.fin2.svg
-    cp "${dirname}"/uni004c.fin2.svg "${dirname}"/uni006c.fin2.svg
-    cp "${dirname}"/uni004d.fin2.svg "${dirname}"/uni006d.fin2.svg
-    cp "${dirname}"/uni004e.fin2.svg "${dirname}"/uni006e.fin2.svg
-    cp "${dirname}"/uni0050.fin2.svg "${dirname}"/uni0070.fin2.svg
-    cp "${dirname}"/uni0051.fin2.svg "${dirname}"/uni0071.fin2.svg
-    cp "${dirname}"/uni0052.fin2.svg "${dirname}"/uni0072.fin2.svg
-    cp "${dirname}"/uni0053.fin2.svg "${dirname}"/uni0073.fin2.svg
-    cp "${dirname}"/uni0054.fin2.svg "${dirname}"/uni0074.fin2.svg
-    cp "${dirname}"/uni0056.fin2.svg "${dirname}"/uni0076.fin2.svg
-    cp "${dirname}"/uni0058.fin2.svg "${dirname}"/uni0078.fin2.svg
-    cp "${dirname}"/uni0059.fin2.svg "${dirname}"/uni0079.fin2.svg
-    cp "${dirname}"/uni005a.fin2.svg "${dirname}"/uni007a.fin2.svg
+    # ISOLATE FORM --------------------------------------------------------------------
+    cp "${dirname}"/uni0042.isol.svg "${dirname}"/uni0062.isol.svg # COPY B.ISOL b.ISOL
+    cp "${dirname}"/uni0043.isol.svg "${dirname}"/uni0063.isol.svg # COPY C.ISOL c.ISOL
+    cp "${dirname}"/uni0044.isol.svg "${dirname}"/uni0064.isol.svg # COPY D.ISOL d.ISOL
+    cp "${dirname}"/uni0046.isol.svg "${dirname}"/uni0066.isol.svg # COPY F.ISOL f.ISOL
+    cp "${dirname}"/uni0047.isol.svg "${dirname}"/uni0067.isol.svg # COPY G.ISOL g.ISOL
+    cp "${dirname}"/uni0048.isol.svg "${dirname}"/uni0068.isol.svg # COPY H.ISOL h.ISOL
+    cp "${dirname}"/uni004a.isol.svg "${dirname}"/uni006a.isol.svg # COPY J.ISOL j.ISOL
+    cp "${dirname}"/uni004b.isol.svg "${dirname}"/uni006b.isol.svg # COPY K.ISOL k.ISOL
+    cp "${dirname}"/uni004c.isol.svg "${dirname}"/uni006c.isol.svg # COPY L.ISOL l.ISOL
+    cp "${dirname}"/uni004d.isol.svg "${dirname}"/uni006d.isol.svg # COPY M.ISOL m.ISOL
+    cp "${dirname}"/uni004e.isol.svg "${dirname}"/uni006e.isol.svg # COPY N.ISOL n.ISOL
+    cp "${dirname}"/uni0050.isol.svg "${dirname}"/uni0070.isol.svg # COPY P.ISOL p.ISOL
+    cp "${dirname}"/uni0051.isol.svg "${dirname}"/uni0071.isol.svg # COPY Q.ISOL q.ISOL
+    cp "${dirname}"/uni0052.isol.svg "${dirname}"/uni0072.isol.svg # COPY R.ISOL r.ISOL
+    cp "${dirname}"/uni0053.isol.svg "${dirname}"/uni0073.isol.svg # COPY S.ISOL s.ISOL
+    cp "${dirname}"/uni0054.isol.svg "${dirname}"/uni0074.isol.svg # COPY T.ISOL t.ISOL
+    cp "${dirname}"/uni0056.isol.svg "${dirname}"/uni0076.isol.svg # COPY V.ISOL v.ISOL
+    cp "${dirname}"/uni0058.isol.svg "${dirname}"/uni0078.isol.svg # COPY X.ISOL x.ISOL
+    cp "${dirname}"/uni0059.isol.svg "${dirname}"/uni0079.isol.svg # COPY Y.ISOL y.ISOL
+    cp "${dirname}"/uni005a.isol.svg "${dirname}"/uni007a.isol.svg # COPY Z.ISOL z.ISOL
+    # INITIAL FORM --------------------------------------------------------------------
+    cp "${dirname}"/uni0042.init.svg "${dirname}"/uni0062.init.svg # COPY B.INIT b.INIT
+    cp "${dirname}"/uni0043.init.svg "${dirname}"/uni0063.init.svg # COPY C.INIT c.INIT
+    cp "${dirname}"/uni0044.init.svg "${dirname}"/uni0064.init.svg # COPY D.INIT d.INIT
+    cp "${dirname}"/uni0046.init.svg "${dirname}"/uni0066.init.svg # COPY F.INIT f.INIT
+    cp "${dirname}"/uni0047.init.svg "${dirname}"/uni0067.init.svg # COPY G.INIT g.INIT
+    cp "${dirname}"/uni0048.init.svg "${dirname}"/uni0068.init.svg # COPY H.INIT h.INIT
+    cp "${dirname}"/uni004a.init.svg "${dirname}"/uni006a.init.svg # COPY J.INIT j.INIT
+    cp "${dirname}"/uni004b.init.svg "${dirname}"/uni006b.init.svg # COPY K.INIT k.INIT
+    cp "${dirname}"/uni004c.init.svg "${dirname}"/uni006c.init.svg # COPY L.INIT l.INIT
+    cp "${dirname}"/uni004d.init.svg "${dirname}"/uni006d.init.svg # COPY M.INIT m.INIT
+    cp "${dirname}"/uni004e.init.svg "${dirname}"/uni006e.init.svg # COPY N.INIT n.INIT
+    cp "${dirname}"/uni0050.init.svg "${dirname}"/uni0070.init.svg # COPY P.INIT p.INIT
+    cp "${dirname}"/uni0051.init.svg "${dirname}"/uni0071.init.svg # COPY Q.INIT q.INIT
+    cp "${dirname}"/uni0052.init.svg "${dirname}"/uni0072.init.svg # COPY R.INIT r.INIT
+    cp "${dirname}"/uni0053.init.svg "${dirname}"/uni0073.init.svg # COPY S.INIT s.INIT
+    cp "${dirname}"/uni0054.init.svg "${dirname}"/uni0074.init.svg # COPY T.INIT t.INIT
+    cp "${dirname}"/uni0056.init.svg "${dirname}"/uni0076.init.svg # COPY V.INIT v.INIT
+    cp "${dirname}"/uni0058.init.svg "${dirname}"/uni0078.init.svg # COPY X.INIT x.INIT
+    cp "${dirname}"/uni0059.init.svg "${dirname}"/uni0079.init.svg # COPY Y.INIT y.INIT
+    cp "${dirname}"/uni005a.init.svg "${dirname}"/uni007a.init.svg # COPY Z.INIT z.INIT
+    # MEDIAL FORM ---------------------------------------------------------------------
+    cp "${dirname}"/uni0042.medi.svg "${dirname}"/uni0062.medi.svg # COPY B.MEDI b.MEDI
+    cp "${dirname}"/uni0043.medi.svg "${dirname}"/uni0063.medi.svg # COPY C.MEDI c.MEDI
+    cp "${dirname}"/uni0044.medi.svg "${dirname}"/uni0064.medi.svg # COPY D.MEDI d.MEDI
+    cp "${dirname}"/uni0046.medi.svg "${dirname}"/uni0066.medi.svg # COPY F.MEDI f.MEDI
+    cp "${dirname}"/uni0047.medi.svg "${dirname}"/uni0067.medi.svg # COPY G.MEDI g.MEDI
+    cp "${dirname}"/uni0048.medi.svg "${dirname}"/uni0068.medi.svg # COPY H.MEDI h.MEDI
+    cp "${dirname}"/uni004a.medi.svg "${dirname}"/uni006a.medi.svg # COPY J.MEDI j.MEDI
+    cp "${dirname}"/uni004b.medi.svg "${dirname}"/uni006b.medi.svg # COPY K.MEDI k.MEDI
+    cp "${dirname}"/uni004c.medi.svg "${dirname}"/uni006c.medi.svg # COPY L.MEDI l.MEDI
+    cp "${dirname}"/uni004d.medi.svg "${dirname}"/uni006d.medi.svg # COPY M.MEDI m.MEDI
+    cp "${dirname}"/uni004e.medi.svg "${dirname}"/uni006e.medi.svg # COPY N.MEDI n.MEDI
+    cp "${dirname}"/uni0050.medi.svg "${dirname}"/uni0070.medi.svg # COPY P.MEDI p.MEDI
+    cp "${dirname}"/uni0051.medi.svg "${dirname}"/uni0071.medi.svg # COPY Q.MEDI q.MEDI
+    cp "${dirname}"/uni0052.medi.svg "${dirname}"/uni0072.medi.svg # COPY R.MEDI r.MEDI
+    cp "${dirname}"/uni0053.medi.svg "${dirname}"/uni0073.medi.svg # COPY S.MEDI s.MEDI
+    cp "${dirname}"/uni0054.medi.svg "${dirname}"/uni0074.medi.svg # COPY T.MEDI t.MEDI
+    cp "${dirname}"/uni0056.medi.svg "${dirname}"/uni0076.medi.svg # COPY V.MEDI v.MEDI
+    cp "${dirname}"/uni0058.medi.svg "${dirname}"/uni0078.medi.svg # COPY X.MEDI x.MEDI
+    cp "${dirname}"/uni0059.medi.svg "${dirname}"/uni0079.medi.svg # COPY Y.MEDI y.MEDI
+    cp "${dirname}"/uni005a.medi.svg "${dirname}"/uni007a.medi.svg # COPY Z.MEDI z.MEDI
+    # SECOND MEDIAL FORM --------------------------------------------------------------
+    cp "${dirname}"/uni0042.med2.svg "${dirname}"/uni0062.med2.svg # COPY B.MED2 b.MED2
+    cp "${dirname}"/uni0043.med2.svg "${dirname}"/uni0063.med2.svg # COPY C.MED2 c.MED2
+    cp "${dirname}"/uni0044.med2.svg "${dirname}"/uni0064.med2.svg # COPY D.MED2 d.MED2
+    cp "${dirname}"/uni0046.med2.svg "${dirname}"/uni0066.med2.svg # COPY F.MED2 f.MED2
+    cp "${dirname}"/uni0047.med2.svg "${dirname}"/uni0067.med2.svg # COPY G.MED2 g.MED2
+    cp "${dirname}"/uni0048.med2.svg "${dirname}"/uni0068.med2.svg # COPY H.MED2 h.MED2
+    cp "${dirname}"/uni004a.med2.svg "${dirname}"/uni006a.med2.svg # COPY J.MED2 j.MED2
+    cp "${dirname}"/uni004b.med2.svg "${dirname}"/uni006b.med2.svg # COPY K.MED2 k.MED2
+    cp "${dirname}"/uni004c.med2.svg "${dirname}"/uni006c.med2.svg # COPY L.MED2 l.MED2
+    cp "${dirname}"/uni004d.med2.svg "${dirname}"/uni006d.med2.svg # COPY M.MED2 m.MED2
+    cp "${dirname}"/uni004e.med2.svg "${dirname}"/uni006e.med2.svg # COPY N.MED2 n.MED2
+    cp "${dirname}"/uni0050.med2.svg "${dirname}"/uni0070.med2.svg # COPY P.MED2 p.MED2
+    cp "${dirname}"/uni0051.med2.svg "${dirname}"/uni0071.med2.svg # COPY Q.MED2 q.MED2
+    cp "${dirname}"/uni0052.med2.svg "${dirname}"/uni0072.med2.svg # COPY R.MED2 r.MED2
+    cp "${dirname}"/uni0053.med2.svg "${dirname}"/uni0073.med2.svg # COPY S.MED2 s.MED2
+    cp "${dirname}"/uni0054.med2.svg "${dirname}"/uni0074.med2.svg # COPY T.MED2 t.MED2
+    cp "${dirname}"/uni0056.med2.svg "${dirname}"/uni0076.med2.svg # COPY V.MED2 v.MED2
+    cp "${dirname}"/uni0058.med2.svg "${dirname}"/uni0078.med2.svg # COPY X.MED2 x.MED2
+    cp "${dirname}"/uni0059.med2.svg "${dirname}"/uni0079.med2.svg # COPY Y.MED2 y.MED2
+    cp "${dirname}"/uni005a.med2.svg "${dirname}"/uni007a.med2.svg # COPY Z.MED2 z.MED2
+    # FINAL FORM ----------------------------------------------------------------------
+    cp "${dirname}"/uni0042.fina.svg "${dirname}"/uni0062.fina.svg # COPY B.FINA b.FINA
+    cp "${dirname}"/uni0043.fina.svg "${dirname}"/uni0063.fina.svg # COPY C.FINA c.FINA
+    cp "${dirname}"/uni0044.fina.svg "${dirname}"/uni0064.fina.svg # COPY D.FINA d.FINA
+    cp "${dirname}"/uni0046.fina.svg "${dirname}"/uni0066.fina.svg # COPY F.FINA f.FINA
+    cp "${dirname}"/uni0047.fina.svg "${dirname}"/uni0067.fina.svg # COPY G.FINA g.FINA
+    cp "${dirname}"/uni0048.fina.svg "${dirname}"/uni0068.fina.svg # COPY H.FINA h.FINA
+    cp "${dirname}"/uni004a.fina.svg "${dirname}"/uni006a.fina.svg # COPY J.FINA j.FINA
+    cp "${dirname}"/uni004b.fina.svg "${dirname}"/uni006b.fina.svg # COPY K.FINA k.FINA
+    cp "${dirname}"/uni004c.fina.svg "${dirname}"/uni006c.fina.svg # COPY L.FINA l.FINA
+    cp "${dirname}"/uni004d.fina.svg "${dirname}"/uni006d.fina.svg # COPY M.FINA m.FINA
+    cp "${dirname}"/uni004e.fina.svg "${dirname}"/uni006e.fina.svg # COPY N.FINA n.FINA
+    cp "${dirname}"/uni0050.fina.svg "${dirname}"/uni0070.fina.svg # COPY P.FINA p.FINA
+    cp "${dirname}"/uni0051.fina.svg "${dirname}"/uni0071.fina.svg # COPY Q.FINA q.FINA
+    cp "${dirname}"/uni0052.fina.svg "${dirname}"/uni0072.fina.svg # COPY R.FINA r.FINA
+    cp "${dirname}"/uni0053.fina.svg "${dirname}"/uni0073.fina.svg # COPY S.FINA s.FINA
+    cp "${dirname}"/uni0054.fina.svg "${dirname}"/uni0074.fina.svg # COPY T.FINA t.FINA
+    cp "${dirname}"/uni0056.fina.svg "${dirname}"/uni0076.fina.svg # COPY V.FINA v.FINA
+    cp "${dirname}"/uni0058.fina.svg "${dirname}"/uni0078.fina.svg # COPY X.FINA x.FINA
+    cp "${dirname}"/uni0059.fina.svg "${dirname}"/uni0079.fina.svg # COPY Y.FINA y.FINA
+    cp "${dirname}"/uni005a.fina.svg "${dirname}"/uni007a.fina.svg # COPY Z.FINA z.FINA
+    # SECOND FINAL FORM ---------------------------------------------------------------
+    cp "${dirname}"/uni0042.fin2.svg "${dirname}"/uni0062.fin2.svg # COPY B.FIN2 b.FIN2
+    cp "${dirname}"/uni0043.fin2.svg "${dirname}"/uni0063.fin2.svg # COPY C.FIN2 c.FIN2
+    cp "${dirname}"/uni0044.fin2.svg "${dirname}"/uni0064.fin2.svg # COPY D.FIN2 d.FIN2
+    cp "${dirname}"/uni0046.fin2.svg "${dirname}"/uni0066.fin2.svg # COPY F.FIN2 f.FIN2
+    cp "${dirname}"/uni0047.fin2.svg "${dirname}"/uni0067.fin2.svg # COPY G.FIN2 g.FIN2
+    cp "${dirname}"/uni0048.fin2.svg "${dirname}"/uni0068.fin2.svg # COPY H.FIN2 h.FIN2
+    cp "${dirname}"/uni004a.fin2.svg "${dirname}"/uni006a.fin2.svg # COPY J.FIN2 j.FIN2
+    cp "${dirname}"/uni004b.fin2.svg "${dirname}"/uni006b.fin2.svg # COPY K.FIN2 k.FIN2
+    cp "${dirname}"/uni004c.fin2.svg "${dirname}"/uni006c.fin2.svg # COPY L.FIN2 l.FIN2
+    cp "${dirname}"/uni004d.fin2.svg "${dirname}"/uni006d.fin2.svg # COPY M.FIN2 m.FIN2
+    cp "${dirname}"/uni004e.fin2.svg "${dirname}"/uni006e.fin2.svg # COPY N.FIN2 n.FIN2
+    cp "${dirname}"/uni0050.fin2.svg "${dirname}"/uni0070.fin2.svg # COPY P.FIN2 p.FIN2
+    cp "${dirname}"/uni0051.fin2.svg "${dirname}"/uni0071.fin2.svg # COPY Q.FIN2 q.FIN2
+    cp "${dirname}"/uni0052.fin2.svg "${dirname}"/uni0072.fin2.svg # COPY R.FIN2 r.FIN2
+    cp "${dirname}"/uni0053.fin2.svg "${dirname}"/uni0073.fin2.svg # COPY S.FIN2 s.FIN2
+    cp "${dirname}"/uni0054.fin2.svg "${dirname}"/uni0074.fin2.svg # COPY T.FIN2 t.FIN2
+    cp "${dirname}"/uni0056.fin2.svg "${dirname}"/uni0076.fin2.svg # COPY V.FIN2 v.FIN2
+    cp "${dirname}"/uni0058.fin2.svg "${dirname}"/uni0078.fin2.svg # COPY X.FIN2 x.FIN2
+    cp "${dirname}"/uni0059.fin2.svg "${dirname}"/uni0079.fin2.svg # COPY Y.FIN2 y.FIN2
+    cp "${dirname}"/uni005a.fin2.svg "${dirname}"/uni007a.fin2.svg # COPY Z.FIN2 z.FIN2
     echo "ディレクトリ${dirname}の異体大文字から異体小文字へのコピーが完了しました。"
 done
