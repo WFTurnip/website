@@ -34,5 +34,5 @@ for dirname in "${fontname[@]}"; do
     touch "${dirname}"/uni00b4.svg # ´
     touch "${dirname}"/uni00b6.svg # ¶
     touch "${dirname}"/uni25cc.svg # ◌
- echo "ディレクトリ${dirname}の約物文字のタイムスタンプを更新しました。"
+    echo "ディレクトリ${dirname}の約物文字のタイムスタンプを更新しました。"
 done
