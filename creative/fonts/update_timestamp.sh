@@ -13,11 +13,11 @@ done
 # sh variants_consonants_maker.sh
 # sh vowels_maker.sh
 # ======================================
-sh consonants_concatenator.sh
-sh numerals_concatenator.sh
-sh punctuations_concatenator.sh
-sh variants_consonants_concatenator.sh
+# sh consonants_concatenator.sh
+# sh numerals_concatenator.sh
+# sh punctuations_concatenator.sh
+# sh variants_consonants_concatenator.sh
 # ======================================
-# sh glyph_copier.sh
-# sh variants_glyph_copier.sh
+sh glyph_copier.sh
+sh variants_glyph_copier.sh
 # open */
