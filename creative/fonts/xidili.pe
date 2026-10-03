@@ -31,9 +31,7 @@ Print("上部マークマークグリフアンカーポイント座標（X軸）
 Print("上部マークマークグリフアンカーポイント座標（Y軸）は", AboveM2MAnchorPointY, "px です。");
 Print("下部マークマークグリフアンカーポイント座標（X軸）は", BelowM2MAnchorPointX, "px です。");
 Print("下部マークマークグリフアンカーポイント座標（Y軸）は", BelowM2MAnchorPointY, "px です。");
-Select(0); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./xidili/notdef.svg");
-Select(1); SetGlyphName(".null"); SetWidth(MarkWidth);
-Select(2); SetGlyphName(".nonmarkingreturn"); SetWidth(MarkWidth);
+Select(0); SetGlyphClass("none"); SetGlyphName(".notdef"); Clear(); SetWidth(BaseWidth); Import("./xidili/notdef.svg");
 Select(0u0020); SetGlyphClass("none"); SetWidth(BaseWidth);
 Select(0u0021); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./xidili/uni0021.svg");
 Select(0u0022); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./xidili/uni0022.svg");
