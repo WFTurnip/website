@@ -232,7 +232,7 @@ function generateSuffixConsonantTable() {
             consonants.classList.add("xesada");
             consonantsCell.appendChild(consonants);
             let consonantsPronunciation = document.createElement("div");
-            consonantsPronunciation.textContent = consonantConceptArray[consonantRowIndex * consonantArray.length / consonantRowArray.length + consonantIndex];
+            consonantsPronunciation.textContent = consonantConceptArray[consonantRowIndex * consonantArray.length / consonantRowArray.length + consonantIndex] + "接尾辞";
             consonantsPronunciation.classList.add("concept");
             consonantsCell.appendChild(consonantsPronunciation);
             consonantVerticalRow.appendChild(consonantsCell);

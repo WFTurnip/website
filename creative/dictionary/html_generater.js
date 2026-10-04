@@ -393,6 +393,107 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
         h2Span2.textContent = vowelPartOfSpeechTypeArray[thirdVowel] + "詞";
         h2.append(h2Span2);
         main.appendChild(h2);
+        let TableDetails = document.createElement("details");
+        let TableSummary = document.createElement("summary");
+        TableSummary.textContent = "";
+        TableDetails.appendChild(TableSummary);
+        let table = document.createElement("table");
+        let caption = document.createElement("caption");
+        let span = document.createElement("span");
+        span.classList.add("xesada")
+        span.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
+        caption.append(span, "の活用表");
+        table.appendChild(caption);
+        let thead = document.createElement("thead");
+        let conjunctHorizontal = document.createElement("tr");
+        let blank = document.createElement("th");
+        blank.textContent = "";
+        conjunctHorizontal.appendChild(blank);
+        let prefixConsonant;
+        let prefixConcept;
+        let suffixConsonant;
+        let suffixConcept;
+        switch (thirdVowel) {
+            case 0:
+                prefixConsonant = upperTongueConsonantArray;
+                prefixConcept = upperTongueConceptArray;
+                suffixConsonant = middleTongueConsonantArray;
+                suffixConcept = middleTongueConceptArray;
+                break;
+            case 1:
+                prefixConsonant = lowerTongueConsonantArray;
+                prefixConcept = lowerTongueConceptArray;
+                suffixConsonant = middleTongueConsonantArray;
+                suffixConcept = middleTongueConceptArray;
+                break;
+            case 2:
+                prefixConsonant = lowerTongueConsonantArray;
+                prefixConcept = lowerTongueConceptArray;
+                suffixConsonant = upperTongueConsonantArray;
+                suffixConcept = upperTongueConceptArray;
+                break;
+            case 3:
+                prefixConsonant = upperTongueConsonantArray;
+                prefixConcept = upperTongueConceptArray;
+                suffixConsonant = middleTongueConsonantArray;
+                suffixConcept = middleTongueConceptArray;
+                break;
+            case 4:
+                prefixConsonant = lowerTongueConsonantArray;
+                prefixConcept = lowerTongueConceptArray;
+                suffixConsonant = middleTongueConsonantArray;
+                suffixConcept = middleTongueConceptArray;
+                break;
+            case 5:
+                prefixConsonant = lowerTongueConsonantArray;
+                prefixConcept = lowerTongueConceptArray;
+                suffixConsonant = upperTongueConsonantArray;
+                suffixConcept = upperTongueConceptArray;
+                break;
+        }
+        for (let suffixIndex = 0; suffixIndex < suffixConsonant.length; suffixIndex++) {
+            let th = document.createElement("th");
+            let div = document.createElement("div");
+            div.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel] + suffixConsonant[suffixIndex];
+            div.classList.add("xesada");
+            th.appendChild(div);
+            let divConcept = document.createElement("div");
+            divConcept.textContent = suffixConcept[suffixIndex] + "形";
+            divConcept.classList.add("concept");
+            th.appendChild(divConcept);
+            conjunctHorizontal.appendChild(th);
+        }
+        thead.appendChild(conjunctHorizontal);
+        table.appendChild(thead);
+        let tbody = document.createElement("tbody");
+        for (let prefixIndex = 0; prefixIndex < prefixConsonant.length; prefixIndex++) {
+            let tr = document.createElement("tr");
+            let th = document.createElement("th");
+            let div = document.createElement("div");
+            div.classList.add("xesada");
+            div.textContent = prefixConsonant[prefixIndex] + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
+            let divConcept = document.createElement("div");
+            divConcept.textContent = prefixConcept[prefixIndex] + "相";
+            divConcept.classList.add("concept");
+            th.appendChild(divConcept);
+            tr.appendChild(th);
+            for (let suffixIndex = 0; suffixIndex < suffixConsonant.length; suffixIndex++) {
+                let td = document.createElement("td");
+                let div = document.createElement("div");
+                div.classList.add("xesada");
+                div.textContent = prefixConsonant[prefixIndex] + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel] + suffixConsonant[suffixIndex];
+                td.appendChild(div);
+                let divConcept = document.createElement("div");
+                divConcept.append(prefixConcept[prefixIndex] + "相", document.createElement("wbr"), suffixConcept[suffixIndex] + "形");
+                divConcept.classList.add("concept");
+                td.appendChild(divConcept);
+                tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+        }
+        table.appendChild(tbody);
+        TableDetails.appendChild(table);
+        main.appendChild(TableDetails)
         let details = document.createElement("details");
         details.open = true;
         let summary = document.createElement("summary");
@@ -422,107 +523,6 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
                 dl.appendChild(dt);
                 let dd = document.createElement("dd");
                 dd.textContent = "";
-                // let details = document.createElement("details");
-                // let summary = document.createElement("summary");
-                // summary.textContent = "";
-                // details.appendChild(summary);
-                // let table = document.createElement("table");
-                // let caption = document.createElement("caption");
-                // let span = document.createElement("span");
-                // span.classList.add("xesada")
-                // span.textContent = consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
-                // caption.append(span, "の活用表");
-                // table.appendChild(caption);
-                // let thead = document.createElement("thead");
-                // let conjunctHorizontal = document.createElement("tr");
-                // let blank = document.createElement("th");
-                // blank.textContent = "";
-                // conjunctHorizontal.appendChild(blank);
-                // let prefixConsonant;
-                // let prefixConcept;
-                // let suffixConsonant;
-                // let suffixConcept;
-                // switch (thirdVowel) {
-                // case 0: 
-                //     prefixConsonant = upperTongueConsonantArray;
-                //     prefixConcept = upperTongueConceptArray;
-                //     suffixConsonant = middleTongueConsonantArray; 
-                //     suffixConcept = middleTongueConceptArray;
-                //     break;
-                // case 1:
-                //     prefixConsonant = lowerTongueConsonantArray;
-                //     prefixConcept = lowerTongueConceptArray;
-                //     suffixConsonant = middleTongueConsonantArray; 
-                //     suffixConcept = middleTongueConceptArray;
-                //     break;
-                // case 2:
-                //     prefixConsonant = lowerTongueConsonantArray;
-                //     prefixConcept = lowerTongueConceptArray;
-                //     suffixConsonant = upperTongueConsonantArray;
-                //     suffixConcept = upperTongueConceptArray;
-                //     break;
-                // case 3:
-                //     prefixConsonant = upperTongueConsonantArray;
-                //     prefixConcept = upperTongueConceptArray;
-                //     suffixConsonant = middleTongueConsonantArray; 
-                //     suffixConcept = middleTongueConceptArray;
-                //     break;
-                // case 4:
-                //     prefixConsonant = lowerTongueConsonantArray;
-                //     prefixConcept = lowerTongueConceptArray;
-                //     suffixConsonant = middleTongueConsonantArray; 
-                //     suffixConcept = middleTongueConceptArray;
-                //     break;
-                // case 5:
-                //     prefixConsonant = lowerTongueConsonantArray;
-                //     prefixConcept = lowerTongueConceptArray;
-                //     suffixConsonant = upperTongueConsonantArray;
-                //     suffixConcept = upperTongueConceptArray;
-                //     break;
-                // }
-                // for (let suffixIndex = 0; suffixIndex < suffixConsonant.length; suffixIndex++) {
-                //     let th = document.createElement("th");
-                //     let div = document.createElement("div");
-                //     div.textContent = consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel] + suffixConsonant[suffixIndex];
-                //     div.classList.add("xesada");
-                //     th.appendChild(div);
-                //     let divConcept = document.createElement("div");
-                //     divConcept.textContent = suffixConcept[suffixIndex] + "形";
-                //     divConcept.classList.add("concept");
-                //     th.appendChild(divConcept);
-                //     conjunctHorizontal.appendChild(th);
-                // }
-                // thead.appendChild(conjunctHorizontal);
-                // table.appendChild(thead);
-                // let tbody = document.createElement("tbody");
-                // for (let prefixIndex = 0; prefixIndex < prefixConsonant.length; prefixIndex++) {
-                //     let tr = document.createElement("tr");
-                //     let th = document.createElement("th");
-                //     let div = document.createElement("div");
-                //     div.classList.add("xesada");
-                //     div.textContent = prefixConsonant[prefixIndex] + consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
-                //     let divConcept = document.createElement("div");
-                //     divConcept.textContent = prefixConcept[prefixIndex] + "相";
-                //     divConcept.classList.add("concept");
-                //     th.appendChild(divConcept);
-                //     tr.appendChild(th);
-                //     for (let suffixIndex = 0; suffixIndex < suffixConsonant.length; suffixIndex++) {
-                //         let td = document.createElement("td");
-                //         let div = document.createElement("div");
-                //         div.classList.add("xesada");
-                //         div.textContent = prefixConsonant[prefixIndex] + consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel] + suffixConsonant[suffixIndex];
-                //         td.appendChild(div);
-                //         let divConcept = document.createElement("div");
-                //         divConcept.append(prefixConcept[prefixIndex] + "相", document.createElement("wbr"), suffixConcept[suffixIndex] + "形");
-                //         divConcept.classList.add("concept");
-                //         td.appendChild(divConcept);
-                //         tr.appendChild(td);
-                //     }
-                //     tbody.appendChild(tr);
-                // }
-                // table.appendChild(tbody);
-                // details.appendChild(table);
-                // dd.appendChild(details)
                 dl.appendChild(dd);
             }
         }

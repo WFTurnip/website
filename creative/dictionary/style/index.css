@@ -35,3 +35,8 @@ hr {
     height: 0.25rem;
     border-width: 0;
 }
+
+table {
+    text-align: center;
+    margin: auto;
+}

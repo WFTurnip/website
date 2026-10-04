@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const tocRoot = document.getElementById("toc-root");
-    if (!tocRoot) {
+    const h1 = document.querySelector("main h1");
+    const hrBefore = document.createElement("hr");
+    const hrAfter = document.createElement("hr");
+    const nav = document.createElement("nav");
+    if (!nav) {
         return;
     }
     const h2 = document.createElement("h2");
     h2.textContent = "目次";
-    h2.className = "table-of-content";
-    tocRoot.appendChild(h2);
+    nav.appendChild(h2);
     const headingNodes = Array.from(document.querySelectorAll("main h2, main h3, main h4, main h5, main h6")).filter(h => !h.closest(".table-of-content"));
     if (headingNodes.length === 0) {
         return;
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     });
     const rootOl = document.createElement("ol");
-    tocRoot.appendChild(rootOl);
+    nav.appendChild(rootOl);
     let stack = [{level: 0, ol: rootOl}];
     headings.forEach(h => {
         while (h.level > stack[stack.length - 1].level + 1) {
@@ -51,4 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
         li.appendChild(a);
         stack[stack.length - 1].ol.appendChild(li);
     });
+    if (h1) {
+        h1.parentNode.insertBefore(hrBefore, h1.nextSibling);
+        h1.parentNode.insertBefore(nav, hrBefore.nextSibling);
+        h1.parentNode.insertBefore(hrAfter, nav.nextSibling);
+    }
 });

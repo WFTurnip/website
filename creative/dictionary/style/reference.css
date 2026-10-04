@@ -131,11 +131,11 @@ rt {
     font-variant-east-asian: ruby;
 }
 
-.table-of-content {
+nav > h2 {
     counter-increment: none;
 }
 
-.table-of-content::before {
+nav > h2::before {
     content: "";
 }
 
