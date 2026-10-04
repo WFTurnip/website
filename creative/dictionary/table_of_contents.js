@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const hrBefore = document.createElement("hr");
     const hrAfter = document.createElement("hr");
     const nav = document.createElement("nav");
-    if (!nav) {
+    if (!h1) {
         return;
     }
     const h2 = document.createElement("h2");
     h2.textContent = "目次";
     nav.appendChild(h2);
-    const headingNodes = Array.from(document.querySelectorAll("main h2, main h3, main h4, main h5, main h6")).filter(h => !h.closest(".table-of-content"));
+    const headingNodes = Array.from(document.querySelectorAll("main h2, main h3, main h4, main h5, main h6")).filter(h => !h.closest("nav h2"));
     if (headingNodes.length === 0) {
         return;
     }
