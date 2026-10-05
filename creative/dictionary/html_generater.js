@@ -472,6 +472,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
             let div = document.createElement("div");
             div.classList.add("xesada");
             div.textContent = prefixConsonant[prefixIndex] + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
+            th.appendChild(div);
             let divConcept = document.createElement("div");
             divConcept.textContent = prefixConcept[prefixIndex] + "相";
             divConcept.classList.add("concept");
