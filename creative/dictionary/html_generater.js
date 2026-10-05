@@ -393,10 +393,15 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
         h2Span2.textContent = vowelPartOfSpeechTypeArray[thirdVowel] + "詞";
         h2.append(h2Span2);
         main.appendChild(h2);
-        let TableDetails = document.createElement("details");
-        let TableSummary = document.createElement("summary");
-        TableSummary.textContent = "";
-        TableDetails.appendChild(TableSummary);
+        let details = document.createElement("details");
+        details.open = true;
+        let summary = document.createElement("summary");
+        summary.textContent = "";
+        details.appendChild(summary);
+        let tableDetails = document.createElement("details");
+        let tableSummary = document.createElement("summary");
+        tableSummary.textContent = "";
+        tableDetails.appendChild(tableSummary);
         let table = document.createElement("table");
         let caption = document.createElement("caption");
         let span = document.createElement("span");
@@ -493,13 +498,8 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
             tbody.appendChild(tr);
         }
         table.appendChild(tbody);
-        TableDetails.appendChild(table);
-        main.appendChild(TableDetails)
-        let details = document.createElement("details");
-        details.open = true;
-        let summary = document.createElement("summary");
-        summary.textContent = "";
-        details.appendChild(summary);
+        tableDetails.appendChild(table);
+        details.appendChild(tableDetails)
         let dl = document.createElement("dl");
         for (let firstVowel = 0; firstVowel < vowelArray.length; firstVowel++) {
             for (let secondVowel = 0; secondVowel < vowelArray.length; secondVowel++) {
