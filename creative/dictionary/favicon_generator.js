@@ -7,7 +7,7 @@ const minMaxMap = [[-4, -1], [-4, -1], [-3, 0], [-3, 0], [-2, 1], [-2, 1], [-5, 
 const circleStyle = "@media(prefers-color-scheme: light){circle{fill: #000000;}}@media(prefers-color-scheme: dark){circle{fill: #c99410;}}";
 /**
  * 指定された子音の`index`に対応する最小値と最大値を返す関数
- * @param {Number} i 子音の`index`
+ * @param {number} i 子音の`index`
  * @returns `minMaxMap`配列の`i`番目の要素、存在しない場合は`[0, 0]`を返す関数
  */
 function getMinMax(i) {
@@ -16,9 +16,9 @@ function getMinMax(i) {
 /**
  * SVGに円を追加する関数
  * @param {SVGElement} svg SVG要素
- * @param {Number} cx 円の中心のx座標
- * @param {Number} cy 円の中心のy座標
- * @param {Number} r 円の半径
+ * @param {number} cx 円の中心のx座標
+ * @param {number} cy 円の中心のy座標
+ * @param {number} r 円の半径
  */
 function addCircle(svg, cx, cy, r) {
     const circle = svg.ownerDocument.createElementNS("http://www.w3.org/2000/svg", "circle");
@@ -30,7 +30,7 @@ function addCircle(svg, cx, cy, r) {
 /**
  * SVGにスタイルを追加する関数
  * @param {SVGElement} svg SVG要素
- * @param {String} styleText スタイルテキスト
+ * @param {string} styleText スタイルテキスト
  */
 function addStyle(svg, styleText) {
     const style = svg.ownerDocument.createElementNS("http://www.w3.org/2000/svg", "style");
@@ -39,7 +39,7 @@ function addStyle(svg, styleText) {
 }
 /**
  * SVGをファイルに書き出す関数
- * @param {String} filename ファイル名
+ * @param {string} filename ファイル名
  * @param {SVGElement} svg SVG要素
  */
 async function writeSVG(filename, svg) {
@@ -73,7 +73,7 @@ async function generateIndex() {
 }
 /**
  * 指定された子音の`favicon`を生成する関数
- * @param {Number} firstConsonant 子音の`index`
+ * @param {number} firstConsonant 子音の`index`
  */
 async function generateConsonant(firstConsonant) {
     const dom = new JSDOM("<!DOCTYPE html><body></body>");
@@ -95,9 +95,9 @@ async function generateConsonant(firstConsonant) {
 }
 /**
  * 指定された子音の組み合わせの`favicon`を生成する関数
- * @param {Number} firstConsonant 第一子音の`index`
- * @param {Number} secondConsonant 第二子音の`index`
- * @param {Number} thirdConsonant 第三子音の`index`
+ * @param {number} firstConsonant 第一子音の`index`
+ * @param {number} secondConsonant 第二子音の`index`
+ * @param {number} thirdConsonant 第三子音の`index`
  */
 async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     const dom = new JSDOM("<!DOCTYPE html><body></body>");
@@ -126,7 +126,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
 }
 /**
  * 指定された子音の組み合わせの`favicon`を生成する関数
- * @param {Number} firstConsonant 第一子音の`index`
+ * @param {number} firstConsonant 第一子音の`index`
  */
 async function generateConsonantDirectory(firstConsonant) {
     let directoryName = path.join("favicon_index", consonantArray[firstConsonant]);

@@ -9,11 +9,9 @@ const vowelArray = ["a", "e", "i", "o", "u", "w"];
 const vowelCaseArray = ["否", "与", "属", "対", "主", "流"];
 const vowelPartOfSpeechTypeArray = ["附", "動", "容", "助", "副", "名"];
 const vowelPronunciationArray = ["a", "e", "i", "o", "u", ""];
-
 const upperTongueConsonantArray = ["k", "g", "t", "d", "s", "z"];
 const middleTongueConsonantArray = ["q", "c", "r", "l", "p", "b"];
 const lowerTongueConsonantArray = ["h", "x", "f", "v", "m", "n"];
-
 const upperTongueConceptArray = ["剥離", "癒着", "乖離", "同一", "肉体", "精神"];
 const middleTongueConceptArray = ["空白", "物質", "過去", "未来", "鎮静", "高揚"];
 const lowerTongueConceptArray = ["受動", "能動", "創造", "破壊", "流動", "固定"];

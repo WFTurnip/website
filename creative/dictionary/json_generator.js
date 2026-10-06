@@ -9,7 +9,7 @@ const vowelCaseArray = ["否", "与", "属", "対", "主", "流"];
 const vowelPartOfSpeechTypeArray = ["附", "動", "容", "助", "副", "名"];
 const vowelPronunciationArray = ["a", "e", "i", "o", "u", ""];
 /**
- * json_indexディレクトリの内部データを生成するための関数。
+ * `json_index`ディレクトリの内部データを生成するための関数。
  */
 async function generateIndex() {
     let filename = path.join("json_index", "index.json");
@@ -31,8 +31,8 @@ async function generateIndex() {
     }
 }
 /**
- * 指定された子音のJSONファイルを生成する関数
- * @param {Number} firstConsonant 第一子音の`index`
+ * 指定された子音の`JSON`ファイルを生成する関数
+ * @param {number} firstConsonant 第一子音の`index`
  * @returns {Promise<void>}
  */
 async function generateConsonant(firstConsonant) {
@@ -58,7 +58,7 @@ async function generateConsonant(firstConsonant) {
 }
 /**
  * 指定された子音のディレクトリを生成する関数
- * @param {Number} firstConsonant 第一子音の`index`
+ * @param {number} firstConsonant 第一子音の`index`
  * @returns {Promise<void>}
  */
 async function generateConsonantDirectory(firstConsonant) {
@@ -71,10 +71,10 @@ async function generateConsonantDirectory(firstConsonant) {
     }
 }
 /**
- * 指定された語根のJSONファイルを生成する関数
- * @param {Number} firstConsonant 第一子音の`index`
- * @param {Number} secondConsonant 第二子音の`index`
- * @param {Number} thirdConsonant 第三子音の`index`
+ * 指定された語根の`JSON`ファイルを生成する関数
+ * @param {number} firstConsonant 第一子音の`index`
+ * @param {number} secondConsonant 第二子音の`index`
+ * @param {number} thirdConsonant 第三子音の`index`
  * @returns {Promise<void>}
  */
 async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
@@ -104,7 +104,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     }
 }
 /**
- * JSONファイルを生成する関数
+ * `JSON`ファイルを生成する関数
  * @returns {Promise<void>}
  */
 async function generate() {
