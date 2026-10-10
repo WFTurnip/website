@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 lastLi = document.createElement("li");
                 parentOl.appendChild(lastLi);
             }
-            const newOl = document.createElement("ol");
-            lastLi.appendChild(newOl);
+            const childOl = document.createElement("ol");
+            lastLi.appendChild(childOl);
             stack.push({
                 level: stack[stack.length - 1].level + 1,
-                ol: newOl
+                ol: childOl
             });
         }
         while (h.level <= stack[stack.length - 1].level && stack.length > 1) {
