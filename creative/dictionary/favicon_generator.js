@@ -1,10 +1,10 @@
-const fs = require("fs").promises;
-const path = require("path");
-const {JSDOM} = require("jsdom");
-const beautify = require("js-beautify").html;
-const consonantArray = ["k", "g", "t", "d", "s", "z", "q", "c", "r", "l", "p", "b", "h", "x", "f", "v", "m", "n"];
-const minMaxMap = [[-4, -1], [-4, -1], [-3, 0], [-3, 0], [-2, 1], [-2, 1], [-5, -2], [-5, -2], [0, 8], [0, 8], [-1, 2], [-1, 2], [2, 5], [2, 5], [1, 4], [1, 4], [0, 3], [0, 3]];
-const circleStyle = "@media(prefers-color-scheme: light){circle{fill: #000000;}}@media(prefers-color-scheme: dark){circle{fill: #c99410;}}";
+import fs from "node:fs/promises";
+import path from "node:path";
+import {JSDOM} from "jsdom";
+import pkg from "js-beautify";
+const {html: beautify} = pkg;
+import {consonantArray, consonantConceptArray, consonantPronunciationArray, consonantPlaceArray, consonantRowArray, consonantPolarityArray, vowelArray, vowelCaseArray, vowelPartOfSpeechTypeArray, vowelPronunciationArray, vowelPronunciationReferenceArray, vowelBacknessArray, vowelRoundednessArray, vowelPartOfSpeechHorizontalTypeArray, vowelPartOfSpeechVerticalTypeArray, upperTongueConsonantArray, middleTongueConsonantArray, lowerTongueConsonantArray, upperTongueConceptArray, middleTongueConceptArray, lowerTongueConceptArray, affixConsonantArray, affixConceptArray, cantillationMarkArray, cantillationConceptArray, cantillationPronunciationArray, minMaxMap} from "./arraydata.js";
+const circleStyle = "@media(prefers-color-scheme: light){circle{fill: #000000;}}" + "@media(prefers-color-scheme: dark){circle{fill: #c99410;}}";
 /**
  * 指定された子音の`index`に対応する最小値と最大値を返す関数
  * @param {number} i 子音の`index`

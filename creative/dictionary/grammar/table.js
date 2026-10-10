@@ -1,3 +1,4 @@
+import {consonantArray, consonantConceptArray, consonantPronunciationArray, consonantPlaceArray, consonantRowArray, consonantPolarityArray, vowelArray, vowelCaseArray, vowelPartOfSpeechTypeArray, vowelPronunciationArray, vowelPronunciationReferenceArray, vowelBacknessArray, vowelRoundednessArray, vowelPartOfSpeechHorizontalTypeArray, vowelPartOfSpeechVerticalTypeArray, upperTongueConsonantArray, middleTongueConsonantArray, lowerTongueConsonantArray, upperTongueConceptArray, middleTongueConceptArray, lowerTongueConceptArray, affixConsonantArray, affixConceptArray, cantillationMarkArray, cantillationConceptArray, cantillationPronunciationArray, minMaxMap} from "../arraydata.js";
 function generateConsonantPronunciationTable() {
     let table = document.createElement("table");
     let caption = document.createElement("caption");
@@ -79,7 +80,7 @@ function generateVowelPronunciationTable() {
             vowels.classList.add("xesada");
             vowelsCell.appendChild(vowels);
             let vowelsPronunciation = document.createElement("div");
-            vowelsPronunciation.textContent = "/" + vowelPronunciationArray[vowelRoundednessIndex * vowelArray.length / vowelRoundednessArray.length + vowelIndex] + "/";
+            vowelsPronunciation.textContent = "/" + vowelPronunciationReferenceArray[vowelRoundednessIndex * vowelArray.length / vowelRoundednessArray.length + vowelIndex] + "/";
             vowelsPronunciation.classList.add("pronunciation");
             vowelsCell.appendChild(vowelsPronunciation);
             vowelsVerticalRow.appendChild(vowelsCell);

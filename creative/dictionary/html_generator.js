@@ -1,20 +1,9 @@
-const fs = require("fs").promises;
-const path = require("path");
-const {JSDOM} = require("jsdom");
-const beautify = require("js-beautify").html;
-const consonantArray = ["k", "g", "t", "d", "s", "z", "q", "c", "r", "l", "p", "b", "h", "x", "f", "v", "m", "n"];
-const consonantConceptArray = ["剥離", "癒着", "乖離", "同一", "肉体", "精神", "空白", "物質", "過去", "未来", "鎮静", "高揚", "受動", "能動", "創造", "破壊", "流動", "固定"];
-const consonantPronunciationArray = ["k", "g", "t", "d", "s", "z", "\u{0294}", "\u{0295}", "r", "l", "p", "b", "h", "x", "f", "v", "m", "n"];
-const vowelArray = ["a", "e", "i", "o", "u", "w"];
-const vowelCaseArray = ["否", "与", "属", "対", "主", "流"];
-const vowelPartOfSpeechTypeArray = ["附", "動", "容", "助", "副", "名"];
-const vowelPronunciationArray = ["a", "e", "i", "o", "u", ""];
-const upperTongueConsonantArray = ["k", "g", "t", "d", "s", "z"];
-const middleTongueConsonantArray = ["q", "c", "r", "l", "p", "b"];
-const lowerTongueConsonantArray = ["h", "x", "f", "v", "m", "n"];
-const upperTongueConceptArray = ["剥離", "癒着", "乖離", "同一", "肉体", "精神"];
-const middleTongueConceptArray = ["空白", "物質", "過去", "未来", "鎮静", "高揚"];
-const lowerTongueConceptArray = ["受動", "能動", "創造", "破壊", "流動", "固定"];
+import fs from "node:fs/promises";
+import path from "node:path";
+import {JSDOM} from "jsdom";
+import pkg from "js-beautify";
+const {html: beautify} = pkg;
+import {consonantArray, consonantConceptArray, consonantPronunciationArray, consonantPlaceArray, consonantRowArray, consonantPolarityArray, vowelArray, vowelCaseArray, vowelPartOfSpeechTypeArray, vowelPronunciationArray, vowelPronunciationReferenceArray, vowelBacknessArray, vowelRoundednessArray, vowelPartOfSpeechHorizontalTypeArray, vowelPartOfSpeechVerticalTypeArray, upperTongueConsonantArray, middleTongueConsonantArray, lowerTongueConsonantArray, upperTongueConceptArray, middleTongueConceptArray, lowerTongueConceptArray, affixConsonantArray, affixConceptArray, cantillationMarkArray, cantillationConceptArray, cantillationPronunciationArray, minMaxMap} from "./arraydata.js";
 /**
  * `index`HTMLファイルを生成する関数
  * `index`ファイルには、子ディレクトリである子HTMLファイルへのリンクが含まれる
