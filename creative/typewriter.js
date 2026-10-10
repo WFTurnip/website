@@ -2,7 +2,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const textarea = document.querySelector("textarea");
     const keyboardTable = document.getElementById("keyboard");
     const fontSelector = document.getElementById("font-selector");
-    const fontClasses = ["piswpi", "sulive", "kodito", "lekuta", "lozegw", "silwki", "xavani", "xesada", "xidili", "makina", "polwgo", "zosokw"];
     let currentFont = "piswpi";
     let shiftActive = false;
     /**
@@ -61,7 +60,10 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
     keyboardTable.addEventListener("click",
-        /** @param {MouseEvent} e シフトキーのクリックイベント */
+        /**
+         * キーボードのキーがクリックされたときのイベントハンドラー
+         * @param {MouseEvent} e シフトキーのクリックイベント
+         */
         (e) => {
             const key = e.target.closest("button.key");
             if (!key) return;
@@ -77,17 +79,20 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     );
     fontSelector.addEventListener("change",
-        /** @param {Event} e フォントセレクターの変更イベント */
+        /**
+         * フォントセレクターが変更されたときのイベントハンドラー
+         * @param {Event} e フォントセレクターの変更イベント
+         */
         (e) => {
-            changeFont(parseInt(e.target.value));
+            changeFont(e.target.value);
         }
     );
     /**
      * フォントを変更する関数
-     * @param {Number} number 変更するフォントの番号
+     * @param {String} font 変更するフォントの名前
      */
-    function changeFont(number) {
-        currentFont = fontClasses[number];
+    function changeFont(font) {
+        currentFont = font;
         textarea.className = "";
         textarea.classList.add(currentFont);
         loadKeyboard(currentFont);
