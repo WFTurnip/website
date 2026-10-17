@@ -19,6 +19,5 @@ done
 # sh punctuations_concatenator.sh
 # sh variants_consonants_concatenator.sh
 # ======================================
-# sh glyph_copier.sh
-# sh variants_glyph_copier.sh
-# open */
+sh glyph_copier.sh
+sh variants_glyph_copier.sh

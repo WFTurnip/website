@@ -19,4 +19,3 @@ if [ "${dirname}" = "piswpi" ]; then
     cat "${dirname}"/uni0051.svg "${dirname}"/uni0027.svg "${dirname}"/uni0030.svg >"${dirname}"/uni0059.svg # CONCATENATE Q ' 0 >Y
 fi
 echo "ディレクトリ${dirname}の子音基本文字を結合しました。"
-done
