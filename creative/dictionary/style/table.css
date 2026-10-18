@@ -1,3 +1,16 @@
+table {
+    text-align: center;
+    margin: auto;
+}
+
+caption {
+    counter-increment: table;
+}
+
+caption::before {
+    content: "表" counter(table, japanese-informal) "\3000";
+}
+
 table,
 thead,
 tbody,

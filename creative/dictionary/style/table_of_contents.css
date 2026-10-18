@@ -1,0 +1,60 @@
+nav {
+    counter-reset: toc-chapter;
+}
+
+nav > h2 {
+    counter-increment: none;
+}
+
+nav > h2::before {
+    content: "";
+}
+
+nav > ol > li {
+    counter-increment: toc-chapter;
+    counter-reset: toc-section;
+    list-style: none;
+}
+
+nav > ol > li > ol > li {
+    counter-increment: toc-section;
+    counter-reset: toc-subsection;
+    list-style: none;
+}
+
+nav > ol > li > ol > li > ol > li {
+    counter-increment: toc-subsection;
+    counter-reset: toc-article;
+    list-style: none;
+}
+
+nav > ol > li > ol > li > ol > li > ol > li {
+    counter-increment: toc-article;
+    counter-reset: toc-subarticle;
+    list-style: none;
+}
+
+nav > ol > li > ol > li > ol > li > ol > li > ol > li {
+    counter-increment: toc-subarticle;
+    list-style: none;
+}
+
+nav > ol > li::before {
+    content: "第" counter(toc-chapter, japanese-informal) "章\3000";
+}
+
+nav > ol > li > ol > li::before {
+    content: "第" counter(toc-section, japanese-informal) "節\3000";
+}
+
+nav > ol > li > ol > li > ol > li::before {
+    content: "第" counter(toc-subsection, japanese-informal) "小節\3000";
+}
+
+nav > ol > li > ol > li > ol > li > ol > li::before {
+    content: "第" counter(toc-article, japanese-informal) "条\3000";
+}
+
+nav > ol > li > ol > li > ol > li > ol > li > ol > li::before {
+    content: "第" counter(toc-subarticle, japanese-informal) "項\3000";
+}

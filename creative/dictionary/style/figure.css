@@ -1,3 +1,16 @@
+figure {
+    text-align: center;
+    margin: auto;
+}
+
+figcaption {
+    counter-increment: figure;
+}
+
+figcaption::before {
+    content: "図" counter(figure, japanese-informal) "\3000";
+}
+
 text {
     text-anchor: middle;
 }
