@@ -144,7 +144,7 @@ async function generateConsonant(firstConsonant) {
     head.appendChild(link3);
     let link4 = document.createElement("link");
     link4.rel = "stylesheet";
-    link4.href = "../style/navigator.css";
+    link4.href = "../style/breadcrumb.css";
     head.appendChild(link4);
     let link5 = document.createElement("link");
     link5.rel = "icon";
@@ -297,7 +297,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     head.appendChild(link3);
     let link4 = document.createElement("link");
     link4.rel = "stylesheet";
-    link4.href = "../../style/navigator.css";
+    link4.href = "../../style/breadcrumb.css";
     head.appendChild(link4);
     let link5 = document.createElement("link");
     link5.rel = "stylesheet";
