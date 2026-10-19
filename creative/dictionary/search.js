@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         searchResultContainer.appendChild(message);
         return;
     } else {
-        const searchResult = document.createElement("h2");
+        const searchResult = document.createElement("p");
         const searchResultSpan = document.createElement("b");
         searchResultSpan.textContent = searchWord;
         searchResultSpan.classList.add("xesada");

@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const rootOl = document.createElement("ol");
     nav.appendChild(rootOl);
     let stack = [{level: 0, ol: rootOl}];
-    headings.forEach(h => {
-        while (h.level > stack[stack.length - 1].level + 1) {
+    headings.forEach(heading => {
+        while (heading.level > stack[stack.length - 1].level + 1) {
             const parentOl = stack[stack.length - 1].ol;
             let lastLi = parentOl.lastElementChild;
             if (!lastLi) {
@@ -43,13 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 ol: childOl
             });
         }
-        while (h.level <= stack[stack.length - 1].level && stack.length > 1) {
+        while (heading.level <= stack[stack.length - 1].level && stack.length > 1) {
             stack.pop();
         }
         const li = document.createElement("li");
         const a = document.createElement("a");
-        a.href = "#" + h.id;
-        a.textContent = h.text;
+        a.href = "#" + heading.id;
+        a.textContent = heading.text;
         li.appendChild(a);
         stack[stack.length - 1].ol.appendChild(li);
     });

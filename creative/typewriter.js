@@ -64,13 +64,13 @@ window.addEventListener("DOMContentLoaded", () => {
          * キーボードのキーがクリックされたときのイベントハンドラー
          * @param {MouseEvent} e シフトキーのクリックイベント
          */
-        (e) => {
-            const key = e.target.closest("button.key");
+        (event) => {
+            const key = event.target.closest("button.key");
             if (!key) return;
             if (key.dataset.key === "shift") {
                 shiftActive = !shiftActive;
-                keyboardTable.querySelectorAll(".key").forEach(k => {
-                    k.classList.toggle("shift-active", shiftActive);
+                keyboardTable.querySelectorAll(".key").forEach(keyElement => {
+                    keyElement.classList.toggle("shift-active", shiftActive);
                 });
                 return;
             }
@@ -81,10 +81,10 @@ window.addEventListener("DOMContentLoaded", () => {
     fontSelector.addEventListener("change",
         /**
          * フォントセレクターが変更されたときのイベントハンドラー
-         * @param {Event} e フォントセレクターの変更イベント
+         * @param {Event} event フォントセレクターの変更イベント
          */
-        (e) => {
-            changeFont(e.target.value);
+        (event) => {
+            changeFont(event.target.value);
         }
     );
     /**
