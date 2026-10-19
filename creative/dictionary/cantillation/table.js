@@ -1,4 +1,4 @@
-import {consonantArray, consonantConceptArray, consonantPronunciationArray, consonantPlaceArray, consonantRowArray, consonantPolarityArray, vowelArray, vowelCaseArray, vowelPartOfSpeechTypeArray, vowelPronunciationArray, vowelPronunciationReferenceArray, vowelBacknessArray, vowelRoundednessArray, vowelPartOfSpeechHorizontalTypeArray, vowelPartOfSpeechVerticalTypeArray, upperTongueConsonantArray, middleTongueConsonantArray, lowerTongueConsonantArray, upperTongueConceptArray, middleTongueConceptArray, lowerTongueConceptArray, affixConsonantArray, affixConceptArray, cantillationMarkArray, cantillationConceptArray, cantillationPronunciationArray, minMaxMap} from "../arraydata.js";
+import {consonantArray, consonantConceptArray, consonantPronunciationArray, consonantPlaceArray, consonantRowArray, consonantPolarityArray, vowelArray, vowelCaseArray, vowelPartOfSpeechTypeArray, vowelPronunciationArray, vowelPronunciationReferenceArray, vowelBacknessArray, vowelRoundednessArray, vowelPartOfSpeechHorizontalTypeArray, vowelPartOfSpeechVerticalTypeArray, upperTongueConsonantArray, middleTongueConsonantArray, lowerTongueConsonantArray, upperTongueConceptArray, middleTongueConceptArray, lowerTongueConceptArray, affixConsonantArray, affixConceptArray, cantillationMarkArray, cantillationConceptArray, cantillationPitchArray, cantillationPronunciationArray, minMaxMap} from "../arraydata.js";
 function generateCantillationPronunciationTable() {
     let table = document.createElement("table");
     let caption = document.createElement("caption");
@@ -9,42 +9,34 @@ function generateCantillationPronunciationTable() {
     let blank = document.createElement("th");
     blank.textContent = "";
     vowelRow.appendChild(blank);
-    for (let vowelIndex = 0; vowelIndex < vowelArray.length; vowelIndex++) {
+    for (let cantillationConceptIndex = 0; cantillationConceptIndex < cantillationConceptArray.length; cantillationConceptIndex++) {
         let th = document.createElement("th");
-        let vowel = document.createElement("div");
-        vowel.classList.add("xesada");
-        vowel.textContent = "\u{25cc}" + vowelArray[vowelIndex];
-        th.appendChild(vowel);
         let vowelPronunciation = document.createElement("div");
-        vowelPronunciation.classList.add("pronunciation");
-        vowelPronunciation.textContent = "/" + vowelPronunciationArray[vowelIndex] + "/";
+        vowelPronunciation.classList.add("concept");
+        vowelPronunciation.textContent = cantillationConceptArray[cantillationConceptIndex] + "声符";
         th.appendChild(vowelPronunciation);
         vowelRow.appendChild(th);
     }
     thead.appendChild(vowelRow);
     table.appendChild(thead);
     let tbody = document.createElement("tbody");
-    for (let cantillationIndex = 0; cantillationIndex < cantillationMarkArray.length; cantillationIndex++) {
+    for (let cantillationPitchIndex = 0; cantillationPitchIndex < cantillationPitchArray.length; cantillationPitchIndex++) {
         let row = document.createElement("tr");
         let diacriticCell = document.createElement("th");
-        let diacritic = document.createElement("div");
-        diacritic.classList.add("xesada");
-        diacritic.append("\u{25cc}", cantillationMarkArray[cantillationIndex]);
-        diacriticCell.appendChild(diacritic);
         let diacriticConcept = document.createElement("div");
-        diacriticConcept.classList.add("concept", "pronunciation");
-        diacriticConcept.textContent = "/" + cantillationPronunciationArray[cantillationIndex] + "/";
+        diacriticConcept.classList.add("concept");
+        diacriticConcept.textContent = cantillationPitchArray[cantillationPitchIndex] + "声符";
         diacriticCell.appendChild(diacriticConcept);
         row.appendChild(diacriticCell);
-        for (let vowelIndex = 0; vowelIndex < vowelArray.length; vowelIndex++) {
+        for (let cantillationConceptIndex = 0; cantillationConceptIndex < cantillationConceptArray.length; cantillationConceptIndex++) {
             let cell = document.createElement("td");
             let mark = document.createElement("div");
             mark.classList.add("xesada");
-            mark.textContent = "\u{25cc}" + vowelArray[vowelIndex] + cantillationMarkArray[cantillationIndex];
+            mark.textContent = "\u{25cc}" + cantillationMarkArray[cantillationConceptIndex + 7 * cantillationPitchIndex];
             cell.appendChild(mark);
             let markPronunciation = document.createElement("div");
             markPronunciation.classList.add("pronunciation");
-            markPronunciation.textContent = "/" + vowelPronunciationArray[vowelIndex] + cantillationPronunciationArray[cantillationIndex] + "/";
+            markPronunciation.textContent = "/" + cantillationPronunciationArray[cantillationConceptIndex + 7 * cantillationPitchIndex] + "/";
             cell.appendChild(markPronunciation);
             row.appendChild(cell);
         }
@@ -63,53 +55,35 @@ function generateCantillationConceptTable() {
     let blank = document.createElement("th");
     blank.textContent = "";
     vowelRow.appendChild(blank);
-    for (let vowelIndex = 0; vowelIndex < vowelArray.length; vowelIndex++) {
+    for (let cantillationConceptIndex = 0; cantillationConceptIndex < cantillationConceptArray.length; cantillationConceptIndex++) {
         let th = document.createElement("th");
-        let vowel = document.createElement("div");
-        vowel.classList.add("xesada");
-        vowel.textContent = "\u{25cc}" + vowelArray[vowelIndex];
-        th.appendChild(vowel);
         let vowelPronunciation = document.createElement("div");
-        vowelPronunciation.classList.add("pronunciation");
-        vowelPronunciation.textContent = "/" + vowelPronunciationArray[vowelIndex] + "/";
+        vowelPronunciation.classList.add("concept");
+        vowelPronunciation.textContent = cantillationConceptArray[cantillationConceptIndex] + "声符";
         th.appendChild(vowelPronunciation);
         vowelRow.appendChild(th);
     }
     thead.appendChild(vowelRow);
     table.appendChild(thead);
     let tbody = document.createElement("tbody");
-    for (let cantillationIndex = 0; cantillationIndex < cantillationMarkArray.length; cantillationIndex++) {
+    for (let cantillationPitchIndex = 0; cantillationPitchIndex < cantillationPitchArray.length; cantillationPitchIndex++) {
         let row = document.createElement("tr");
         let diacriticCell = document.createElement("th");
-        let diacritic = document.createElement("div");
-        diacritic.classList.add("xesada");
-        diacritic.append("\u{25cc}", cantillationMarkArray[cantillationIndex]);
-        diacriticCell.appendChild(diacritic);
         let diacriticConcept = document.createElement("div");
-        let markConceptSpan = document.createElement("span");
-        let markPronunciationspan = document.createElement("span");
-        markConceptSpan.classList.add("concept");
-        markPronunciationspan.classList.add("pronunciation");
-        diacriticConcept.textContent = cantillationConceptArray[cantillationIndex] + "声符";
-        diacritic.appendChild(markConceptSpan);
-        diacritic.appendChild(markPronunciationspan);
+        diacriticConcept.classList.add("concept");
+        diacriticConcept.textContent = cantillationPitchArray[cantillationPitchIndex] + "声符";
         diacriticCell.appendChild(diacriticConcept);
         row.appendChild(diacriticCell);
-        for (let vowelIndex = 0; vowelIndex < vowelArray.length; vowelIndex++) {
+        for (let cantillationConceptIndex = 0; cantillationConceptIndex < cantillationConceptArray.length; cantillationConceptIndex++) {
             let cell = document.createElement("td");
             let mark = document.createElement("div");
             mark.classList.add("xesada");
-            mark.textContent = "\u{25cc}" + vowelArray[vowelIndex] + cantillationMarkArray[cantillationIndex];
+            mark.textContent = "\u{25cc}" + cantillationMarkArray[cantillationConceptIndex + 7 * cantillationPitchIndex];
             cell.appendChild(mark);
-            let markConcept = document.createElement("div");
-            let markPronunciationspan = document.createElement("span");
-            let markConceptSpan = document.createElement("span");
-            markPronunciationspan.classList.add("pronunciation");
-            markConceptSpan.classList.add("concept");
-            markConceptSpan.textContent = cantillationConceptArray[cantillationIndex] + "声符"
-            markPronunciationspan.textContent = "/" + vowelPronunciationArray[vowelIndex] + "/";
-            markConcept.append(markPronunciationspan, markConceptSpan);
-            cell.appendChild(markConcept);
+            let markPronunciation = document.createElement("div");
+            markPronunciation.classList.add("concept");
+            markPronunciation.textContent = cantillationPitchArray[cantillationPitchIndex] + cantillationConceptArray[cantillationConceptIndex] + "声符";
+            cell.appendChild(markPronunciation);
             row.appendChild(cell);
         }
         tbody.appendChild(row);

@@ -1,4 +1,4 @@
-import {consonantArray, consonantConceptArray, consonantPronunciationArray, consonantPlaceArray, consonantRowArray, consonantPolarityArray, vowelArray, vowelCaseArray, vowelPartOfSpeechTypeArray, vowelPronunciationArray, vowelPronunciationReferenceArray, vowelBacknessArray, vowelRoundednessArray, vowelPartOfSpeechHorizontalTypeArray, vowelPartOfSpeechVerticalTypeArray, upperTongueConsonantArray, middleTongueConsonantArray, lowerTongueConsonantArray, upperTongueConceptArray, middleTongueConceptArray, lowerTongueConceptArray, affixConsonantArray, affixConceptArray, cantillationMarkArray, cantillationConceptArray, cantillationPronunciationArray, minMaxMap} from "../arraydata.js";
+import {consonantArray, consonantConceptArray, consonantPronunciationArray, consonantPlaceArray, consonantRowArray, consonantPolarityArray, vowelArray, vowelCaseArray, vowelPartOfSpeechTypeArray, vowelPronunciationArray, vowelPronunciationReferenceArray, vowelBacknessArray, vowelRoundednessArray, vowelPartOfSpeechHorizontalTypeArray, vowelPartOfSpeechVerticalTypeArray, upperTongueConsonantArray, middleTongueConsonantArray, lowerTongueConsonantArray, upperTongueConceptArray, middleTongueConceptArray, lowerTongueConceptArray, affixConsonantArray, affixConceptArray, cantillationMarkArray, cantillationConceptArray, cantillationPitchArray, cantillationPronunciationArray, minMaxMap} from "../arraydata.js";
 function generateConsonantHexiagramFigure(svg, svgNameSpace, width, height, apex) {
     let centerX = width / 2;
     let centerY = height / 2;
@@ -62,7 +62,7 @@ function generateCantillationConceptFigure() {
     let svg = document.createElementNS(svgNameSpace, "svg");
     svg.setAttribute("width", width);
     svg.setAttribute("height", height);
-    generateVowelHexiagramFigure(svg, svgNameSpace, width, height, apex);
+    generateConsonantHexiagramFigure(svg, svgNameSpace, width, height, apex);
     figure.appendChild(svg);
     const caption = document.createElement("figcaption");
     caption.textContent = "朗唱記号図";
