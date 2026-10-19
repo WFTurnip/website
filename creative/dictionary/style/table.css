@@ -1,6 +1,5 @@
-table {
-    text-align: center;
-    margin: auto;
+body {
+    counter-reset: table;
 }
 
 caption {
@@ -9,6 +8,11 @@ caption {
 
 caption::before {
     content: "表" counter(table, japanese-informal) "\3000";
+}
+
+table {
+    text-align: center;
+    margin: auto;
 }
 
 table,
