@@ -117,7 +117,7 @@ Select(0u0069); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./makina/uni
 Select(0u006f); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./makina/uni006f.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0075); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./makina/uni0075.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0077); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./makina/uni0077.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
-Select(65536); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./makina/notdef.svg", 0, 16);
+Select(-1); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./makina/notdef.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);
