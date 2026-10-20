@@ -131,7 +131,7 @@ Select(0u0308); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./kodito/uni
 Select(0u0324); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./kodito/uni0324.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0304); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./kodito/uni0304.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0331); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./kodito/uni0331.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
-Select(65536); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./kodito/notdef.svg", 0, 16);
+Select(-1); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./kodito/notdef.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);
