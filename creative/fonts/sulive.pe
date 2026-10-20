@@ -117,7 +117,7 @@ Select(0u0069); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./sulive/uni
 Select(0u006f); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./sulive/uni006f.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0075); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./sulive/uni0075.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0077); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./sulive/uni0077.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
-Select(65536); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./sulive/notdef.svg", 0, 16);
+Select(-1); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./sulive/notdef.svg", 0, 16);
 Select(65537); SetGlyphClass("base"); SetGlyphName("uni0042.isol"); SetWidth(BaseWidth); Import("./sulive/uni0042.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
 Select(65538); SetGlyphClass("base"); SetGlyphName("uni0042.init"); SetWidth(BaseWidth); Import("./sulive/uni0042.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
 Select(65539); SetGlyphClass("base"); SetGlyphName("uni0042.medi"); SetWidth(BaseWidth); Import("./sulive/uni0042.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
