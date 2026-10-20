@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const searchResultSpan = document.createElement("b");
         searchResultSpan.textContent = searchWord;
         searchResultSpan.classList.add("xesada");
+        searchResultSpan.setAttribute("translate", "no");
         searchResult.appendChild(searchResultSpan);
         searchResult.append("の検索結果");
         searchResultContainer.appendChild(searchResult);
@@ -86,6 +87,7 @@ async function consonantsSearch(searchWordLower, isTrue, anyOptionTrue) {
             const consonant = document.createElement("b");
             consonant.textContent = searchWordLower.charAt(0);
             consonant.classList.add("xesada");
+            consonant.setAttribute("translate", "no");
             consonantIndex.append(consonant);
             const consonantConcept = document.createElement("span");
             consonantConcept.textContent = item.consonantConcept;
@@ -95,6 +97,7 @@ async function consonantsSearch(searchWordLower, isTrue, anyOptionTrue) {
             const a = document.createElement("a");
             const span = document.createElement("b");
             span.classList.add("xesada");
+            span.setAttribute("translate", "no");
             span.textContent = item.consonant;
             a.href = "html_index" + "/" + item.consonantHtmlHref;
             a.append("子音", span, "の詳細ページ");
@@ -133,6 +136,7 @@ async function rootsSearch(searchWordLower, isTrue, anyOptionTrue) {
             const root = document.createElement("b");
             root.textContent = item.root;
             root.classList.add("xesada");
+            root.setAttribute("translate", "no");
             rootIndex.append(root);
             const rootConcept = document.createElement("span");
             rootConcept.textContent = item.rootConcept;
@@ -142,6 +146,7 @@ async function rootsSearch(searchWordLower, isTrue, anyOptionTrue) {
             const a = document.createElement("a");
             const span = document.createElement("b");
             span.classList.add("xesada");
+            span.setAttribute("translate", "no");
             span.textContent = item.root;
             a.href = "html_index" + "/" + item.rootHtmlHref;
             a.append("語根", span, "の詳細ページ");
@@ -180,10 +185,12 @@ async function wordsSearch(searchWordLower, isTrue, anyOptionTrue) {
             const index = document.createElement("strong");
             index.textContent = item.word;
             index.classList.add("index", "xesada");
+            index.setAttribute("translate", "no");
             wordIndex.append(index);
             const pronunciation = document.createElement("span");
             pronunciation.textContent = "/" + item.wordPronunciation + "/";
             pronunciation.classList.add("pronunciation");
+            pronunciation.setAttribute("translate", "no");
             wordIndex.append(pronunciation);
             const wordCases = document.createElement("span");
             wordCases.textContent = item.wordCases;

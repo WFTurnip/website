@@ -38,10 +38,12 @@ function generateConsonantPronunciationTable() {
             let consonants = document.createElement("div");
             consonants.textContent = consonantArray[consonantRowIndex * consonantArray.length / consonantRowArray.length + consonantIndex];
             consonants.classList.add("xesada");
+            consonants.setAttribute("translate", "no");
             consonantsCell.appendChild(consonants);
             let consonantsPronunciation = document.createElement("div");
             consonantsPronunciation.textContent = "/" + consonantPronunciationArray[consonantRowIndex * consonantArray.length / consonantRowArray.length + consonantIndex] + "/";
             consonantsPronunciation.classList.add("pronunciation");
+            consonantsPronunciation.setAttribute("translate", "no");
             consonantsCell.appendChild(consonantsPronunciation);
             consonantVerticalRow.appendChild(consonantsCell);
         }
@@ -78,10 +80,12 @@ function generateVowelPronunciationTable() {
             let vowels = document.createElement("div");
             vowels.textContent = "\u{25CC}" + vowelArray[vowelRoundednessIndex * vowelArray.length / vowelRoundednessArray.length + vowelIndex];
             vowels.classList.add("xesada");
+            vowels.setAttribute("translate", "no");
             vowelsCell.appendChild(vowels);
             let vowelsPronunciation = document.createElement("div");
             vowelsPronunciation.textContent = "/" + vowelPronunciationReferenceArray[vowelRoundednessIndex * vowelArray.length / vowelRoundednessArray.length + vowelIndex] + "/";
             vowelsPronunciation.classList.add("pronunciation");
+            vowelsPronunciation.setAttribute("translate", "no");
             vowelsCell.appendChild(vowelsPronunciation);
             vowelsVerticalRow.appendChild(vowelsCell);
         }
@@ -129,6 +133,7 @@ function generateConsonantConceptTable() {
             let consonants = document.createElement("div");
             consonants.textContent = consonantArray[consonantRowIndex * consonantArray.length / consonantRowArray.length + consonantIndex] + "\u{25CC}\u{25CC}\u{25CC}";
             consonants.classList.add("xesada");
+            consonants.setAttribute("translate", "no");
             consonantsCell.appendChild(consonants);
             let consonantsConcept = document.createElement("div");
             consonantsConcept.textContent = consonantConceptArray[consonantRowIndex * consonantArray.length / consonantRowArray.length + consonantIndex];
@@ -180,6 +185,7 @@ function generatePrefixConsonantTable() {
             let consonants = document.createElement("div");
             consonants.textContent = consonantArray[consonantRowIndex * consonantArray.length / consonantRowArray.length + consonantIndex] + "\u{25CC}\u{25CC}\u{25CC}";
             consonants.classList.add("xesada");
+            consonants.setAttribute("translate", "no");
             consonantsCell.appendChild(consonants);
             let consonantsPronunciation = document.createElement("div");
             consonantsPronunciation.textContent = consonantConceptArray[consonantRowIndex * consonantArray.length / consonantRowArray.length + consonantIndex] + "接頭辞";
@@ -231,6 +237,7 @@ function generateSuffixConsonantTable() {
             let consonants = document.createElement("div");
             consonants.textContent = "\u{25CC}\u{25CC}\u{25CC}" + consonantArray[consonantRowIndex * consonantArray.length / consonantRowArray.length + consonantIndex];
             consonants.classList.add("xesada");
+            consonants.setAttribute("translate", "no");
             consonantsCell.appendChild(consonants);
             let consonantsPronunciation = document.createElement("div");
             consonantsPronunciation.textContent = consonantConceptArray[consonantRowIndex * consonantArray.length / consonantRowArray.length + consonantIndex] + "接尾辞";
@@ -271,6 +278,7 @@ function generateFirstCaseTable() {
             let vowels = document.createElement("div");
             vowels.textContent = "\u{25CC}" + vowelArray[vowelRoundednessIndex * vowelArray.length / vowelRoundednessArray.length + vowelIndex] + "\u{25CC}\u{25CC}";
             vowels.classList.add("xesada");
+            vowels.setAttribute("translate", "no");
             vowelCell.appendChild(vowels);
             let vowelsCase = document.createElement("div");
             vowelsCase.textContent = vowelCaseArray[vowelRoundednessIndex * vowelArray.length / vowelRoundednessArray.length + vowelIndex] + "格";
@@ -311,6 +319,7 @@ function generateSecondCaseTable() {
             let vowels = document.createElement("div");
             vowels.textContent = "\u{25CC}\u{25CC}" + vowelArray[vowelRoundednessIndex * vowelArray.length / vowelRoundednessArray.length + vowelIndex] + "\u{25CC}";
             vowels.classList.add("xesada");
+            vowels.setAttribute("translate", "no");
             vowelCell.appendChild(vowels);
             let vowelsCase = document.createElement("div");
             vowelsCase.textContent = vowelCaseArray[vowelRoundednessIndex * vowelArray.length / vowelRoundednessArray.length + vowelIndex] + "格";
@@ -338,6 +347,7 @@ function generateConjunctCaseTable() {
         let firstVowelGlyph = document.createElement("div");
         firstVowelGlyph.textContent = "\u{25CC}" + vowelArray[firstVowel] + "\u{25CC}\u{25CC}";
         firstVowelGlyph.classList.add("xesada");
+        firstVowelGlyph.setAttribute("translate", "no");
         firstVowelCell.appendChild(firstVowelGlyph);
         let firstVowelCase = document.createElement("div");
         firstVowelCase.textContent = vowelCaseArray[firstVowel] + "格";
@@ -365,6 +375,7 @@ function generateConjunctCaseTable() {
             let vowels = document.createElement("div");
             vowels.textContent = "\u{25CC}" + vowelArray[firstVowel] + "\u{25CC}" + vowelArray[secondVowel] + "\u{25CC}";
             vowels.classList.add("xesada");
+            vowels.setAttribute("translate", "no");
             vowelsCell.appendChild(vowels);
             let vowelsCase = document.createElement("div");
             vowelsCase.textContent = vowelCaseArray[firstVowel] + vowelCaseArray[secondVowel] + "格";
@@ -405,6 +416,7 @@ function generatePrefixCaseTable() {
             let vowels = document.createElement("div");
             vowels.textContent = "\u{25CC}" + vowelArray[i * vowelArray.length / vowelRoundednessArray.length + j] + "\u{25CC}\u{25CC}\u{25CC}";
             vowels.classList.add("xesada");
+            vowels.setAttribute("translate", "no");
             vowelCell.appendChild(vowels);
             let vowelsPartOfSpeech = document.createElement("div");
             vowelsPartOfSpeech.textContent = vowelCaseArray[i * vowelArray.length / vowelRoundednessArray.length + j] + "格";
@@ -445,6 +457,7 @@ function generateSuffixCaseTable() {
             let vowels = document.createElement("div");
             vowels.textContent = "\u{25CC}\u{25CC}\u{25CC}\u{25CC}" + vowelArray[i * vowelArray.length / vowelRoundednessArray.length + j];
             vowels.classList.add("xesada");
+            vowels.setAttribute("translate", "no");
             vowelCell.appendChild(vowels);
             let vowelsCase = document.createElement("div");
             vowelsCase.textContent = vowelCaseArray[i * vowelArray.length / vowelRoundednessArray.length + j] + "格";
@@ -485,6 +498,7 @@ function generatePartOfSpeechTable() {
             let vowel = document.createElement("div");
             vowel.textContent = "\u{25CC}\u{25CC}\u{25CC}" + vowelArray[i * vowelArray.length / vowelRoundednessArray.length + j];
             vowel.classList.add("xesada");
+            vowel.setAttribute("translate", "no");
             vowelsRow.appendChild(vowel);
             let vowelsPartOfSpeech = document.createElement("div");
             vowelsPartOfSpeech.textContent = vowelPartOfSpeechTypeArray[i * vowelArray.length / vowelRoundednessArray.length + j] + "詞";

@@ -77,7 +77,9 @@ function generateVowelPronunciationFigure() {
         vowel.textContent = "\u{25cc}" + vowelArray[i];
         vowelPronunciation.textContent = "/" + vowelPronunciationReferenceArray[i] + "/";
         vowel.classList.add("xesada", "script");
+        vowel.setAttribute("translate", "no");
         vowelPronunciation.classList.add("pronunciation");
+        vowelPronunciation.setAttribute("translate", "no");
         svg.appendChild(vowel);
         svg.appendChild(vowelPronunciation);
     }
@@ -247,6 +249,7 @@ function generateFirstCaseFigure() {
         vowel.textContent = "\u{25cc}" + vowelArray[i] + "\u{25cc}\u{25cc}";
         vowelCase.textContent = vowelCaseArray[i] + "格";
         vowel.classList.add("xesada", "script");
+        vowel.setAttribute("translate", "no");
         vowelCase.classList.add("cases");
         svg.appendChild(vowel);
         svg.appendChild(vowelCase);
@@ -292,6 +295,7 @@ function generateSecondCaseFigure() {
         vowel.textContent = "\u{25cc}\u{25cc}" + vowelArray[i] + "\u{25cc}";
         vowelCase.textContent = vowelCaseArray[i] + "格";
         vowel.classList.add("xesada", "script");
+        vowel.setAttribute("translate", "no");
         vowelCase.classList.add("cases");
         svg.appendChild(vowel);
         svg.appendChild(vowelCase);
@@ -339,6 +343,7 @@ function generateConjunctCaseFigure() {
         firstCaseVowel.textContent = "\u25cc" + vowelArray[i] + "\u25cc\u25cc";
         firstCase.textContent = vowelCaseArray[i] + "格";
         firstCaseVowel.classList.add("xesada", "script");
+        firstCaseVowel.setAttribute("translate", "no");
         firstCase.classList.add("cases");
         svg.appendChild(firstCaseVowel);
         svg.appendChild(firstCase);
@@ -354,6 +359,7 @@ function generateConjunctCaseFigure() {
             conjunctCaseVowel.textContent = "\u25cc" + vowelArray[i] + "\u25cc" + vowelArray[j] + "\u25cc";
             conjunctCase.textContent = vowelCaseArray[i] + vowelCaseArray[j] + "格";
             conjunctCaseVowel.classList.add("xesada", "script");
+            conjunctCaseVowel.setAttribute("translate", "no");
             conjunctCase.classList.add("cases");
             svg.appendChild(conjunctCaseVowel);
             svg.appendChild(conjunctCase);
@@ -400,6 +406,7 @@ function generatePrefixCaseFigure() {
         vowel.textContent = "\u{25cc}" + vowelArray[i] + "\u{25cc}\u{25cc}\u{25cc}";
         vowelCase.textContent = vowelCaseArray[i] + "格";
         vowel.classList.add("xesada", "script");
+        vowel.setAttribute("translate", "no");
         vowelCase.classList.add("cases");
         svg.appendChild(vowel);
         svg.appendChild(vowelCase);
@@ -445,6 +452,7 @@ function generateSuffixCaseFigure() {
         vowel.textContent = "\u{25cc}\u{25cc}\u{25cc}\u{25cc}" + vowelArray[i];
         vowelCase.textContent = vowelCaseArray[i] + "格";
         vowel.classList.add("xesada", "script");
+        vowel.setAttribute("translate", "no");
         vowelCase.classList.add("cases");
         svg.appendChild(vowel);
         svg.appendChild(vowelCase);
@@ -490,6 +498,7 @@ function generatePartOfSpeechFigure() {
         vowel.textContent = "\u{25cc}\u{25cc}\u{25cc}" + vowelArray[i];
         vowelPartOfSpeech.textContent = vowelPartOfSpeechTypeArray[i] + "詞";
         vowel.classList.add("xesada", "script");
+        vowel.setAttribute("translate", "no");
         vowelPartOfSpeech.classList.add("part-of-speech");
         svg.appendChild(vowel);
         svg.appendChild(vowelPartOfSpeech);

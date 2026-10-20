@@ -32,10 +32,12 @@ function generateCantillationPronunciationTable() {
             let cell = document.createElement("td");
             let mark = document.createElement("div");
             mark.classList.add("xesada");
+            mark.setAttribute("translate", "no");
             mark.textContent = "\u{25cc}" + cantillationMarkArray[cantillationConceptIndex + 7 * cantillationPitchIndex];
             cell.appendChild(mark);
             let markPronunciation = document.createElement("div");
             markPronunciation.classList.add("pronunciation");
+            markPronunciation.setAttribute("translate", "no");
             markPronunciation.textContent = "/" + cantillationPronunciationArray[cantillationConceptIndex + 7 * cantillationPitchIndex] + "/";
             cell.appendChild(markPronunciation);
             row.appendChild(cell);
@@ -78,12 +80,14 @@ function generateCantillationConceptTable() {
             let cell = document.createElement("td");
             let mark = document.createElement("div");
             mark.classList.add("xesada");
+            mark.setAttribute("translate", "no");
             mark.textContent = "\u{25cc}" + cantillationMarkArray[cantillationConceptIndex + 7 * cantillationPitchIndex];
             cell.appendChild(mark);
-            let markPronunciation = document.createElement("div");
-            markPronunciation.classList.add("concept");
-            markPronunciation.textContent = cantillationPitchArray[cantillationPitchIndex] + cantillationConceptArray[cantillationConceptIndex] + "声符";
-            cell.appendChild(markPronunciation);
+            let markConcept = document.createElement("div");
+            markConcept.classList.add("concept");
+            markConcept.setAttribute("translate", "no");
+            markConcept.textContent = cantillationPitchArray[cantillationPitchIndex] + cantillationConceptArray[cantillationConceptIndex] + "声符";
+            cell.appendChild(markConcept);
             row.appendChild(cell);
         }
         tbody.appendChild(row);
