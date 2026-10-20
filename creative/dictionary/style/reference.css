@@ -2,120 +2,10 @@ body {
     padding: 2rem;
     font-family: serif;
     writing-mode: horizontal-tb;
+}
+
+main {
     counter-reset: chapter figure table;
-}
-
-nav {
-    counter-reset: toc-chapter;
-}
-
-nav > ol > li {
-    counter-increment: toc-chapter;
-    counter-reset: toc-section;
-    list-style: none;
-}
-
-nav > ol > li > ol > li {
-    counter-increment: toc-section;
-    counter-reset: toc-subsection;
-    list-style: none;
-}
-
-nav > ol > li > ol > li > ol > li {
-    counter-increment: toc-subsection;
-    counter-reset: toc-article;
-    list-style: none;
-}
-
-nav > ol > li > ol > li > ol > li > ol > li {
-    counter-increment: toc-article;
-    counter-reset: toc-subarticle;
-    list-style: none;
-}
-
-nav > ol > li > ol > li > ol > li > ol > li > ol > li {
-    counter-increment: toc-subarticle;
-    list-style: none;
-}
-
-nav > ol > li::before {
-    content: "第" counter(toc-chapter, japanese-informal) "章\3000";
-}
-
-nav > ol > li > ol > li::before {
-    content: "第" counter(toc-section, japanese-informal) "節\3000";
-}
-
-nav > ol > li > ol > li > ol > li::before {
-    content: "第" counter(toc-subsection, japanese-informal) "小節\3000";
-}
-
-nav > ol > li > ol > li > ol > li > ol > li::before {
-    content: "第" counter(toc-article, japanese-informal) "条\3000";
-}
-
-nav > ol > li > ol > li > ol > li > ol > li > ol > li::before {
-    content: "第" counter(toc-subarticle, japanese-informal) "項\3000";
-}
-
-body h2 {
-    counter-increment: chapter;
-    counter-reset: section;
-}
-
-body h3 {
-    counter-increment: section;
-    counter-reset: subsection;
-}
-
-body h4 {
-    counter-increment: subsection;
-    counter-reset: article;
-}
-
-body h5 {
-    counter-increment: article;
-    counter-reset: subarticle;
-}
-
-body h6 {
-    counter-increment: subarticle;
-}
-
-body h2::before {
-    content: "第" counter(chapter, japanese-informal) "章\3000";
-}
-
-body h3::before {
-    content: "第" counter(section, japanese-informal) "節\3000";
-}
-
-body h4::before {
-    content: "第" counter(subsection, japanese-informal) "小節\3000";
-}
-
-body h5::before {
-    content: "第" counter(article, japanese-informal) "条\3000";
-}
-
-body h6::before {
-    content: "第" counter(subarticle, japanese-informal) "項\3000";
-}
-
-figcaption {
-    counter-increment: figure;
-}
-
-figcaption::before {
-    content: "図" counter(figure, japanese-informal) "\3000";
-}
-
-caption {
-    counter-increment: table;
-}
-
-caption::before {
-    content: "表" counter(table, japanese-informal) "\3000";
 }
 
 a {
@@ -129,20 +19,6 @@ a:hover {
 rt {
     font-family: serif;
     font-variant-east-asian: ruby;
-}
-
-nav > h2 {
-    counter-increment: none;
-}
-
-nav > h2::before {
-    content: "";
-}
-
-table,
-figure {
-    text-align: center;
-    margin: auto;
 }
 
 dt > figure {
@@ -176,7 +52,6 @@ dl {
 }
 
 article {
-    line-height: 1.8;
     text-align: justify;
 }
 

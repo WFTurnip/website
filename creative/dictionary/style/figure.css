@@ -1,12 +1,8 @@
-body {
-    counter-reset: figure;
-}
-
-figcaption {
+main figcaption {
     counter-increment: figure;
 }
 
-figcaption::before {
+main figcaption::before {
     content: "図" counter(figure, japanese-informal) "\3000";
 }
 

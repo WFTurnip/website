@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     const allDetails = document.querySelectorAll("details");
-    /**
-     * すべての`details`要素に対して、開閉状態に応じて`summary`のテキストを更新するイベントリスナーを追加する
-     */
     allDetails.forEach(details => {
         const summary = details.querySelector("summary");
         /**
@@ -15,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 summary.textContent = "開";
             }
         };
-        updateText();
         details.addEventListener("toggle", updateText);
     });
 });

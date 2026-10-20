@@ -1,12 +1,8 @@
-body {
-    counter-reset: table;
-}
-
-caption {
+main caption {
     counter-increment: table;
 }
 
-caption::before {
+main caption::before {
     content: "表" counter(table, japanese-informal) "\3000";
 }
 

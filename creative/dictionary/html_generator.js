@@ -113,7 +113,7 @@ async function generateIndex() {
 }
 /**
  * 子音を頭字とする語根の一覧を生成する関数
- * @param {Number} firstConsonant 第一子音
+ * @param {number} firstConsonant 第一子音
  */
 async function generateConsonant(firstConsonant) {
     let filename = path.join("html_index", consonantArray[firstConsonant] + ".html");
@@ -251,7 +251,7 @@ async function generateConsonant(firstConsonant) {
 }
 /**
  * 子HTMLファイルを生成する関数
- * @param {Number} firstConsonant 第一子音
+ * @param {number} firstConsonant 第一子音
  */
 async function generateConsonantDirectory(firstConsonant) {
     let directoryName = path.join("html_index", consonantArray[firstConsonant]);
@@ -264,9 +264,9 @@ async function generateConsonantDirectory(firstConsonant) {
 }
 /**
  * 子HTMLファイルを生成する関数
- * @param {Number} firstConsonant 第一子音
- * @param {Number} secondConsonant 第二子音
- * @param {Number} thirdConsonant 第三子音
+ * @param {number} firstConsonant 第一子音
+ * @param {number} secondConsonant 第二子音
+ * @param {number} thirdConsonant 第三子音
  */
 async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     let filename = path.join("html_index", consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".html");
@@ -308,7 +308,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     link6.href = "../../favicon_index/" + consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".svg";
     head.appendChild(link6);
     let script1 = document.createElement("script");
-    script1.src = "../../fetch_details.js";
+    script1.src = "../../details_toggle.js";
     head.appendChild(script1);
     let body = document.body;
     let header = document.createElement("header");
@@ -381,20 +381,18 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
         h2.append(h2Span2);
         main.appendChild(h2);
         let details = document.createElement("details");
-        details.open = true;
         let summary = document.createElement("summary");
-        summary.textContent = "";
+        summary.textContent = vowelPartOfSpeechTypeArray[thirdVowel] + "詞の一覧";
         details.appendChild(summary);
         let tableDetails = document.createElement("details");
         let tableSummary = document.createElement("summary");
-        tableSummary.textContent = "";
-        tableDetails.appendChild(tableSummary);
-        let table = document.createElement("table");
-        let caption = document.createElement("caption");
         let span = document.createElement("span");
         span.classList.add("xesada")
         span.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
-        caption.append(span, "の活用表");
+        tableSummary.append(span, "の活用表");
+        tableDetails.appendChild(tableSummary);
+        let table = document.createElement("table");
+        let caption = document.createElement("caption");
         table.appendChild(caption);
         let thead = document.createElement("thead");
         let conjunctHorizontal = document.createElement("tr");
