@@ -386,13 +386,17 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
         details.appendChild(summary);
         let tableDetails = document.createElement("details");
         let tableSummary = document.createElement("summary");
-        let span = document.createElement("span");
-        span.classList.add("xesada")
-        span.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
-        tableSummary.append(span, "の活用表");
+        let summarySpan = document.createElement("span");
+        summarySpan.classList.add("xesada");
+        summarySpan.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
+        tableSummary.append(summarySpan, "の活用表");
         tableDetails.appendChild(tableSummary);
         let table = document.createElement("table");
         let caption = document.createElement("caption");
+        let captionSpan = document.createElement("span");
+        captionSpan.classList.add("xesada");
+        captionSpan.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
+        caption.append(captionSpan, "の活用表");
         table.appendChild(caption);
         let thead = document.createElement("thead");
         let conjunctHorizontal = document.createElement("tr");

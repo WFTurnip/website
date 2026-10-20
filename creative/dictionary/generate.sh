@@ -1,10 +1,5 @@
 #!/bin/bash
 set -e
-echo "ビルド用パッケージを確認しています..."
-if [ ! -d "node_modules" ]; then
-    echo "node_modules がありません。パッケージをインストールします。"
-    npm install jsdom js-beautify json-beautify
-fi
 echo "どのフォルダ内部を作りますか？"
 echo "html / json / favicon / all"
 read -r -p ">>> " option
