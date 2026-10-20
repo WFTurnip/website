@@ -143,7 +143,7 @@ Select(0u032c); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./xavani/uni
 Select(0u0323); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./xavani/uni0323.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
 Select(0u0324); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./xavani/uni0324.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
 Select(0u0331); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./xavani/uni0331.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
-Select(65536); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./xavani/notdef.svg", 0, 16);
+Select(-1); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./xavani/notdef.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);
