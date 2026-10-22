@@ -18,6 +18,7 @@ Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphAn
 Print("基底グリフアンカーポイント座標（Y軸）は ", BaseGlyphAnchorPointY, "px です。");
 Print("マークグリフアンカーポイント座標（X軸）は ", MarkGlyphAnchorPointX, "px です。");
 Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyphAnchorPointY, "px です。");
+Select(0); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./zosokw/notdef.svg", 0, 16);
 Select(0u0020); SetGlyphClass("none"); SetWidth(BaseWidth);
 Select(0u0021); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./zosokw/uni0021.svg", 0, 16);
 Select(0u0022); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./zosokw/uni0022.svg", 0, 16);
@@ -117,7 +118,6 @@ Select(0u0069); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./zosokw/uni
 Select(0u006f); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./zosokw/uni006f.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0075); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./zosokw/uni0075.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0077); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./zosokw/uni0077.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
-Select(-1); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./zosokw/notdef.svg", 0, 16);
 Select(65536); SetGlyphClass("base"); SetGlyphName("uni0042.isol"); SetWidth(BaseWidth); Import("./zosokw/uni0042.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
 Select(65537); SetGlyphClass("base"); SetGlyphName("uni0042.init"); SetWidth(BaseWidth); Import("./zosokw/uni0042.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
 Select(65538); SetGlyphClass("base"); SetGlyphName("uni0042.medi"); SetWidth(BaseWidth); Import("./zosokw/uni0042.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);

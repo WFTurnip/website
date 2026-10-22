@@ -30,6 +30,7 @@ Print("上部マークマークグリフアンカーポイント座標（X軸）
 Print("上部マークマークグリフアンカーポイント座標（Y軸）は", AboveM2MAnchorPointY, "px です。");
 Print("下部マークマークグリフアンカーポイント座標（X軸）は", BelowM2MAnchorPointX, "px です。");
 Print("下部マークマークグリフアンカーポイント座標（Y軸）は", BelowM2MAnchorPointY, "px です。");
+Select(0); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./xidili/notdef.svg", 0, 16);
 Select(0u0020); SetGlyphClass("none"); SetWidth(BaseWidth);
 Select(0u0021); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./xidili/uni0021.svg", 0, 16);
 Select(0u0022); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./xidili/uni0022.svg", 0, 16);
@@ -143,7 +144,6 @@ Select(0u032c); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./xidili/uni
 Select(0u0323); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./xidili/uni0323.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
 Select(0u0324); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./xidili/uni0324.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
 Select(0u0331); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./xidili/uni0331.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
-Select(-1); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./xidili/notdef.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);

@@ -18,6 +18,7 @@ Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphAn
 Print("基底グリフアンカーポイント座標（Y軸）は ", BaseGlyphAnchorPointY, "px です。");
 Print("マークグリフアンカーポイント座標（X軸）は ", MarkGlyphAnchorPointX, "px です。");
 Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyphAnchorPointY, "px です。");
+Select(0); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./kodito/notdef.svg", 0, 16);
 Select(0u0020); SetGlyphClass("none"); SetWidth(BaseWidth);
 Select(0u0021); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./kodito/uni0021.svg", 0, 16);
 Select(0u0022); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./kodito/uni0022.svg", 0, 16);
@@ -131,7 +132,6 @@ Select(0u0308); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./kodito/uni
 Select(0u0324); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./kodito/uni0324.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0304); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./kodito/uni0304.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0331); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./kodito/uni0331.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
-Select(-1); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./kodito/notdef.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);
