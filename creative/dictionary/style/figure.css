@@ -1,11 +1,3 @@
-main figcaption {
-    counter-increment: figure;
-}
-
-main figcaption::before {
-    content: "図" counter(figure, japanese-informal) "\3000";
-}
-
 figure {
     text-align: center;
     margin: auto;

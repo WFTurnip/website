@@ -1,11 +1,3 @@
-main caption {
-    counter-increment: table;
-}
-
-main caption::before {
-    content: "表" counter(table, japanese-informal) "\3000";
-}
-
 table {
     text-align: center;
     margin: auto;
