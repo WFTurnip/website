@@ -1,15 +1,41 @@
 #!/bin/bash
-fontname=("kodito" "lekuta" "lozegw" "makina" "piswpi" "polwgo" "silwki" "sulive" "xavani" "xesada" "xidili" "zosokw")
-for dirname in "${fontname[@]}"; do
-    echo "ディレクトリ${dirname}の子音基本文字のタイムスタンプを更新します。"
-    touch "${dirname}"/uni004b.svg # K
-    touch "${dirname}"/uni0054.svg # T
-    touch "${dirname}"/uni0053.svg # S
-    touch "${dirname}"/uni0051.svg # Q
-    touch "${dirname}"/uni0052.svg # R
-    touch "${dirname}"/uni0050.svg # P
-    touch "${dirname}"/uni0048.svg # H
-    touch "${dirname}"/uni0046.svg # F
-    touch "${dirname}"/uni004d.svg # M
-    echo "ディレクトリ${dirname}の子音基本文字のタイムスタンプを更新しました。"
-done
+"${dirname}"/uni0042.svg
+"${dirname}"/uni0043.svg
+"${dirname}"/uni0044.svg
+"${dirname}"/uni0046.svg
+"${dirname}"/uni0047.svg
+"${dirname}"/uni0048.svg
+"${dirname}"/uni004a.svg
+"${dirname}"/uni004b.svg
+"${dirname}"/uni004c.svg
+"${dirname}"/uni004d.svg
+"${dirname}"/uni004e.svg
+"${dirname}"/uni0050.svg
+"${dirname}"/uni0051.svg
+"${dirname}"/uni0052.svg
+"${dirname}"/uni0053.svg
+"${dirname}"/uni0054.svg
+"${dirname}"/uni0056.svg
+"${dirname}"/uni0058.svg
+"${dirname}"/uni0059.svg
+"${dirname}"/uni005a.svg
+"${dirname}"/uni0062.svg
+"${dirname}"/uni0063.svg
+"${dirname}"/uni0064.svg
+"${dirname}"/uni0066.svg
+"${dirname}"/uni0067.svg
+"${dirname}"/uni0068.svg
+"${dirname}"/uni006a.svg
+"${dirname}"/uni006b.svg
+"${dirname}"/uni006c.svg
+"${dirname}"/uni006d.svg
+"${dirname}"/uni006e.svg
+"${dirname}"/uni0070.svg
+"${dirname}"/uni0071.svg
+"${dirname}"/uni0072.svg
+"${dirname}"/uni0073.svg
+"${dirname}"/uni0074.svg
+"${dirname}"/uni0076.svg
+"${dirname}"/uni0078.svg
+"${dirname}"/uni0079.svg
+"${dirname}"/uni007a.svg
