@@ -63,3 +63,6 @@ Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyp
 "${dirname}"/uni0078.svg
 "${dirname}"/uni0079.svg
 "${dirname}"/uni007a.svg
+Save($1);
+Close();
+Quit(0);
