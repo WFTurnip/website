@@ -53,7 +53,7 @@ export const cantillationPitchArray = ["高", "低"];
 /** 朗唱符号の発音の配列 @type {string[]} */
 export const cantillationPronunciationArray = ["\u{02e6}\u{02e5}", "\u{02e5}\u{02e6}", "\u{02e6}\u{02e5}\u{02e6}", "\u{02e5}\u{02e6}\u{02e5}", "\u{02e5}", "\u{02e5}", "\u{a708}", "\u{02e9}\u{02e8}", "\u{02e8}\u{02e9}", "\u{02e9}\u{02e8}\u{02e9}", "\u{02e8}\u{02e9}\u{02e8}", "\u{02e9}", "\u{02e9}", "\u{a70c}"];
 /** 音楽符号の配列 @type {string[]} */
-export const notationMarkArray = ["\u{02ca}", "\u{02cf}", "\u{02cb}", "\u{02ce}", "\u{02c6}", "\u{a788}", "\u{02c7}", "\u{02ec}", "\u{02c9}", "\u{02cd}"];
+export const notationMarkArray = ["\u{02ca}", "\u{02cb}", "\u{02c6}", "\u{02c7}", "\u{02c9}", "\u{02cf}", "\u{02ce}", "\u{a788}", "\u{02ec}", "\u{02cd}"];
 /** 音楽符号の概念の配列 @type {string[]} */
 export const notationConceptArray = ["揚", "抑", "昇", "降", "平"];
 /** 音楽符号の高低配列 @type {string[]} */
