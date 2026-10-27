@@ -1,20 +1,49 @@
-#!/bin/bash
-fontname=("kodito" "lekuta" "lozegw" "silwki" "xavani" "xesada" "xidili")
-for dirname in "${fontname[@]}"; do
-    echo "ディレクトリ${dirname}の朗唱符号文字のタイムスタンプを更新します。"
-    touch "${dirname}"/uni0301.svg # 高揚声符
-    touch "${dirname}"/uni0317.svg # 低揚声符
-    touch "${dirname}"/uni0300.svg # 高抑声符
-    touch "${dirname}"/uni0316.svg # 低抑声符
-    touch "${dirname}"/uni0302.svg # 高昇声符
-    touch "${dirname}"/uni032d.svg # 低昇声符
-    touch "${dirname}"/uni030c.svg # 高降声符
-    touch "${dirname}"/uni032c.svg # 低降声符
-    touch "${dirname}"/uni0304.svg # 高平声符
-    touch "${dirname}"/uni0331.svg # 低平声符
-    touch "${dirname}"/uni0308.svg # 高分声符
-    touch "${dirname}"/uni0324.svg # 低分声符
-    touch "${dirname}"/uni0307.svg # 高終声符
-    touch "${dirname}"/uni0323.svg # 低終声符
-    echo "ディレクトリ${dirname}の朗唱符号文字のタイムスタンプを更新しました。"
-done
+#!/usr/local/bin/fontforge
+Open($1);
+# RemoveAnchorClass("Marks");
+# RemoveLookupSubtable("mark-1");
+# RemoveLookup("mark");
+# AddLookup("mark", "gpos_mark2base", 0, [["mark", [["latn", ["dflt"]]]]]);
+# AddLookupSubtable("mark", "mark-1");
+# AddAnchorClass("Marks", "default", "mark-1");
+# AddLookup("mkmk", "gpos_mark2mark", 0, [["mkmk", [["latn", ["dflt"]]]]]);
+# AddLookupSubtable("mkmk", "mkmk-1");
+# AddAnchorClass("AboveMarks", "default", "mkmk-1");
+# AddAnchorClass("BelowMarks", "default", "mkmk-1");
+BaseWidth = 500;
+MarkWidth = 0;
+BaseGlyphB2MAnchorPointX = BaseWidth * 0.5;
+BaseGlyphB2MAnchorPointY = $ascent - ($em / 2);
+MarkGlyphB2MAnchorPointX = BaseWidth * -0.5;
+MarkGlyphB2MAnchorPointY = $ascent - ($em / 2);
+AboveM2MAnchorPointX = BaseWidth * -0.5;
+AboveM2MAnchorPointY = $ascent - $descent / 2;
+BelowM2MAnchorPointX = BaseWidth * -0.5;
+BelowM2MAnchorPointY = -1 * $descent / 2;
+Print("基底グリフ幅は ", BaseWidth, "px です。");
+Print("マークグリフ幅は ", MarkWidth, "px です。");
+Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphB2MAnchorPointX, "px です。");
+Print("基底グリフアンカーポイント座標（Y軸）は ", BaseGlyphB2MAnchorPointY, "px です。");
+Print("マークグリフアンカーポイント座標（X軸）は ", MarkGlyphB2MAnchorPointX, "px です。");
+Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyphB2MAnchorPointY, "px です。");
+Print("上部マークマークグリフアンカーポイント座標（X軸）は", AboveM2MAnchorPointX, "px です。");
+Print("上部マークマークグリフアンカーポイント座標（Y軸）は", AboveM2MAnchorPointY, "px です。");
+Print("下部マークマークグリフアンカーポイント座標（X軸）は", BelowM2MAnchorPointX, "px です。");
+Print("下部マークマークグリフアンカーポイント座標（Y軸）は", BelowM2MAnchorPointY, "px です。");
+Select(0u0301); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0301.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("AboveMarks", "mark", AboveM2MAnchorPointX, AboveM2MAnchorPointY);
+Select(0u0300); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0300.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("AboveMarks", "mark", AboveM2MAnchorPointX, AboveM2MAnchorPointY);
+Select(0u0302); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0302.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("AboveMarks", "mark", AboveM2MAnchorPointX, AboveM2MAnchorPointY);
+Select(0u030c); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni030c.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("AboveMarks", "mark", AboveM2MAnchorPointX, AboveM2MAnchorPointY);
+Select(0u0307); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0307.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("AboveMarks", "mark", AboveM2MAnchorPointX, AboveM2MAnchorPointY);
+Select(0u0308); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0308.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("AboveMarks", "mark", AboveM2MAnchorPointX, AboveM2MAnchorPointY);
+Select(0u0304); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0304.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("AboveMarks", "mark", AboveM2MAnchorPointX, AboveM2MAnchorPointY);
+Select(0u0317); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0317.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
+Select(0u0316); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0316.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
+Select(0u032d); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni032d.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
+Select(0u032c); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni032c.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
+Select(0u0323); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0323.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
+Select(0u0324); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0324.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
+Select(0u0331); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./lekuta/uni0331.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
+Save($1);
+Close();
+Quit(0);

@@ -1,38 +1,65 @@
-#!/bin/bash
-fontname=("kodito" "lekuta" "lozegw" "makina" "piswpi" "polwgo" "silwki" "sulive" "xavani" "xesada" "xidili" "zosokw")
-for dirname in "${fontname[@]}"; do
-    echo "ディレクトリ${dirname}の約物文字のタイムスタンプを更新します。"
-    touch "${dirname}"/notdef.svg # NOTDEF GLYPH
-    touch "${dirname}"/uni0021.svg # !
-    touch "${dirname}"/uni0022.svg # "
-    touch "${dirname}"/uni0023.svg # #
-    touch "${dirname}"/uni0024.svg # $
-    touch "${dirname}"/uni0025.svg # %
-    touch "${dirname}"/uni0026.svg # &
-    touch "${dirname}"/uni0027.svg # '
-    touch "${dirname}"/uni002a.svg # *
-    touch "${dirname}"/uni002b.svg # +
-    touch "${dirname}"/uni002c.svg # ,
-    touch "${dirname}"/uni002d.svg # -
-    touch "${dirname}"/uni002e.svg # .
-    touch "${dirname}"/uni002f.svg # /
-    touch "${dirname}"/uni0030.svg # 0
-    touch "${dirname}"/uni003a.svg # :
-    touch "${dirname}"/uni003b.svg # ;
-    touch "${dirname}"/uni003c.svg # <
-    touch "${dirname}"/uni003d.svg # =
-    touch "${dirname}"/uni003e.svg # >
-    touch "${dirname}"/uni003f.svg # ?
-    touch "${dirname}"/uni0040.svg # @
-    touch "${dirname}"/uni005c.svg # \\
-    touch "${dirname}"/uni005e.svg # ^
-    touch "${dirname}"/uni005f.svg # _
-    touch "${dirname}"/uni0060.svg # `
-    touch "${dirname}"/uni007c.svg # |
-    touch "${dirname}"/uni007e.svg # ~
-    touch "${dirname}"/uni00a7.svg # §
-    touch "${dirname}"/uni00b4.svg # ´
-    touch "${dirname}"/uni00b6.svg # ¶
-    touch "${dirname}"/uni25cc.svg # ◌
-    echo "ディレクトリ${dirname}の約物文字のタイムスタンプを更新しました。"
-done
+#!/usr/local/bin/fontforge
+Open($1);
+# RemoveAnchorClass("Marks");
+# RemoveLookupSubtable("mark-1");
+# RemoveLookup("mark");
+# AddLookup("mark", "gpos_mark2base", 0, [["mark", [["latn", ["dflt"]]]]]);
+# AddLookupSubtable("mark", "mark-1");
+# AddAnchorClass("Marks", "default", "mark-1");
+DirectoryName = $filename:t:r;
+BaseWidth = 500;
+if($fontname == "Makina");
+BaseWidth = 400;
+endif;
+MarkWidth = 0;
+BaseGlyphAnchorPointX = BaseWidth * 0.5;
+BaseGlyphAnchorPointY = $ascent - ($em / 2);
+MarkGlyphAnchorPointX = BaseWidth * -0.5;
+MarkGlyphAnchorPointY = $ascent - ($em / 2);
+Print("基底グリフ幅は ", BaseWidth, "px です。");
+Print("マークグリフ幅は ", MarkWidth, "px です。");
+Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphAnchorPointX, "px です。");
+Print("基底グリフアンカーポイント座標（Y軸）は ", BaseGlyphAnchorPointY, "px です。");
+Print("マークグリフアンカーポイント座標（X軸）は ", MarkGlyphAnchorPointX, "px です。");
+Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyphAnchorPointY, "px です。");
+Select(0); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/notdef.svg", 0, 16);
+Select(0u0020); SetGlyphClass("none"); SetWidth(BaseWidth);
+Select(0u0021); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0021.svg", 0, 16);
+Select(0u0022); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0022.svg", 0, 16);
+Select(0u0023); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0023.svg", 0, 16);
+Select(0u0024); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0024.svg", 0, 16);
+Select(0u0025); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0025.svg", 0, 16);
+Select(0u0026); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0026.svg", 0, 16);
+Select(0u0027); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0027.svg", 0, 16);
+Select(0u0028); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0028.svg", 0, 16);
+Select(0u0029); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0029.svg", 0, 16);
+Select(0u002a); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni002a.svg", 0, 16);
+Select(0u002b); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni002b.svg", 0, 16);
+Select(0u002c); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni002c.svg", 0, 16);
+Select(0u002d); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni002d.svg", 0, 16);
+Select(0u002e); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni002e.svg", 0, 16);
+Select(0u002f); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni002f.svg", 0, 16);
+Select(0u003a); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni003a.svg", 0, 16);
+Select(0u003b); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni003b.svg", 0, 16);
+Select(0u003c); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni003c.svg", 0, 16);
+Select(0u003d); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni003d.svg", 0, 16);
+Select(0u003e); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni003e.svg", 0, 16);
+Select(0u003f); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni003f.svg", 0, 16);
+Select(0u0040); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0040.svg", 0, 16);
+Select(0u005b); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005b.svg", 0, 16);
+Select(0u005c); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005c.svg", 0, 16);
+Select(0u005d); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005d.svg", 0, 16);
+Select(0u005e); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005e.svg", 0, 16);
+Select(0u005f); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005f.svg", 0, 16);
+Select(0u0060); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0060.svg", 0, 16);
+Select(0u007b); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni007b.svg", 0, 16);
+Select(0u007c); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni007c.svg", 0, 16);
+Select(0u007d); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni007d.svg", 0, 16);
+Select(0u007e); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni007e.svg", 0, 16);
+Select(0u00a7); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni00a7.svg", 0, 16);
+Select(0u00b4); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni00b4.svg", 0, 16);
+Select(0u00b6); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni00b6.svg", 0, 16);
+Select(0u25cc); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni25cc.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Save($1);
+Close();
+Quit(0);

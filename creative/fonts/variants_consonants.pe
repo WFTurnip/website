@@ -1,66 +1,267 @@
-#!/bin/bash
-fontname=("sulive" "zosokw")
-for dirname in "${fontname[@]}"; do
-    echo "ディレクトリ${dirname}の異体文字のタイムスタンプを更新します。"
-    # ISOLATE FORM -----------------------------
-    touch "${dirname}"/uni004b.isol.svg # K.ISOL
-    touch "${dirname}"/uni0054.isol.svg # T.ISOL
-    touch "${dirname}"/uni0053.isol.svg # S.ISOL
-    touch "${dirname}"/uni0051.isol.svg # Q.ISOL
-    touch "${dirname}"/uni0052.isol.svg # R.ISOL
-    touch "${dirname}"/uni0050.isol.svg # P.ISOL
-    touch "${dirname}"/uni0048.isol.svg # H.ISOL
-    touch "${dirname}"/uni0046.isol.svg # F.ISOL
-    touch "${dirname}"/uni004d.isol.svg # M.ISOL
-    # INITIAL FORM -----------------------------
-    touch "${dirname}"/uni004b.init.svg # K.INIT
-    touch "${dirname}"/uni0054.init.svg # T.INIT
-    touch "${dirname}"/uni0053.init.svg # S.INIT
-    touch "${dirname}"/uni0051.init.svg # Q.INIT
-    touch "${dirname}"/uni0052.init.svg # R.INIT
-    touch "${dirname}"/uni0050.init.svg # P.INIT
-    touch "${dirname}"/uni0048.init.svg # H.INIT
-    touch "${dirname}"/uni0046.init.svg # F.INIT
-    touch "${dirname}"/uni004d.init.svg # M.INIT
-    # MEDIAL FORM ------------------------------
-    touch "${dirname}"/uni004b.medi.svg # K.MEDI
-    touch "${dirname}"/uni0054.medi.svg # T.MEDI
-    touch "${dirname}"/uni0053.medi.svg # S.MEDI
-    touch "${dirname}"/uni0051.medi.svg # Q.MEDI
-    touch "${dirname}"/uni0052.medi.svg # R.MEDI
-    touch "${dirname}"/uni0050.medi.svg # P.MEDI
-    touch "${dirname}"/uni0048.medi.svg # H.MEDI
-    touch "${dirname}"/uni0046.medi.svg # F.MEDI
-    touch "${dirname}"/uni004d.medi.svg # M.MEDI
-    # MEDIAL SECOND FORM -----------------------
-    touch "${dirname}"/uni004b.med2.svg # K.MED2
-    touch "${dirname}"/uni0054.med2.svg # T.MED2
-    touch "${dirname}"/uni0053.med2.svg # S.MED2
-    touch "${dirname}"/uni0051.med2.svg # Q.MED2
-    touch "${dirname}"/uni0052.med2.svg # R.MED2
-    touch "${dirname}"/uni0050.med2.svg # P.MED2
-    touch "${dirname}"/uni0048.med2.svg # H.MED2
-    touch "${dirname}"/uni0046.med2.svg # F.MED2
-    touch "${dirname}"/uni004d.med2.svg # M.MED2
-    # FINAL FORM -------------------------------
-    touch "${dirname}"/uni004b.fina.svg # K.FINA
-    touch "${dirname}"/uni0054.fina.svg # T.FINA
-    touch "${dirname}"/uni0053.fina.svg # S.FINA
-    touch "${dirname}"/uni0051.fina.svg # Q.FINA
-    touch "${dirname}"/uni0052.fina.svg # R.FINA
-    touch "${dirname}"/uni0050.fina.svg # P.FINA
-    touch "${dirname}"/uni0048.fina.svg # H.FINA
-    touch "${dirname}"/uni0046.fina.svg # F.FINA
-    touch "${dirname}"/uni004d.fina.svg # M.FINA
-    # FINAL SECOND FORM ------------------------
-    touch "${dirname}"/uni004b.fin2.svg # K.FIN2
-    touch "${dirname}"/uni0054.fin2.svg # T.FIN2
-    touch "${dirname}"/uni0053.fin2.svg # S.FIN2
-    touch "${dirname}"/uni0051.fin2.svg # Q.FIN2
-    touch "${dirname}"/uni0052.fin2.svg # R.FIN2
-    touch "${dirname}"/uni0050.fin2.svg # P.FIN2
-    touch "${dirname}"/uni0048.fin2.svg # H.FIN2
-    touch "${dirname}"/uni0046.fin2.svg # F.FIN2
-    touch "${dirname}"/uni004d.fin2.svg # M.FIN2
-    echo "ディレクトリ${dirname}の異体文字のタイムスタンプを更新しました。"
-done
+#!/usr/local/bin/fontforge
+Open($1);
+# RemoveAnchorClass("Marks");
+# RemoveLookupSubtable("mark-1");
+# RemoveLookup("mark");
+# AddLookup("mark", "gpos_mark2base", 0, [["mark", [["latn", ["dflt"]]]]]);
+# AddLookupSubtable("mark", "mark-1");
+# AddAnchorClass("Marks", "default", "mark-1");
+DirectoryName = $filename:t:r;
+BaseWidth = 500;
+if($fontname == "Makina");
+BaseWidth = 400;
+endif;
+MarkWidth = 0;
+BaseGlyphAnchorPointX = BaseWidth * 0.5;
+BaseGlyphAnchorPointY = $ascent - ($em / 2);
+MarkGlyphAnchorPointX = BaseWidth * -0.5;
+MarkGlyphAnchorPointY = $ascent - ($em / 2);
+Print("基底グリフ幅は ", BaseWidth, "px です。");
+Print("マークグリフ幅は ", MarkWidth, "px です。");
+Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphAnchorPointX, "px です。");
+Print("基底グリフアンカーポイント座標（Y軸）は ", BaseGlyphAnchorPointY, "px です。");
+Print("マークグリフアンカーポイント座標（X軸）は ", MarkGlyphAnchorPointX, "px です。");
+Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyphAnchorPointY, "px です。");
+Select(65536); SetGlyphClass("base"); SetGlyphName("uni0042.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0042.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65537); SetGlyphClass("base"); SetGlyphName("uni0042.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0042.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65538); SetGlyphClass("base"); SetGlyphName("uni0042.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0042.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65539); SetGlyphClass("base"); SetGlyphName("uni0042.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0042.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65540); SetGlyphClass("base"); SetGlyphName("uni0042.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0042.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65541); SetGlyphClass("base"); SetGlyphName("uni0042.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0042.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65542); SetGlyphClass("base"); SetGlyphName("uni0043.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0043.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65543); SetGlyphClass("base"); SetGlyphName("uni0043.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0043.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65544); SetGlyphClass("base"); SetGlyphName("uni0043.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0043.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65545); SetGlyphClass("base"); SetGlyphName("uni0043.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0043.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65546); SetGlyphClass("base"); SetGlyphName("uni0043.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0043.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65547); SetGlyphClass("base"); SetGlyphName("uni0043.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0043.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65548); SetGlyphClass("base"); SetGlyphName("uni0044.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0044.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65549); SetGlyphClass("base"); SetGlyphName("uni0044.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0044.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65550); SetGlyphClass("base"); SetGlyphName("uni0044.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0044.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65551); SetGlyphClass("base"); SetGlyphName("uni0044.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0044.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65552); SetGlyphClass("base"); SetGlyphName("uni0044.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0044.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65553); SetGlyphClass("base"); SetGlyphName("uni0044.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0044.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65554); SetGlyphClass("base"); SetGlyphName("uni0046.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0046.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65555); SetGlyphClass("base"); SetGlyphName("uni0046.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0046.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65556); SetGlyphClass("base"); SetGlyphName("uni0046.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0046.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65557); SetGlyphClass("base"); SetGlyphName("uni0046.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0046.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65558); SetGlyphClass("base"); SetGlyphName("uni0046.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0046.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65559); SetGlyphClass("base"); SetGlyphName("uni0046.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0046.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65560); SetGlyphClass("base"); SetGlyphName("uni0047.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0047.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65561); SetGlyphClass("base"); SetGlyphName("uni0047.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0047.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65562); SetGlyphClass("base"); SetGlyphName("uni0047.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0047.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65563); SetGlyphClass("base"); SetGlyphName("uni0047.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0047.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65564); SetGlyphClass("base"); SetGlyphName("uni0047.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0047.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65565); SetGlyphClass("base"); SetGlyphName("uni0047.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0047.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65566); SetGlyphClass("base"); SetGlyphName("uni0048.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0048.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65567); SetGlyphClass("base"); SetGlyphName("uni0048.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0048.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65568); SetGlyphClass("base"); SetGlyphName("uni0048.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0048.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65569); SetGlyphClass("base"); SetGlyphName("uni0048.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0048.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65570); SetGlyphClass("base"); SetGlyphName("uni0048.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0048.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65571); SetGlyphClass("base"); SetGlyphName("uni0048.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0048.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65572); SetGlyphClass("base"); SetGlyphName("uni004A.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004a.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65573); SetGlyphClass("base"); SetGlyphName("uni004A.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004a.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65574); SetGlyphClass("base"); SetGlyphName("uni004A.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004a.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65575); SetGlyphClass("base"); SetGlyphName("uni004A.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004a.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65576); SetGlyphClass("base"); SetGlyphName("uni004A.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004a.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65577); SetGlyphClass("base"); SetGlyphName("uni004A.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004a.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65578); SetGlyphClass("base"); SetGlyphName("uni004B.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004b.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65579); SetGlyphClass("base"); SetGlyphName("uni004B.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004b.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65580); SetGlyphClass("base"); SetGlyphName("uni004B.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004b.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65581); SetGlyphClass("base"); SetGlyphName("uni004B.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004b.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65582); SetGlyphClass("base"); SetGlyphName("uni004B.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004b.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65583); SetGlyphClass("base"); SetGlyphName("uni004B.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004b.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65584); SetGlyphClass("base"); SetGlyphName("uni004C.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004c.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65585); SetGlyphClass("base"); SetGlyphName("uni004C.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004c.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65586); SetGlyphClass("base"); SetGlyphName("uni004C.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004c.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65587); SetGlyphClass("base"); SetGlyphName("uni004C.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004c.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65588); SetGlyphClass("base"); SetGlyphName("uni004C.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004c.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65589); SetGlyphClass("base"); SetGlyphName("uni004C.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004c.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65590); SetGlyphClass("base"); SetGlyphName("uni004D.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004d.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65591); SetGlyphClass("base"); SetGlyphName("uni004D.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004d.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65592); SetGlyphClass("base"); SetGlyphName("uni004D.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004d.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65593); SetGlyphClass("base"); SetGlyphName("uni004D.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004d.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65594); SetGlyphClass("base"); SetGlyphName("uni004D.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004d.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65595); SetGlyphClass("base"); SetGlyphName("uni004D.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004d.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65596); SetGlyphClass("base"); SetGlyphName("uni004E.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004e.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65597); SetGlyphClass("base"); SetGlyphName("uni004E.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004e.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65598); SetGlyphClass("base"); SetGlyphName("uni004E.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004e.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65599); SetGlyphClass("base"); SetGlyphName("uni004E.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004e.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65600); SetGlyphClass("base"); SetGlyphName("uni004E.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004e.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65601); SetGlyphClass("base"); SetGlyphName("uni004E.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni004e.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65602); SetGlyphClass("base"); SetGlyphName("uni0050.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0050.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65603); SetGlyphClass("base"); SetGlyphName("uni0050.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0050.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65604); SetGlyphClass("base"); SetGlyphName("uni0050.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0050.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65605); SetGlyphClass("base"); SetGlyphName("uni0050.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0050.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65606); SetGlyphClass("base"); SetGlyphName("uni0050.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0050.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65607); SetGlyphClass("base"); SetGlyphName("uni0050.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0050.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65608); SetGlyphClass("base"); SetGlyphName("uni0051.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0051.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65609); SetGlyphClass("base"); SetGlyphName("uni0051.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0051.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65610); SetGlyphClass("base"); SetGlyphName("uni0051.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0051.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65611); SetGlyphClass("base"); SetGlyphName("uni0051.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0051.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65612); SetGlyphClass("base"); SetGlyphName("uni0051.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0051.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65613); SetGlyphClass("base"); SetGlyphName("uni0051.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0051.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65614); SetGlyphClass("base"); SetGlyphName("uni0052.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0052.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65615); SetGlyphClass("base"); SetGlyphName("uni0052.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0052.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65616); SetGlyphClass("base"); SetGlyphName("uni0052.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0052.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65617); SetGlyphClass("base"); SetGlyphName("uni0052.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0052.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65618); SetGlyphClass("base"); SetGlyphName("uni0052.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0052.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65619); SetGlyphClass("base"); SetGlyphName("uni0052.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0052.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65620); SetGlyphClass("base"); SetGlyphName("uni0053.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0053.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65621); SetGlyphClass("base"); SetGlyphName("uni0053.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0053.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65622); SetGlyphClass("base"); SetGlyphName("uni0053.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0053.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65623); SetGlyphClass("base"); SetGlyphName("uni0053.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0053.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65624); SetGlyphClass("base"); SetGlyphName("uni0053.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0053.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65625); SetGlyphClass("base"); SetGlyphName("uni0053.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0053.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65626); SetGlyphClass("base"); SetGlyphName("uni0054.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0054.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65627); SetGlyphClass("base"); SetGlyphName("uni0054.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0054.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65628); SetGlyphClass("base"); SetGlyphName("uni0054.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0054.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65629); SetGlyphClass("base"); SetGlyphName("uni0054.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0054.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65630); SetGlyphClass("base"); SetGlyphName("uni0054.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0054.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65631); SetGlyphClass("base"); SetGlyphName("uni0054.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0054.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65632); SetGlyphClass("base"); SetGlyphName("uni0056.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0056.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65633); SetGlyphClass("base"); SetGlyphName("uni0056.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0056.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65634); SetGlyphClass("base"); SetGlyphName("uni0056.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0056.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65635); SetGlyphClass("base"); SetGlyphName("uni0056.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0056.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65636); SetGlyphClass("base"); SetGlyphName("uni0056.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0056.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65637); SetGlyphClass("base"); SetGlyphName("uni0056.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0056.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65638); SetGlyphClass("base"); SetGlyphName("uni0058.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0058.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65639); SetGlyphClass("base"); SetGlyphName("uni0058.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0058.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65640); SetGlyphClass("base"); SetGlyphName("uni0058.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0058.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65641); SetGlyphClass("base"); SetGlyphName("uni0058.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0058.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65642); SetGlyphClass("base"); SetGlyphName("uni0058.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0058.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65643); SetGlyphClass("base"); SetGlyphName("uni0058.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0058.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65644); SetGlyphClass("base"); SetGlyphName("uni0059.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0059.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65645); SetGlyphClass("base"); SetGlyphName("uni0059.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0059.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65646); SetGlyphClass("base"); SetGlyphName("uni0059.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0059.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65647); SetGlyphClass("base"); SetGlyphName("uni0059.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0059.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65648); SetGlyphClass("base"); SetGlyphName("uni0059.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0059.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65649); SetGlyphClass("base"); SetGlyphName("uni0059.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0059.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65650); SetGlyphClass("base"); SetGlyphName("uni005A.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005a.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65651); SetGlyphClass("base"); SetGlyphName("uni005A.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005a.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65652); SetGlyphClass("base"); SetGlyphName("uni005A.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005a.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65653); SetGlyphClass("base"); SetGlyphName("uni005A.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005a.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65654); SetGlyphClass("base"); SetGlyphName("uni005A.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005a.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65655); SetGlyphClass("base"); SetGlyphName("uni005A.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni005a.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65656); SetGlyphClass("base"); SetGlyphName("uni0062.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0062.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65657); SetGlyphClass("base"); SetGlyphName("uni0062.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0062.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65658); SetGlyphClass("base"); SetGlyphName("uni0062.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0062.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65659); SetGlyphClass("base"); SetGlyphName("uni0062.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0062.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65660); SetGlyphClass("base"); SetGlyphName("uni0062.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0062.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65661); SetGlyphClass("base"); SetGlyphName("uni0062.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0062.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65662); SetGlyphClass("base"); SetGlyphName("uni0063.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0063.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65663); SetGlyphClass("base"); SetGlyphName("uni0063.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0063.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65664); SetGlyphClass("base"); SetGlyphName("uni0063.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0063.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65665); SetGlyphClass("base"); SetGlyphName("uni0063.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0063.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65666); SetGlyphClass("base"); SetGlyphName("uni0063.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0063.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65667); SetGlyphClass("base"); SetGlyphName("uni0063.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0063.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65668); SetGlyphClass("base"); SetGlyphName("uni0064.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0064.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65669); SetGlyphClass("base"); SetGlyphName("uni0064.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0064.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65670); SetGlyphClass("base"); SetGlyphName("uni0064.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0064.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65671); SetGlyphClass("base"); SetGlyphName("uni0064.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0064.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65672); SetGlyphClass("base"); SetGlyphName("uni0064.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0064.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65673); SetGlyphClass("base"); SetGlyphName("uni0064.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0064.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65674); SetGlyphClass("base"); SetGlyphName("uni0066.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0066.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65675); SetGlyphClass("base"); SetGlyphName("uni0066.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0066.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65676); SetGlyphClass("base"); SetGlyphName("uni0066.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0066.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65677); SetGlyphClass("base"); SetGlyphName("uni0066.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0066.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65678); SetGlyphClass("base"); SetGlyphName("uni0066.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0066.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65679); SetGlyphClass("base"); SetGlyphName("uni0066.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0066.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65680); SetGlyphClass("base"); SetGlyphName("uni0067.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0067.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65681); SetGlyphClass("base"); SetGlyphName("uni0067.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0067.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65682); SetGlyphClass("base"); SetGlyphName("uni0067.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0067.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65683); SetGlyphClass("base"); SetGlyphName("uni0067.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0067.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65684); SetGlyphClass("base"); SetGlyphName("uni0067.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0067.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65685); SetGlyphClass("base"); SetGlyphName("uni0067.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0067.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65686); SetGlyphClass("base"); SetGlyphName("uni0068.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0068.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65687); SetGlyphClass("base"); SetGlyphName("uni0068.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0068.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65688); SetGlyphClass("base"); SetGlyphName("uni0068.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0068.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65689); SetGlyphClass("base"); SetGlyphName("uni0068.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0068.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65690); SetGlyphClass("base"); SetGlyphName("uni0068.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0068.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65691); SetGlyphClass("base"); SetGlyphName("uni0068.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0068.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65692); SetGlyphClass("base"); SetGlyphName("uni006A.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006a.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65693); SetGlyphClass("base"); SetGlyphName("uni006A.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006a.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65694); SetGlyphClass("base"); SetGlyphName("uni006A.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006a.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65695); SetGlyphClass("base"); SetGlyphName("uni006A.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006a.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65696); SetGlyphClass("base"); SetGlyphName("uni006A.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006a.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65697); SetGlyphClass("base"); SetGlyphName("uni006A.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006a.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65698); SetGlyphClass("base"); SetGlyphName("uni006B.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006b.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65699); SetGlyphClass("base"); SetGlyphName("uni006B.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006b.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65700); SetGlyphClass("base"); SetGlyphName("uni006B.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006b.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65701); SetGlyphClass("base"); SetGlyphName("uni006B.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006b.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65702); SetGlyphClass("base"); SetGlyphName("uni006B.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006b.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65703); SetGlyphClass("base"); SetGlyphName("uni006B.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006b.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65704); SetGlyphClass("base"); SetGlyphName("uni006C.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006c.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65705); SetGlyphClass("base"); SetGlyphName("uni006C.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006c.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65706); SetGlyphClass("base"); SetGlyphName("uni006C.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006c.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65707); SetGlyphClass("base"); SetGlyphName("uni006C.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006c.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65708); SetGlyphClass("base"); SetGlyphName("uni006C.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006c.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65709); SetGlyphClass("base"); SetGlyphName("uni006C.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006c.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65710); SetGlyphClass("base"); SetGlyphName("uni006D.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006d.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65711); SetGlyphClass("base"); SetGlyphName("uni006D.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006d.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65712); SetGlyphClass("base"); SetGlyphName("uni006D.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006d.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65713); SetGlyphClass("base"); SetGlyphName("uni006D.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006d.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65714); SetGlyphClass("base"); SetGlyphName("uni006D.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006d.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65715); SetGlyphClass("base"); SetGlyphName("uni006D.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006d.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65716); SetGlyphClass("base"); SetGlyphName("uni006E.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006e.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65717); SetGlyphClass("base"); SetGlyphName("uni006E.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006e.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65718); SetGlyphClass("base"); SetGlyphName("uni006E.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006e.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65719); SetGlyphClass("base"); SetGlyphName("uni006E.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006e.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65720); SetGlyphClass("base"); SetGlyphName("uni006E.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006e.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65721); SetGlyphClass("base"); SetGlyphName("uni006E.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni006e.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65722); SetGlyphClass("base"); SetGlyphName("uni0070.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0070.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65723); SetGlyphClass("base"); SetGlyphName("uni0070.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0070.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65724); SetGlyphClass("base"); SetGlyphName("uni0070.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0070.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65725); SetGlyphClass("base"); SetGlyphName("uni0070.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0070.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65726); SetGlyphClass("base"); SetGlyphName("uni0070.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0070.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65727); SetGlyphClass("base"); SetGlyphName("uni0070.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0070.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65728); SetGlyphClass("base"); SetGlyphName("uni0071.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0071.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65729); SetGlyphClass("base"); SetGlyphName("uni0071.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0071.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65730); SetGlyphClass("base"); SetGlyphName("uni0071.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0071.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65731); SetGlyphClass("base"); SetGlyphName("uni0071.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0071.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65732); SetGlyphClass("base"); SetGlyphName("uni0071.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0071.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65733); SetGlyphClass("base"); SetGlyphName("uni0071.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0071.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65734); SetGlyphClass("base"); SetGlyphName("uni0072.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0072.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65735); SetGlyphClass("base"); SetGlyphName("uni0072.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0072.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65736); SetGlyphClass("base"); SetGlyphName("uni0072.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0072.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65737); SetGlyphClass("base"); SetGlyphName("uni0072.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0072.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65738); SetGlyphClass("base"); SetGlyphName("uni0072.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0072.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65739); SetGlyphClass("base"); SetGlyphName("uni0072.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0072.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65740); SetGlyphClass("base"); SetGlyphName("uni0073.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0073.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65741); SetGlyphClass("base"); SetGlyphName("uni0073.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0073.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65742); SetGlyphClass("base"); SetGlyphName("uni0073.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0073.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65743); SetGlyphClass("base"); SetGlyphName("uni0073.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0073.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65744); SetGlyphClass("base"); SetGlyphName("uni0073.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0073.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65745); SetGlyphClass("base"); SetGlyphName("uni0073.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0073.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65746); SetGlyphClass("base"); SetGlyphName("uni0074.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0074.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65747); SetGlyphClass("base"); SetGlyphName("uni0074.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0074.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65748); SetGlyphClass("base"); SetGlyphName("uni0074.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0074.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65749); SetGlyphClass("base"); SetGlyphName("uni0074.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0074.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65750); SetGlyphClass("base"); SetGlyphName("uni0074.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0074.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65751); SetGlyphClass("base"); SetGlyphName("uni0074.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0074.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65752); SetGlyphClass("base"); SetGlyphName("uni0076.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0076.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65753); SetGlyphClass("base"); SetGlyphName("uni0076.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0076.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65754); SetGlyphClass("base"); SetGlyphName("uni0076.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0076.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65755); SetGlyphClass("base"); SetGlyphName("uni0076.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0076.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65756); SetGlyphClass("base"); SetGlyphName("uni0076.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0076.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65757); SetGlyphClass("base"); SetGlyphName("uni0076.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0076.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65758); SetGlyphClass("base"); SetGlyphName("uni0078.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0078.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65759); SetGlyphClass("base"); SetGlyphName("uni0078.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0078.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65760); SetGlyphClass("base"); SetGlyphName("uni0078.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0078.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65761); SetGlyphClass("base"); SetGlyphName("uni0078.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0078.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65762); SetGlyphClass("base"); SetGlyphName("uni0078.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0078.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65763); SetGlyphClass("base"); SetGlyphName("uni0078.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0078.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65764); SetGlyphClass("base"); SetGlyphName("uni0079.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0079.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65765); SetGlyphClass("base"); SetGlyphName("uni0079.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0079.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65766); SetGlyphClass("base"); SetGlyphName("uni0079.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0079.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65767); SetGlyphClass("base"); SetGlyphName("uni0079.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0079.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65768); SetGlyphClass("base"); SetGlyphName("uni0079.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0079.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65769); SetGlyphClass("base"); SetGlyphName("uni0079.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0079.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65770); SetGlyphClass("base"); SetGlyphName("uni007A.isol"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni007a.isol.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65771); SetGlyphClass("base"); SetGlyphName("uni007A.init"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni007a.init.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65772); SetGlyphClass("base"); SetGlyphName("uni007A.medi"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni007a.medi.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65773); SetGlyphClass("base"); SetGlyphName("uni007A.med2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni007a.med2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65774); SetGlyphClass("base"); SetGlyphName("uni007A.fina"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni007a.fina.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65775); SetGlyphClass("base"); SetGlyphName("uni007A.fin2"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni007a.fin2.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Save($1);
+Close();
+Quit(0);

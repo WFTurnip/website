@@ -1,16 +1,37 @@
-#!/bin/bash
-fontname=("kodito" "lekuta" "lozegw" "makina" "piswpi" "polwgo" "silwki" "sulive" "xavani" "xesada" "xidili" "zosokw")
-for dirname in "${fontname[@]}"; do
-    echo "ディレクトリ${dirname}の数字のタイムスタンプを更新します。"
-    touch "${dirname}"/uni0030.svg # 0
-    touch "${dirname}"/uni0031.svg # 1
-    touch "${dirname}"/uni0032.svg # 2
-    touch "${dirname}"/uni0033.svg # 3
-    touch "${dirname}"/uni0034.svg # 4
-    touch "${dirname}"/uni0035.svg # 5
-    touch "${dirname}"/uni0036.svg # 6
-    touch "${dirname}"/uni0037.svg # 7
-    touch "${dirname}"/uni0038.svg # 8
-    touch "${dirname}"/uni0039.svg # 9
-    echo "ディレクトリ${dirname}の数字のタイムスタンプを更新しました。"
-done
+#!/usr/local/bin/fontforge
+Open($1);
+# RemoveAnchorClass("Marks");
+# RemoveLookupSubtable("mark-1");
+# RemoveLookup("mark");
+# AddLookup("mark", "gpos_mark2base", 0, [["mark", [["latn", ["dflt"]]]]]);
+# AddLookupSubtable("mark", "mark-1");
+# AddAnchorClass("Marks", "default", "mark-1");
+DirectoryName = $filename:t:r;
+BaseWidth = 500;
+if($fontname == "Makina");
+BaseWidth = 400;
+endif;
+MarkWidth = 0;
+BaseGlyphAnchorPointX = BaseWidth * 0.5;
+BaseGlyphAnchorPointY = $ascent - ($em / 2);
+MarkGlyphAnchorPointX = BaseWidth * -0.5;
+MarkGlyphAnchorPointY = $ascent - ($em / 2);
+Print("基底グリフ幅は ", BaseWidth, "px です。");
+Print("マークグリフ幅は ", MarkWidth, "px です。");
+Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphAnchorPointX, "px です。");
+Print("基底グリフアンカーポイント座標（Y軸）は ", BaseGlyphAnchorPointY, "px です。");
+Print("マークグリフアンカーポイント座標（X軸）は ", MarkGlyphAnchorPointX, "px です。");
+Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyphAnchorPointY, "px です。");
+Select(0u0030); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./makina/uni0030.svg", 0, 16);
+Select(0u0031); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./makina/uni0031.svg", 0, 16);
+Select(0u0032); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./makina/uni0032.svg", 0, 16);
+Select(0u0033); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./makina/uni0033.svg", 0, 16);
+Select(0u0034); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./makina/uni0034.svg", 0, 16);
+Select(0u0035); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./makina/uni0035.svg", 0, 16);
+Select(0u0036); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./makina/uni0036.svg", 0, 16);
+Select(0u0037); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./makina/uni0037.svg", 0, 16);
+Select(0u0038); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./makina/uni0038.svg", 0, 16);
+Select(0u0039); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./makina/uni0039.svg", 0, 16);
+Save($1);
+Close();
+Quit(0);
