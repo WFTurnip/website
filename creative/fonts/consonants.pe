@@ -23,46 +23,46 @@ Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphAn
 Print("基底グリフアンカーポイント座標（Y軸）は ", BaseGlyphAnchorPointY, "px です。");
 Print("マークグリフアンカーポイント座標（X軸）は ", MarkGlyphAnchorPointX, "px です。");
 Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyphAnchorPointY, "px です。");
-"${DirectoryName}"/uni0042.svg
-"${DirectoryName}"/uni0043.svg
-"${DirectoryName}"/uni0044.svg
-"${DirectoryName}"/uni0046.svg
-"${DirectoryName}"/uni0047.svg
-"${DirectoryName}"/uni0048.svg
-"${DirectoryName}"/uni004a.svg
-"${DirectoryName}"/uni004b.svg
-"${DirectoryName}"/uni004c.svg
-"${DirectoryName}"/uni004d.svg
-"${DirectoryName}"/uni004e.svg
-"${DirectoryName}"/uni0050.svg
-"${DirectoryName}"/uni0051.svg
-"${DirectoryName}"/uni0052.svg
-"${DirectoryName}"/uni0053.svg
-"${DirectoryName}"/uni0054.svg
-"${DirectoryName}"/uni0056.svg
-"${DirectoryName}"/uni0058.svg
-"${DirectoryName}"/uni0059.svg
-"${DirectoryName}"/uni005a.svg
-"${DirectoryName}"/uni0062.svg
-"${DirectoryName}"/uni0063.svg
-"${DirectoryName}"/uni0064.svg
-"${DirectoryName}"/uni0066.svg
-"${DirectoryName}"/uni0067.svg
-"${DirectoryName}"/uni0068.svg
-"${DirectoryName}"/uni006a.svg
-"${DirectoryName}"/uni006b.svg
-"${DirectoryName}"/uni006c.svg
-"${DirectoryName}"/uni006d.svg
-"${DirectoryName}"/uni006e.svg
-"${DirectoryName}"/uni0070.svg
-"${DirectoryName}"/uni0071.svg
-"${DirectoryName}"/uni0072.svg
-"${DirectoryName}"/uni0073.svg
-"${DirectoryName}"/uni0074.svg
-"${DirectoryName}"/uni0076.svg
-"${DirectoryName}"/uni0078.svg
-"${DirectoryName}"/uni0079.svg
-"${DirectoryName}"/uni007a.svg
+Import("./" + DirectoryName + "/uni0042.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0043.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0044.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0046.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0047.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0048.svg", 0, 16);
+Import("./" + DirectoryName + "/uni004a.svg", 0, 16);
+Import("./" + DirectoryName + "/uni004b.svg", 0, 16);
+Import("./" + DirectoryName + "/uni004c.svg", 0, 16);
+Import("./" + DirectoryName + "/uni004d.svg", 0, 16);
+Import("./" + DirectoryName + "/uni004e.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0050.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0051.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0052.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0053.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0054.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0056.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0058.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0059.svg", 0, 16);
+Import("./" + DirectoryName + "/uni005a.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0062.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0063.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0064.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0066.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0067.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0068.svg", 0, 16);
+Import("./" + DirectoryName + "/uni006a.svg", 0, 16);
+Import("./" + DirectoryName + "/uni006b.svg", 0, 16);
+Import("./" + DirectoryName + "/uni006c.svg", 0, 16);
+Import("./" + DirectoryName + "/uni006d.svg", 0, 16);
+Import("./" + DirectoryName + "/uni006e.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0070.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0071.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0072.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0073.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0074.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0076.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0078.svg", 0, 16);
+Import("./" + DirectoryName + "/uni0079.svg", 0, 16);
+Import("./" + DirectoryName + "/uni007a.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);
