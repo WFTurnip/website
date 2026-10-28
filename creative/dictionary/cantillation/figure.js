@@ -69,7 +69,24 @@ function generateCantillationConceptFigure() {
     figure.appendChild(caption);
     document.getElementById("cantillation-marks-figure").appendChild(figure);
 }
+function generateNotationMarksFigure() {
+    const figure = document.createElement("figure");
+    const svgNameSpace = "http://www.w3.org/2000/svg";
+    let width = 256;
+    let height = 256;
+    let apex = 6;
+    let svg = document.createElementNS(svgNameSpace, "svg");
+    svg.setAttribute("width", width);
+    svg.setAttribute("height", height);
+    generateConsonantHexiagramFigure(svg, svgNameSpace, width, height, apex);
+    figure.appendChild(svg);
+    const caption = document.createElement("figcaption");
+    caption.textContent = "旋律記号図";
+    figure.appendChild(caption);
+    document.getElementById("notation-marks-figure").appendChild(figure);
+}
 window.addEventListener("load", () => {
     generateCantillationPronunciationFigure();
     generateCantillationConceptFigure();
+    generateNotationMarksFigure();
 });

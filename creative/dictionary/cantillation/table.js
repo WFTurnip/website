@@ -100,7 +100,7 @@ function generateCantillationConceptTable() {
 function generateNotationMarksTable() {
     let table = document.createElement("table");
     let caption = document.createElement("caption");
-    caption.textContent = "旋律体系表";
+    caption.textContent = "旋律記号表";
     table.appendChild(caption);
     let thead = document.createElement("thead");
     let vowelRow = document.createElement("tr");
