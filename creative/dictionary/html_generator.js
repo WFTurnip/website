@@ -29,7 +29,7 @@ async function generateIndex() {
     head.appendChild(link1);
     let link2 = document.createElement("link");
     link2.rel = "stylesheet";
-    link2.href = "../style/index.css";
+    link2.href = "../style/body.css";
     head.appendChild(link2);
     let link3 = document.createElement("link");
     link3.rel = "stylesheet";
@@ -137,7 +137,7 @@ async function generateConsonant(firstConsonant) {
     head.appendChild(link1);
     let link2 = document.createElement("link");
     link2.rel = "stylesheet";
-    link2.href = "../style/index.css";
+    link2.href = "../style/body.css";
     head.appendChild(link2);
     let link3 = document.createElement("link");
     link3.rel = "stylesheet";
@@ -294,7 +294,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     head.appendChild(link1);
     let link2 = document.createElement("link");
     link2.rel = "stylesheet";
-    link2.href = "../../style/index.css";
+    link2.href = "../../style/body.css";
     head.appendChild(link2);
     let link3 = document.createElement("link");
     link3.rel = "stylesheet";
