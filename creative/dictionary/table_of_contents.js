@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     const h1 = document.querySelector("main h1");
-    const hrBefore = document.createElement("hr");
-    const hrAfter = document.createElement("hr");
-    const nav = document.createElement("nav");
+    const beforeHorizontalRule = document.createElement("hr");
+    const afterHorizontalRule = document.createElement("hr");
+    const navigation = document.createElement("nav");
     if (!h1) {
         return;
     }
     const h2 = document.createElement("h2");
     h2.textContent = "目次";
-    nav.appendChild(h2);
+    navigation.appendChild(h2);
     const headingNodes = Array.from(document.querySelectorAll("main h2, main h3, main h4, main h5, main h6")).filter(h => !h.closest("nav h2"));
     if (headingNodes.length === 0) {
         return;
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     });
     const rootOl = document.createElement("ol");
-    nav.appendChild(rootOl);
+    navigation.appendChild(rootOl);
     let stack = [{level: 0, ol: rootOl}];
     headings.forEach(heading => {
         while (heading.level > stack[stack.length - 1].level + 1) {
@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
         stack[stack.length - 1].ol.appendChild(li);
     });
     if (h1) {
-        h1.parentNode.insertBefore(hrBefore, h1.nextSibling);
-        h1.parentNode.insertBefore(nav, hrBefore.nextSibling);
-        h1.parentNode.insertBefore(hrAfter, nav.nextSibling);
+        h1.parentNode.insertBefore(beforeHorizontalRule, h1.nextSibling);
+        h1.parentNode.insertBefore(navigation, beforeHorizontalRule.nextSibling);
+        h1.parentNode.insertBefore(afterHorizontalRule, navigation.nextSibling);
     }
 });

@@ -2,11 +2,11 @@ nav {
     counter-reset: toc-chapter;
 }
 
-nav > h2 {
+nav h2 {
     counter-increment: none;
 }
 
-nav > h2::before {
+nav h2::before {
     content: "";
 }
 

@@ -1,0 +1,7 @@
+section#index h2 {
+    counter-increment: none;
+}
+
+section#index h2::before {
+    content: "";
+}
