@@ -309,9 +309,13 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     link5.href = "../../style/table.css";
     head.appendChild(link5);
     let link6 = document.createElement("link");
-    link6.rel = "icon";
-    link6.href = "../../favicon_index/" + consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".svg";
+    link6.rel = "stylesheet";
+    link6.href = "../../style/details_toggle.css";
     head.appendChild(link6);
+    let link7 = document.createElement("link");
+    link7.rel = "icon";
+    link7.href = "../../favicon_index/" + consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".svg";
+    head.appendChild(link7);
     let script1 = document.createElement("script");
     script1.src = "../../details_toggle.js";
     head.appendChild(script1);

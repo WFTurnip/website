@@ -1,7 +1,7 @@
 details summary {
-    border-style: inset;;
+    border-style: outset;
 }
 
-details:open summary{
-    border-style: outset;
+details:open summary {
+    border-style: inset;
 }
