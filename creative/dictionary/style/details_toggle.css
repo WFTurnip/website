@@ -1,0 +1,7 @@
+details summary {
+    border-style: inset;;
+}
+
+details:open summary{
+    border-style: outset;
+}
