@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const index = document.createElement("section");
     index.id = "index";
     const h2 = document.createElement("h2");
-    h2.textContent = "索引";
+    h2.textContent = "\u{7D22}\u{5F15}";
     index.appendChild(h2);
     const dl = document.createElement("dl");
     index.appendChild(dl);
