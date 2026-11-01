@@ -3,24 +3,27 @@ dfn {
     font-weight: bold;
 }
 
-section#index h2 {
+#index h2 {
     counter-increment: none;
 }
 
-section#index h2::before {
+#index h2::before {
     content: "";
 }
 
 #index dl {
-    display: grid;
-    grid-template-columns: max-content auto;
-    column-gap: 0;
-    column-rule-style: hidden;
+    column-count: 3;
 }
 
 #index dt,
 #index dd {
+    display: inline;
     margin: 0;
+}
+
+#index dd::after {
+    content: "";
+    display: block;
 }
 
 #index dd a::before {

@@ -528,7 +528,7 @@ function generateArticleConjugationTable() {
         p.classList.add("xesada", "article-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = middleTongueConceptArray[suffixIndex] + "形";
+        p2.textContent = middleTongueConceptArray[suffixIndex] + "接尾辞";
         p2.classList.add("article-tense");
         th.appendChild(p2);
         conjunctHorizontal.appendChild(th);
@@ -544,7 +544,7 @@ function generateArticleConjugationTable() {
         p.classList.add("xesada", "article-aspect-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = upperTongueConceptArray[prefixIndex] + "相";
+        p2.textContent = upperTongueConceptArray[prefixIndex] + "接頭辞";
         p2.classList.add("article-aspect");
         th.appendChild(p2);
         tr.appendChild(th);
@@ -555,7 +555,7 @@ function generateArticleConjugationTable() {
             p.append(upperTongueConsonantArray[prefixIndex], "\u{25CC}\u{25CC}\u{25CC}a", middleTongueConsonantArray[suffixIndex]);
             td.appendChild(p);
             let p2 = document.createElement("div");
-            p2.append(upperTongueConceptArray[prefixIndex] + "相", document.createElement("wbr"), middleTongueConceptArray[suffixIndex] + "形");
+            p2.append(upperTongueConceptArray[prefixIndex] + "接頭辞", document.createElement("wbr"), middleTongueConceptArray[suffixIndex] + "接尾辞");
             p2.classList.add("article-conjugation-form");
             td.appendChild(p2);
             tr.appendChild(td);
@@ -582,7 +582,7 @@ function generateVerbConjugationTable() {
         p.classList.add("xesada", "verb-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = middleTongueConceptArray[suffixIndex] + "形";
+        p2.textContent = middleTongueConceptArray[suffixIndex] + "接尾辞";
         p2.classList.add("verb-tense");
         th.appendChild(p2);
         conjunctHorizontal.appendChild(th);
@@ -598,7 +598,7 @@ function generateVerbConjugationTable() {
         p.classList.add("xesada", "verb-aspect-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = lowerTongueConceptArray[prefixIndex] + "相";
+        p2.textContent = lowerTongueConceptArray[prefixIndex] + "接頭辞";
         p2.classList.add("verb-aspect");
         th.appendChild(p2);
         tr.appendChild(th);
@@ -609,7 +609,7 @@ function generateVerbConjugationTable() {
             p.append(lowerTongueConsonantArray[prefixIndex], "\u{25CC}\u{25CC}\u{25CC}e", middleTongueConsonantArray[suffixIndex]);
             td.appendChild(p);
             let p2 = document.createElement("div");
-            p2.append(lowerTongueConceptArray[prefixIndex] + "相", document.createElement("wbr"), middleTongueConceptArray[suffixIndex] + "形");
+            p2.append(lowerTongueConceptArray[prefixIndex] + "接頭辞", document.createElement("wbr"), middleTongueConceptArray[suffixIndex] + "接尾辞");
             p2.classList.add("verb-conjugation-form");
             td.appendChild(p2);
             tr.appendChild(td);
@@ -636,7 +636,7 @@ function generateAdjectiveConjugationTable() {
         p.classList.add("xesada", "adjective-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = upperTongueConceptArray[suffixIndex] + "形";
+        p2.textContent = upperTongueConceptArray[suffixIndex] + "接尾辞";
         p2.classList.add("adjective-tense");
         th.appendChild(p2);
         vowelsPronunciationHorizontalRow.appendChild(th);
@@ -652,7 +652,7 @@ function generateAdjectiveConjugationTable() {
         p2.classList.add("xesada", "adjective-aspect-consonant");
         th.appendChild(p2);
         let p3 = document.createElement("div");
-        p3.textContent = lowerTongueConceptArray[prefixIndex] + "相";
+        p3.textContent = lowerTongueConceptArray[prefixIndex] + "接頭辞";
         p3.classList.add("adjective-aspect");
         th.appendChild(p3);
         tr.appendChild(th);
@@ -663,7 +663,7 @@ function generateAdjectiveConjugationTable() {
             p.append(lowerTongueConsonantArray[prefixIndex], "\u{25CC}\u{25CC}\u{25CC}i", upperTongueConsonantArray[suffixIndex]);
             td.appendChild(p);
             let p2 = document.createElement("div");
-            p2.append(lowerTongueConceptArray[prefixIndex] + "相", document.createElement("wbr"), upperTongueConceptArray[suffixIndex] + "形");
+            p2.append(lowerTongueConceptArray[prefixIndex] + "接頭辞", document.createElement("wbr"), upperTongueConceptArray[suffixIndex] + "接尾辞");
             p2.classList.add("adjective-conjugation-form");
             td.appendChild(p2);
             tr.appendChild(td);
@@ -690,7 +690,7 @@ function generateParticleConjugationTable() {
         p.classList.add("xesada", "particle-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = middleTongueConceptArray[suffixIndex] + "形";
+        p2.textContent = middleTongueConceptArray[suffixIndex] + "接尾辞";
         p2.classList.add("particle-tense");
         th.appendChild(p2);
         conjunctHorizontal.appendChild(th);
@@ -706,7 +706,7 @@ function generateParticleConjugationTable() {
         p.classList.add("xesada", "particle-aspect-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = upperTongueConceptArray[prefixIndex] + "相";
+        p2.textContent = upperTongueConceptArray[prefixIndex] + "接頭辞";
         p2.classList.add("particle-aspect");
         th.appendChild(p2);
         tr.appendChild(th);
@@ -717,7 +717,7 @@ function generateParticleConjugationTable() {
             p.append(upperTongueConsonantArray[prefixIndex], "\u{25CC}\u{25CC}\u{25CC}o", middleTongueConsonantArray[suffixIndex]);
             td.appendChild(p);
             let p2 = document.createElement("div");
-            p2.append(upperTongueConceptArray[prefixIndex] + "相", document.createElement("wbr"), middleTongueConceptArray[suffixIndex] + "形");
+            p2.append(upperTongueConceptArray[prefixIndex] + "接頭辞", document.createElement("wbr"), middleTongueConceptArray[suffixIndex] + "接尾辞");
             p2.classList.add("particle-conjugation-form");
             td.appendChild(p2);
             tr.appendChild(td);
@@ -744,7 +744,7 @@ function generateAdverbConjugationTable() {
         p.classList.add("xesada", "adverb-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = middleTongueConceptArray[suffixIndex] + "形";
+        p2.textContent = middleTongueConceptArray[suffixIndex] + "接尾辞";
         p2.classList.add("adverb-tense");
         th.appendChild(p2);
         conjunctHorizontal.appendChild(th);
@@ -760,7 +760,7 @@ function generateAdverbConjugationTable() {
         p.classList.add("xesada", "adverb-aspect-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = lowerTongueConceptArray[prefixIndex] + "相";
+        p2.textContent = lowerTongueConceptArray[prefixIndex] + "接頭辞";
         p2.classList.add("adverb-aspect");
         th.appendChild(p2);
         tr.appendChild(th);
@@ -771,7 +771,7 @@ function generateAdverbConjugationTable() {
             p.append(lowerTongueConsonantArray[prefixIndex], "\u{25CC}\u{25CC}\u{25CC}u", middleTongueConsonantArray[suffixIndex]);
             td.appendChild(p);
             let p2 = document.createElement("div");
-            p2.append(lowerTongueConceptArray[prefixIndex] + "相", document.createElement("wbr"), middleTongueConceptArray[suffixIndex] + "形");
+            p2.append(lowerTongueConceptArray[prefixIndex] + "接頭辞", document.createElement("wbr"), middleTongueConceptArray[suffixIndex] + "接尾辞");
             p2.classList.add("adverb-conjugation-form");
             td.appendChild(p2);
             tr.appendChild(td);
@@ -798,7 +798,7 @@ function generateNounConjugationTable() {
         p.classList.add("xesada", "noun-tense-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = upperTongueConceptArray[suffixIndex] + "形";
+        p2.textContent = upperTongueConceptArray[suffixIndex] + "接尾辞";
         p2.classList.add("noun-tense");
         th.appendChild(p2);
         conjunctHorizontal.appendChild(th);
@@ -814,7 +814,7 @@ function generateNounConjugationTable() {
         p.classList.add("xesada", "noun-aspect-consonant");
         th.appendChild(p);
         let p2 = document.createElement("div");
-        p2.textContent = lowerTongueConceptArray[prefixIndex] + "相";
+        p2.textContent = lowerTongueConceptArray[prefixIndex] + "接頭辞";
         p2.classList.add("noun-aspect");
         th.appendChild(p2);
         tr.appendChild(th);
@@ -825,7 +825,7 @@ function generateNounConjugationTable() {
             p.append(lowerTongueConsonantArray[prefixIndex], "\u{25CC}\u{25CC}\u{25CC}w", upperTongueConsonantArray[suffixIndex]);
             td.appendChild(p);
             let p2 = document.createElement("div");
-            p2.append(lowerTongueConceptArray[prefixIndex] + "相", document.createElement("wbr"), upperTongueConceptArray[suffixIndex] + "形");
+            p2.append(lowerTongueConceptArray[prefixIndex] + "接頭辞", document.createElement("wbr"), upperTongueConceptArray[suffixIndex] + "接尾辞");
             p2.classList.add("noun-conjugation-form");
             td.appendChild(p2);
             tr.appendChild(td);

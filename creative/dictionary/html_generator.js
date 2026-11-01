@@ -468,7 +468,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
             div.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel] + suffixConsonant[suffixIndex];
             th.appendChild(div);
             let divConcept = document.createElement("div");
-            divConcept.textContent = suffixConcept[suffixIndex] + "形";
+            divConcept.textContent = suffixConcept[suffixIndex] + "接尾辞";
             divConcept.classList.add("concept");
             th.appendChild(divConcept);
             conjunctHorizontal.appendChild(th);
@@ -485,7 +485,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
             div.textContent = prefixConsonant[prefixIndex] + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
             th.appendChild(div);
             let divConcept = document.createElement("div");
-            divConcept.textContent = prefixConcept[prefixIndex] + "相";
+            divConcept.textContent = prefixConcept[prefixIndex] + "接頭辞";
             divConcept.classList.add("concept");
             th.appendChild(divConcept);
             tr.appendChild(th);
@@ -497,7 +497,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
                 div.textContent = prefixConsonant[prefixIndex] + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + vowelArray[thirdVowel] + suffixConsonant[suffixIndex];
                 td.appendChild(div);
                 let divConcept = document.createElement("div");
-                divConcept.append(prefixConcept[prefixIndex] + "相", document.createElement("wbr"), suffixConcept[suffixIndex] + "形");
+                divConcept.append(prefixConcept[prefixIndex] + "接頭辞", document.createElement("wbr"), suffixConcept[suffixIndex] + "接尾辞");
                 divConcept.classList.add("concept");
                 td.appendChild(divConcept);
                 tr.appendChild(td);
