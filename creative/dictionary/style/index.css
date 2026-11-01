@@ -5,3 +5,23 @@ section#index h2 {
 section#index h2::before {
     content: "";
 }
+
+#index dl {
+    display: grid;
+    grid-template-columns: max-content auto;
+    column-gap: 0;
+    column-rule-style: hidden;
+}
+
+#index dt,
+#index dd {
+    margin: 0;
+}
+
+#index dd a::before {
+    content: "[";
+}
+
+#index dd a::after {
+    content: "]";
+}

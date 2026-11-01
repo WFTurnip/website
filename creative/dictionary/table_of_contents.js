@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
     const h2 = document.createElement("h2");
-    h2.textContent = "目次";
+    h2.textContent = "\u{76EE}\u{6B21}";
     navigation.appendChild(h2);
     const headingNodes = Array.from(document.querySelectorAll("main h2, main h3, main h4, main h5, main h6")).filter(h => !h.closest("nav h2"));
     if (headingNodes.length === 0) {
