@@ -1,61 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const h1 = document.querySelector("main h1");
-    const beforeHorizontalRule = document.createElement("hr");
-    const afterHorizontalRule = document.createElement("hr");
-    const navigation = document.createElement("nav");
-    if (!h1) {
+    const mainTitle = document.querySelector("main h1");
+    if (!mainTitle) {
         return;
     }
-    const h2 = document.createElement("h2");
-    h2.textContent = "\u{76EE}\u{6B21}";
-    navigation.appendChild(h2);
-    const headingNodes = Array.from(document.querySelectorAll("main h2, main h3, main h4, main h5, main h6")).filter(h => !h.closest("nav h2"));
+    const headingNodes = Array.from(
+        document.querySelectorAll("main h2, main h3, main h4, main h5, main h6")
+    ).filter(heading => !heading.closest("nav h2"));
     if (headingNodes.length === 0) {
         return;
     }
-    const baseLevel = Math.min(...headingNodes.map(h => parseInt(h.tagName[1])));
-    const headings = headingNodes.map((h, i) => {
-        if (!h.id) {
-            const slug = h.textContent.trim().toLowerCase().replace(/\W+/g, "-").replace(/^-+|-+$/g, "");
-            h.id = slug || "heading-" + i;
+    const tableOfContents = document.createElement("nav");
+    tableOfContents.id = "table-of-contents";
+    const sectionTitle = document.createElement("h2");
+    sectionTitle.textContent = "\u{76EE}\u{6B21}";
+    tableOfContents.appendChild(sectionTitle);
+    const baseLevel = Math.min(...headingNodes.map(heading => parseInt(heading.tagName[1])));
+    const headings = new Map();
+    headingNodes.forEach((heading, indexNumber) => {
+        if (!heading.id) {
+            heading.id = "heading-" + indexNumber;
         }
-        return {
-            id: h.id,
-            text: h.textContent.trim(),
-            level: parseInt(h.tagName[1]) - baseLevel + 1
-        };
+        headings.set(heading, {
+            id: heading.id,
+            text: heading.textContent.trim(),
+            level: parseInt(heading.tagName[1]) - baseLevel + 1
+        });
     });
-    const rootOl = document.createElement("ol");
-    navigation.appendChild(rootOl);
-    let stack = [{level: 0, ol: rootOl}];
+    const rootOrderedList = document.createElement("ol");
+    tableOfContents.appendChild(rootOrderedList);
+    let stack = [{nestLevel: 0, orderedList: rootOrderedList}];
     headings.forEach(heading => {
-        while (heading.level > stack[stack.length - 1].level + 1) {
-            const parentOl = stack[stack.length - 1].ol;
-            let lastLi = parentOl.lastElementChild;
-            if (!lastLi) {
-                lastLi = document.createElement("li");
-                parentOl.appendChild(lastLi);
+        while (heading.level > stack[stack.length - 1].nestLevel + 1) {
+            const parentOrderedList = stack[stack.length - 1].orderedList;
+            let lastListItem = parentOrderedList.lastElementChild;
+            if (!lastListItem) {
+                lastListItem = document.createElement("li");
+                parentOrderedList.appendChild(lastListItem);
             }
-            const childOl = document.createElement("ol");
-            lastLi.appendChild(childOl);
+            const childOrderedList = document.createElement("ol");
+            lastListItem.appendChild(childOrderedList);
             stack.push({
-                level: stack[stack.length - 1].level + 1,
-                ol: childOl
+                nestLevel: stack[stack.length - 1].nestLevel + 1,
+                orderedList: childOrderedList
             });
         }
-        while (heading.level <= stack[stack.length - 1].level && stack.length > 1) {
+        while (heading.level <= stack[stack.length - 1].nestLevel && stack.length > 1) {
             stack.pop();
         }
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = "#" + heading.id;
-        a.textContent = heading.text;
-        li.appendChild(a);
-        stack[stack.length - 1].ol.appendChild(li);
+        const listItem = document.createElement("li");
+        const anchor = document.createElement("a");
+        anchor.href = "#" + heading.id;
+        anchor.textContent = heading.text;
+        listItem.appendChild(anchor);
+        stack[stack.length - 1].orderedList.appendChild(listItem);
     });
-    if (h1) {
-        h1.parentNode.insertBefore(beforeHorizontalRule, h1.nextSibling);
-        h1.parentNode.insertBefore(navigation, beforeHorizontalRule.nextSibling);
-        h1.parentNode.insertBefore(afterHorizontalRule, navigation.nextSibling);
+    const beforeHorizontalRule = document.createElement("hr");
+    const afterHorizontalRule = document.createElement("hr");
+    if (mainTitle) {
+        mainTitle.parentNode.insertBefore(beforeHorizontalRule, mainTitle.nextSibling);
+        mainTitle.parentNode.insertBefore(tableOfContents, beforeHorizontalRule.nextSibling);
+        mainTitle.parentNode.insertBefore(afterHorizontalRule, tableOfContents.nextSibling);
     }
 });

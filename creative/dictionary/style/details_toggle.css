@@ -1,7 +1,7 @@
-details summary {
+details > summary {
     border-style: outset;
 }
 
-details:open summary {
+details:open > summary {
     border-style: inset;
 }

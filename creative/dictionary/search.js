@@ -46,13 +46,13 @@ document.addEventListener("DOMContentLoaded", async () => {
          * @returns {HTMLElement} 作成された表示要素
          */
         const createOptionList = (label, isTrue) => {
-            const li = document.createElement("li");
-            li.textContent = label;
+            const listItem = document.createElement("li");
+            listItem.textContent = label;
             const strong = document.createElement("strong");
             strong.textContent = isTrue ? "真" : "偽";
             strong.classList.add(isTrue ? "true" : "false");
-            li.appendChild(strong);
-            return li;
+            listItem.appendChild(strong);
+            return listItem;
         }
         menu.appendChild(createOptionList("子音検索：", consonants));
         menu.appendChild(createOptionList("語根検索：", roots));
@@ -93,23 +93,23 @@ async function consonantsSearch(searchWordLower, isTrue, anyOptionTrue) {
             consonantConcept.textContent = item.consonantConcept;
             consonantIndex.append(consonantConcept);
             details.appendChild(consonantIndex);
-            const p2 = document.createElement("p");
-            const a = document.createElement("a");
+            const consonantHref = document.createElement("p");
+            const anchor = document.createElement("a");
             const span = document.createElement("b");
             span.classList.add("xesada");
             span.setAttribute("translate", "no");
             span.textContent = item.consonant;
-            a.href = "html_index" + "/" + item.consonantHtmlHref;
-            a.append("子音", span, "の詳細ページ");
-            p2.appendChild(a);
-            details.appendChild(p2);
+            anchor.href = "html_index" + "/" + item.consonantHtmlHref;
+            anchor.append("子音", span, "の詳細ページ");
+            consonantHref.appendChild(anchor);
+            details.appendChild(consonantHref);
         });
     } catch (error) {
         console.error(error);
-        const p = document.createElement("p");
-        p.textContent = "子音の取得に失敗しました。";
-        p.classList.add("warning");
-        details.appendChild(p);
+        const message = document.createElement("p");
+        message.textContent = "子音の取得に失敗しました。";
+        message.classList.add("warning");
+        details.appendChild(message);
     }
     return details;
 }
@@ -143,22 +143,22 @@ async function rootsSearch(searchWordLower, isTrue, anyOptionTrue) {
             rootIndex.appendChild(rootConcept);
             details.appendChild(rootIndex);
             const rootHref = document.createElement("p");
-            const a = document.createElement("a");
+            const anchor = document.createElement("a");
             const span = document.createElement("b");
             span.classList.add("xesada");
             span.setAttribute("translate", "no");
             span.textContent = item.root;
-            a.href = "html_index" + "/" + item.rootHtmlHref;
-            a.append("語根", span, "の詳細ページ");
-            rootHref.appendChild(a);
+            anchor.href = "html_index" + "/" + item.rootHtmlHref;
+            anchor.append("語根", span, "の詳細ページ");
+            rootHref.appendChild(anchor);
             details.appendChild(rootHref);
         });
     } catch (error) {
         console.error(error);
-        const p = document.createElement("p");
-        p.textContent = "語根の取得に失敗しました。";
-        p.classList.add("warning");
-        details.appendChild(p);
+        const message = document.createElement("p");
+        message.textContent = "語根の取得に失敗しました。";
+        message.classList.add("warning");
+        details.appendChild(message);
     }
     return details;
 }
@@ -216,10 +216,10 @@ async function wordsSearch(searchWordLower, isTrue, anyOptionTrue) {
         });
     } catch (error) {
         console.error(error);
-        const p = document.createElement("p");
-        p.textContent = "単語の取得に失敗しました。";
-        p.classList.add("warning");
-        details.appendChild(p);
+        const message = document.createElement("p");
+        message.textContent = "単語の取得に失敗しました。";
+        message.classList.add("warning");
+        details.appendChild(message);
     }
     return details;
 }
@@ -233,7 +233,7 @@ async function fetchFileForSearch(searchWord) {
     const filename = "json_index" + "/" + encodeURIComponent(searchWord) + ".json";
     const response = await fetch(filename);
     if (!response.ok) {
-        throw new Error("檔案が見つかりません");
+        throw new Error("檔案が見つかりませんでした。");
     }
     return await response.json();
 }

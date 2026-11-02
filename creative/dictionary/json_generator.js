@@ -26,7 +26,7 @@ async function generateIndex() {
 /**
  * 指定された子音の`JSON`ファイルを生成する関数
  * @param {number} firstConsonant 第一子音の`index`
- * @returns {Promise<void>}
+ * @returns {Promise<void>} 指定された子音の`JSON`ファイルを生成するための非同期処理
  */
 async function generateConsonant(firstConsonant) {
     let filename = path.join("json_index", consonantArray[firstConsonant] + ".json");
@@ -52,7 +52,7 @@ async function generateConsonant(firstConsonant) {
 /**
  * 指定された子音のディレクトリを生成する関数
  * @param {number} firstConsonant 第一子音の`index`
- * @returns {Promise<void>}
+ * @returns {Promise<void>} 指定された子音のディレクトリを生成するための非同期処理
  */
 async function generateConsonantDirectory(firstConsonant) {
     let directoryName = path.join("json_index", consonantArray[firstConsonant]);
@@ -68,7 +68,7 @@ async function generateConsonantDirectory(firstConsonant) {
  * @param {number} firstConsonant 第一子音の`index`
  * @param {number} secondConsonant 第二子音の`index`
  * @param {number} thirdConsonant 第三子音の`index`
- * @returns {Promise<void>}
+ * @returns {Promise<void>} 指定された語根の`JSON`ファイルを生成するための非同期処理
  */
 async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     let filename = path.join("json_index", consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".json");
@@ -98,7 +98,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
 }
 /**
  * `JSON`ファイルを生成する関数
- * @returns {Promise<void>}
+ * @returns {Promise<void>} `JSON`ファイルを生成するための非同期処理
  */
 async function generate() {
     let directoryName = path.join("json_index");

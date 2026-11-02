@@ -7,11 +7,11 @@ import {consonantArray, consonantConceptArray, consonantPronunciationArray, cons
 const circleStyle = "@media(prefers-color-scheme: light){circle{fill: #000000;}}" + "@media(prefers-color-scheme: dark){circle{fill: #c99410;}}";
 /**
  * 指定された子音の`index`に対応する最小値と最大値を返す関数
- * @param {number} i 子音の`index`
- * @returns `minMaxMap`配列の`i`番目の要素、存在しない場合は`[0, 0]`を返す関数
+ * @param {number} index 子音の`index`
+ * @returns `minMaxMap`配列の`index`番目の要素、存在しない場合は`[0, 0]`を返す関数
  */
-function getMinMax(i) {
-    return minMaxMap[i] || [0, 0];
+function getMinMax(index) {
+    return minMaxMap[index] || [0, 0];
 }
 /**
  * SVGに円を追加する関数
