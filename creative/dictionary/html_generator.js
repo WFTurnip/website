@@ -72,10 +72,10 @@ async function generateIndex() {
     figure.appendChild(figcaption);
     figureArticle.appendChild(figure);
     main.appendChild(figureArticle);
-    let describeList = document.createElement("dl");
+    let descriptionList = document.createElement("dl");
     for (let firstConsonant = 0; firstConsonant < consonantArray.length; firstConsonant++) {
-        let describeTerm = document.createElement("dt");
-        describeTerm.id = consonantArray[firstConsonant];
+        let descriptionTerm = document.createElement("dt");
+        descriptionTerm.id = consonantArray[firstConsonant];
         let consonant = document.createElement("b");
         let anchor = document.createElement("a");
         anchor.classList.add("xesada");
@@ -83,12 +83,12 @@ async function generateIndex() {
         anchor.href = consonantArray[firstConsonant] + ".html";
         anchor.textContent = consonantArray[firstConsonant];
         consonant.appendChild(anchor);
-        describeTerm.appendChild(consonant);
-        describeList.appendChild(describeTerm);
-        let describeDefinition = document.createElement("dd");
-        describeDefinition.textContent = consonantConceptArray[firstConsonant];
-        describeList.appendChild(describeDefinition);
-        main.appendChild(describeList);
+        descriptionTerm.appendChild(consonant);
+        descriptionList.appendChild(descriptionTerm);
+        let descriptionDetails = document.createElement("dd");
+        descriptionDetails.textContent = consonantConceptArray[firstConsonant];
+        descriptionList.appendChild(descriptionDetails);
+        main.appendChild(descriptionList);
     }
     body.appendChild(main);
     let footer = document.createElement("footer");
@@ -192,11 +192,11 @@ async function generateConsonant(firstConsonant) {
     paragraph.append("この子音は", bold, "の概念を表す。");
     article.appendChild(paragraph);
     main.appendChild(article);
-    let describeList = document.createElement("dl");
+    let descriptionList = document.createElement("dl");
     for (let secondConsonant = 0; secondConsonant < consonantArray.length; secondConsonant++) {
         for (let thirdConsonant = 0; thirdConsonant < consonantArray.length; thirdConsonant++) {
-            let describeTerm = document.createElement("dt");
-            describeTerm.id = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
+            let descriptionTerm = document.createElement("dt");
+            descriptionTerm.id = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
             let root = document.createElement("b");
             let anchor = document.createElement("a");
             anchor.classList.add("xesada");
@@ -204,14 +204,14 @@ async function generateConsonant(firstConsonant) {
             anchor.href = consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".html";
             anchor.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
             root.appendChild(anchor);
-            describeTerm.appendChild(root);
-            describeList.appendChild(describeTerm);
-            let describeDefinition = document.createElement("dd");
-            describeDefinition.textContent = consonantConceptArray[firstConsonant] + consonantConceptArray[secondConsonant] + consonantConceptArray[thirdConsonant];
-            describeList.appendChild(describeDefinition);
+            descriptionTerm.appendChild(root);
+            descriptionList.appendChild(descriptionTerm);
+            let descriptionDetails = document.createElement("dd");
+            descriptionDetails.textContent = consonantConceptArray[firstConsonant] + consonantConceptArray[secondConsonant] + consonantConceptArray[thirdConsonant];
+            descriptionList.appendChild(descriptionDetails);
         }
     }
-    main.appendChild(describeList);
+    main.appendChild(descriptionList);
     body.appendChild(main);
     let footer = document.createElement("footer");
     footer.appendChild(breadcrumb);
@@ -477,36 +477,36 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
         table.appendChild(tbody);
         tableDetails.appendChild(table);
         details.appendChild(tableDetails)
-        let describeList = document.createElement("dl");
+        let descriptionList = document.createElement("dl");
         for (let firstVowel = 0; firstVowel < vowelArray.length; firstVowel++) {
             for (let secondVowel = 0; secondVowel < vowelArray.length; secondVowel++) {
-                let describeTerm = document.createElement("dt");
+                let descriptionTerm = document.createElement("dt");
                 let word = document.createElement("b");
                 word.classList.add("xesada");
                 word.setAttribute("translate", "no");
                 word.id = consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
                 word.textContent = consonantArray[firstConsonant] + vowelArray[firstVowel] + consonantArray[secondConsonant] + vowelArray[secondVowel] + consonantArray[thirdConsonant] + vowelArray[thirdVowel];
-                describeTerm.appendChild(word);
+                descriptionTerm.appendChild(word);
                 let wordPronunciation = document.createElement("b");
                 wordPronunciation.classList.add("pronunciation");
                 wordPronunciation.setAttribute("translate", "no");
                 wordPronunciation.textContent = "/" + consonantPronunciationArray[firstConsonant] + vowelPronunciationArray[firstVowel] + consonantPronunciationArray[secondConsonant] + vowelPronunciationArray[secondVowel] + consonantPronunciationArray[thirdConsonant] + vowelPronunciationArray[thirdVowel] + "/";
-                describeTerm.appendChild(wordPronunciation);
+                descriptionTerm.appendChild(wordPronunciation);
                 let wordCases = document.createElement("b");
                 wordCases.classList.add("cases");
                 wordCases.textContent = vowelCaseArray[firstVowel] + vowelCaseArray[secondVowel] + "格";
-                describeTerm.appendChild(wordCases);
+                descriptionTerm.appendChild(wordCases);
                 let wordPartOfSpeech = document.createElement("b");
                 wordPartOfSpeech.classList.add("part-of-speech");
                 wordPartOfSpeech.textContent = vowelPartOfSpeechTypeArray[thirdVowel] + "詞";
-                describeTerm.appendChild(wordPartOfSpeech);
-                describeList.appendChild(describeTerm);
-                let describeDefinition = document.createElement("dd");
-                describeDefinition.textContent = "";
-                describeList.appendChild(describeDefinition);
+                descriptionTerm.appendChild(wordPartOfSpeech);
+                descriptionList.appendChild(descriptionTerm);
+                let descriptionDetails = document.createElement("dd");
+                descriptionDetails.textContent = "";
+                descriptionList.appendChild(descriptionDetails);
             }
         }
-        details.appendChild(describeList);
+        details.appendChild(descriptionList);
         section.appendChild(details);
         main.appendChild(section);
         let horizontalRule = document.createElement("hr");
