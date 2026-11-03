@@ -66,7 +66,7 @@ async function generateIndex() {
     let object = document.createElement("object");
     object.data = "../favicon_index" + "/index" + ".svg";
     object.type = "image/svg+xml";
-    figureArticle.appendChild(object);
+    figure.appendChild(object);
     let figcaption = document.createElement("figcaption");
     figcaption.textContent = "";
     figure.appendChild(figcaption);
@@ -178,7 +178,7 @@ async function generateConsonant(firstConsonant) {
     let object = document.createElement("object");
     object.data = "../favicon_index/" + consonantArray[firstConsonant] + ".svg";
     object.type = "image/svg+xml";
-    figureArticle.appendChild(object);
+    figure.appendChild(object);
     let figcaption = document.createElement("figcaption");
     figcaption.textContent = "";
     figure.appendChild(figcaption);
@@ -336,7 +336,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     let object = document.createElement("object");
     object.data = "../../favicon_index/" + consonantArray[firstConsonant] + "/" + consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".svg";
     object.type = "image/svg+xml";
-    figureArticle.appendChild(object);
+    figure.appendChild(object);
     let figcaption = document.createElement("figcaption");
     figcaption.textContent = "";
     figure.appendChild(figcaption);
@@ -352,7 +352,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     main.append(article);
     for (let thirdVowel = 0; thirdVowel < vowelArray.length; thirdVowel++) {
         let section = document.createElement("section");
-        let sectionTitle = document.createElement("sectionTitle");
+        let sectionTitle = document.createElement("h2");
         let sectionTitleSpan = document.createElement("span");
         sectionTitleSpan.classList.add("xesada");
         sectionTitleSpan.setAttribute("translate", "no");
