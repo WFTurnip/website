@@ -1,9 +1,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import {JSDOM} from "jsdom";
-import pkg from "js-beautify";
-const {html: beautify} = pkg;
-import {consonantArray, consonantConceptArray, consonantPronunciationArray, consonantPlaceArray, consonantRowArray, consonantPolarityArray, vowelArray, vowelCaseArray, vowelPartOfSpeechTypeArray, vowelPronunciationArray, vowelPronunciationReferenceArray, vowelBacknessArray, vowelRoundednessArray, vowelPartOfSpeechHorizontalTypeArray, vowelPartOfSpeechVerticalTypeArray, upperTongueConsonantArray, middleTongueConsonantArray, lowerTongueConsonantArray, upperTongueConceptArray, middleTongueConceptArray, lowerTongueConceptArray, affixConsonantArray, affixConceptArray, cantillationMarkArray, cantillationConceptArray, cantillationPronunciationArray, minMaxMap} from "./arraydata.js";
+import jsBeatify from "js-beautify";
+const {html: beautify} = jsBeatify;
+import {consonantArray, minMaxMap} from "./arraydata.js";
 const circleStyle = "@media(prefers-color-scheme: light){circle{fill: #000000;}}" + "@media(prefers-color-scheme: dark){circle{fill: #c99410;}}";
 /**
  * 指定された子音の`index`に対応する最小値と最大値を返す関数
@@ -162,4 +162,4 @@ async function generate() {
     }
     console.log("ディレクトリ" + directoryName + "の内部データを生成完了。");
 }
-generate();
+await generate();
