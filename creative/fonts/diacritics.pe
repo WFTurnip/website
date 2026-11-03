@@ -20,6 +20,7 @@ AboveM2MAnchorPointX = BaseWidth * -0.5;
 AboveM2MAnchorPointY = $ascent - $descent / 2;
 BelowM2MAnchorPointX = BaseWidth * -0.5;
 BelowM2MAnchorPointY = -1 * $descent / 2;
+Print("あなたが開いたフォントファイルは ", DirectoryName, " です。");
 Print("基底グリフ幅は ", BaseWidth, "px です。");
 Print("マークグリフ幅は ", MarkWidth, "px です。");
 Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphB2MAnchorPointX, "px です。");

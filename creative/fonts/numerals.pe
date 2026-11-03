@@ -16,6 +16,7 @@ BaseGlyphAnchorPointX = BaseWidth * 0.5;
 BaseGlyphAnchorPointY = $ascent - ($em / 2);
 MarkGlyphAnchorPointX = BaseWidth * -0.5;
 MarkGlyphAnchorPointY = $ascent - ($em / 2);
+Print("あなたが開いたフォントファイルは ", DirectoryName, " です。");
 Print("基底グリフ幅は ", BaseWidth, "px です。");
 Print("マークグリフ幅は ", MarkWidth, "px です。");
 Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphAnchorPointX, "px です。");
