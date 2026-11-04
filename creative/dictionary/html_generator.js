@@ -256,7 +256,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     metaViewport.setAttribute("content", "width=device-width, initial-scale=1.0");
     head.appendChild(metaViewport);
     let title = document.createElement("title");
-    title.textContent = consonantArray[firstConsonant].toUpperCase() + consonantArray[secondConsonant].toUpperCase() + consonantArray[thirdConsonant].toUpperCase() + "を語根とする単語の一覧";
+    title.textContent = consonantArray[firstConsonant].toUpperCase() + consonantArray[secondConsonant].toUpperCase() + consonantArray[thirdConsonant].toUpperCase() + "を語根とする語の一覧";
     head.appendChild(title);
     let linkPagesStyle = document.createElement("link");
     linkPagesStyle.rel = "stylesheet";
@@ -318,7 +318,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     forthSpan.classList.add("xesada");
     forthSpan.setAttribute("translate", "no");
     forthSpan.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
-    forthListItem.append(forthSpan, "を語根とする単語の一覧");
+    forthListItem.append(forthSpan, "を語根とする語の一覧");
     breadcrumb.appendChild(forthListItem);
     let header = document.createElement("header");
     header.appendChild(breadcrumb.cloneNode(true));
@@ -329,7 +329,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     mainTitleSpan.classList.add("xesada");
     mainTitleSpan.setAttribute("translate", "no");
     mainTitleSpan.textContent = consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant];
-    mainTitle.append(mainTitleSpan, "を語根とする単語の一覧");
+    mainTitle.append(mainTitleSpan, "を語根とする語の一覧");
     main.appendChild(mainTitle);
     let figureArticle = document.createElement("article");
     let figure = document.createElement("figure");

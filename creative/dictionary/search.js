@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         menu.appendChild(createOptionList("子音検索：", consonants));
         menu.appendChild(createOptionList("語根検索：", roots));
-        menu.appendChild(createOptionList("単語検索：", words));
+        menu.appendChild(createOptionList("単単語検索：", words));
         searchOptionContainer.appendChild(menu);
     }
     const anyOptionTrue = consonants || roots || words;
@@ -100,7 +100,7 @@ async function consonantsSearch(searchWordLower, isTrue, anyOptionTrue) {
             span.setAttribute("translate", "no");
             span.textContent = item.consonant;
             anchor.href = "html_index" + "/" + item.consonantHtmlHref;
-            anchor.append("子音", span, "の詳細ページ");
+            anchor.append(span, "を頭字とする語根の一覧");
             consonantHref.appendChild(anchor);
             details.appendChild(consonantHref);
         });
@@ -149,7 +149,7 @@ async function rootsSearch(searchWordLower, isTrue, anyOptionTrue) {
             span.setAttribute("translate", "no");
             span.textContent = item.root;
             anchor.href = "html_index" + "/" + item.rootHtmlHref;
-            anchor.append("語根", span, "の詳細ページ");
+            anchor.append(span, "を語根とする語の一覧");
             rootHref.appendChild(anchor);
             details.appendChild(rootHref);
         });
@@ -176,6 +176,9 @@ async function wordsSearch(searchWordLower, isTrue, anyOptionTrue) {
     const summary = document.createElement("summary");
     summary.textContent = "単語検索";
     details.appendChild(summary);
+    let searchChars = document.createElement("span");
+    searchChars.classList.add("xesada");
+    searchChars.textContent = [0, 2, 4].map(i => searchWordLower.charAt(i)).join("");
     let filename = searchWordLower.charAt(0) + "/" + [0, 2, 4].map(i => searchWordLower.charAt(i) || "").join("");
     try {
         const data = await fetchFileForSearch(filename);
@@ -205,13 +208,13 @@ async function wordsSearch(searchWordLower, isTrue, anyOptionTrue) {
             wordMeaning.textContent = item.wordMeaning;
             details.appendChild(wordMeaning);
             const wordLink = document.createElement("p");
-            const a = document.createElement("a");
-            const span = document.createElement("b");
-            span.classList.add("xesada");
-            span.textContent = item.word;
-            a.href = "html_index" + "/" + item.wordHtmlHref + ":~:text=" + encodeURIComponent(item.word) + encodeURIComponent("/" + item.wordPronunciation + "/") + encodeURIComponent(item.wordCases) + encodeURIComponent(item.wordPartOfSpeech);
-            a.append("単語", span, "の詳細ページ");
-            wordLink.appendChild(a);
+            const anchor = document.createElement("a");
+            const word = document.createElement("span");
+            word.classList.add("xesada");
+            word.textContent = item.word;
+            anchor.href = "html_index" + "/" + item.wordHtmlHref + ":~:text=" + encodeURIComponent(item.word) + encodeURIComponent("/" + item.wordPronunciation + "/") + encodeURIComponent(item.wordCases) + encodeURIComponent(item.wordPartOfSpeech);
+            anchor.append(searchChars, "を語根とする語の一覧#", word);
+            wordLink.appendChild(anchor);
             details.appendChild(wordLink);
         });
     } catch (error) {
