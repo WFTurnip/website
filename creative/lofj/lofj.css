@@ -15,21 +15,27 @@ main ol li::before {
     content: "第" counter(chapter, japanese-informal) "話\3000";
 }
 
-section {
+article {
     line-height: 1.8;
     text-align: justify;
 }
 
-section p {
+article p {
     display: inline;
 }
 
-section p:not(:last-child)::after {
+article p:not(:last-child)::after {
     content: "¶";
 }
 
-section::first-letter {
+article::first-letter {
     initial-letter: 2;
     -webkit-initial-letter: 2;
     font-weight: bold;
+}
+
+article ol::first-letter {
+    initial-letter: 1;
+    -webkit-initial-letter: 1;
+    font-weight: normal;
 }
