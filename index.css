@@ -1,14 +1,14 @@
 @media (prefers-color-scheme: light) {
     body {
         background-color: #f0f0f0;
-        color: #333;
+        color: #333333;
     }
 
     input,
     select {
-        color: #333;
-        background-color: #fff;
-        border: 1px solid #ccc;
+        color: #333333;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
     }
 
     a {
@@ -23,15 +23,15 @@
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #333;
+        background-color: #333333;
         color: #f0f0f0;
     }
 
     input,
     select {
         color: #f0f0f0;
-        background-color: #444;
-        border: 1px solid #666;
+        background-color: #444444;
+        border: 1px solid #666666;
     }
 
     a {

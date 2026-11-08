@@ -4,13 +4,13 @@
     select,
     textarea {
         background-color: #f0f0f0;
-        color: #333;
+        color: #333333;
     }
 
     textarea,
     select,
     fieldset {
-        border-color: #333;
+        border-color: #333333;
     }
 }
 
@@ -19,7 +19,7 @@
     button,
     textarea,
     select {
-        background-color: #333;
+        background-color: #333333;
         color: #f0f0f0;
     }
 

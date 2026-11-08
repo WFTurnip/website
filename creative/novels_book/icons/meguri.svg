@@ -2,7 +2,7 @@
     <style>
         @media (prefers-color-scheme: light) {
             path {
-                fill: #A41919;
+                fill: #a41919;
             }
         }
 
