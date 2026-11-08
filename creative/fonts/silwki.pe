@@ -144,6 +144,16 @@ Select(0u032c); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./silwki/uni
 Select(0u0323); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./silwki/uni0323.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
 Select(0u0324); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./silwki/uni0324.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
 Select(0u0331); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./silwki/uni0331.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphB2MAnchorPointX, MarkGlyphB2MAnchorPointY); AddAnchorPoint("BelowMarks", "mark", BelowM2MAnchorPointX, BelowM2MAnchorPointY);
+Select(0u02ca); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./silwki/uni02ca.svg", 0, 16);
+Select(0u02cf); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./silwki/uni02cf.svg", 0, 16);
+Select(0u02cb); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./silwki/uni02cb.svg", 0, 16);
+Select(0u02ce); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./silwki/uni02ce.svg", 0, 16);
+Select(0u02c6); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./silwki/uni02c6.svg", 0, 16);
+Select(0ua788); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./silwki/unia788.svg", 0, 16);
+Select(0u02c7); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./silwki/uni02c7.svg", 0, 16);
+Select(0u02ec); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./silwki/uni02ec.svg", 0, 16);
+Select(0u02c9); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./silwki/uni02c9.svg", 0, 16);
+Select(0u02cd); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./silwki/uni02cd.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);

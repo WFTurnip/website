@@ -118,6 +118,16 @@ Select(0u0069); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./piswpi/uni
 Select(0u006f); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./piswpi/uni006f.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0075); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./piswpi/uni0075.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
 Select(0u0077); SetGlyphClass("mark"); SetWidth(MarkWidth); Import("./piswpi/uni0077.svg", 0, 16); AddAnchorPoint("Marks", "mark", MarkGlyphAnchorPointX, MarkGlyphAnchorPointY);
+Select(0u02ca); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./piswpi/uni02ca.svg", 0, 16);
+Select(0u02cf); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./piswpi/uni02cf.svg", 0, 16);
+Select(0u02cb); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./piswpi/uni02cb.svg", 0, 16);
+Select(0u02ce); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./piswpi/uni02ce.svg", 0, 16);
+Select(0u02c6); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./piswpi/uni02c6.svg", 0, 16);
+Select(0ua788); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./piswpi/unia788.svg", 0, 16);
+Select(0u02c7); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./piswpi/uni02c7.svg", 0, 16);
+Select(0u02ec); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./piswpi/uni02ec.svg", 0, 16);
+Select(0u02c9); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./piswpi/uni02c9.svg", 0, 16);
+Select(0u02cd); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./piswpi/uni02cd.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);
