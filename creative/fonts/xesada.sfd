@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1717996751
-ModificationTime: 1793112126
+ModificationTime: 1794141943
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -90,7 +90,7 @@ NameList: AGL For New Fonts
 DisplaySize: -72
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 690 10 7
+WinInfo: 20 10 7
 BeginPrivate: 0
 EndPrivate
 AnchorClass2: "Marks" "mark-1"
