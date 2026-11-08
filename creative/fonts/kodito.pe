@@ -51,7 +51,7 @@ Select(0u003c); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./kodito/uni
 Select(0u003d); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./kodito/uni003d.svg", 0, 16);
 Select(0u003e); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./kodito/uni003e.svg", 0, 16);
 Select(0u003f); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./kodito/uni003f.svg", 0, 16);
-Select(0u0040); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./kodito/uni0040.svg", 0, 16); ;
+Select(0u0040); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./kodito/uni0040.svg", 0, 16);
 Select(0u0041); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./kodito/uni0041.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
 Select(0u0042); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./kodito/uni0042.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
 Select(0u0043); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./kodito/uni0043.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);

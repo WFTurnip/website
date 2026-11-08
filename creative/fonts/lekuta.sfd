@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1743419430
-ModificationTime: 1794142400
+ModificationTime: 1794146050
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -95,7 +95,7 @@ WinInfo: 20 10 7
 BeginPrivate: 0
 EndPrivate
 AnchorClass2: "BelowMarks" "mkmk-1" "AboveMarks" "mkmk-1" "Marks" "mark-1"
-BeginChars: 65540 130
+BeginChars: 65540 128
 
 StartChar: space
 Encoding: 32 32 0
@@ -3095,22 +3095,8 @@ Flags: W
 LayerCount: 2
 EndChar
 
-StartChar: uni0001
-Encoding: 1 1 118
-Width: 0
-Flags: W
-LayerCount: 2
-EndChar
-
-StartChar: uni0002
-Encoding: 2 2 119
-Width: 500
-Flags: W
-LayerCount: 2
-EndChar
-
 StartChar: uni02C9
-Encoding: 713 713 120
+Encoding: 713 713 118
 Width: 500
 LayerCount: 2
 Fore
@@ -3124,7 +3110,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CB
-Encoding: 715 715 121
+Encoding: 715 715 119
 Width: 500
 LayerCount: 2
 Fore
@@ -3143,7 +3129,7 @@ EndSplineSet
 EndChar
 
 StartChar: circumflex
-Encoding: 710 710 122
+Encoding: 710 710 120
 Width: 500
 LayerCount: 2
 Fore
@@ -3167,7 +3153,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CA
-Encoding: 714 714 123
+Encoding: 714 714 121
 Width: 500
 LayerCount: 2
 Fore
@@ -3186,7 +3172,7 @@ EndSplineSet
 EndChar
 
 StartChar: caron
-Encoding: 711 711 124
+Encoding: 711 711 122
 Width: 500
 LayerCount: 2
 Fore
@@ -3210,7 +3196,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniA788
-Encoding: 42888 42888 125
+Encoding: 42888 42888 123
 Width: 500
 LayerCount: 2
 Fore
@@ -3234,7 +3220,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CE
-Encoding: 718 718 126
+Encoding: 718 718 124
 Width: 500
 LayerCount: 2
 Fore
@@ -3253,7 +3239,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CD
-Encoding: 717 717 127
+Encoding: 717 717 125
 Width: 500
 LayerCount: 2
 Fore
@@ -3267,7 +3253,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CF
-Encoding: 719 719 128
+Encoding: 719 719 126
 Width: 500
 LayerCount: 2
 Fore
@@ -3286,7 +3272,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02EC
-Encoding: 748 748 129
+Encoding: 748 748 127
 Width: 500
 LayerCount: 2
 Fore

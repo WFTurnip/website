@@ -22,7 +22,7 @@ OS2Version: 4
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1709032616
-ModificationTime: 1794142471
+ModificationTime: 1794145979
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -90,11 +90,11 @@ NameList: AGL For New Fonts
 DisplaySize: -72
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 20 10 7
+WinInfo: 0 10 7
 BeginPrivate: 0
 EndPrivate
 AnchorClass2: "Marks" "mark-1"
-BeginChars: 65536 126
+BeginChars: 65536 124
 
 StartChar: space
 Encoding: 32 32 0
@@ -2969,22 +2969,8 @@ SplineSet
 EndSplineSet
 EndChar
 
-StartChar: uni0001
-Encoding: 1 1 114
-Width: 0
-Flags: W
-LayerCount: 2
-EndChar
-
-StartChar: uni0002
-Encoding: 2 2 115
-Width: 500
-Flags: W
-LayerCount: 2
-EndChar
-
 StartChar: uni02C9
-Encoding: 713 713 116
+Encoding: 713 713 114
 Width: 500
 LayerCount: 2
 Fore
@@ -2998,7 +2984,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CB
-Encoding: 715 715 117
+Encoding: 715 715 115
 Width: 500
 LayerCount: 2
 Fore
@@ -3017,7 +3003,7 @@ EndSplineSet
 EndChar
 
 StartChar: circumflex
-Encoding: 710 710 118
+Encoding: 710 710 116
 Width: 500
 LayerCount: 2
 Fore
@@ -3041,7 +3027,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CA
-Encoding: 714 714 119
+Encoding: 714 714 117
 Width: 500
 LayerCount: 2
 Fore
@@ -3060,7 +3046,7 @@ EndSplineSet
 EndChar
 
 StartChar: caron
-Encoding: 711 711 120
+Encoding: 711 711 118
 Width: 500
 LayerCount: 2
 Fore
@@ -3084,7 +3070,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniA788
-Encoding: 42888 42888 121
+Encoding: 42888 42888 119
 Width: 500
 LayerCount: 2
 Fore
@@ -3108,7 +3094,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CE
-Encoding: 718 718 122
+Encoding: 718 718 120
 Width: 500
 LayerCount: 2
 Fore
@@ -3127,7 +3113,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CD
-Encoding: 717 717 123
+Encoding: 717 717 121
 Width: 500
 LayerCount: 2
 Fore
@@ -3141,7 +3127,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CF
-Encoding: 719 719 124
+Encoding: 719 719 122
 Width: 500
 LayerCount: 2
 Fore
@@ -3160,7 +3146,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02EC
-Encoding: 748 748 125
+Encoding: 748 748 123
 Width: 500
 LayerCount: 2
 Fore
