@@ -10,9 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
     const tableOfContents = document.createElement("nav");
-    tableOfContents.id = "table-of-contents";
+    tableOfContents.id = "navigation-header";
     const sectionTitle = document.createElement("h2");
     sectionTitle.textContent = "\u{76EE}\u{6B21}";
+    sectionTitle.id = "table-of-contents";
     tableOfContents.appendChild(sectionTitle);
     const baseLevel = Math.min(...headingNodes.map(heading => parseInt(heading.tagName[1])));
     const headings = new Map();

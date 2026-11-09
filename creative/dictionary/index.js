@@ -5,14 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     const indexNodes = Array.from(
         document.querySelectorAll("main dfn")
-    ).filter(index => !index.closest("#index h2"));
+    ).filter(index => !index.closest("nav h2"));
     if (indexNodes.length === 0) {
         return;
     }
     const index = document.createElement("nav");
-    index.id = "index";
+    index.id = "navigation-footer";
     const sectionTitle = document.createElement("h2");
     sectionTitle.textContent = "\u{7D22}\u{5F15}";
+    sectionTitle.id = "index";
     index.appendChild(sectionTitle);
     const descriptionList = document.createElement("dl");
     index.appendChild(descriptionList);

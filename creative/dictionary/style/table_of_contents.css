@@ -1,60 +1,60 @@
-#table-of-contents {
+#navigation-header {
     counter-reset: table-of-contents-chapter;
 }
 
-#table-of-contents h2 {
+#navigation-header h2 {
     counter-increment: none;
 }
 
-#table-of-contents h2::before {
+#navigation-header h2::before {
     content: "";
 }
 
-#table-of-contents > ol > li {
+#navigation-header > ol > li {
     counter-increment: table-of-contents-chapter;
     counter-reset: table-of-contents-section;
     list-style: none;
 }
 
-#table-of-contents > ol > li > ol > li {
+#navigation-header > ol > li > ol > li {
     counter-increment: table-of-contents-section;
     counter-reset: table-of-contents-subsection;
     list-style: none;
 }
 
-#table-of-contents > ol > li > ol > li > ol > li {
+#navigation-header > ol > li > ol > li > ol > li {
     counter-increment: table-of-contents-subsection;
     counter-reset: table-of-contents-article;
     list-style: none;
 }
 
-#table-of-contents > ol > li > ol > li > ol > li > ol > li {
+#navigation-header > ol > li > ol > li > ol > li > ol > li {
     counter-increment: table-of-contents-article;
     counter-reset: table-of-contents-subarticle;
     list-style: none;
 }
 
-#table-of-contents > ol > li > ol > li > ol > li > ol > li > ol > li {
+#navigation-header > ol > li > ol > li > ol > li > ol > li > ol > li {
     counter-increment: table-of-contents-subarticle;
     list-style: none;
 }
 
-#table-of-contents > ol > li::before {
+#navigation-header > ol > li::before {
     content: "第" counter(table-of-contents-chapter, japanese-informal) "章\3000";
 }
 
-#table-of-contents > ol > li > ol > li::before {
+#navigation-header > ol > li > ol > li::before {
     content: "第" counter(table-of-contents-section, japanese-informal) "節\3000";
 }
 
-#table-of-contents > ol > li > ol > li > ol > li::before {
+#navigation-header > ol > li > ol > li > ol > li::before {
     content: "第" counter(table-of-contents-subsection, japanese-informal) "小節\3000";
 }
 
-#table-of-contents > ol > li > ol > li > ol > li > ol > li::before {
+#navigation-header > ol > li > ol > li > ol > li > ol > li::before {
     content: "第" counter(table-of-contents-article, japanese-informal) "条\3000";
 }
 
-#table-of-contents > ol > li > ol > li > ol > li > ol > li > ol > li::before {
+#navigation-header > ol > li > ol > li > ol > li > ol > li > ol > li::before {
     content: "第" counter(table-of-contents-subarticle, japanese-informal) "項\3000";
 }
