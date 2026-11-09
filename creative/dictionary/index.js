@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (indexNodes.length === 0) {
         return;
     }
-    const index = document.createElement("section");
+    const index = document.createElement("nav");
     index.id = "index";
     const sectionTitle = document.createElement("h2");
     sectionTitle.textContent = "\u{7D22}\u{5F15}";

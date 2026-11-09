@@ -111,6 +111,11 @@ dl {
     column-rule-style: solid;
 }
 
+dfn {
+    font-style: normal;
+    font-weight: bold;
+}
+
 article {
     text-align: justify;
 }
