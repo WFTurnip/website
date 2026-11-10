@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
     const tableOfContents = document.createElement("nav");
-    tableOfContents.id = "navigation-header";
+    tableOfContents.id = "navigation-table-of-contents";
     const sectionTitle = document.createElement("h2");
     sectionTitle.textContent = "\u{76EE}\u{6B21}";
     sectionTitle.id = "table-of-contents";

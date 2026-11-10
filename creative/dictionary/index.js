@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
     const index = document.createElement("nav");
-    index.id = "navigation-footer";
+    index.id = "navigation-index";
     const sectionTitle = document.createElement("h2");
     sectionTitle.textContent = "\u{7D22}\u{5F15}";
     sectionTitle.id = "index";
