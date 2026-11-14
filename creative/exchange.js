@@ -20,22 +20,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     /**
      * 数値を標準形式でフォーマットする
-     * @param {Number} num フォーマットする数値
+     * @param {number} number フォーマットする数値
      * @returns {string} フォーマットされた文字列
      */
-    function formatCompact(num) {
-        return num.toLocaleString("ja-JP", {
+    function formatCompact(number) {
+        return number.toLocaleString("ja-JP", {
             notation: "standard",
             compactDisplay: "long"
         });
     }
     /**
      * 数値を日本円形式でフォーマットする
-     * @param {Number} num フォーマットする数値
+     * @param {number} number フォーマットする数値
      * @returns {string} フォーマットされた文字列
      */
-    function formatYen(num) {
-        return num.toLocaleString("ja-JP", {
+    function formatYen(number) {
+        return number.toLocaleString("ja-JP", {
             style: "currency",
             currency: "JPY"
         });
