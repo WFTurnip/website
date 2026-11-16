@@ -28,20 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
             const descriptionTerm = document.createElement("dt");
             descriptionTerm.textContent = descriptionTermText;
             const descriptionDetails = document.createElement("dd");
-            const superScript = document.createElement("sup");
-            descriptionDetails.appendChild(superScript);
             descriptionList.appendChild(descriptionTerm);
             descriptionList.appendChild(descriptionDetails);
-            indexes.set(descriptionTermText, superScript);
+            indexes.set(descriptionTermText, descriptionDetails);
         }
-        const superScript = indexes.get(descriptionTermText);
-        if (superScript.childNodes.length > 0) {
-            superScript.appendChild(document.createTextNode(", "));
+        const anchorText = indexes.get(descriptionTermText);
+        if (anchorText.childNodes.length > 0) {
+            anchorText.appendChild(document.createTextNode(", "));
         }
         const anchor = document.createElement("a");
         anchor.href = "#" + index.id;
         anchor.textContent = number;
-        superScript.appendChild(anchor);
+        anchorText.appendChild(anchor);
     });
     const beforeHorizontalRule = document.createElement("hr");
     const afterHorizontalRule = document.createElement("hr");

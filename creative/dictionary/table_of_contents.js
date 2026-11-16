@@ -57,9 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const beforeHorizontalRule = document.createElement("hr");
     const afterHorizontalRule = document.createElement("hr");
-    if (mainTitle) {
-        mainTitle.parentNode.insertBefore(beforeHorizontalRule, mainTitle.nextSibling);
-        mainTitle.parentNode.insertBefore(tableOfContents, beforeHorizontalRule.nextSibling);
-        mainTitle.parentNode.insertBefore(afterHorizontalRule, tableOfContents.nextSibling);
-    }
+    mainTitle.parentNode.insertBefore(beforeHorizontalRule, mainTitle.nextSibling);
+    mainTitle.parentNode.insertBefore(tableOfContents, beforeHorizontalRule.nextSibling);
+    mainTitle.parentNode.insertBefore(afterHorizontalRule, tableOfContents.nextSibling);
 });

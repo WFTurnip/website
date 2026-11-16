@@ -7,7 +7,7 @@
 }
 
 #navigation-index dl {
-    column-count: 3;
+    column-count: 4;
 }
 
 #navigation-index dt,
@@ -21,10 +21,6 @@
     display: block;
 }
 
-#navigation-index dd a::before {
-    content: "[";
-}
-
-#navigation-index dd a::after {
-    content: "]";
+#navigation-index dd::before {
+    content: " — ";
 }
