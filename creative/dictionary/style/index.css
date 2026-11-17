@@ -16,11 +16,11 @@
     margin: 0;
 }
 
+#navigation-index dd::before {
+    content: "\0020\2014\0020";
+}
+
 #navigation-index dd::after {
     content: "";
     display: block;
-}
-
-#navigation-index dd::before {
-    content: " — ";
 }
