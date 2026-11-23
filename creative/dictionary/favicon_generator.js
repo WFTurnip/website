@@ -64,11 +64,11 @@ async function generateIndex() {
     const svg = doc.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("width", 100);
     svg.setAttribute("height", 100);
+    addStyle(svg, circleStyle);
     addCircle(svg, 50, 50, 25);
     for (let satellite = 0; satellite < 8; satellite++) {
         addCircle(svg, 50 + 37.5 * Math.cos(satellite * Math.PI / 4), 50 + 37.5 * Math.sin(satellite * Math.PI / 4), 12.5);
     }
-    addStyle(svg, circleStyle);
     await writeSVG(path.join("favicon_index", "index.svg"), svg);
 }
 /**
@@ -81,6 +81,7 @@ async function generateConsonant(firstConsonant) {
     const svg = doc.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("width", 100);
     svg.setAttribute("height", 100);
+    addStyle(svg, circleStyle);
     if (firstConsonant % 2 === 1) {
         addCircle(svg, 50, 50, 30);
     }
@@ -90,7 +91,6 @@ async function generateConsonant(firstConsonant) {
         const cy = 50 + 40 * Math.sin(j * Math.PI / 4);
         addCircle(svg, cx, cy, 10);
     }
-    addStyle(svg, circleStyle);
     await writeSVG(path.join("favicon_index", consonantArray[firstConsonant] + ".svg"), svg);
 }
 /**
@@ -109,6 +109,7 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
     const centerCircleRadius = 15;
     const circleOffset = 20;
     const circleRadius = 5;
+    addStyle(svg, circleStyle);
     positions.forEach(([cx, cy, idx]) => {
         if (idx % 2 === 1) {
             addCircle(svg, cx, cy, centerCircleRadius);
@@ -120,7 +121,6 @@ async function generateRoot(firstConsonant, secondConsonant, thirdConsonant) {
             addCircle(svg, x, y, circleRadius);
         }
     });
-    addStyle(svg, circleStyle);
     const filename = path.join("favicon_index", consonantArray[firstConsonant], consonantArray[firstConsonant] + consonantArray[secondConsonant] + consonantArray[thirdConsonant] + ".svg");
     await writeSVG(filename, svg);
 }
