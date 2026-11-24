@@ -21,7 +21,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1790151679
-ModificationTime: 1794141782
+ModificationTime: 1795522227
 PfmFamily: 17
 TTFWeight: 400
 TTFWidth: 5
@@ -108,12 +108,12 @@ NameList: AGL For New Fonts
 DisplaySize: -72
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 20 10 7
+WinInfo: 0 10 7
 BeginPrivate: 0
 EndPrivate
 TeXData: 1 0 0 524288 262144 174762 209715 1048576 174762 783286 444596 497025 792723 393216 433062 380633 303038 157286 324010 404750 52429 2506097 1059062 262144
 AnchorClass2: "Marks" "mark-1"
-BeginChars: 65778 352
+BeginChars: 65778 351
 
 StartChar: space
 Encoding: 32 32 0
@@ -18337,22 +18337,15 @@ SplineSet
 EndSplineSet
 EndChar
 
-StartChar: uni0000
-Encoding: 0 0 340
-Width: 0
-Flags: W
-LayerCount: 2
-EndChar
-
 StartChar: .nonmarkingreturn
-Encoding: 65777 -1 341
+Encoding: 65777 -1 340
 Width: 500
 Flags: W
 LayerCount: 2
 EndChar
 
 StartChar: uni02C9
-Encoding: 713 713 342
+Encoding: 713 713 341
 Width: 650
 LayerCount: 2
 Fore
@@ -18372,7 +18365,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CB
-Encoding: 715 715 343
+Encoding: 715 715 342
 Width: 650
 LayerCount: 2
 Fore
@@ -18399,7 +18392,7 @@ EndSplineSet
 EndChar
 
 StartChar: circumflex
-Encoding: 710 710 344
+Encoding: 710 710 343
 Width: 650
 LayerCount: 2
 Fore
@@ -18435,7 +18428,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CA
-Encoding: 714 714 345
+Encoding: 714 714 344
 Width: 650
 LayerCount: 2
 Fore
@@ -18462,7 +18455,7 @@ EndSplineSet
 EndChar
 
 StartChar: caron
-Encoding: 711 711 346
+Encoding: 711 711 345
 Width: 650
 LayerCount: 2
 Fore
@@ -18498,7 +18491,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniA788
-Encoding: 42888 42888 347
+Encoding: 42888 42888 346
 Width: 650
 LayerCount: 2
 Fore
@@ -18534,7 +18527,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CE
-Encoding: 718 718 348
+Encoding: 718 718 347
 Width: 650
 LayerCount: 2
 Fore
@@ -18561,7 +18554,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CD
-Encoding: 717 717 349
+Encoding: 717 717 348
 Width: 650
 LayerCount: 2
 Fore
@@ -18581,7 +18574,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02CF
-Encoding: 719 719 350
+Encoding: 719 719 349
 Width: 650
 LayerCount: 2
 Fore
@@ -18608,7 +18601,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni02EC
-Encoding: 748 748 351
+Encoding: 748 748 350
 Width: 650
 LayerCount: 2
 Fore
