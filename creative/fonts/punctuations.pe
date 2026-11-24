@@ -23,7 +23,6 @@ Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphAn
 Print("基底グリフアンカーポイント座標（Y軸）は ", BaseGlyphAnchorPointY, "px です。");
 Print("マークグリフアンカーポイント座標（X軸）は ", MarkGlyphAnchorPointX, "px です。");
 Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyphAnchorPointY, "px です。");
-Select(65536); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/notdef.svg", 0, 16);
 Select(0u0020); SetGlyphClass("none"); SetWidth(BaseWidth);
 Select(0u0021); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0021.svg", 0, 16);
 Select(0u0022); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni0022.svg", 0, 16);
@@ -61,6 +60,7 @@ Select(0u00a7); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + Direct
 Select(0u00b4); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni00b4.svg", 0, 16);
 Select(0u00b6); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni00b6.svg", 0, 16);
 Select(0u25cc); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/uni25cc.svg", 0, 16); AddAnchorPoint("Marks", "base", BaseGlyphAnchorPointX, BaseGlyphAnchorPointY);
+Select(65536); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./" + DirectoryName + "/notdef.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);

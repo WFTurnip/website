@@ -30,7 +30,6 @@ Print("上部マークマークグリフアンカーポイント座標（X軸）
 Print("上部マークマークグリフアンカーポイント座標（Y軸）は", AboveM2MAnchorPointY, "px です。");
 Print("下部マークマークグリフアンカーポイント座標（X軸）は", BelowM2MAnchorPointX, "px です。");
 Print("下部マークマークグリフアンカーポイント座標（Y軸）は", BelowM2MAnchorPointY, "px です。");
-Select(65536); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./lozegw/notdef.svg", 0, 16);
 Select(0u0020); SetGlyphClass("none"); SetWidth(BaseWidth);
 Select(0u0021); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./lozegw/uni0021.svg", 0, 16);
 Select(0u0022); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./lozegw/uni0022.svg", 0, 16);
@@ -154,6 +153,7 @@ Select(0u02c7); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./lozegw/uni
 Select(0u02ec); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./lozegw/uni02ec.svg", 0, 16);
 Select(0u02c9); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./lozegw/uni02c9.svg", 0, 16);
 Select(0u02cd); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./lozegw/uni02cd.svg", 0, 16);
+Select(65536); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./lozegw/notdef.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);

@@ -18,7 +18,6 @@ Print("基底グリフアンカーポイント座標（X軸）は ", BaseGlyphAn
 Print("基底グリフアンカーポイント座標（Y軸）は ", BaseGlyphAnchorPointY, "px です。");
 Print("マークグリフアンカーポイント座標（X軸）は ", MarkGlyphAnchorPointX, "px です。");
 Print("マークグリフアンカーポイント座標（Y軸）は ", MarkGlyphAnchorPointY, "px です。");
-Select(65536); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./polwgo/notdef.svg", 0, 16);
 Select(0u0020); SetGlyphClass("none"); SetWidth(BaseWidth);
 Select(0u0021); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./polwgo/uni0021.svg", 0, 16);
 Select(0u0022); SetGlyphClass("none"); SetWidth(BaseWidth); Import("./polwgo/uni0022.svg", 0, 16);
@@ -128,6 +127,7 @@ Select(0u02c7); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./polwgo/uni
 Select(0u02ec); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./polwgo/uni02ec.svg", 0, 16);
 Select(0u02c9); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./polwgo/uni02c9.svg", 0, 16);
 Select(0u02cd); SetGlyphClass("base"); SetWidth(BaseWidth); Import("./polwgo/uni02cd.svg", 0, 16);
+Select(65536); SetGlyphClass("none"); SetGlyphName(".notdef"); SetWidth(BaseWidth); Import("./polwgo/notdef.svg", 0, 16);
 Save($1);
 Close();
 Quit(0);
